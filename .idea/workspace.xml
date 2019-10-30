@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="SAPAP:war exploded" />
+      <artifact name="SAPAP" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ecb24097-c816-4693-8440-a6a53a8d18a5" name="Default Changelist" comment="" />
+    <list default="true" id="ecb24097-c816-4693-8440-a6a53a8d18a5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +22,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -28,6 +33,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1Sidk2zEAt0SYviJhIAhkxDDTsu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -35,6 +41,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -132,11 +139,28 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572050489887</updated>
-      <workItem from="1572050491917" duration="530000" />
+      <workItem from="1572050491917" duration="1168000" />
+      <workItem from="1572273813309" duration="9000" />
+      <workItem from="1572287340756" duration="215000" />
+      <workItem from="1572406842845" duration="44000" />
+      <workItem from="1572406971564" duration="11000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
