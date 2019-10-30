@@ -19,11 +19,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="struts_2_5" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -33,15 +35,40 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1Sidk2zEAt0SYviJhIAhkxDDTsu" />
+
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql-connector-java-8.0.11.jar!/" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/img" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MemoAlfonso\Documents\GitHub\SAPAP\web\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MemoAlfonso\Documents\GitHub\SAPAP\web\img" />
+      <recent name="C:\Users\MemoAlfonso\Documents\GitHub\SAPAP\web" />
+    </key>
+
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -56,7 +83,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 8.5.47" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.47" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 8.0.15" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.15" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="SAPAP">
@@ -144,6 +171,8 @@
       <workItem from="1572287340756" duration="215000" />
       <workItem from="1572406842845" duration="44000" />
       <workItem from="1572406971564" duration="11000" />
+      <workItem from="1572050491917" duration="530000" />
+      <workItem from="1572208534407" duration="19787000" />
     </task>
     <servers />
   </component>
@@ -155,9 +184,12 @@
       <map>
         <entry key="MAIN">
           <value>
+
             <State>
               <option name="COLUMN_ORDER" />
             </State>
+
+            <State />
           </value>
         </entry>
       </map>
