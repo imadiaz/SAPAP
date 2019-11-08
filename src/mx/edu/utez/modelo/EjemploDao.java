@@ -15,6 +15,7 @@ public class EjemploDao extends Dao implements DaoInterfaz {
             resultSet = preparedStatement.executeQuery();
         }catch(Exception e){
         }
+        cerrarConexiones();
         return estatus;
     }
     @Override
@@ -26,6 +27,7 @@ public class EjemploDao extends Dao implements DaoInterfaz {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+        cerrarConexiones();
         return estatus;
     }
 
@@ -40,6 +42,7 @@ public class EjemploDao extends Dao implements DaoInterfaz {
             resultSet = preparedStatement.executeQuery();
         }catch(Exception e){
         }
+        cerrarConexiones();
 return estatus;
     }
 
@@ -60,6 +63,7 @@ return estatus;
 
         }catch(Exception e){
         }
+        cerrarConexiones();
         return lista;
     }
 
