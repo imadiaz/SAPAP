@@ -50,7 +50,7 @@
                                                id="correo" aria-describedby="emailHelp"
                                                placeholder="Ingresa correo electrónico">
                                     </div>
-                                    <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                    <a href="index.jsp" class="btn btn-primary btn-user btn-block">
                                         Envíar
                                     </a>
                                 </form>

@@ -52,9 +52,9 @@
                     Ingresar
                   </a>
                   <hr>
-                  <a href="index.html" class="btn btn-google btn-user btn-block">
-                    <i class="fab fa-google fa-fw"></i> Inicia sesión con Google
-                  </a>
+<%--                  <a href="index.html" class="btn btn-google btn-user btn-block">--%>
+<%--                    <i class="fab fa-google fa-fw"></i> Inicia sesión con Google--%>
+<%--                  </a>--%>
 
                 </form>
                 <hr>
