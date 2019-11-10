@@ -10,4 +10,6 @@
             <result name="success">index.jsp</result>
         </action>
     </package>
+
+    <include file="justificantes.xml"></include>
 </struts>

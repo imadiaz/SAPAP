@@ -5,49 +5,35 @@ import mx.edu.utez.proyecto.BeanProyecto;
 
 public class BeanJustificante {
 
-    private BeanPersona persona;
-    private BeanPersona justifica;
-    private BeanProyecto proyecto;
     private int idJustificante;
+    private BeanPersona estudiante;
     private String fechaElaboracion;
-    private byte[] evidencia;
-    private String motivo;
+    private byte[] imagen;
+    private String motivoJustifica;
+    private String motivoRechazo;
+    private int estadoJustificante;
+    private int estadoRAPE;
+    private int estadoCCDS;
+    private int estadoARH;
+    private BeanProyecto proyecto;
+    private BeanPersona justifica;
 
     public BeanJustificante() {
     }
 
-    public BeanJustificante(BeanPersona persona, BeanPersona justifica, BeanProyecto proyecto, int idJustificante, String fechaElaboracion, byte[] evidencia, String motivo) {
-        this.persona = persona;
-        this.justifica = justifica;
-        this.proyecto = proyecto;
+    public BeanJustificante(int idJustificante, BeanPersona estudiante, String fechaElaboracion, byte[] imagen, String motivoJustifica, String motivoRechazo, int estadoJustificante, int estadoRAPE, int estadoCCDS, int estadoARH, BeanProyecto proyecto, BeanPersona justifica) {
         this.idJustificante = idJustificante;
+        this.estudiante = estudiante;
         this.fechaElaboracion = fechaElaboracion;
-        this.evidencia = evidencia;
-        this.motivo = motivo;
-    }
-
-    public BeanPersona getPersona() {
-        return persona;
-    }
-
-    public void setPersona(BeanPersona persona) {
-        this.persona = persona;
-    }
-
-    public BeanPersona getJustifica() {
-        return justifica;
-    }
-
-    public void setJustifica(BeanPersona justifica) {
-        this.justifica = justifica;
-    }
-
-    public BeanProyecto getProyecto() {
-        return proyecto;
-    }
-
-    public void setProyecto(BeanProyecto proyecto) {
+        this.imagen = imagen;
+        this.motivoJustifica = motivoJustifica;
+        this.motivoRechazo = motivoRechazo;
+        this.estadoJustificante = estadoJustificante;
+        this.estadoRAPE = estadoRAPE;
+        this.estadoCCDS = estadoCCDS;
+        this.estadoARH = estadoARH;
         this.proyecto = proyecto;
+        this.justifica = justifica;
     }
 
     public int getIdJustificante() {
@@ -58,6 +44,14 @@ public class BeanJustificante {
         this.idJustificante = idJustificante;
     }
 
+    public BeanPersona getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(BeanPersona estudiante) {
+        this.estudiante = estudiante;
+    }
+
     public String getFechaElaboracion() {
         return fechaElaboracion;
     }
@@ -66,19 +60,75 @@ public class BeanJustificante {
         this.fechaElaboracion = fechaElaboracion;
     }
 
-    public byte[] getEvidencia() {
-        return evidencia;
+    public byte[] getImagen() {
+        return imagen;
     }
 
-    public void setEvidencia(byte[] evidencia) {
-        this.evidencia = evidencia;
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
 
-    public String getMotivo() {
-        return motivo;
+    public String getMotivoJustifica() {
+        return motivoJustifica;
     }
 
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
+    public void setMotivoJustifica(String motivoJustifica) {
+        this.motivoJustifica = motivoJustifica;
+    }
+
+    public String getMotivoRechazo() {
+        return motivoRechazo;
+    }
+
+    public void setMotivoRechazo(String motivoRechazo) {
+        this.motivoRechazo = motivoRechazo;
+    }
+
+    public int getEstadoJustificante() {
+        return estadoJustificante;
+    }
+
+    public void setEstadoJustificante(int estadoJustificante) {
+        this.estadoJustificante = estadoJustificante;
+    }
+
+    public int getEstadoRAPE() {
+        return estadoRAPE;
+    }
+
+    public void setEstadoRAPE(int estadoRAPE) {
+        this.estadoRAPE = estadoRAPE;
+    }
+
+    public int getEstadoCCDS() {
+        return estadoCCDS;
+    }
+
+    public void setEstadoCCDS(int estadoCCDS) {
+        this.estadoCCDS = estadoCCDS;
+    }
+
+    public int getEstadoARH() {
+        return estadoARH;
+    }
+
+    public void setEstadoARH(int estadoARH) {
+        this.estadoARH = estadoARH;
+    }
+
+    public BeanProyecto getProyecto() {
+        return proyecto;
+    }
+
+    public void setProyecto(BeanProyecto proyecto) {
+        this.proyecto = proyecto;
+    }
+
+    public BeanPersona getJustifica() {
+        return justifica;
+    }
+
+    public void setJustifica(BeanPersona justifica) {
+        this.justifica = justifica;
     }
 }
