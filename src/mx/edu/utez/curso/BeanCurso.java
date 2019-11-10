@@ -11,6 +11,13 @@ public class BeanCurso {
     public BeanCurso() {
     }
 
+    public BeanCurso(String nombre, String fecha, String descripcion, String tipoCurso) {
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.descripcion = descripcion;
+        this.tipoCurso = tipoCurso;
+    }
+
     public BeanCurso(int idCurso, String nombre, String fecha, String descripcion, String tipoCurso) {
         this.idCurso = idCurso;
         this.nombre = nombre;
