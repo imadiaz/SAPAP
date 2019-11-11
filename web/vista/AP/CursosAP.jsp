@@ -16,14 +16,14 @@
     <!-- Custom fonts for this template-->
     <link href="<%=context%>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+    <link href="<%=context%>/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
 
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="getListaCursos();">
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -184,26 +184,25 @@
                 <div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                     <thead>
                     <tr role="row">
-                        <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 161px;">No</th>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 246px;">Nombre</th>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 116px;">Fecha</th>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 51px;">Descripcion</th>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 107px;">Tipo de curso</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 107px;">Archivo</th>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 97px;">Acciones</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                        <th rowspan="1" colspan="1">No</th>
                         <th rowspan="1" colspan="1">Nombre</th>
                         <th rowspan="1" colspan="1">Fecha </th>
                         <th rowspan="1" colspan="1">Descripcion</th>
                         <th rowspan="1" colspan="1">Tipo de curso</th>
+                        <th rowspan="1" colspan="1">Archivo</th>
                         <th rowspan="1" colspan="1">Acciones</th>
                     </tr>
                     </tfoot>
-                    <tbody>
-                   </tbody>
+
                 </table>
                 </div>
                 </div>
@@ -249,10 +248,10 @@
 <!-- Custom scripts for all pages-->
 <script src="<%=context%>/js/sb-admin-2.min.js"></script>
 <script src="<%=context%>/js/cursos/cursosJS.js"></script>
-<script>
+<script src="<%=context%>/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<%=context%>/vendor/datatables/dataTables.bootstrap4.js"></script>
+<script src="<%=context%>/js/demo/datatables-demo.js"></script>
 
-    getListaCursos();
-</script>
 </body>
 
 </html>

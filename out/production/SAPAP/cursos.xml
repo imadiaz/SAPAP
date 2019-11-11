@@ -5,13 +5,15 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-    <package name="defaultPackageCursos" extends="struts-default">
-        <action name="inicioCursos">
-            <result name="success">/vista/AP/CursosAP.jsp</result>
+    <package name="cursosPackage" extends="struts-default,json-default">
+        <action name="listaCursos" class="mx.edu.utez.curso.CursoController" method="listaCursos">
+            <result type="json"/>
         </action>
-        <action name="test" class="mx.edu.utez.curso.CursoController" method="testAjax">
-            <result name="success" >/vista/AP/CursosAP.jsp</result>
+
+        <action name="registrarCurso" class="mx.edu.utez.curso.CursoController" method="registrarCurso">
+            <result type="json"/>
         </action>
+
     </package>
 
 </struts>

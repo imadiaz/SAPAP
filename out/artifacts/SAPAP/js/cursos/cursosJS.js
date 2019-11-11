@@ -15,10 +15,46 @@ firebase.analytics();
 
 var storageFirebase = firebase.storage();
 var file;
-var $ = jQuery.noConflict();
+//var $ = jQuery.noConflict();
+
 
 function getListaCursos(){
-    console.log("Entro al curso js al getListacursos");
+    var table = $('#dataTable').DataTable();
+    $.ajax({
+            type: 'POST',
+            url: "http://localhost:8080/SAPAP/listaCursos",
+            success: function (respuesta) {
+                //console.log("al success");
+               // console.log(respuesta.response);
+                var rows = "";
+                var arrayCursos =respuesta.response.listaCursos;
+                for (var i = 0; i<arrayCursos.length;i++){
+                    table.row.add([
+                        arrayCursos[i].nombre,
+                        arrayCursos[i].fecha,
+                        arrayCursos[i].descripcion,
+                        arrayCursos[i].tipoCurso,
+                        "<a href="+arrayCursos[i].evidencia+" target='_blank' class='btn btn-icon-split btn-info'><span class='icon text-white-50'><i class='fas fa-info-circle'></i></span><span class='text'>Ver</span></a>",
+                        "<button class='btn btn-icon-split btn-danger'><span class='icon text-white-50'><i class='fas fa-trash'></i></span><span class='text'>Eliminar</span></button>"
+                        ]).draw(false);
+                }
+
+                //document.getElementById('bodyTable').innerHTML=rows;
+                // console.log("Nombre:",arrayCursos[i].nombre);
+                // rows+="<tr class='odd'><td>"+(i+1)+"</td>" +
+                //     "<td>"+arrayCursos[i].nombre+"</td>" +
+                //     "<td>"+arrayCursos[i].fecha+"</td>" +
+                //     "<td>"+arrayCursos[i].descripcion+"</td>" +
+                //     "<td>"+arrayCursos[i].tipoCurso+"</td>" +
+                //     "<td><a href="+arrayCursos[i].evidencia+" target='_blank' class='btn btn-sm btn-info'>Visualizar</a></td>" +
+                //     "<td><button class='btn btn-danger btn-sm'>Eliminar</button></td></tr>";
+            },
+            error: function (error) {
+                console.log("al error");
+                console.log(error);
+            }
+        }
+    );
 }
 
 function guardarCurso(){
@@ -27,10 +63,54 @@ function guardarCurso(){
     var descripcion = document.getElementById('descripcion').value;
     var tipoCurso = document.getElementById('tipo').value;
 
+    var storageRef = storageFirebase.ref('evidencias/' + file.name);
+    storageRef.put(file);
 
-    var dom = document.getElementById('formAgregarCurso');
+    var objetoCurso = {
+        nombre:nombre,
+        fecha:fecha,
+        descripcion:descripcion,
+        tipoCurso:tipoCurso,
+        evidencia:generarURL(file.name)
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: "http://localhost:8080/SAPAP/registrarCurso",
+        data:{
+          params:JSON.stringify(objetoCurso)
+        },
+        success: function (respuesta) {
+            console.log("registrado");
+            console.log(respuesta.response);
+            if(respuesta.response.status){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Registrado correctamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+               var form =  document.getElementById("formCurso");
+                form.reset();
+            }else{
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'danger',
+                    title: 'Error, intente nuevamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        },
+        error: function (error) {
+            console.log("al error");
+            console.log(error);
+        }
+    });
+
     //dom.submit();
-    console.log(dom);
+
 
    // var storageRef = storageFirebase.ref('evidencias/' + file.name);
    // var task = storageRef.put(file);

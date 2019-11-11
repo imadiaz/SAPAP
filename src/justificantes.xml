@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="justificantesPackage" extends="struts-default,json-default">
+
+        <action name="consultarJustificantesPendientes" class="mx.edu.utez.justificante.ActionJustificante" method="consultarJustificantesPendientes">
+            <result type="json"/>
+        </action>
+
+    </package>
+</struts>
