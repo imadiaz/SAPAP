@@ -33,7 +33,7 @@
           <!-- Nested Row within Card Body -->
           <div class="row">
             <div class="col-lg-6 d-none d-lg-block">
-              <img src="img/logocds.png" height="612" width="450" style="margin-left: 30px">
+              <img src="img/logocds.png" height="400" width="400" style="margin-left: 30px">
             </div>
             <div class="col-lg-6">
               <div class="p-5">
@@ -57,7 +57,7 @@
 <%--                  </a>--%>
 
                 </form>
-                <hr>
+
                 <div class="text-center">
                   <a class="small" href="RecuperarContrasena.jsp">¿Olvidaste tu contraseña?</a>
                 </div>
