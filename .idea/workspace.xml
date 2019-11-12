@@ -8,7 +8,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ecb24097-c816-4693-8440-a6a53a8d18a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAPAP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SAPAP.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/struts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,6 +25,7 @@
       <list>
         <option value="struts_2_5" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -168,7 +172,7 @@
       <workItem from="1572406971564" duration="11000" />
       <workItem from="1572050491917" duration="530000" />
       <workItem from="1572208534407" duration="19787000" />
-      <workItem from="1573524312362" duration="4343000" />
+      <workItem from="1573524312362" duration="7539000" />
     </task>
     <servers />
   </component>

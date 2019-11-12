@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+ <package name="defaultPackage" namespace="/inicioSesion" extends="struts-default">
+     <action name="consultarPersonas" class="mx.edu.utez.persona.ActionPersona" method="consultarPersonas">
+         <result name="SUCCESS">seleccionarRol.jsp</result>
+     </action>
+ </package>
+
+</struts>

@@ -41,16 +41,16 @@
                   <br>
                   <h1 class="h4 text-gray-900 mb-4">Inicio de Sesión</h1>
                 </div>
-                <form class="user">
+                <form class="user" action="vista/RH/InicioRH.jsp" method="post">
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-user" id="correo" aria-describedby="emailHelp" placeholder="Ingresa correo">
+                    <input type="email" class="form-control form-control-user" name="bean.correoInstitucional" id="correo" aria-describedby="emailHelp" placeholder="Ingresa correo">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-user" id="contra" placeholder="Contraseña">
+                    <input type="password" class="form-control form-control-user" name="bean.matricula" id="contra" placeholder="Contraseña">
                   </div>
-                  <a href="vista/RH/InicioRH.jsp" class="btn btn-primary btn-user btn-block">
+                  <button class="btn btn-primary btn-user btn-block">
                     Ingresar
-                  </a>
+                  </button>
                   <hr>
 <%--                  <a href="index.html" class="btn btn-google btn-user btn-block">--%>
 <%--                    <i class="fab fa-google fa-fw"></i> Inicia sesión con Google--%>

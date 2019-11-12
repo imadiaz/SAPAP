@@ -12,4 +12,5 @@
     </package>
 <include file="cursos.xml"/>
     <include file="justificantes.xml"></include>
+    <include file="inicioSesion/login.xml"/>
 </struts>
