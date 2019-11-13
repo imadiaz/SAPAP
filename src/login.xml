@@ -6,7 +6,7 @@
 
 <struts>
 
- <package name="defaultPackage" namespace="/inicioSesion" extends="struts-default">
+ <package name="loginPackage"  extends="struts-default">
      <action name="consultarPersonas" class="mx.edu.utez.persona.ActionPersona" method="consultarPersonas">
          <result name="SUCCESS">seleccionarRol.jsp</result>
      </action>
