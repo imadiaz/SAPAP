@@ -32,20 +32,14 @@
 <div class="container">
 
     <div class="row justify-content-center">
-        <h1 style="color:white;">Selecione un Rol</h1>
+        <h1 style="color:white;">Selecione un Rol....</h1>
 
         <div class="col-md-12">
             <div class="row">
-                <s:iterator value="listaPersonas" status="stat" var="lista">
-                <div class="col-md-4">
-                    <div class="card 1">
-                        <div class="card_image">
-                            <img src="https://i.redd.it/b3esnz5ra34y.jpg" />
-                        </div>
-                        <p><s:property value="tipo" /></p>
-                        <button class="btn btn-primary">Ir</button>
+                <s:iterator value="listaRoles" status="stat" var="lista">
+                    <div class="col-md-4">
+                        <p><s:property value="tipo"></s:property></p>
                     </div>
-                </div>
                 <br>
             </div>
 

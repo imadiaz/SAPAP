@@ -1,17 +1,39 @@
 package mx.edu.utez.persona;
 
+import com.opensymphony.xwork2.ActionContext;
+import mx.edu.utez.persona_rol.DaoPersonaRol;
 import mx.edu.utez.rol.BeanRol;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import static com.opensymphony.xwork2.Action.SUCCESS;
 
 public class ActionPersona {
 
     private BeanPersona bean = new BeanPersona();
     private DaoPersona dao = new DaoPersona();
-    private List<BeanRol> listaPersonas = new ArrayList();
+    private DaoPersonaRol daoPersonaRol = new DaoPersonaRol();
+    private Map session;
+    private List<BeanRol> listaRoles = new ArrayList();
     private String mensaje;
+
+    public DaoPersonaRol getDaoPersonaRol() {
+        return daoPersonaRol;
+    }
+
+    public void setDaoPersonaRol(DaoPersonaRol daoPersonaRol) {
+        this.daoPersonaRol = daoPersonaRol;
+    }
+
+    public List<BeanRol> getListaRoles() {
+        return listaRoles;
+    }
+
+    public void setListaRoles(List<BeanRol> listaRoles) {
+        this.listaRoles = listaRoles;
+    }
 
     public BeanPersona getBean() {
         return bean;
@@ -29,13 +51,14 @@ public class ActionPersona {
         this.dao = dao;
     }
 
-    public List<BeanRol> getListaPersonas() {
-        return listaPersonas;
+    public Map getSession() {
+        return session;
     }
 
-    public void setListaPersonas(List<BeanRol> listaPersonas) {
-        this.listaPersonas = listaPersonas;
+    public void setSession(Map session) {
+        this.session = session;
     }
+
 
     public String getMensaje() {
         return mensaje;
@@ -46,13 +69,34 @@ public class ActionPersona {
     }
 
     public String consultarPersonas(){
+        session = ActionContext.getContext().getSession();
         String correo = bean.getCorreoInstitucional();
-        String matricula = bean.getMatricula();
-        listaPersonas = dao.consultarPersonas(bean.getCorreoInstitucional(),bean.getMatricula());
-        for (BeanRol rol:listaPersonas             ) {
-            System.out.println(rol.getTipo());
+        String contra = bean.getContrasenia();
+
+        bean = dao.consultarPersonas(bean.getCorreoInstitucional(),bean.getContrasenia());
+
+        if (bean != null) {
+
+            if (correo.equals(bean.getCorreoInstitucional()) && contra.equals(bean.getContrasenia())) {
+                listaRoles =daoPersonaRol.consultarRoles(bean);
+                for (BeanRol rol: listaRoles) {
+                    System.out.println(rol.getTipo());
+                }
+                mensaje = "¡Bienvenido!";
+                session.put("usuario", bean);
+                System.out.println(bean.getNombre());
+                return "SUCCESS";
+            } else {
+                mensaje = "Usuario y/o contraseña incorrecta";
+                System.out.println(mensaje);
+                return "ERROR";
+            }
+
+        } else {
+            mensaje = "Usuario y/o contraseña incorrecta";
+            System.out.println(bean);
+            return "ERROR";
         }
-        System.out.println(correo+" " +matricula);
-        return "SUCCESS";
+
     }
 }

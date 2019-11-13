@@ -5,10 +5,24 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-
- <package name="defaultPackage" namespace="/inicioSesion" extends="struts-default">
+    <constant name="struts.devMode" value="false" />
+ <package name="loginPackage"  extends="struts-default">
      <action name="consultarPersonas" class="mx.edu.utez.persona.ActionPersona" method="consultarPersonas">
-         <result name="SUCCESS">seleccionarRol.jsp</result>
+         <result name="SUCCESS" type="redirectAction">
+             <param name="actionName">roles</param>
+             <param name="mensaje">${mensaje}</param>
+         </result>
+         <result name="ERROR" type="redirectAction">
+             <param name="actionName">inicio</param>
+             <param name="mensaje">${mensaje}</param>
+         </result>
+     </action>
+
+     <action name="inicio">
+         <result>/index.jsp</result>
+     </action>
+     <action name="roles">
+         <result>/seleccionarRol.jsp</result>
      </action>
  </package>
 
