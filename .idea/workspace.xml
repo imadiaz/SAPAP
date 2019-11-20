@@ -8,6 +8,36 @@
   <component name="ChangeListManager">
     <list default="true" id="ecb24097-c816-4693-8440-a6a53a8d18a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/justificantes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/justificantes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/ActionJustificante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/ActionJustificante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/BeanJustificante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/BeanJustificante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/DaoJustificante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/DaoJustificante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/js/justificantes/justificantesJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/js/justificantes/justificantesJS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/AgregarCursoAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/AgregarCursoAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/AgregarJustificante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/AgregarJustificante.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/CursosAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/CursosAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/HistorialJustificantesAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/HistorialJustificantesAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/InicioAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/InicioAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/MiPerfilAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/MiPerfilAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/ProyectosAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/ProyectosAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/InicioRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/InicioRAPE.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/justificantes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/justificantes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/justificante/ActionJustificante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/justificante/ActionJustificante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/justificante/BeanJustificante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/justificante/BeanJustificante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/justificante/DaoJustificante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/justificante/DaoJustificante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/justificantes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/justificantes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/justificante/ActionJustificante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/justificante/ActionJustificante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/justificante/BeanJustificante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/justificante/BeanJustificante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/justificante/DaoJustificante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/justificante/DaoJustificante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/justificantes/justificantesJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/justificantes/justificantesJS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/AgregarCursoAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/AgregarCursoAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/AgregarJustificante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/AgregarJustificante.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/CursosAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/CursosAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/HistorialJustificantesAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/HistorialJustificantesAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/InicioAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/InicioAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/MiPerfilAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/MiPerfilAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/ProyectosAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/ProyectosAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/InicioRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/InicioRAPE.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +48,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="struts_2_5" />
+        <option value="Class" />
         <option value="Jsp File" />
       </list>
     </option>
@@ -35,29 +67,22 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1Sidk2zEAt0SYviJhIAhkxDDTsu" />
-
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
-
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/struts2-json-plugin-2.5.17.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
@@ -68,7 +93,6 @@
       <recent name="C:\Users\MemoAlfonso\Documents\GitHub\SAPAP\web\img" />
       <recent name="C:\Users\MemoAlfonso\Documents\GitHub\SAPAP\web" />
     </key>
-
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -82,7 +106,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.0.15">
+    <configuration name="MySQLConexion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mx.edu.utez.conexion.MySQLConexion" />
+      <module name="SAPAP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mx.edu.utez.conexion.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InicioAP.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/SAPAP/vista/AP/InicioAP.jsp">
+      <method v="2" />
+    </configuration>
     <configuration name="Tomcat 8.0.15" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.15" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -155,6 +195,12 @@
         </option>
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.InicioAP.jsp" />
+        <item itemvalue="Application.MySQLConexion" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -173,6 +219,14 @@
       <workItem from="1572406971564" duration="11000" />
       <workItem from="1572050491917" duration="530000" />
       <workItem from="1572208534407" duration="19787000" />
+      <workItem from="1573334253486" duration="14270000" />
+      <workItem from="1573419531700" duration="812000" />
+      <workItem from="1573420421861" duration="14058000" />
+      <workItem from="1573618396490" duration="9088000" />
+      <workItem from="1573703061637" duration="11028000" />
+      <workItem from="1574020360172" duration="17704000" />
+      <workItem from="1574113694394" duration="18230000" />
+      <workItem from="1574208839144" duration="847000" />
     </task>
     <servers />
   </component>
@@ -184,12 +238,9 @@
       <map>
         <entry key="MAIN">
           <value>
-
             <State>
               <option name="COLUMN_ORDER" />
             </State>
-
-            <State />
           </value>
         </entry>
       </map>
