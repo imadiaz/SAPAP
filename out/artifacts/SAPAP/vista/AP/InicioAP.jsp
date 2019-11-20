@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%
+    String context = request.getContextPath();
+%>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-    <%
-        String context = request.getContextPath();
-    %>
-    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>SAPAP</title>
+
 
     <!-- Custom fonts for this template-->
     <link href="<%=context%>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,6 +24,12 @@
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+<s:if test="#session.usuario.nombre==null">
+    <script>
+        alert("No hay sesion");
+        window.location.href = "<%=context%>/index.jsp";
+    </script>
+</s:if>
 
 <body id="page-top" onload="consultarJustificantesPendientes()">
 
@@ -74,6 +82,7 @@
             <a class="nav-link" href="ProyectosAP.jsp">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Proyectos</span></a>
+
         </li>
 
         <!-- Divider -->
@@ -132,12 +141,30 @@
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
-                    <!-- Nav Item - Alerts -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="rolesDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-list-ul fa-fw" style="margin-right: 20px">Roles</i>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw"
+                                                                                         style="margin-right: 20px">
+                                </i>Roles</span>
                         </a>
+
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="rolesDropdown">
+                            <a class="dropdown-item" href="MiPerfilAP.jsp">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Perfil
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="cerrarSesion">
+                                <s:iterator value="#sesion.listaRoles.tipo" var="rol" status="stat">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+
+                                Roles
+                                </s:iterator>
+                            </a>
+                        </div>
                     </li>
 
                     <div class="topbar-divider d-none d-sm-block"></div>
@@ -159,8 +186,9 @@
                                 Perfil
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<%=context%>/index.jsp">
+                            <a class="dropdown-item" href="cerrarSesion">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <form action="cerrarSesion"></form>
                                 Salir
                             </a>
                         </div>
@@ -206,7 +234,7 @@
                             </thead>
                             <tfoot>
                             <tr>
-                                <th rowspan="1" colspan="1">Fecha de elaboración</th>
+                                <th rowspan="1" colspan="1">Fecha de elaboración <s:property value="#session.usuario.idPersona"/></th>
                                 <th rowspan="1" colspan="1">Recurso</th>
                                 <th rowspan="1" colspan="1">Justifica</th>
                                 <th rowspan="1" colspan="1">Proyecto</th>

@@ -32,20 +32,60 @@
 <div class="container">
 
     <div class="row justify-content-center">
-        <h1 style="color:white;">Selecione un Rol....</h1>
+        <h1 style="color:white;">Selecione un Rol</h1>
+        <br/>
+        <h1><s:property value="#session.usuario"/></h1>
 
         <div class="col-md-12">
             <div class="row">
+                <s:iterator value="listaRoles" status="stat" var="lista">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                        <p><s:property value="tipo" /></p>
+                        </div>
+                        <div class="card-footer">
+                            <s:if test="#lista.tipo=='Estadia'">
+                                <form action="vista/AP/InicioAP.jsp" method="post">
+                                    <button class="btn btn-lg btn-primary">Ir</button>
+                                </form>
+                            </s:if>
+                            <s:elseif test="#lista.tipo=='Administradora de Recursos Humanos'">
+                                <form action="vista/RH/InicioRH.jsp" method="post">
+                                    <button class="btn btn-lg btn-primary">Ir</button>
+                                </form>
+                            </s:elseif>
+                            <s:elseif test="#lista.tipo=='Responsable de Desarrollo'">
+                                <form action="vista/RD/InicioRD.jsp" method="post">
+                                    <button class="btn btn-lg btn-primary">Ir</button>
+                                </form>
+                            </s:elseif>
+                            <s:elseif test="#lista.tipo=='RAPE'">
+                                <form action="vista/RAPE/InicioRAPE.jsp" method="post">
+                                    <button class="btn btn-lg btn-primary">Ir</button>
+                                </form>
+                            </s:elseif>
+                            <s:elseif test="#lista.tipo=='Coordinador del CDS'">
+                                <form action="vista/Coordinador/InicioCOD.jsp" method="post">
+                                    <button class="btn btn-lg btn-primary">Ir</button>
+                                </form>
+                            </s:elseif>
+                            <s:elseif test="#lista.tipo=='Analista Programador'">
+                                <form action="vista/AP/InicioAP.jsp" method="post">
+                                    <button class="btn btn-lg btn-primary">Ir</button>
+                                </form>
+                            </s:elseif>
 
-                <s:iterator value="listaRoles">
-                    <div class="col-md-4">
-                        <p><s:property value="mensaje"></s:property></p>
-                        <p><s:property value="tipo"></s:property></p>
+                        </div>
                     </div>
+                    <br>
+                </div>
+
+                </s:iterator>
                 <br>
             </div>
 
-            </s:iterator>
+
         </div>
     </div>
 </div>

@@ -9,8 +9,33 @@
         <action name="home">
             <result name="success">index.jsp</result>
         </action>
+
     </package>
-<include file="cursos.xml"/>
-    <include file="justificantes.xml"></include>
-    <include file="login.xml"></include>
+    <package name="interceptor" extends="struts-default">
+        <interceptors>
+            <!--   Este es el nuevo interceptor el de sesion-->
+            <interceptor name="sesionValida" class="mx.edu.utez.interceptor.Interceptores" />
+            <!--aqui define una nueva pila de interceptores-->
+            <interceptor-stack name="miPilaDeInterceptores">
+                <!--                esa pila esta consituida por
+                tu nuevo interceptor -->
+                <interceptor-ref name="sesionValida"/>
+                <!--y la pila por defecto de interceptores de struts-->
+                <interceptor-ref name="defaultStack" />
+
+            </interceptor-stack>
+        </interceptors>
+        <!--defines que la nueva pila de interceptores por defecto es la que tu creates-->
+        <default-interceptor-ref name="miPilaDeInterceptores" />
+
+        <global-results>
+            <result name="NOLOGIN">
+                <param name="location">index.jsp</param>
+                <param name="status">401</param>
+            </result>
+        </global-results>
+    </package>
+    <include file="cursos.xml"/>
+    <include file="justificantes.xml"/>
+    <include file="inicioSesion.xml"/>
 </struts>

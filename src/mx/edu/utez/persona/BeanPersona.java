@@ -21,11 +21,12 @@ public class BeanPersona {
     private String desempenio;
     private String fechaDeIngreso;
     private String fechaDeEgreso;
+    private String codigo;
 
     public BeanPersona() {
     }
 
-    public BeanPersona(BeanHorario horario, int idPersona, String nombre, String primerApellido, String segundoApellido, String fechaDeNacimiento, String correoInstitucional,String contrasenia,String matricula ,String correoPersonal, String numeroTelefonico, String numeroCasa, String carreraDeEgreso, String universidadDeEgreso, String desempenio, String fechaDeIngreso, String fechaDeEgreso) {
+    public BeanPersona(BeanHorario horario, int idPersona, String nombre, String primerApellido, String segundoApellido, String fechaDeNacimiento, String correoInstitucional, String contrasenia, String matricula, String correoPersonal, String numeroTelefonico, String numeroCasa, String carreraDeEgreso, String universidadDeEgreso, String desempenio, String fechaDeIngreso, String fechaDeEgreso, String codigo) {
         this.horario = horario;
         this.idPersona = idPersona;
         this.nombre = nombre;
@@ -33,7 +34,7 @@ public class BeanPersona {
         this.segundoApellido = segundoApellido;
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.correoInstitucional = correoInstitucional;
-        this.contrasenia=contrasenia;
+        this.contrasenia = contrasenia;
         this.matricula = matricula;
         this.correoPersonal = correoPersonal;
         this.numeroTelefonico = numeroTelefonico;
@@ -43,6 +44,15 @@ public class BeanPersona {
         this.desempenio = desempenio;
         this.fechaDeIngreso = fechaDeIngreso;
         this.fechaDeEgreso = fechaDeEgreso;
+        this.codigo = codigo;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public BeanHorario getHorario() {
@@ -101,13 +111,21 @@ public class BeanPersona {
         this.correoInstitucional = correoInstitucional;
     }
 
-    public String getContrasenia() {return contrasenia;}
+    public String getContrasenia() {
+        return contrasenia;
+    }
 
-    public void setContrasenia(String contrasenia) { this.contrasenia = contrasenia; }
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
 
-    public String getMatricula() {return matricula;}
+    public String getMatricula() {
+        return matricula;
+    }
 
-    public void setMatricula(String matricula) {  this.matricula = matricula; }
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
 
     public String getCorreoPersonal() {
         return correoPersonal;
