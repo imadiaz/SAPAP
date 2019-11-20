@@ -54,6 +54,36 @@ function consultarJustificantesPendientes() {
     );
 };
 
+function consultarHistorialJustificantes() {
+    $.ajax({
+            type: 'POST',
+            url: raiz + 'consultarHistorialJustificantes',
+            success: function (respuesta) {
+                var lista = respuesta.respuestas.listaJPendientes;
+                var motivo;
+                $('#tableBody').html('');
+                for (var i = 0; i < lista.length; i++) {
+                    if(lista[i].justifica.motivoRechazo == null){
+                        motivo ='Este justificante fue aprobado';
+                    } else {
+                        motivo = lista[i].justifica.motivoRechazo;
+                    }
+                    $('#tableBody').append('<tr><td>' + lista[i].fechaElaboracion + '</td>' +
+                        '<td> AP Estático</td>' +
+                        '<td>' + lista[i].justifica.nombre + '</td>' +
+                        '<td>' + lista[i].proyecto.nombre + '</td>' +
+                        '<td>' +motivo+'</td>'+
+                        '<td>' +
+                        '<a href="'+lista[i].evidencia+'" target="_blank"><button class="btn btn-info""><i class="fas fa-info-circle">Ver</i></button></a>' +
+                        '</td>' +
+                        '</tr>')
+                }
+            }
+        }
+    );
+};
+
+
 function consultarSelectAgregar(id) {
     $.ajax({
             type: 'POST',
@@ -327,6 +357,162 @@ function accionJustificante() {
             $('#motivo').html('');
             alert(respuesta.respuestas.mensaje);
             consultarJustificantesPendientesRAPE();
+        }
+    });
+}
+
+//COD
+
+function consultarJustificantesPendientesCOD() {
+    $.ajax({
+            type: 'POST',
+            url: raiz + 'consultarJustificantesPendientesCOD',
+            success: function (respuesta) {
+                var lista = respuesta.respuestas.listaJPendientes;
+
+                $('#tableBody').html('');
+                for (var i = 0; i < lista.length; i++) {
+                    $('#tableBody').append('<tr><td>' + lista[i].fechaElaboracion + '</td>' +
+                        '<td> AP Estático</td>' +
+                        '<td>' + lista[i].estudiante.nombre + " " + lista[i].estudiante.primerApellido +  " " + lista[i].estudiante.segundoApellido + '</td>' +
+                        '<td>' + lista[i].proyecto.nombre + '</td>' +
+                        '<td>' + lista[i].motivoJustifica + '</td>' +
+                        '<td>' +
+                        '<a href="'+lista[i].evidencia+'" target="_blank"><button class="btn btn-info""><i class="fas fa-info-circle">Ver</i></button></a>' +
+                        '<input id="idJustificante" type="hidden" value="'+ lista[i].idJustificante + '" ></input>' +
+                        '</td>' +
+                        '<td>' +
+                        '<button id="btnAprobar" data-justificante="1" class="btn btn-success"data-toggle="modal" data-target="#modalAprobarJustificante"><i class="fas fa-check">Aprobar</i></button>' +
+                        '<button id="btnRechazar" data-justificante="0" class="btn btn-danger" data-toggle="modal" data-target="#modalAprobarJustificante"><i class="fas fa-times-circle">Rechazar</i></button>' +
+                        '</td>' +
+                        '</tr>')
+                }
+            }
+        }
+    );
+};
+
+function validarContrasenaCOD(){
+    var accion = document.getElementById('aprobar').value;
+    var objeto = {
+        aprobar: document.getElementById('aprobar').value,
+        contrasena:document.getElementById('contrasena').value,
+        idJus: document.getElementById("idJustificante").value,
+        idUs: 3
+    };
+    $.ajax({
+        type: 'POST',
+        url: raiz + 'validarContrasena',
+        data: {
+            parametro:JSON.stringify(objeto)
+        },
+        success: function (respuesta) {
+            if(respuesta.respuestas.mensaje === 'yes' && accion == 0){
+                $("#modalMotivo").modal('show');
+            } else if (respuesta.respuestas.mensaje === 'yes' && accion == 1){
+                accionJustificanteCOD();
+            } else {
+                alert(respuesta.respuestas.mensaje);
+            }
+
+        }
+    });
+}
+
+function accionJustificanteCOD() {
+    var objeto = {
+        aprobar: document.getElementById('aprobar').value,
+        motivo: document.getElementById('motivo').value,
+        idJus: document.getElementById("idJustificante").value,
+    };
+    $.ajax({
+        type: 'POST',
+        url: raiz + 'accionJustificanteCOD',
+        data: {
+            parametro:JSON.stringify(objeto)
+        },
+        success: function (respuesta) {
+            $('#motivo').html('');
+            alert(respuesta.respuestas.mensaje);
+            consultarJustificantesPendientesCOD();
+        }
+    });
+}
+
+//RH
+
+function consultarJustificantesPendientesRH() {
+    $.ajax({
+            type: 'POST',
+            url: raiz + 'consultarJustificantesPendientesRH',
+            success: function (respuesta) {
+                var lista = respuesta.respuestas.listaJPendientes;
+
+                $('#tableBody').html('');
+                for (var i = 0; i < lista.length; i++) {
+                    $('#tableBody').append('<tr><td>' + lista[i].fechaElaboracion + '</td>' +
+                        '<td> AP Estático</td>' +
+                        '<td>' + lista[i].estudiante.nombre + " " + lista[i].estudiante.primerApellido +  " " + lista[i].estudiante.segundoApellido + '</td>' +
+                        '<td>' + lista[i].proyecto.nombre + '</td>' +
+                        '<td>' + lista[i].motivoJustifica + '</td>' +
+                        '<td>' +
+                        '<a href="'+lista[i].evidencia+'" target="_blank"><button class="btn btn-info""><i class="fas fa-info-circle">Ver</i></button></a>' +
+                        '<input id="idJustificante" type="hidden" value="'+ lista[i].idJustificante + '" ></input>' +
+                        '</td>' +
+                        '<td>' +
+                        '<button id="btnAprobar" data-justificante="1" class="btn btn-success"data-toggle="modal" data-target="#modalAprobarJustificante"><i class="fas fa-check">Aprobar</i></button>' +
+                        '<button id="btnRechazar" data-justificante="0" class="btn btn-danger" data-toggle="modal" data-target="#modalAprobarJustificante"><i class="fas fa-times-circle">Rechazar</i></button>' +
+                        '</td>' +
+                        '</tr>')
+                }
+            }
+        }
+    );
+};
+
+function validarContrasenaRH(){
+    var accion = document.getElementById('aprobar').value;
+    var objeto = {
+        aprobar: document.getElementById('aprobar').value,
+        contrasena:document.getElementById('contrasena').value,
+        idJus: document.getElementById("idJustificante").value,
+        idUs: 3
+    };
+    $.ajax({
+        type: 'POST',
+        url: raiz + 'validarContrasena',
+        data: {
+            parametro:JSON.stringify(objeto)
+        },
+        success: function (respuesta) {
+            if(respuesta.respuestas.mensaje === 'yes' && accion == 0){
+                $("#modalMotivo").modal('show');
+            } else if (respuesta.respuestas.mensaje === 'yes' && accion == 1){
+                accionJustificanteRH();
+            } else {
+                alert(respuesta.respuestas.mensaje);
+            }
+
+        }
+    });
+}
+
+function accionJustificanteRH() {
+    var objeto = {
+        aprobar: document.getElementById('aprobar').value,
+        motivo: document.getElementById('motivo').value,
+        idJus: document.getElementById("idJustificante").value,
+    };
+    $.ajax({
+        type: 'POST',
+        url: raiz + 'accionJustificanteRH',
+        data: {
+            parametro:JSON.stringify(objeto)
+        },
+        success: function (respuesta) {
+            $('#motivo').html('');
+            alert(respuesta.respuestas.mensaje);
+            consultarJustificantesPendientesCOD();
         }
     });
 }

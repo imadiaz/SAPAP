@@ -21,14 +21,31 @@ public class ActionJustificante extends ActionSupport {
 
     public String consultarJustificantesPendientes(){
         daoJustificante = new DaoJustificante();
-        System.out.println("entre");
         respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientes(1));
+        return SUCCESS;
+    }
+
+    public String consultarHistorialJustificantes(){
+        daoJustificante = new DaoJustificante();
+        respuestas.put("listaJPendientes", daoJustificante.historialJustificantes(1));
         return SUCCESS;
     }
 
     public String consultarJustificantesPendientesRAPE(){
         daoJustificante = new DaoJustificante();
         respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientesRAPE(3));
+        return SUCCESS;
+    }
+
+    public String consultarJustificantesPendientesCOD(){
+        daoJustificante = new DaoJustificante();
+        respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientesCOD(3));
+        return SUCCESS;
+    }
+
+    public String consultarJustificantesPendientesRH(){
+        daoJustificante = new DaoJustificante();
+        respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientesRH(3));
         return SUCCESS;
     }
 
@@ -43,11 +60,9 @@ public class ActionJustificante extends ActionSupport {
     public String consultarJustificantePendienteEspecifico(){
         daoJustificante = new DaoJustificante();
         int id = Integer.parseInt(parametro);
-        System.out.println(id + "<----id");
         beanJustificante = daoJustificante.consultarDatosJustificante(id);
 
         respuestas.put("listaJustificante", beanJustificante);
-        System.out.println(beanJustificante.getJustifica().getIdPersona() + "<-------");
         respuestas.put("listaRape", daoJustificante.consultarRapeJustificanteModificar(beanJustificante.getJustifica().getIdPersona()));
         respuestas.put("listaProyecto", daoJustificante.consultarProyectoJustificanteModificar(1, beanJustificante.getProyecto().getNombre()));
         return SUCCESS;
@@ -191,6 +206,42 @@ public class ActionJustificante extends ActionSupport {
         beanJustificante.setMotivoRechazo(object.getString("motivo"));
 
         if (daoJustificante.aprobarJustificante(beanJustificante)){
+            respuestas.put("mensaje", "¡Justificante gestionado exitosamente!");
+        } else {
+            respuestas.put("mensaje", "El justificante no se pudo gestionar");
+        }
+
+        return SUCCESS;
+    }
+
+    public String accionJustificanteCOD() throws JSONException {
+        daoJustificante = new DaoJustificante();
+        JSONObject object = new JSONObject(parametro);
+        beanJustificante = new BeanJustificante();
+
+        beanJustificante.setIdJustificante(object.getInt("idJus"));
+        beanJustificante.setEstadoRAPE(object.getInt("aprobar"));
+        beanJustificante.setMotivoRechazo(object.getString("motivo"));
+
+        if (daoJustificante.aprobarJustificanteCOD(beanJustificante)){
+            respuestas.put("mensaje", "¡Justificante gestionado exitosamente!");
+        } else {
+            respuestas.put("mensaje", "El justificante no se pudo gestionar");
+        }
+
+        return SUCCESS;
+    }
+
+    public String accionJustificanteRH() throws JSONException {
+        daoJustificante = new DaoJustificante();
+        JSONObject object = new JSONObject(parametro);
+        beanJustificante = new BeanJustificante();
+
+        beanJustificante.setIdJustificante(object.getInt("idJus"));
+        beanJustificante.setEstadoRAPE(object.getInt("aprobar"));
+        beanJustificante.setMotivoRechazo(object.getString("motivo"));
+
+        if (daoJustificante.aprobarJustificanteRH(beanJustificante)){
             respuestas.put("mensaje", "¡Justificante gestionado exitosamente!");
         } else {
             respuestas.put("mensaje", "El justificante no se pudo gestionar");
