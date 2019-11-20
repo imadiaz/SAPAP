@@ -183,26 +183,69 @@
                 <h1 class="h3 mb-4 text-gray-800">Agregar proyecto</h1>
 
 
-                <form class="user">
-                    <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" id="nombre" placeholder="Nombre">
-                        </div>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-user" id="apellido" placeholder="Apellido">
-                        </div>
+                <div class="form-group row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <label for="nombre">Identificador</label>
+                        <input type="text" class="form-control form-control-user" id="identificador" required placeholder="Identificador">
                     </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control form-control-user" id="correo" placeholder="Correo electrónico">
+                    <div class="col-sm-4">
+                        <label for="primerApellido">Nombre del Proyecto</label>
+                        <input type="text" class="form-control form-control-user" id="nombre" required placeholder="Nombre del Proyecto">
                     </div>
-                    <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="password" class="form-control form-control-user" id="celular" placeholder="Celular">
-                        </div>
-                        <div class="col-sm-6">
-                            <input type="password" class="form-control form-control-user" id="matricula" placeholder="Matrícula">
-                        </div>
+                    <div class="col-sm-4">
+                        <label for="segundoApellido">Nombre del Cliente</label>
+                        <input type="text" class="form-control form-control-user" id="nombreCliente" placeholder="Nombre del Cliente">
                     </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <label for="nombre">Correo Electronico del Cliente</label>
+                        <input type="text" class="form-control form-control-user" id="correoE" required placeholder="Correo Electronico del Cliente">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="primerApellido">Número Telefónico</label>
+                        <input type="text" class="form-control form-control-user" id="numeroTelefonico" required placeholder="Número Telefónico">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="segundoApellido">Dirección del Cliente</label>
+                        <input type="text" class="form-control form-control-user" id="direccionDelCliente" placeholder="Dirección del Cliente">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <label for="nombre">Fecha Inicio</label>
+                        <input type="text" class="form-control form-control-user" id="fechaInicio" required placeholder="Fecha Inicio">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="primerApellido">Fecha Fin</label>
+                        <input type="text" class="form-control form-control-user" id="fechaFin" required placeholder="Fecha Fin">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="segundoApellido">Descripción</label>
+                        <input type="text" class="form-control form-control-user" id="descripcion" placeholder="Descripción">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <label for="nombre">Costo</label>
+                        <input type="text" class="form-control form-control-user" id="costo" required placeholder="Costo">
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <label for="nombre">RAPE</label>
+
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="primerApellido">RD</label>
+                        <input type="text" class="form-control form-control-user" id="primerApellido" required placeholder="Primer Apellido">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="segundoApellido">AP</label>
+                        <input type="text" class="form-control form-control-user" id="segundoApellido" placeholder="Segundo Apellido">
+                    </div>
+                </div>
                     <a href="login.html" class="btn btn-primary btn-user btn-block">
                         Enviar
                     </a>
@@ -248,3 +291,9 @@
 </body>
 
 </html>
+<script type="text/javascript">
+    // Material Select Initialization
+    $(document).ready(function() {
+        $('.mdb-select').materialSelect();
+    });
+</script>

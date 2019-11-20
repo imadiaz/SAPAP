@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,24 +36,25 @@
                     <!-- Nested Row within Card Body -->
                     <div class="row">
                         <div class="col-lg-6 d-none d-lg-block ">
-                            <img src="img/logocds.png" height="612" width="450" style="margin-left: 30px">
+                            <img src="img/cds.png" height="400" width="400" style="margin-left: 30px">
                         </div>
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-2">Recuperación de contraseña</h1>
                                     <p class="mb-4">Ingresa tu correo electrónico y te enviaremos un código para
-                                    que comience el proceso de recuperación.</p>
+                                        que comience el proceso de recuperación.</p>
                                 </div>
-                                <form class="user">
+                                <h5><s:property value="mensaje"/></h5>
+                                <form class="user" action="recuperarContrasenia" method="post">
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
-                                               id="correo" aria-describedby="emailHelp"
-                                               placeholder="Ingresa correo electrónico">
+                                               id="correo" name="bean.correoInstitucional" aria-describedby="emailHelp"
+                                               placeholder="Ingresa correo electrónico" required="required">
                                     </div>
-                                    <a href="index.jsp" class="btn btn-primary btn-user btn-block">
+                                    <button  class="btn btn-primary btn-user btn-block">
                                         Envíar
-                                    </a>
+                                    </button>
                                 </form>
                                 <hr>
                                 <div class="text-center">

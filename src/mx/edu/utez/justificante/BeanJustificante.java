@@ -8,7 +8,8 @@ public class BeanJustificante {
     private int idJustificante;
     private BeanPersona estudiante;
     private String fechaElaboracion;
-    private byte[] imagen;
+    private String referencia;
+    private String evidencia;
     private String motivoJustifica;
     private String motivoRechazo;
     private int estadoJustificante;
@@ -21,11 +22,12 @@ public class BeanJustificante {
     public BeanJustificante() {
     }
 
-    public BeanJustificante(int idJustificante, BeanPersona estudiante, String fechaElaboracion, byte[] imagen, String motivoJustifica, String motivoRechazo, int estadoJustificante, int estadoRAPE, int estadoCCDS, int estadoARH, BeanProyecto proyecto, BeanPersona justifica) {
+    public BeanJustificante(int idJustificante, BeanPersona estudiante, String fechaElaboracion, String referencia, String evidencia, String motivoJustifica, String motivoRechazo, int estadoJustificante, int estadoRAPE, int estadoCCDS, int estadoARH, BeanProyecto proyecto, BeanPersona justifica) {
         this.idJustificante = idJustificante;
         this.estudiante = estudiante;
         this.fechaElaboracion = fechaElaboracion;
-        this.imagen = imagen;
+        this.referencia = referencia;
+        this.evidencia = evidencia;
         this.motivoJustifica = motivoJustifica;
         this.motivoRechazo = motivoRechazo;
         this.estadoJustificante = estadoJustificante;
@@ -58,14 +60,6 @@ public class BeanJustificante {
 
     public void setFechaElaboracion(String fechaElaboracion) {
         this.fechaElaboracion = fechaElaboracion;
-    }
-
-    public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
     }
 
     public String getMotivoJustifica() {
@@ -130,5 +124,21 @@ public class BeanJustificante {
 
     public void setJustifica(BeanPersona justifica) {
         this.justifica = justifica;
+    }
+
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+
+    public String getEvidencia() {
+        return evidencia;
+    }
+
+    public void setEvidencia(String evidencia) {
+        this.evidencia = evidencia;
     }
 }

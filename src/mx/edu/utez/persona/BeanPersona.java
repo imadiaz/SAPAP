@@ -11,6 +11,8 @@ public class BeanPersona {
     private String segundoApellido;
     private String fechaDeNacimiento;
     private String correoInstitucional;
+    private String contrasenia;
+    private String matricula;
     private String correoPersonal;
     private String numeroTelefonico;
     private String numeroCasa;
@@ -19,11 +21,15 @@ public class BeanPersona {
     private String desempenio;
     private String fechaDeIngreso;
     private String fechaDeEgreso;
+    private boolean estado;
+
+    private String codigo;
 
     public BeanPersona() {
+
     }
 
-    public BeanPersona(BeanHorario horario, int idPersona, String nombre, String primerApellido, String segundoApellido, String fechaDeNacimiento, String correoInstitucional, String correoPersonal, String numeroTelefonico, String numeroCasa, String carreraDeEgreso, String universidadDeEgreso, String desempenio, String fechaDeIngreso, String fechaDeEgreso) {
+    public BeanPersona(BeanHorario horario, int idPersona, String nombre, String primerApellido, String segundoApellido, String fechaDeNacimiento, String correoInstitucional, String contrasenia, String matricula, String correoPersonal, String numeroTelefonico, String numeroCasa, String carreraDeEgreso, String universidadDeEgreso, String desempenio, String fechaDeIngreso, String fechaDeEgreso, boolean estado, String codigo) {
         this.horario = horario;
         this.idPersona = idPersona;
         this.nombre = nombre;
@@ -31,6 +37,8 @@ public class BeanPersona {
         this.segundoApellido = segundoApellido;
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.correoInstitucional = correoInstitucional;
+        this.contrasenia = contrasenia;
+        this.matricula = matricula;
         this.correoPersonal = correoPersonal;
         this.numeroTelefonico = numeroTelefonico;
         this.numeroCasa = numeroCasa;
@@ -39,6 +47,8 @@ public class BeanPersona {
         this.desempenio = desempenio;
         this.fechaDeIngreso = fechaDeIngreso;
         this.fechaDeEgreso = fechaDeEgreso;
+        this.estado = estado;
+        this.codigo = codigo;
     }
 
     public BeanHorario getHorario() {
@@ -95,6 +105,22 @@ public class BeanPersona {
 
     public void setCorreoInstitucional(String correoInstitucional) {
         this.correoInstitucional = correoInstitucional;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getCorreoPersonal() {
@@ -159,5 +185,21 @@ public class BeanPersona {
 
     public void setFechaDeEgreso(String fechaDeEgreso) {
         this.fechaDeEgreso = fechaDeEgreso;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 }

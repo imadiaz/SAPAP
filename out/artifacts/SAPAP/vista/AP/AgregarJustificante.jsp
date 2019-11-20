@@ -20,9 +20,17 @@
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-storage.js"></script>
+
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="consultarSelectAgregar(1)" >
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -53,7 +61,6 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Justificantes:</h6>
                     <a class="collapse-item" href="InicioAP.jsp">Justificantes pendientes</a>
-                    <a class="collapse-item" href="AgregarJustificante.jsp">Agregar Justificante</a>
                     <a class="collapse-item" href="HistorialJustificantesAP.jsp">Historial</a>
                 </div>
             </div>
@@ -173,36 +180,30 @@
                     </div>
                 </div>
 
-
                 <form class="user">
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" id="nombre" placeholder="Nombre">
+                            <label for="rape">RAPE</label>
+                            <select class="form-control" id="rape">
+                            </select>
                         </div>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-user" id="apellido" placeholder="Apellido">
+                            <label for="proyecto">Proyecto</label>
+                            <select class="form-control" id="proyecto">
+
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control form-control-user" id="correo" placeholder="Correo electrónico">
+                        <input type="text" class="form-control form-control-user" id="motivo" placeholder="Motivo">
                     </div>
-                    <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="password" class="form-control form-control-user" id="celular" placeholder="Celular">
-                        </div>
-                        <div class="col-sm-6">
-                            <input type="password" class="form-control form-control-user" id="matricula" placeholder="Matrícula">
-                        </div>
+                    <div class="form-group">
+                        <input type="file" class="form-control form-control-user" id="imagen" placeholder="Imagen">
                     </div>
-                    <a href="login.html" class="btn btn-primary btn-user btn-block">
-                        Enviar
+
+                    <a class="btn btn-primary btn-user btn-block"  onclick="agregarJustificante()">Enviar
                     </a>
                 </form>
-
-
-
-
-
             </div>
             <!-- /.container-fluid -->
 
@@ -239,6 +240,15 @@
 
 <!-- Custom scripts for all pages-->
 <script src="<%=context%>/js/sb-admin-2.min.js"></script>
+
+<!--Nuestros recursos-->
+<script src="<%=context%>/js/justificantes/justificantesJS.js"></script>
+
+<script>
+    $(document).ready(function () {
+    ejecutarEvento();
+    });
+</script>
 
 </body>
 
