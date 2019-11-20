@@ -1,20 +1,14 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-  <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
   <title>SAPAP</title>
-
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -42,19 +36,23 @@
                   <br>
                   <h1 class="h4 text-gray-900 mb-4">Inicio de Sesión</h1>
 
+
                 </div>
                 <form class="user" action="consultarPersonas" method="post">
                   <div class="form-group">
                     <input type="email" class="form-control form-control-user" name="bean.correoInstitucional" id="correo" aria-describedby="emailHelp" placeholder="Ingresa correo">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-user" name="bean.contrasenia" id="contra" placeholder="<s:property value="mensaje" />">
+                    <input type="password" class="form-control form-control-user" name="bean.contrasenia" id="contra" placeholder="Ingresa la contraseña">
                   </div>
+                    <h6 class="text-danger text-center"><s:property value="mensaje"/></h6>
                   <button class="btn btn-primary btn-user btn-block">
                     Ingresar
                   </button>
-                    <p><s:property value="mensaje" /></p>
+
                   <hr>
+
+
 <%--                  <a href="index.html" class="btn btn-google btn-user btn-block">--%>
 <%--                    <i class="fab fa-google fa-fw"></i> Inicia sesión con Google--%>
 <%--                  </a>--%>

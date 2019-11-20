@@ -9,10 +9,16 @@
         <action name="home">
             <result name="success">index.jsp</result>
         </action>
+
     </package>
 <include file="cursos.xml"/>
     <include file="justificantes.xml"></include>
     <include file="login.xml"></include>
     <include file="PersonaStruts.xml"></include>
     <include file="proyectosStruts.xml"></include>
+
+
+    <include file="cursos.xml"/>
+    <include file="justificantes.xml"/>
+    <include file="inicioSesion.xml"/>
 </struts>

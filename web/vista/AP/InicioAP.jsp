@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%
+    String context = request.getContextPath();
+%>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-    <%
-        String context = request.getContextPath();
-    %>
-    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>SAPAP</title>
+
 
     <!-- Custom fonts for this template-->
     <link href="<%=context%>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,6 +24,12 @@
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+<s:if test="#session.usuario.nombre==null">
+    <script>
+        alert("No hay sesion");
+        window.location.href = "<%=context%>/index.jsp";
+    </script>
+</s:if>
 
 <body id="page-top" onload="consultarJustificantesPendientes()">
 
@@ -74,6 +82,7 @@
             <a class="nav-link" href="ProyectosAP.jsp">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Proyectos</span></a>
+
         </li>
 
         <!-- Divider -->
@@ -206,7 +215,7 @@
                             </thead>
                             <tfoot>
                             <tr>
-                                <th rowspan="1" colspan="1">Fecha de elaboración</th>
+                                <th rowspan="1" colspan="1">Fecha de elaboración <s:property value="#session.usuario.id"/></th>
                                 <th rowspan="1" colspan="1">Recurso</th>
                                 <th rowspan="1" colspan="1">Justifica</th>
                                 <th rowspan="1" colspan="1">Proyecto</th>
