@@ -19,7 +19,7 @@
     <link href="<%=context%>/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 </head>
 
@@ -54,7 +54,6 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Justificantes:</h6>
                     <a class="collapse-item" href="InicioAP.jsp">Justificantes pendientes</a>
-                    <a class="collapse-item" href="AgregarJustificante.jsp">Agregar Justificante</a>
                     <a class="collapse-item" href="HistorialJustificantesAP.jsp">Historial</a>
                 </div>
             </div>
@@ -210,7 +209,29 @@
 
 
 
+                <div class="modal fade" id="modalFile" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Modificar archivo</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <label>Archivo actual</label>
+                                <input class="form-control" disabled id="nombreArchivo" /><br/>
+                                <input type="hidden" disabled id="identificadorCurso" /><br/>
+                                <input type="file"  class="form-control" id="evidenciaNuevoArchivo" placeholder="Nueva evidencia">
 
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary" onclick="guardarNuevoArchivo();">Guardar archivo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /.container-fluid -->
 
@@ -244,7 +265,13 @@
 
 <!-- Core plugin JavaScript-->
 <script src="<%=context%>/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-storage.js"></script>
 <!-- Custom scripts for all pages-->
 <script src="<%=context%>/js/sb-admin-2.min.js"></script>
 <script src="<%=context%>/js/cursos/cursosJS.js"></script>

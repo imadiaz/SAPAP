@@ -1,13 +1,13 @@
 package mx.edu.utez.curso;
 
 public class BeanCurso {
-
     private int idCurso;
     private String nombre;
     private String fecha;
     private String descripcion;
     private String tipoCurso;
     private String evidencia;
+    private String referencia;
 
     private int idPersona;
 
@@ -25,13 +25,24 @@ public class BeanCurso {
         this.evidencia = evidencia;
         this.idPersona = idPersona;
     }
-
-    public BeanCurso(String nombre, String fecha, String descripcion, String tipoCurso, String evidencia, int idPersona) {
+    public BeanCurso(int idCurso, String nombre, String fecha, String descripcion, String tipoCurso, String evidencia, int idPersona,String referencia) {
+        this.idCurso = idCurso;
         this.nombre = nombre;
         this.fecha = fecha;
         this.descripcion = descripcion;
         this.tipoCurso = tipoCurso;
         this.evidencia = evidencia;
+        this.idPersona = idPersona;
+        this.referencia=referencia;
+    }
+
+    public BeanCurso(String nombre, String fecha, String descripcion, String tipoCurso, String evidencia,String referencia ,int idPersona) {
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.descripcion = descripcion;
+        this.tipoCurso = tipoCurso;
+        this.evidencia = evidencia;
+        this.referencia=referencia;
         this.idPersona = idPersona;
     }
 
@@ -44,6 +55,15 @@ public class BeanCurso {
         this.tipoCurso = tipoCurso;
         this.evidencia=evidencia;
     }
+    public BeanCurso(int idCurso, String nombre, String fecha, String descripcion, String tipoCurso, String evidencia,String referencia) {
+        this.idCurso = idCurso;
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.descripcion = descripcion;
+        this.tipoCurso = tipoCurso;
+        this.evidencia=evidencia;
+        this.referencia=referencia;
+    }
 
     public int getIdPersona() {
         return idPersona;
@@ -54,6 +74,13 @@ public class BeanCurso {
     }
 
 
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
 
     public String getEvidencia() {
         return evidencia;

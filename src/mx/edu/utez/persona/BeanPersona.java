@@ -21,12 +21,15 @@ public class BeanPersona {
     private String desempenio;
     private String fechaDeIngreso;
     private String fechaDeEgreso;
+    private boolean estado;
+
     private String codigo;
 
     public BeanPersona() {
+
     }
 
-    public BeanPersona(BeanHorario horario, int idPersona, String nombre, String primerApellido, String segundoApellido, String fechaDeNacimiento, String correoInstitucional, String contrasenia, String matricula, String correoPersonal, String numeroTelefonico, String numeroCasa, String carreraDeEgreso, String universidadDeEgreso, String desempenio, String fechaDeIngreso, String fechaDeEgreso, String codigo) {
+    public BeanPersona(BeanHorario horario, int idPersona, String nombre, String primerApellido, String segundoApellido, String fechaDeNacimiento, String correoInstitucional, String contrasenia, String matricula, String correoPersonal, String numeroTelefonico, String numeroCasa, String carreraDeEgreso, String universidadDeEgreso, String desempenio, String fechaDeIngreso, String fechaDeEgreso, boolean estado, String codigo) {
         this.horario = horario;
         this.idPersona = idPersona;
         this.nombre = nombre;
@@ -44,14 +47,7 @@ public class BeanPersona {
         this.desempenio = desempenio;
         this.fechaDeIngreso = fechaDeIngreso;
         this.fechaDeEgreso = fechaDeEgreso;
-        this.codigo = codigo;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
+        this.estado = estado;
         this.codigo = codigo;
     }
 
@@ -189,5 +185,21 @@ public class BeanPersona {
 
     public void setFechaDeEgreso(String fechaDeEgreso) {
         this.fechaDeEgreso = fechaDeEgreso;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 }

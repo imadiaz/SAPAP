@@ -54,7 +54,6 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Justificantes:</h6>
                     <a class="collapse-item" href="InicioAP.jsp">Justificantes pendientes</a>
-                    <a class="collapse-item" href="AgregarJustificante.jsp">Agregar Justificante</a>
                     <a class="collapse-item" href="HistorialJustificantesAP.jsp">Historial</a>
                 </div>
             </div>
@@ -258,7 +257,9 @@
 <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-storage.js"></script>
 <script src="<%=context%>/js/cursos/cursosJS.js"></script>
-
+<script>
+    ejecutarEvento();
+</script>
 </body>
 
 </html>

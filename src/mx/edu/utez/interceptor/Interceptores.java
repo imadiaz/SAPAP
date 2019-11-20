@@ -24,7 +24,7 @@ public class Interceptores extends AbstractInterceptor {
     public String intercept(ActionInvocation actionInvocation) throws Exception {
         Map session = ActionContext.getContext().getSession();
         System.out.println("Interceptor");
-        System.out.println(session);
+        System.out.println(session.get("usuario"));
         if (session.get("usuario") != null) {
             System.out.println("Si va iniciar");
             return actionInvocation.invoke();

@@ -22,7 +22,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="consultaRegistro()">
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -182,29 +182,151 @@
                 <h1 class="h3 mb-4 text-gray-800">Agregar Empleado</h1>
 
 
-                <form class="user">
+                <form class="user" onsubmit="registroPersona()">
                     <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" id="nombre" placeholder="Nombre">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control form-control-user" id="nombre" required placeholder="Nombre">
                         </div>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-user" id="apellido" placeholder="Apellido">
+                        <div class="col-sm-4">
+                            <label for="primerApellido">Primer Apellido</label>
+                            <input type="text" class="form-control form-control-user" id="primerApellido" required placeholder="Primer Apellido">
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="segundoApellido">Segundo Apellido</label>
+                            <input type="text" class="form-control form-control-user" id="segundoApellido" placeholder="Segundo Apellido">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <label for="matricula">Matricula</label>
+                            <input type="text" class="form-control form-control-user" id="matricula" placeholder="Matricula">
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="correoPersonal">Correo Personal</label>
+                            <input type="text" class="form-control form-control-user" id="correoPersonal" placeholder="Correo Personal">
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="correoInstitucional">Correo Institucional</label>
+                            <div class="input-group mb-2">
+
+                                <input type="text" class="form-control form-control-user" id="correoInstitucional" placeholder="Correo Institucional">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">@utez.edu.mx</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <label for="fechaDeNacimiento">Fecha de Nacimiento</label>
+                            <input max="2019-11-19" type="date" class="form-control form-control-user" id="fechaDeNacimiento" >
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="numeroTelefonico" >Número Telefónico</label>
+                            <input type="number" pattern="[0-9]" class="form-control form-control-user" id="numeroTelefonico" placeholder="Número Telefónico">
+
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="numeroPersonal">Número De Casa</label>
+                            <div class="input-group mb-2">
+
+                                <input type="number"  pattern="[0-9]" class="form-control form-control-user" id="numeroPersonal" placeholder="Número Personal">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <label for="carreraDeEgreso">Carrera de Egreso</label>
+                            <select id="carreraDeEgreso" class="form-control form-control-file">
+                                <option>DATIC</option>
+                                <option>DAMI</option>
+                                <option>DACEA</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="universidadDeEgreso" >Universidad de Egreso</label>
+                            <input type="text"  class="form-control form-control-user" id="universidadDeEgreso" placeholder="Universidad de Egreso">
+
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="fechaDeIngreso">Fecha de Ingreso</label>
+                            <div class="input-group mb-2">
+
+                                <input type="date"   class="form-control form-control-user" id="fechaDeIngreso" placeholder="fechaDeIngreso">
+
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control form-control-user" id="correo" placeholder="Correo electrónico">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck" onchange="esEstudiante()">
+                            <label class="form-check-label" for="gridCheck">
+                               ¿Es Estudiante?
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="estudiante" class="form-group row">
+
+                    </div>
+
+                    <div id="becarioDiv" class="form-group row">
+                        <div class="col-sm-4" id="becarioDivDiv">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+
+                                <label for="direccion">Direccion</label>
+                                <input type="text"   class="form-control form-control-user" id="direccion" placeholder="Direccion">
+
+
+
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="horario">Horario</label>
+                            <select id="select" id="horario" class="form-control form-control-file">
+
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="contrasena">Contraseña</label>
+                            <div class="input-group mb-2">
+
+                                <input type="password"   class="form-control form-control-user" id="contrasena" placeholder="Contraseña">
+
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="password" class="form-control form-control-user" id="celular" placeholder="Celular">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col">Seleccionar</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tbody">
+
+
+                                </tbody>
+                            </table>
+
                         </div>
-                        <div class="col-sm-6">
-                            <input type="password" class="form-control form-control-user" id="matricula" placeholder="Matrícula">
-                        </div>
+
                     </div>
-                    <a href="login.html" class="btn btn-primary btn-user btn-block">
-                        Enviar
-                    </a>
+
+                    <button type="submit" class="btn btn-primary btn-user btn-block" >Enviar</button>
                 </form>
 
             </div>
@@ -245,5 +367,10 @@
 <script src="<%=context%>/js/sb-admin-2.min.js"></script>
 
 </body>
+<!--Nuestros recursos-->
+<script src="<%=context%>/js/persona/personaJS.js"></script>
+<script src="<%=context%>/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<%=context%>/vendor/datatables/dataTables.bootstrap4.css"></script>
+<script src="<%=context%>/js/demo/datatables-demo.js"></script>
 
 </html>

@@ -13,12 +13,12 @@ public class BeanEstudiante extends BeanPersona {
     public BeanEstudiante() {
     }
 
-    public BeanEstudiante(BeanHorario horario, int idPersona, String nombre, String primerApellido, String segundoApellido, String fechaDeNacimiento, String correoInstitucional, String contrasenia,String correoPersonal, String numeroTelefonico, String numeroCasa, String carreraDeEgreso, String universidadDeEgreso, String desempenio, String fechaDeIngreso, String fechaDeEgreso, int idEstudiante, String cuatrimestreIngreso,String codigo ,String grupoActual, String matricula) {
-        super(horario, idPersona, nombre, primerApellido, segundoApellido, fechaDeNacimiento, correoInstitucional, contrasenia,matricula,correoPersonal, numeroTelefonico, numeroCasa, carreraDeEgreso, universidadDeEgreso, desempenio, fechaDeIngreso, fechaDeEgreso,codigo);
+    public BeanEstudiante(BeanHorario horario, int idPersona, String nombre, String primerApellido, String segundoApellido, String fechaDeNacimiento, String correoInstitucional, String contrasenia, String matricula, String correoPersonal, String numeroTelefonico, String numeroCasa, String carreraDeEgreso, String universidadDeEgreso, String desempenio, String fechaDeIngreso, String fechaDeEgreso, boolean estado, String codigo, int idEstudiante, String cuatrimestreIngreso, String grupoActual, String matricula1) {
+        super(horario, idPersona, nombre, primerApellido, segundoApellido, fechaDeNacimiento, correoInstitucional, contrasenia, matricula, correoPersonal, numeroTelefonico, numeroCasa, carreraDeEgreso, universidadDeEgreso, desempenio, fechaDeIngreso, fechaDeEgreso, estado, codigo);
         this.idEstudiante = idEstudiante;
         this.cuatrimestreIngreso = cuatrimestreIngreso;
         this.grupoActual = grupoActual;
-        this.matricula = matricula;
+        this.matricula = matricula1;
     }
 
     public int getIdEstudiante() {
