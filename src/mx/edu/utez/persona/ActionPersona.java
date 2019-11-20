@@ -68,8 +68,10 @@ public class ActionPersona {
         this.mensaje = mensaje;
     }
 
+
+
     public String consultarPersonas(){
-        session = ActionContext.getContext().getSession();
+
         String correo = bean.getCorreoInstitucional();
         String contra = bean.getContrasenia();
 
@@ -83,7 +85,7 @@ public class ActionPersona {
                     System.out.println(rol.getTipo());
                 }
                 mensaje = "¡Bienvenido!";
-                session.put("usuario", bean);
+
                 System.out.println(bean.getNombre());
                 return "SUCCESS";
             } else {
@@ -98,5 +100,11 @@ public class ActionPersona {
             return "ERROR";
         }
 
+    }
+    public String estadia(){
+        return "SUCCESS";
+    }
+    public String rh(){
+        return "SUCCESS";
     }
 }
