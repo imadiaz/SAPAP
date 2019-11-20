@@ -38,6 +38,11 @@
       <change beforePath="$PROJECT_DIR$/web/vista/AP/MiPerfilAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/MiPerfilAP.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/vista/AP/ProyectosAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/ProyectosAP.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/vista/RAPE/InicioRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/InicioRAPE.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAPAP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SAPAP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/struts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +57,7 @@
         <option value="struts_2_5" />
         <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -86,12 +92,13 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\MemoAlfonso\Documents\GitHub\SAPAP\web\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\MemoAlfonso\Documents\GitHub\SAPAP\web\img" />
       <recent name="C:\Users\MemoAlfonso\Documents\GitHub\SAPAP\web" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\isaac\OneDrive\Escritorio\SAPAP\SAPAP\web\img" />
+      <recent name="C:\Users\MemoAlfonso\Documents\GitHub\SAPAP\web\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -124,7 +131,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 8.0.15" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.15" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="UPDATING_POLICY" value="restart-server" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <deployment>
         <artifact name="SAPAP">
           <settings>
@@ -227,6 +234,7 @@
       <workItem from="1574020360172" duration="17704000" />
       <workItem from="1574113694394" duration="18230000" />
       <workItem from="1574208839144" duration="847000" />
+      <workItem from="1573524312362" duration="7539000" />
     </task>
     <servers />
   </component>
@@ -241,6 +249,7 @@
             <State>
               <option name="COLUMN_ORDER" />
             </State>
+            <State />
           </value>
         </entry>
       </map>

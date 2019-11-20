@@ -9,7 +9,10 @@
         <action name="home">
             <result name="success">index.jsp</result>
         </action>
+
     </package>
 
-    <include file="justificantes.xml"></include>
+    <include file="cursos.xml"/>
+    <include file="justificantes.xml"/>
+    <include file="inicioSesion.xml"/>
 </struts>

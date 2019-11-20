@@ -7,16 +7,60 @@ public class BeanCurso {
     private String fecha;
     private String descripcion;
     private String tipoCurso;
+    private String evidencia;
+
+    private int idPersona;
+
+
 
     public BeanCurso() {
     }
 
-    public BeanCurso(int idCurso, String nombre, String fecha, String descripcion, String tipoCurso) {
+    public BeanCurso(int idCurso, String nombre, String fecha, String descripcion, String tipoCurso, String evidencia, int idPersona) {
         this.idCurso = idCurso;
         this.nombre = nombre;
         this.fecha = fecha;
         this.descripcion = descripcion;
         this.tipoCurso = tipoCurso;
+        this.evidencia = evidencia;
+        this.idPersona = idPersona;
+    }
+
+    public BeanCurso(String nombre, String fecha, String descripcion, String tipoCurso, String evidencia, int idPersona) {
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.descripcion = descripcion;
+        this.tipoCurso = tipoCurso;
+        this.evidencia = evidencia;
+        this.idPersona = idPersona;
+    }
+
+
+    public BeanCurso(int idCurso, String nombre, String fecha, String descripcion, String tipoCurso, String evidencia) {
+        this.idCurso = idCurso;
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.descripcion = descripcion;
+        this.tipoCurso = tipoCurso;
+        this.evidencia=evidencia;
+    }
+
+    public int getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(int idPersona) {
+        this.idPersona = idPersona;
+    }
+
+
+
+    public String getEvidencia() {
+        return evidencia;
+    }
+
+    public void setEvidencia(String evidencia) {
+        this.evidencia = evidencia;
     }
 
     public int getIdCurso() {
@@ -57,5 +101,18 @@ public class BeanCurso {
 
     public void setTipoCurso(String tipoCurso) {
         this.tipoCurso = tipoCurso;
+    }
+
+    @Override
+    public String toString() {
+        return "BeanCurso{" +
+                "idCurso=" + idCurso +
+                ", nombre='" + nombre + '\'' +
+                ", fecha='" + fecha + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", tipoCurso='" + tipoCurso + '\'' +
+                ", evidencia='" + evidencia + '\'' +
+                ", idPersona=" + idPersona +
+                '}';
     }
 }
