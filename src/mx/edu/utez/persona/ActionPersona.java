@@ -81,6 +81,7 @@ public class ActionPersona {
 
             if (correo.equals(bean.getCorreoInstitucional()) && contra.equals(bean.getContrasenia())) {
                 listaRoles =daoPersonaRol.consultarRoles(bean);
+
                 String rolUsuario="sin un  rol";
                 session.put("usuario", bean);
                 if(listaRoles.size()==1){
@@ -126,6 +127,15 @@ public class ActionPersona {
                     System.out.println(bean.getNombre());
                     return "SUCCESS";
                 }
+
+                for (BeanRol rol: listaRoles) {
+                    System.out.println(rol.getTipo());
+                }
+                mensaje = "¡Bienvenido!";
+
+                System.out.println(bean.getNombre());
+                return "SUCCESS";
+
             } else {
                 mensaje = "Usuario y/o contraseña incorrecta";
                 System.out.println(mensaje);
@@ -140,6 +150,8 @@ public class ActionPersona {
 
     }
     public String estadia(){
+
+
         //session = ActionContext.getContext().getSession();
 
         return "SUCCESS";
@@ -174,6 +186,11 @@ public class ActionPersona {
         session = ActionContext.getContext().getSession();
         session.clear();
         return SUCCESS;
+    }
+
+
+    public String rh(){
+        return "SUCCESS";
     }
 
 }

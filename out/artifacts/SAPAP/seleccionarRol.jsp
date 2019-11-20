@@ -33,8 +33,10 @@
 
     <div class="row justify-content-center">
         <h1 style="color:white;">Selecione un Rol</h1>
+
         <br/>
         <h1><s:property value="#session.usuario"/></h1>
+
 
         <div class="col-md-12">
             <div class="row">
@@ -55,6 +57,7 @@
                                     <button class="btn btn-lg btn-primary">Ir</button>
                                 </form>
                             </s:elseif>
+
                             <s:elseif test="#lista.tipo=='Responsable de Desarrollo'">
                                 <form action="rd">
                                     <button class="btn btn-lg btn-primary">Ir</button>
@@ -75,6 +78,7 @@
                                     <button class="btn btn-lg btn-primary">Ir</button>
                                 </form>
                             </s:elseif>
+
 
                         </div>
                     </div>

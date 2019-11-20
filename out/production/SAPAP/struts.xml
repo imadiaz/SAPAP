@@ -9,6 +9,7 @@
         <action name="home">
             <result name="success">index.jsp</result>
         </action>
+
     </package>
 
     <include file="cursos.xml"/>
