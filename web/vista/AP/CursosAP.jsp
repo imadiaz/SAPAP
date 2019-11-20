@@ -53,7 +53,6 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Justificantes:</h6>
                     <a class="collapse-item" href="InicioAP.jsp">Justificantes pendientes</a>
-                    <a class="collapse-item" href="AgregarJustificante.jsp">Agregar Justificante</a>
                     <a class="collapse-item" href="HistorialJustificantesAP.jsp">Historial</a>
                 </div>
             </div>

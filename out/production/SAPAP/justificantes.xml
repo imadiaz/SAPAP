@@ -12,5 +12,42 @@
             <result type="json"/>
         </action>
 
+        <action name="consultarJustificantesPendientesRAPE" class="mx.edu.utez.justificante.ActionJustificante" method="consultarJustificantesPendientesRAPE">
+            <result type="json"/>
+        </action>
+
+        <action name="consultarSelectAgregar" class="mx.edu.utez.justificante.ActionJustificante" method="consultarSelectAgregar">
+            <result type="json"/>
+        </action>
+
+        <action name="agregarJustificante" class="mx.edu.utez.justificante.ActionJustificante" method="agregarJustificante">
+            <result type="json"/>
+        </action>
+
+        <action name="consultarJustificantePendienteEspecifico" class="mx.edu.utez.justificante.ActionJustificante" method="consultarJustificantePendienteEspecifico">
+            <result name="success">/vista/AP/ModificarJustificante.jsp</result>
+            <result type="json"/>
+        </action>
+
+        <action name="modificarJustificante" class="mx.edu.utez.justificante.ActionJustificante" method="modificarJustificante">
+            <result type="json"/>
+        </action>
+
+        <action name="actualizarArchivo" class="mx.edu.utez.justificante.ActionJustificante" method="actualizarArchivo">
+            <result type="json"/>
+        </action>
+
+        <action name="eliminarJustificante" class="mx.edu.utez.justificante.ActionJustificante" method="eliminarJustificante">
+            <result type="json"/>
+        </action>
+
+        <action name="validarContrasena" class="mx.edu.utez.justificante.ActionJustificante" method="validarContrasena">
+            <result type="json"/>
+        </action>
+
+        <action name="accionJustificante" class="mx.edu.utez.justificante.ActionJustificante" method="accionJustificante">
+            <result type="json"/>
+        </action>
+
     </package>
 </struts>

@@ -21,6 +21,14 @@
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-storage.js"></script>
+
 </head>
 
 <body id="page-top" onload="consultarJustificantesPendientes()">
@@ -55,7 +63,6 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Justificantes:</h6>
                     <a class="collapse-item" href="InicioAP.jsp">Justificantes pendientes</a>
-                    <a class="collapse-item" href="AgregarJustificante.jsp">Agregar Justificante</a>
                     <a class="collapse-item" href="HistorialJustificantesAP.jsp">Historial</a>
                 </div>
             </div>
@@ -175,9 +182,17 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Justificantes pendientes</h1>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h1 class="h3 mb-4 text-gray-800">Justificantes pendientes</h1>
+                    </div>
 
-
+                    <div class="col-md-8">
+                        <a href="AgregarJustificante.jsp"
+                           class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                            <i class="fas fa-plus-circle fa-sm text-white-50"></i>Añadir justificante</a>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-sm-12">
                         <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
@@ -196,11 +211,13 @@
                                     aria-label="Office: activate to sort column ascending" style="width: 116px;">
                                     Justifica
                                 </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Age: activate to sort column ascending" style="width: 51px;">Proyecto
+                                <th class="sorting">Proyecto
                                 </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Motivo
+                                <th class="sorting">Motivo
+                                </th>
+                                <th class="sorting">Imagen
+                                </th>
+                                <th class="sorting">Acciones
                                 </th>
                             </tr>
                             </thead>
@@ -211,16 +228,12 @@
                                 <th rowspan="1" colspan="1">Justifica</th>
                                 <th rowspan="1" colspan="1">Proyecto</th>
                                 <th rowspan="1" colspan="1">Motivo</th>
+                                <th rowspan="1" colspan="1">Imagen</th>
+                                <th rowspan="1" colspan="1">Acciones</th>
                             </tr>
                             </tfoot>
-                            <tbody>
-                            <tr role="row" class="odd">
-                                <td class="sorting_1">Airi Satou</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>33</td>
-                                <td>2008/11/28</td>
-                            </tr>
+                            <tbody id="tableBody">
+
                             </tbody>
                         </table>
                     </div>
@@ -254,6 +267,65 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
+<!-- Modal Eliminar Justificante-->
+<div class="modal fade" id="modalEliminarJustificante" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminación Justificante</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Todo el Textiño -->
+                <div class="row" class="form-group">
+                    <div class="col-md-9 offset-1">
+                        <p>¿Estás seguro de eliminar este justificante?</p>
+                        <%--<s:textfield id="inputEdi" class="form-control" type="text"></s:textfield>--%>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button id="botonEli" class="btn btn-danger" onclick="eliminarJustificantePendiente()" data-dismiss="modal">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Actualizar Archivo-->
+<div class="modal fade" id="modalActualizarArchivo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Actualizar Archivo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Todo el Textiño -->
+                <div class="row" class="form-group">
+                    <div class="col-md-9 offset-1">
+                        <p>Selecciona el archivo</p>
+                        <input class="form-control" disabled id="nombreArchivo"/> <br>
+                        <input class="form-control" type="hidden" id="identificadorJustificante"/> <br>
+                        <input class="form-control" type="file" id="evidenciaNuevoArchivo" placeholder="Archivo"/>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button id="botonGuardar" class="btn btn-info" onclick="guardarNuevoArchivo()" data-dismiss="modal">Guardar archivo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- Bootstrap core JavaScript-->
 <script src="<%=context%>/vendor/jquery/jquery.min.js"></script>
 <script src="<%=context%>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -266,6 +338,21 @@
 
 <!--Nuestros recursos-->
 <script src="<%=context%>/js/justificantes/justificantesJS.js"></script>
+
+<script>
+    $(document).on("click", "#btnEli", function () {
+        var id = $(this).data("justificante");
+        $("#botonEli").val(id);
+    });
+    $(document).on("click", "#btnModi", function () {
+        var nombre = $(this).data("nombrearchivo");
+        var id = $(this).data("idjustificante");
+        $("#nombreArchivo").val(nombre);
+        $("#identificadorJustificante").val(id);
+    });
+
+    abrirModal();
+</script>
 
 </body>
 
