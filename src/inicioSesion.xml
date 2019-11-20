@@ -9,7 +9,9 @@
 
 
         <action name="consultarPersonas" class="mx.edu.utez.persona.ActionPersona" method="consultarPersonas">
-            <result name="SUCCESS">seleccionarRol.jsp</result>
+            <result name="SUCCESS">
+                seleccionarRol.jsp
+            </result>
             <result name="Estadia">vista/AP/InicioAP.jsp</result>
             <result name="Humanos">vista/RH/InicioRH.jsp</result>
             <result name="Desarrollo">vista/RD/InicioRD.jsp</result>
@@ -46,11 +48,17 @@
 
 
         <action name="cerrarSesion" class="mx.edu.utez.persona.ActionPersona" method="cerrarSesion">
-            <result name="SUCCESS">index.jsp</result>
-
+            <result name="SUCCESS">/index.jsp</result>
+        </action>
         <action name="rh" class="mx.edu.utez.persona.ActionPersona" method="rh">
             <result name="SUCCESS">vista/RH/InicioRH.jsp</result>
 
+        </action>
+
+    </package>
+    <package name="privados" extends="struts-default">
+        <action name="rol">
+            <result>/seleccionarRol.jsp</result>
         </action>
     </package>
 </struts>

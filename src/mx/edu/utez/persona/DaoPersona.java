@@ -359,30 +359,5 @@ return true;
         }
     }
 
-    public void codigo(String correo, String codigo) {
-        boolean res = false;
-        try {
-            conexion = MySQLConexion.getConnection();
-            pstm = conexion.prepareStatement(SQL_GENERAR_CODIGO);
-            pstm.setString(1, correo);
-            pstm.setString(2, codigo);
-            rs = pstm.executeQuery();
-            res=true;
-            rs.close();
-            pstm.close();
-            conexion.close();
-        } catch (Exception e) {
-            System.out.println("Error en el metodo consultar personas: " + e.getMessage());
-            System.out.println(e.getCause());
-        } finally {
-            try {
-                rs.close();
-                pstm.close();
-                conexion.close();
-            } catch (Exception e) {
-
-            }
-        }
-    }
 
 }

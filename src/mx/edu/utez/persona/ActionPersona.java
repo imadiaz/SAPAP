@@ -109,9 +109,7 @@ public class ActionPersona {
                 String rolUsuario="sin un  rol";
                 session.put("usuario", bean);
                 session.put("roles", listaRoles);
-                System.out.println(listaRoles);
-                System.out.println("sdfjkshfkjksj");
-                System.out.println(session.get("usuario"));
+
                 if(listaRoles.size()==1){
                     for (BeanRol rol :listaRoles) {
                         rolUsuario=rol.getTipo();
@@ -166,13 +164,16 @@ public class ActionPersona {
             System.out.println(bean);
             return "ERROR";
         }
-
+return "ERROR";
     }
 
 
-    public String consultaPersonas2(){
 
+    public String consultaPersonas2(){
         respuestas.put("personas",dao.getLista());
+        System.out.println(listaRoles);
+        System.out.println("sdfjkshfkjksj");
+        System.out.println(session.get("usuario"));
         return SUCCESS;
     }
 

@@ -5,6 +5,7 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
+
     <package name="defaultPackage" extends="struts-default">
         <action name="home">
             <result name="success">index.jsp</result>
