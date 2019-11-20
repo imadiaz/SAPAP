@@ -250,9 +250,9 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         BeanPersona beanPersona = null;
         BeanProyecto beanProyecto = null;
         try {
-            mySQLRepositorio("select j.idJustificante, j.motivoJustifica, p.id, j.nombreRape, j.proyectoJustificante from Persona as p inner join Justificante as j on p.id = j.rape_id\n" +
-                    "inner join Persona_Proyecto as pp on pp.Persona_id = p.id\n" +
-                    "inner join Proyecto as pr on pr.idProyecto = pp.proyecto_id where j.idJustificante = ?;");
+            mySQLRepositorio("select j.idJustificante, j.motivoJustifica, p.id, j.nombreRape, j.proyectoJustificante from Persona as p \n" +
+                    "inner join Justificante as j on p.id = j.rape_id\n" +
+                    "where j.idJustificante = ?;");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
@@ -318,7 +318,7 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
             preparedStatement.setInt(1,id);
             resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
-             contra = resultSet.getString("contrasenia");
+                contra = resultSet.getString("contrasenia");
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -393,5 +393,4 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         cerrarConexiones();
         return lista;
     }
-
 }

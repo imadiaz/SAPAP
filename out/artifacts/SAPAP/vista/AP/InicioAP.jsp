@@ -235,11 +235,7 @@
                                             </thead>
                                             <tfoot>
                                                 <tr>
-
                                                     <th rowspan="1" colspan="1">Fecha de elaboración <s:property value="#session.usuario.idPersona" /></th>
-
-                                                    <th rowspan="1" colspan="1">Fecha de elaboración <s:property value="#session.usuario.nombre" /></th>
-
                                                     <th rowspan="1" colspan="1">Recurso</th>
                                                     <th rowspan="1" colspan="1">Justifica</th>
                                                     <th rowspan="1" colspan="1">Proyecto</th>

@@ -39,14 +39,9 @@
                         <h1><s:property value="#session.usuario" /></h1>
 
 
-                        <br/>
-                        <h1><s:property value="#session.usuario" /></h1>
-
-
                         <div class="col-md-12">
                             <div class="row">
                                 <s:iterator value="listaRoles" status="stat" var="lista">
-
                                     <div class="col-md-4">
                                         <div class="card">
                                             <div class="card-body">
@@ -88,51 +83,6 @@
                                         </div>
                                         <br>
                                     </div>
-
-                                    <div class="col-md-4">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <p><s:property value="tipo" /></p>
-                                            </div>
-                                            <div class="card-footer">
-                                                <s:if test="#lista.tipo=='Estadia'">
-                                                    <form action="estadia">
-                                                        <button class="btn btn-lg btn-primary">Ir</button>
-                                                    </form>
-                                                </s:if>
-                                                <s:elseif test="#lista.tipo=='Administradora de Recursos Humanos'">
-                                                    <form action="rh">
-                                                        <button class="btn btn-lg btn-primary">Ir</button>
-                                                    </form>
-                                                </s:elseif>
-
-                                                <s:elseif test="#lista.tipo=='Responsable de Desarrollo'">
-                                                    <form action="rd">
-                                                        <button class="btn btn-lg btn-primary">Ir</button>
-                                                    </form>
-                                                </s:elseif>
-                                                <s:elseif test="#lista.tipo=='RAPE'">
-                                                    <form action="rape">
-                                                        <button class="btn btn-lg btn-primary">Ir</button>
-                                                    </form>
-                                                </s:elseif>
-                                                <s:elseif test="#lista.tipo=='Coordinador del CDS'">
-                                                    <form action="coo">
-                                                        <button class="btn btn-lg btn-primary">Ir</button>
-                                                    </form>
-                                                </s:elseif>
-                                                <s:elseif test="#lista.tipo=='Analista Programador'">
-                                                    <form action="ap">
-                                                        <button class="btn btn-lg btn-primary">Ir</button>
-                                                    </form>
-                                                </s:elseif>
-
-
-                                            </div>
-                                        </div>
-                                        <br>
-                                    </div>
-
 
                                 </s:iterator>
                                 <br>

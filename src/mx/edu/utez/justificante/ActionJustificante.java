@@ -21,6 +21,7 @@ public class ActionJustificante extends ActionSupport {
 
     public String consultarJustificantesPendientes(){
         daoJustificante = new DaoJustificante();
+        System.out.println("entre");
         respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientes(1));
         return SUCCESS;
     }
@@ -42,9 +43,11 @@ public class ActionJustificante extends ActionSupport {
     public String consultarJustificantePendienteEspecifico(){
         daoJustificante = new DaoJustificante();
         int id = Integer.parseInt(parametro);
+        System.out.println(id + "<----id");
         beanJustificante = daoJustificante.consultarDatosJustificante(id);
 
         respuestas.put("listaJustificante", beanJustificante);
+        System.out.println(beanJustificante.getJustifica().getIdPersona() + "<-------");
         respuestas.put("listaRape", daoJustificante.consultarRapeJustificanteModificar(beanJustificante.getJustifica().getIdPersona()));
         respuestas.put("listaProyecto", daoJustificante.consultarProyectoJustificanteModificar(1, beanJustificante.getProyecto().getNombre()));
         return SUCCESS;
