@@ -34,6 +34,10 @@
     <div class="row justify-content-center">
         <h1 style="color:white;">Selecione un Rol</h1>
 
+        <br/>
+        <h1><s:property value="#session.usuario"/></h1>
+
+
         <div class="col-md-12">
             <div class="row">
                 <s:iterator value="listaRoles" status="stat" var="lista">
@@ -50,6 +54,27 @@
                             </s:if>
                             <s:elseif test="#lista.tipo=='Administradora de Recursos Humanos'">
                                 <form action="rh">
+                                    <button class="btn btn-lg btn-primary">Ir</button>
+                                </form>
+                            </s:elseif>
+
+                            <s:elseif test="#lista.tipo=='Responsable de Desarrollo'">
+                                <form action="rd">
+                                    <button class="btn btn-lg btn-primary">Ir</button>
+                                </form>
+                            </s:elseif>
+                            <s:elseif test="#lista.tipo=='RAPE'">
+                                <form action="rape">
+                                    <button class="btn btn-lg btn-primary">Ir</button>
+                                </form>
+                            </s:elseif>
+                            <s:elseif test="#lista.tipo=='Coordinador del CDS'">
+                                <form action="coo">
+                                    <button class="btn btn-lg btn-primary">Ir</button>
+                                </form>
+                            </s:elseif>
+                            <s:elseif test="#lista.tipo=='Analista Programador'">
+                                <form action="ap">
                                     <button class="btn btn-lg btn-primary">Ir</button>
                                 </form>
                             </s:elseif>

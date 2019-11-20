@@ -10,6 +10,13 @@
 
         <action name="consultarPersonas" class="mx.edu.utez.persona.ActionPersona" method="consultarPersonas">
             <result name="SUCCESS">seleccionarRol.jsp</result>
+            <result name="Estadia">vista/AP/InicioAP.jsp</result>
+            <result name="Humanos">vista/RH/InicioRH.jsp</result>
+            <result name="Desarrollo">vista/RD/InicioRD.jsp</result>
+            <result name="RAPE">vista/RAPE/InicioRAPE.jsp</result>
+            <result name="COD">vista/Coordinador/InicioCOD.jsp</result>
+            <result name="Analista">vista/AP/InicioAP.jsp</result>
+
             <result name="ERROR">index.jsp</result>
         </action>
         <action name="estadia" class="mx.edu.utez.persona.ActionPersona" method="estadia">
@@ -18,7 +25,26 @@
         </action>
         <action name="rh" class="mx.edu.utez.persona.ActionPersona" method="rh">
             <result name="SUCCESS">vista/RH/InicioRH.jsp</result>
+        </action>
+        <action name="rd" class="mx.edu.utez.persona.ActionPersona" method="rd">
+            <result name="SUCCESS">vista/RD/InicioRD.jsp</result>
+        </action>
+        <action name="rape" class="mx.edu.utez.persona.ActionPersona" method="rape">
+            <result name="SUCCESS">vista/RAPE/InicioRAPE.jsp</result>
+        </action>
+        <action name="coo" class="mx.edu.utez.persona.ActionPersona" method="coo">
+            <result name="SUCCESS">vista/Coordinador/InicioCOD.jsp</result>
+        </action>
+        <action name="ap" class="mx.edu.utez.persona.ActionPersona" method="ap">
+            <result name="SUCCESS">vista/AP/InicioAP.jsp</result>
+        </action>
 
+        <action name="recuperarContrasenia" class="mx.edu.utez.servicios.RecuperarConstraseña" method="execute">
+            <result name="SUCCESS">index.jsp</result>
+            <result name="ERROR">recuperarContrasenia.jsp</result>
+        </action>
+        <action name="rh" class="mx.edu.utez.persona.ActionPersona" method="rh">
+            <result name="SUCCESS">vista/RH/InicioRH.jsp</result>
         </action>
     </package>
 </struts>
