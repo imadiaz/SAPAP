@@ -4,7 +4,7 @@ var lista = [];
 function consultaPersonas() {
     $.ajax({
             type: 'POST',
-            url: raiz + 'consultarPersonas',
+            url: raiz + 'consultarPersonas2',
             success: function (respuesta) {
                 var personas=respuesta.respuestas.personas;
                 var table = $('#dataTable').DataTable();

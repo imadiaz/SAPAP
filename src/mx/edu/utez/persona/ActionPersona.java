@@ -164,7 +164,7 @@ public class ActionPersona {
             System.out.println(bean);
             return "ERROR";
         }
-return "ERROR";
+//return "ERROR";
     }
 
 
@@ -257,5 +257,9 @@ return "ERROR";
         System.out.println(session.get("usuario"));
         return "SUCCESS";
     }
+    public String consultaPersonasT(){
 
+        respuestas.put("personas",dao.getLista());
+        return SUCCESS;
+    }
 }

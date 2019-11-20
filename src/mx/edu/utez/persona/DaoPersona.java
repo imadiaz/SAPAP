@@ -133,7 +133,7 @@ return true;
             pstm = conexion.prepareStatement("insert into Persona (nombre,primerApellido,segundoApellido,estado,fechaNacimiento,correoInstitucional,correoPersona,numeroTelefonico,numeroCasa,matricula,carreraDeEgreso," +
                     "universidadDeEgreso,horarios_id,fechaDeIngreso,contrasenia,direccion) values(?,?,?,1,?,?,?,?,?,?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 
-                  pstm.setString(1,"asdsa");
+                  pstm.setString(1,object.get("nombre").getAsString());
                 pstm.setString(2,object.get("primerApellido").getAsString());
                 pstm.setString(3,object.get("segundoApellido").getAsString());
                 pstm.setString(4,object.get("fechaNac").getAsString());

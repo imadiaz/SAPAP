@@ -39,4 +39,6 @@
     <include file="cursos.xml"/>
     <include file="justificantes.xml"/>
     <include file="inicioSesion.xml"/>
+    <include file="PersonaStruts.xml"/>
+    <include file="proyectosStruts.xml"/>
 </struts>

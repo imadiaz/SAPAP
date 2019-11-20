@@ -22,14 +22,14 @@ public class BeanPersona {
     private String fechaDeIngreso;
     private String fechaDeEgreso;
     private boolean estado;
-
+    private String direccion;
     private String codigo;
 
     public BeanPersona() {
 
     }
 
-    public BeanPersona(BeanHorario horario, int idPersona, String nombre, String primerApellido, String segundoApellido, String fechaDeNacimiento, String correoInstitucional, String contrasenia, String matricula, String correoPersonal, String numeroTelefonico, String numeroCasa, String carreraDeEgreso, String universidadDeEgreso, String desempenio, String fechaDeIngreso, String fechaDeEgreso, boolean estado, String codigo) {
+    public BeanPersona(BeanHorario horario, int idPersona, String nombre, String primerApellido, String segundoApellido, String fechaDeNacimiento, String correoInstitucional, String contrasenia, String matricula, String correoPersonal, String numeroTelefonico, String numeroCasa, String carreraDeEgreso, String universidadDeEgreso, String desempenio, String fechaDeIngreso, String fechaDeEgreso, boolean estado, String direccion, String codigo) {
         this.horario = horario;
         this.idPersona = idPersona;
         this.nombre = nombre;
@@ -48,7 +48,16 @@ public class BeanPersona {
         this.fechaDeIngreso = fechaDeIngreso;
         this.fechaDeEgreso = fechaDeEgreso;
         this.estado = estado;
+        this.direccion = direccion;
         this.codigo = codigo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public BeanHorario getHorario() {

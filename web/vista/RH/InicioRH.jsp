@@ -36,7 +36,7 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
 
-    <!-- Sidebar -->
+    <<!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
@@ -97,6 +97,9 @@
                 <span>Proyectos</span></a>
         </li>
 
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
         <!-- Heading -->
         <div class="sidebar-heading">
             Cursos
@@ -111,6 +114,7 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
+
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
