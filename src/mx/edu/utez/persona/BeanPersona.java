@@ -21,11 +21,20 @@ public class BeanPersona {
     private String desempenio;
     private String fechaDeIngreso;
     private String fechaDeEgreso;
+    private boolean estado;
 
     public BeanPersona() {
     }
 
-    public BeanPersona(BeanHorario horario, int idPersona, String nombre, String primerApellido, String segundoApellido, String fechaDeNacimiento, String correoInstitucional,String contrasenia,String matricula ,String correoPersonal, String numeroTelefonico, String numeroCasa, String carreraDeEgreso, String universidadDeEgreso, String desempenio, String fechaDeIngreso, String fechaDeEgreso) {
+    public boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public BeanPersona(BeanHorario horario, int idPersona, String nombre, String primerApellido, String segundoApellido, String fechaDeNacimiento, String correoInstitucional, String contrasenia, String matricula , String correoPersonal, String numeroTelefonico, String numeroCasa, String carreraDeEgreso, String universidadDeEgreso, String desempenio, String fechaDeIngreso, String fechaDeEgreso) {
         this.horario = horario;
         this.idPersona = idPersona;
         this.nombre = nombre;

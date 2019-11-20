@@ -36,8 +36,10 @@
 
         <div class="col-md-12">
             <div class="row">
-                <s:iterator value="listaRoles" status="stat" var="lista">
+
+                <s:iterator value="listaRoles">
                     <div class="col-md-4">
+                        <p><s:property value="mensaje"></s:property></p>
                         <p><s:property value="tipo"></s:property></p>
                     </div>
                 <br>
