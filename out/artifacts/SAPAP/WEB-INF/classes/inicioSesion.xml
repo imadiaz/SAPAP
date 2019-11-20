@@ -7,6 +7,7 @@
 <struts>
     <package name="defaultPackage" extends="struts-default">
 
+        
 
         <action name="consultarPersonas" class="mx.edu.utez.persona.ActionPersona" method="consultarPersonas">
             <result name="SUCCESS">seleccionarRol.jsp</result>
