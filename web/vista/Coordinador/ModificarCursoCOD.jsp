@@ -5,7 +5,9 @@
     <%
         String context = request.getContextPath();
     %>
+
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <%@ taglib prefix="s" uri="/struts-tags" %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -32,11 +34,11 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="InicioRAPE.jsp">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="InicioCOD.jsp">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laptop-code"></i>
+                <i class="fas fa-building"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">RAPE</div>
+            <div class="sidebar-brand-text mx-3">Coordinador CDS</div>
         </a>
 
         <!-- Heading -->
@@ -53,8 +55,8 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Justificantes:</h6>
-                    <a class="collapse-item" href="InicioRAPE.jsp">Gestionar justificantes</a>
-                    <a class="collapse-item" href="HistorialJustificantesRAPE.jsp">Historial</a>
+                    <a class="collapse-item" href="InicioCOD.jsp">Gestionar justificantes</a>
+                    <a class="collapse-item" href="HistorialJustificantesCOD.jsp">Historial</a>
                 </div>
             </div>
         </li>
@@ -64,27 +66,12 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Proyectos
-        </div>
-
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="ProyectosRAPE.jsp">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>Proyectos</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
             Cursos
         </div>
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="CursosRAPE.jsp">
+            <a class="nav-link" href="CursosCOD.jsp">
                 <i class="fas fa-fw fa-tablet-alt"></i>
                 <span>Cursos</span></a>
         </li>
@@ -147,7 +134,7 @@
 
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="MiPerfilRAPE.jsp">
+                            <a class="dropdown-item" href="MiPerfilCOD.jsp">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
                             </a>
@@ -169,39 +156,58 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <h1 class="h3 mb-4 text-gray-800">Agregar Curso</h1>
+                        <h1 class="h3 mb-4 text-gray-800">Modificar Curso</h1>
                     </div>
                 </div>
 
 
-                <form class="user"  id="formCurso">
+                <form class="user"  id="formCursoModificar">
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="text"  required class="form-control form-control-user" id="nombre" placeholder="Nombre">
+                            <input type="text" value="<s:property value="response.bean.nombre"/>" required class="form-control form-control-user" id="nombre" placeholder="Nombre">
                         </div>
                         <div class="col-sm-6">
-                            <input type="date"  required class="form-control form-control-user" id="fecha" placeholder="Fecha">
+                            <input type="date" value="<s:property value="response.bean.fecha"/>"  required class="form-control form-control-user" id="fecha" placeholder="Fecha">
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" required class="form-control form-control-user" id="descripcion" placeholder="Descripcion">
+                        <input type="text" value="<s:property value="response.bean.descripcion"/>" required class="form-control form-control-user" id="descripcion" placeholder="Descripcion">
                     </div>
                     <div class="form-group row">
                         <div class="col-md-3">
-                            <select id="tipo" required class="form-control ">
+                            <select id="tipo" value="Taller" required class="form-control ">
                                 <option selected disabled>Seleccione una opcion</option>
-                                <option value="1">Curso</option>
-                                <option value="2">Taller</option>
-                                <option value="3">Certificacion</option>
-                                <option value="4">Capacitacion</option>
+                                <s:if test="%{response.bean.tipoCurso == 1}">
+                                    <option value="1" selected>Curso</option>
+                                    <option value="2">Taller</option>
+                                    <option value="3">Certificacion</option>
+                                    <option value="4">Capacitacion</option>
+                                </s:if>
+                                <s:elseif test="%{response.bean.tipoCurso == 2}">
+                                    <option value="1" >Curso</option>
+                                    <option value="2" selected>Taller</option>
+                                    <option value="3">Certificacion</option>
+                                    <option value="4">Capacitacion</option>
+                                </s:elseif>
+                                <s:elseif test="%{response.bean.tipoCurso == 3}">
+                                    <option value="1" >Curso</option>
+                                    <option value="2">Taller</option>
+                                    <option value="3" selected>Certificacion</option>
+                                    <option value="4">Capacitacion</option>
+                                </s:elseif>
+                                <s:elseif test="%{response.bean.tipoCurso == 4}">
+                                    <option value="1">Curso</option>
+                                    <option value="2">Taller</option>
+                                    <option value="3">Certificacion</option>
+                                    <option value="4" selected>Capacitacion</option>
+                                </s:elseif>
+
                             </select>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="file" class="form-control" id="evidencia" placeholder="Evidencia">
 
                         </div>
+                        <input type="hidden" id="idCurso" value="<s:property value="response.bean.idCurso"/>"/>
                     </div>
-                    <button type="button" class="btn btn-primary btn-user btn-block" onclick="guardarCurso();">
+                    <button type="button" class="btn btn-primary btn-user btn-block" onclick="modificarCurso();">
                         Guardar
                     </button>
                 </form>
@@ -248,18 +254,7 @@
 <!-- Custom scripts for all pages-->
 <script src="<%=context%>/js/sb-admin-2.min.js"></script>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-storage.js"></script>
 <script src="<%=context%>/js/cursos/cursosJS.js"></script>
-<script>
-    ejecutarEvento();
-</script>
 
 </body>
 

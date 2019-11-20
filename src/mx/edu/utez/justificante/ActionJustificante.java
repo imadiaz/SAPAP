@@ -25,9 +25,27 @@ public class ActionJustificante extends ActionSupport {
         return SUCCESS;
     }
 
+    public String consultarHistorialJustificantes(){
+        daoJustificante = new DaoJustificante();
+        respuestas.put("listaJPendientes", daoJustificante.historialJustificantes(1));
+        return SUCCESS;
+    }
+
     public String consultarJustificantesPendientesRAPE(){
         daoJustificante = new DaoJustificante();
         respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientesRAPE(3));
+        return SUCCESS;
+    }
+
+    public String consultarJustificantesPendientesCOD(){
+        daoJustificante = new DaoJustificante();
+        respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientesCOD(3));
+        return SUCCESS;
+    }
+
+    public String consultarJustificantesPendientesRH(){
+        daoJustificante = new DaoJustificante();
+        respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientesRH(3));
         return SUCCESS;
     }
 
@@ -188,6 +206,42 @@ public class ActionJustificante extends ActionSupport {
         beanJustificante.setMotivoRechazo(object.getString("motivo"));
 
         if (daoJustificante.aprobarJustificante(beanJustificante)){
+            respuestas.put("mensaje", "¡Justificante gestionado exitosamente!");
+        } else {
+            respuestas.put("mensaje", "El justificante no se pudo gestionar");
+        }
+
+        return SUCCESS;
+    }
+
+    public String accionJustificanteCOD() throws JSONException {
+        daoJustificante = new DaoJustificante();
+        JSONObject object = new JSONObject(parametro);
+        beanJustificante = new BeanJustificante();
+
+        beanJustificante.setIdJustificante(object.getInt("idJus"));
+        beanJustificante.setEstadoRAPE(object.getInt("aprobar"));
+        beanJustificante.setMotivoRechazo(object.getString("motivo"));
+
+        if (daoJustificante.aprobarJustificanteCOD(beanJustificante)){
+            respuestas.put("mensaje", "¡Justificante gestionado exitosamente!");
+        } else {
+            respuestas.put("mensaje", "El justificante no se pudo gestionar");
+        }
+
+        return SUCCESS;
+    }
+
+    public String accionJustificanteRH() throws JSONException {
+        daoJustificante = new DaoJustificante();
+        JSONObject object = new JSONObject(parametro);
+        beanJustificante = new BeanJustificante();
+
+        beanJustificante.setIdJustificante(object.getInt("idJus"));
+        beanJustificante.setEstadoRAPE(object.getInt("aprobar"));
+        beanJustificante.setMotivoRechazo(object.getString("motivo"));
+
+        if (daoJustificante.aprobarJustificanteRH(beanJustificante)){
             respuestas.put("mensaje", "¡Justificante gestionado exitosamente!");
         } else {
             respuestas.put("mensaje", "El justificante no se pudo gestionar");

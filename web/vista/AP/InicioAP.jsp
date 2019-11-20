@@ -248,6 +248,86 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                                 </i>Nombre</span>
                         </a>
 
+                                        </a>
+
+                                        <!-- Dropdown - User Information -->
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                            <a class="dropdown-item" href="MiPerfilAP.jsp">
+                                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="<%=context%>/index.jsp" >
+                                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                Salir
+                                            </a>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+                            </nav>
+                            <!-- End of Topbar -->
+
+                            <!-- Begin Page Content -->
+                            <div class="container-fluid">
+
+                                <!-- Page Heading -->
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h1 class="h3 mb-4 text-gray-800">Justificantes pendientes</h1>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <a href="AgregarJustificante.jsp" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                            <i class="fas fa-plus-circle fa-sm text-white-50"></i>Añadir justificante</a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 161px;">Fecha de elaboración
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 246px;">
+                                                        Recurso
+                                                    </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 116px;">
+                                                        Justifica
+                                                    </th>
+                                                    <th class="sorting">Proyecto
+                                                    </th>
+                                                    <th class="sorting">Motivo
+                                                    </th>
+                                                    <th class="sorting">Imagen
+                                                    </th>
+                                                    <th class="sorting">Acciones
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th rowspan="1" colspan="1">Fecha de elaboración <s:property value="#session.usuario.idPersona" /></th>
+                                                    <th rowspan="1" colspan="1">Recurso</th>
+                                                    <th rowspan="1" colspan="1">Justifica</th>
+                                                    <th rowspan="1" colspan="1">Proyecto</th>
+                                                    <th rowspan="1" colspan="1">Motivo</th>
+                                                    <th rowspan="1" colspan="1">Imagen</th>
+                                                    <th rowspan="1" colspan="1">Acciones</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody id="tableBody">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!-- /.container-fluid -->
+
+
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">

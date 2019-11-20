@@ -48,7 +48,11 @@
 
 
         <action name="cerrarSesion" class="mx.edu.utez.persona.ActionPersona" method="cerrarSesion">
+
             <result name="SUCCESS">/index.jsp</result>
+        </action>
+
+            <result name="SUCCESS">index.jsp</result>
         </action>
         <action name="rh" class="mx.edu.utez.persona.ActionPersona" method="rh">
             <result name="SUCCESS">vista/RH/InicioRH.jsp</result>

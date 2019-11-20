@@ -1,7 +1,9 @@
 package mx.edu.utez.curso;
 
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import mx.edu.utez.persona.BeanPersona;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -13,6 +15,8 @@ import static com.opensymphony.xwork2.Action.SUCCESS;
 
 public class CursoController extends ActionSupport {
     Map response = new HashMap();
+    Map session = ActionContext.getContext().getSession();
+    BeanPersona bean = (BeanPersona) session.get("usuario");
     private boolean status = false;
     private DaoCurso daoCurso = new DaoCurso();
     private JSONObject jsonObject;
@@ -21,7 +25,7 @@ public class CursoController extends ActionSupport {
 
     public String listaCursos(){
         try{
-            response.put("listaCursos",daoCurso.getListaByID(1));
+            response.put("listaCursos",daoCurso.getListaByID(bean.getIdPersona()));
         }catch(Exception e){
             System.out.println("Error, listaCursos" + e.getMessage());
         }
@@ -42,7 +46,7 @@ public class CursoController extends ActionSupport {
                     jsonObject.getString("tipoCurso"),
                     jsonObject.getString("evidencia"),
                     jsonObject.getString("referencia"),
-                    1
+                    bean.getIdPersona()
             ))){
                 System.out.println("entro al if");
                 status=true;
@@ -74,10 +78,9 @@ public class CursoController extends ActionSupport {
 
 
     public String buscarCursoModificar(){
-        System.out.println("EL ID MODIFICAr: "+idCursoModificar);
+        System.out.println(session.toString());
         response.put("bean",daoCurso.buquedaByID(Integer.parseInt(idCursoModificar)));
-        System.out.println(daoCurso.buquedaByID(Integer.parseInt(idCursoModificar)).toString());
-        return SUCCESS;
+        return "AP";
     }
 
     public String actualizaCurso(){
