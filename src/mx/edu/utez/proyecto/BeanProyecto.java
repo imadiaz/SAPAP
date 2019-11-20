@@ -1,7 +1,12 @@
+
+
 package mx.edu.utez.proyecto;
 
-public class BeanProyecto {
+import mx.edu.utez.persona.BeanPersona;
 
+import java.util.List;
+
+public class BeanProyecto {
     private int idProyecto;
     private String identificador;
     private String nombre;
@@ -13,12 +18,39 @@ public class BeanProyecto {
     private String fechaFin;
     private String descripcion;
     private String costo;
-    private boolean estado;
+    private int estado;
+    private List<BeanPersona> aps;
+    private List<BeanPersona> rds;
+    private List<BeanPersona> rapes;
+
+    public List<BeanPersona> getAps() {
+        return aps;
+    }
+
+    public void setAps(List<BeanPersona> aps) {
+        this.aps = aps;
+    }
+
+    public List<BeanPersona> getRds() {
+        return rds;
+    }
+
+    public void setRds(List<BeanPersona> rds) {
+        this.rds = rds;
+    }
+
+    public List<BeanPersona> getRapes() {
+        return rapes;
+    }
+
+    public void setRapes(List<BeanPersona> rapes) {
+        this.rapes = rapes;
+    }
 
     public BeanProyecto() {
     }
 
-    public BeanProyecto(int idProyecto, String identificador, String nombre, String nombreDelCliente, String correoDelCliente, String numTelefonico, String direccionCliente, String fechaInicio, String fechaFin, String descripcion, String costo, boolean estado) {
+    public BeanProyecto(int idProyecto, String identificador, String nombre, String nombreDelCliente, String correoDelCliente, String numTelefonico, String direccionCliente, String fechaInicio, String fechaFin, String descripcion, String costo, int estado, List<BeanPersona> aps, List<BeanPersona> rds, List<BeanPersona> rapes) {
         this.idProyecto = idProyecto;
         this.identificador = identificador;
         this.nombre = nombre;
@@ -31,10 +63,13 @@ public class BeanProyecto {
         this.descripcion = descripcion;
         this.costo = costo;
         this.estado = estado;
+        this.aps = aps;
+        this.rds = rds;
+        this.rapes = rapes;
     }
 
     public int getIdProyecto() {
-        return idProyecto;
+        return this.idProyecto;
     }
 
     public void setIdProyecto(int idProyecto) {
@@ -42,7 +77,7 @@ public class BeanProyecto {
     }
 
     public String getIdentificador() {
-        return identificador;
+        return this.identificador;
     }
 
     public void setIdentificador(String identificador) {
@@ -50,7 +85,7 @@ public class BeanProyecto {
     }
 
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public void setNombre(String nombre) {
@@ -58,7 +93,7 @@ public class BeanProyecto {
     }
 
     public String getNombreDelCliente() {
-        return nombreDelCliente;
+        return this.nombreDelCliente;
     }
 
     public void setNombreDelCliente(String nombreDelCliente) {
@@ -66,7 +101,7 @@ public class BeanProyecto {
     }
 
     public String getCorreoDelCliente() {
-        return correoDelCliente;
+        return this.correoDelCliente;
     }
 
     public void setCorreoDelCliente(String correoDelCliente) {
@@ -74,7 +109,7 @@ public class BeanProyecto {
     }
 
     public String getNumTelefonico() {
-        return numTelefonico;
+        return this.numTelefonico;
     }
 
     public void setNumTelefonico(String numTelefonico) {
@@ -82,7 +117,7 @@ public class BeanProyecto {
     }
 
     public String getDireccionCliente() {
-        return direccionCliente;
+        return this.direccionCliente;
     }
 
     public void setDireccionCliente(String direccionCliente) {
@@ -90,7 +125,7 @@ public class BeanProyecto {
     }
 
     public String getFechaInicio() {
-        return fechaInicio;
+        return this.fechaInicio;
     }
 
     public void setFechaInicio(String fechaInicio) {
@@ -98,7 +133,7 @@ public class BeanProyecto {
     }
 
     public String getFechaFin() {
-        return fechaFin;
+        return this.fechaFin;
     }
 
     public void setFechaFin(String fechaFin) {
@@ -106,7 +141,7 @@ public class BeanProyecto {
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return this.descripcion;
     }
 
     public void setDescripcion(String descripcion) {
@@ -114,18 +149,18 @@ public class BeanProyecto {
     }
 
     public String getCosto() {
-        return costo;
+        return this.costo;
     }
 
     public void setCosto(String costo) {
         this.costo = costo;
     }
 
-    public boolean isEstado() {
-        return estado;
+    public int getEstado() {
+        return this.estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 }

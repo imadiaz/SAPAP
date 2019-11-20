@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="proyectosPackage" extends="struts-default,json-default">
+
+        <action name="consultaProyectos" class="mx.edu.utez.proyecto.ActionProyecto" method="consultaProyectos">
+            <result type="json"/>
+        </action>
+        <action name="eliminarProyecto" class="mx.edu.utez.proyecto.ActionProyecto" method="eliminarProyectos">
+            <result type="json"/>
+        </action>
+
+    </package>
+</struts>
+
