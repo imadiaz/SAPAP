@@ -44,11 +44,9 @@
             <result name="SUCCESS">index.jsp</result>
             <result name="ERROR">recuperarContrasenia.jsp</result>
 
-
         </action>
         <action name="rh" class="mx.edu.utez.persona.ActionPersona" method="rh">
             <result name="SUCCESS">vista/RH/InicioRH.jsp</result>
-
 
         </action>
     </package>

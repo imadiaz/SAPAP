@@ -166,7 +166,7 @@ public class ActionPersona {
                 System.out.println(mensaje);
                 return "ERROR";
             }
-            return "ERROR";
+//            return "ERROR";
         } else {
             mensaje = "Usuario y/o contraseña incorrecta";
             System.out.println(bean);
@@ -261,8 +261,8 @@ public class ActionPersona {
     }
 
 
-    public String rh(){
-        return "SUCCESS";
-    }
+//    public String rh(){
+//        return "SUCCESS";
+//    }
 
 }

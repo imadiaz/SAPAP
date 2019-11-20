@@ -7,42 +7,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecb24097-c816-4693-8440-a6a53a8d18a5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_8_2.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/justificantes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/justificantes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/ActionJustificante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/ActionJustificante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/BeanJustificante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/BeanJustificante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/DaoJustificante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/DaoJustificante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/js/justificantes/justificantesJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/js/justificantes/justificantesJS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/AgregarCursoAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/AgregarCursoAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/AgregarJustificante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/AgregarJustificante.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/CursosAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/CursosAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/HistorialJustificantesAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/HistorialJustificantesAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/InicioAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/InicioAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/MiPerfilAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/MiPerfilAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/ProyectosAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/ProyectosAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/InicioRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/InicioRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/justificantes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/justificantes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/justificante/ActionJustificante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/justificante/ActionJustificante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/justificante/BeanJustificante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/justificante/BeanJustificante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/justificante/DaoJustificante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/justificante/DaoJustificante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/justificantes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/justificantes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/justificante/ActionJustificante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/justificante/ActionJustificante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/justificante/BeanJustificante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/justificante/BeanJustificante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/justificante/DaoJustificante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/justificante/DaoJustificante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/justificantes/justificantesJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/justificantes/justificantesJS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/AP/AgregarCursoAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/AgregarCursoAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/AP/AgregarJustificante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/AgregarJustificante.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/AP/CursosAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/CursosAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/AP/HistorialJustificantesAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/HistorialJustificantesAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/AP/InicioAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/InicioAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/AP/MiPerfilAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/MiPerfilAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/AP/ProyectosAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/ProyectosAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/InicioRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/InicioRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SAPAP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SAPAP.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/inicioSesion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/inicioSesion.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/becario/BeanBecario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/becario/BeanBecario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/docente/BeanDocente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/docente/BeanDocente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/egresados/BeanEgresados.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/egresados/BeanEgresados.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/estudiante/BeanEstudiante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/estudiante/BeanEstudiante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/ActionPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/ActionPersona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/BeanPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/BeanPersona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/DaoPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/DaoPersona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/becario/BeanBecario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/becario/BeanBecario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/docente/BeanDocente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/docente/BeanDocente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/egresados/BeanEgresados.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/egresados/BeanEgresados.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/estudiante/BeanEstudiante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/estudiante/BeanEstudiante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/ActionPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/ActionPersona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/BeanPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/BeanPersona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/DaoPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/DaoPersona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/becario/BeanBecario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/becario/BeanBecario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/docente/BeanDocente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/docente/BeanDocente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/egresados/BeanEgresados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/egresados/BeanEgresados.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/estudiante/BeanEstudiante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/estudiante/BeanEstudiante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/persona/ActionPersona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/persona/ActionPersona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/persona/BeanPersona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/persona/BeanPersona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/seleccionarRol.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/seleccionarRol.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,14 +67,14 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/struts2-json-plugin-2.5.17.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/gson-2.8.2.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -249,7 +237,6 @@
             <State>
               <option name="COLUMN_ORDER" />
             </State>
-            <State />
           </value>
         </entry>
       </map>
