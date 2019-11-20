@@ -14,6 +14,21 @@
             <result type="json"/>
         </action>
 
+        <action name="eliminarCurso" class="mx.edu.utez.curso.CursoController" method="eliminaCurso">
+            <result type="json"/>
+        </action>
+
+        <action name="buscarCursoModificar" class="mx.edu.utez.curso.CursoController" method="buscarCursoModificar">
+            <result name="success">/vista/AP/ModificarCursoAP.jsp</result>
+        </action>
+
+        <action name="actualizarCurso" class="mx.edu.utez.curso.CursoController" method="actualizaCurso">
+            <result type="json"/>
+        </action>
+        <action name="actualizarArchivo" class="mx.edu.utez.curso.CursoController" method="modificaArchivo">
+            <result type="json"/>
+        </action>
+
     </package>
 
 </struts>

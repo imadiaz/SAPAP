@@ -258,7 +258,9 @@
 <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-storage.js"></script>
 <script src="<%=context%>/js/cursos/cursosJS.js"></script>
-
+<script>
+    ejecutarEvento();
+</script>
 </body>
 
 </html>
