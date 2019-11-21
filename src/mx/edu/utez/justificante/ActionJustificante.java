@@ -31,6 +31,24 @@ public class ActionJustificante extends ActionSupport {
         return SUCCESS;
     }
 
+    public String consultarHistorialJustificantesRH(){
+        daoJustificante = new DaoJustificante();
+        respuestas.put("listaJPendientes", daoJustificante.historialJustificantesRH(3));
+        return SUCCESS;
+    }
+
+    public String consultarHistorialJustificantesCOD(){
+        daoJustificante = new DaoJustificante();
+        respuestas.put("listaJPendientes", daoJustificante.historialJustificantesCOD(3));
+        return SUCCESS;
+    }
+
+    public String consultarHistorialJustificantesRAPE(){
+        daoJustificante = new DaoJustificante();
+        respuestas.put("listaJPendientes", daoJustificante.historialJustificantesRAPE(3));
+        return SUCCESS;
+    }
+
     public String consultarJustificantesPendientesRAPE(){
         daoJustificante = new DaoJustificante();
         respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientesRAPE(3));

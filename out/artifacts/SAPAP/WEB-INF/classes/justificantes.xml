@@ -16,6 +16,18 @@
             <result type="json"/>
         </action>
 
+        <action name="consultarHistorialJustificantesRH" class="mx.edu.utez.justificante.ActionJustificante" method="consultarHistorialJustificantesRH">
+            <result type="json"/>
+        </action>
+
+        <action name="consultarHistorialJustificantesCOD" class="mx.edu.utez.justificante.ActionJustificante" method="consultarHistorialJustificantesCOD">
+            <result type="json"/>
+        </action>
+
+        <action name="consultarHistorialJustificantesRAPE" class="mx.edu.utez.justificante.ActionJustificante" method="consultarHistorialJustificantesRAPE">
+            <result type="json"/>
+        </action>
+
         <action name="consultarJustificantesPendientesRAPE" class="mx.edu.utez.justificante.ActionJustificante" method="consultarJustificantesPendientesRAPE">
             <result type="json"/>
         </action>

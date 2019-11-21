@@ -19,11 +19,20 @@
         </action>
 
         <action name="buscarCursoModificar" class="mx.edu.utez.curso.CursoController" method="buscarCursoModificar">
-            <result name="AP">/vista/AP/ModificarCursoAP.jsp</result>
-            <result name="COD">/vista/Coordinador/ModificarCursoCOD.jsp</result>
-            <result name="RAPE">/vista/RAPE/ModificarCursoRAPE.jsp</result>
-            <result name="RD">/vista/RD/ModificarCursoRD.jsp</result>
-            <result name="RH">/vista/RH/ModificarCursoRH.jsp</result>
+            <result name="success">/vista/AP/ModificarCursoAP.jsp</result>
+        </action>
+        <action name="buscarCursoModificarCOD" class="mx.edu.utez.curso.CursoController" method="buscarCursoModificar">
+            <result name="success">/vista/Coordinador/ModificarCursoCOD.jsp</result>
+        </action>
+        <action name="buscarCursoModificarRAPE" class="mx.edu.utez.curso.CursoController" method="buscarCursoModificar">
+            <result name="success">/vista/RAPE/ModificarCursoRAPE.jsp</result>
+        </action>
+
+        <action name="buscarCursoModificarRD" class="mx.edu.utez.curso.CursoController" method="buscarCursoModificar">
+            <result name="success">/vista/RD/ModificarCursoRD.jsp</result>
+        </action>
+        <action name="buscarCursoModificarRH" class="mx.edu.utez.curso.CursoController" method="buscarCursoModificar">
+            <result name="success">/vista/RH/ModificarCursoRH.jsp</result>
         </action>
 
         <action name="actualizarCurso" class="mx.edu.utez.curso.CursoController" method="actualizaCurso">

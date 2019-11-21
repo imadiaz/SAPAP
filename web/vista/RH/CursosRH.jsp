@@ -184,14 +184,14 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-
+                <input type="hidden" value="RH" id="rolUsuario"/>
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-md-4">
                         <h1 class="h3 mb-4 text-gray-800">Cursos</h1>
                     </div>
                     <div class="col-md-8">
-                        <a href="AgregarCursoRH.jsp" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 500px">
+                        <a href="AgregarCursoAP.jsp" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 500px">
                             <i class="fas fa-plus-circle fa-sm text-white-50"></i>Añadir curso</a>
                     </div>
 

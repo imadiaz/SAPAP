@@ -25,6 +25,8 @@ public class CursoController extends ActionSupport {
 
     public String listaCursos(){
         try{
+            System.out.println("El get lista");
+            System.out.println("ID"+bean.getIdPersona());
             response.put("listaCursos",daoCurso.getListaByID(bean.getIdPersona()));
         }catch(Exception e){
             System.out.println("Error, listaCursos" + e.getMessage());
@@ -78,9 +80,8 @@ public class CursoController extends ActionSupport {
 
 
     public String buscarCursoModificar(){
-        System.out.println(session.toString());
         response.put("bean",daoCurso.buquedaByID(Integer.parseInt(idCursoModificar)));
-        return "AP";
+        return SUCCESS;
     }
 
     public String actualizaCurso(){

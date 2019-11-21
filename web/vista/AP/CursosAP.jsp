@@ -169,7 +169,7 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-
+                <input type="hidden" value="AP" id="rolUsuario"/>
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-md-4">
