@@ -63,10 +63,10 @@ function consultarHistorialJustificantes() {
                 var motivo;
                 $('#tableBody').html('');
                 for (var i = 0; i < lista.length; i++) {
-                    if(lista[i].justifica.motivoRechazo == null){
+                    if(lista[i].motivoRechazo == null){
                         motivo ='Este justificante fue aprobado';
                     } else {
-                        motivo = lista[i].justifica.motivoRechazo;
+                        motivo = lista[i].motivoRechazo;
                     }
                     $('#tableBody').append('<tr><td>' + lista[i].fechaElaboracion + '</td>' +
                         '<td> AP Estático</td>' +
@@ -361,6 +361,36 @@ function accionJustificante() {
     });
 }
 
+function consultarHistorialJustificantesRAPE() {
+    $.ajax({
+            type: 'POST',
+            url: raiz + 'consultarHistorialJustificantesRAPE',
+            success: function (respuesta) {
+                var lista = respuesta.respuestas.listaJPendientes;
+                var motivo;
+                $('#tableBody').html('');
+                for (var i = 0; i < lista.length; i++) {
+                    if(lista[i].motivoRechazo == null){
+                        motivo ='Este justificante fue aprobado';
+                    } else {
+                        motivo = lista[i].motivoRechazo;
+                    }
+                    $('#tableBody').append('<tr><td>' + lista[i].fechaElaboracion + '</td>' +
+                        '<td> AP Estático</td>' +
+                        '<td>' + lista[i].estudiante.nombre + " " + lista[i].estudiante.primerApellido + " " + lista[i].estudiante.segundoApellido +'</td>' +
+                        '<td>' + lista[i].proyecto.nombre + '</td>' +
+                        '<td>' +motivo+'</td>'+
+                        '<td>' +
+                        '<a href="'+lista[i].evidencia+'" target="_blank"><button class="btn btn-info""><i class="fas fa-info-circle">Ver</i></button></a>' +
+                        '</td>' +
+                        '</tr>')
+                }
+            }
+        }
+    );
+};
+
+
 //COD
 
 function consultarJustificantesPendientesCOD() {
@@ -439,6 +469,36 @@ function accionJustificanteCOD() {
     });
 }
 
+function consultarHistorialJustificantesCOD() {
+    $.ajax({
+            type: 'POST',
+            url: raiz + 'consultarHistorialJustificantesCOD',
+            success: function (respuesta) {
+                var lista = respuesta.respuestas.listaJPendientes;
+                var motivo;
+                $('#tableBody').html('');
+                for (var i = 0; i < lista.length; i++) {
+                    if(lista[i].motivoRechazo == null){
+                        motivo ='Este justificante fue aprobado';
+                    } else {
+                        motivo = lista[i].motivoRechazo;
+                    }
+                    $('#tableBody').append('<tr><td>' + lista[i].fechaElaboracion + '</td>' +
+                        '<td> AP Estático</td>' +
+                        '<td>' + lista[i].estudiante.nombre + " " + lista[i].estudiante.primerApellido + " " + lista[i].estudiante.segundoApellido +'</td>' +
+                        '<td>' + lista[i].proyecto.nombre + '</td>' +
+                        '<td>' +motivo+'</td>'+
+                        '<td>' +
+                        '<a href="'+lista[i].evidencia+'" target="_blank"><button class="btn btn-info""><i class="fas fa-info-circle">Ver</i></button></a>' +
+                        '</td>' +
+                        '</tr>')
+                }
+            }
+        }
+    );
+};
+
+
 //RH
 
 function consultarJustificantesPendientesRH() {
@@ -516,3 +576,32 @@ function accionJustificanteRH() {
         }
     });
 }
+
+function consultarHistorialJustificantesRH() {
+    $.ajax({
+            type: 'POST',
+            url: raiz + 'consultarHistorialJustificantesRH',
+            success: function (respuesta) {
+                var lista = respuesta.respuestas.listaJPendientes;
+                var motivo;
+                $('#tableBody').html('');
+                for (var i = 0; i < lista.length; i++) {
+                    if(lista[i].motivoRechazo == null){
+                        motivo ='Este justificante fue aprobado';
+                    } else {
+                        motivo = lista[i].motivoRechazo;
+                    }
+                    $('#tableBody').append('<tr><td>' + lista[i].fechaElaboracion + '</td>' +
+                        '<td> AP Estático</td>' +
+                        '<td>' + lista[i].estudiante.nombre + " " + lista[i].estudiante.primerApellido + " " + lista[i].estudiante.segundoApellido +'</td>' +
+                        '<td>' + lista[i].proyecto.nombre + '</td>' +
+                        '<td>' +motivo+'</td>'+
+                        '<td>' +
+                        '<a href="'+lista[i].evidencia+'" target="_blank"><button class="btn btn-info""><i class="fas fa-info-circle">Ver</i></button></a>' +
+                        '</td>' +
+                        '</tr>')
+                }
+            }
+        }
+    );
+};

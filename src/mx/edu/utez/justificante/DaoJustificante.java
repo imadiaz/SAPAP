@@ -173,7 +173,7 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
                     "p.primerApellido, p.SegundoApellido, j.motivoJustifica, p.id, j.nombreRape, j.proyectoJustificante \n" +
                     "from Persona as p inner join Estudiante as e on e.Persona_id = p.id\n" +
                     "inner join Justificante as j on j.Estudiante_id = e.idEstudiante\n" +
-                    "where estadoJustificante = 1 and estadoRAPE =1; and estadoCCDS is null");
+                    "where estadoJustificante = 1 and estadoRAPE =1 and estadoCCDS is null");
 //            preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -265,6 +265,123 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
 
                 beanJustificante.setFechaElaboracion(resultSet.getString("fechaElaboracion"));
                 beanJustificante.setJustifica(beanPersona);
+                beanJustificante.setProyecto(beanProyecto);
+                beanJustificante.setMotivoJustifica(resultSet.getString("motivoJustifica"));
+                beanJustificante.setMotivoRechazo(resultSet.getString("motivoRechazo"));
+                beanJustificante.setEvidencia(resultSet.getString("evidencia"));
+                beanJustificante.setReferencia(resultSet.getString("referencia"));
+                beanJustificante.setIdJustificante(resultSet.getInt("idJustificante"));
+                lista.add(beanJustificante);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        cerrarConexiones();
+        return lista;
+    }
+
+    public ArrayList historialJustificantesRH(int id) {
+        ArrayList lista = new ArrayList();
+        BeanJustificante beanJustificante = null;
+        BeanPersona beanPersona = null;
+        BeanProyecto beanProyecto = null;
+        try {
+            mySQLRepositorio("select j.idJustificante, j.motivoRechazo, j.evidencia, j.referencia, j.fechaElaboracion, p.nombre, p.primerApellido, p.SegundoApellido, j.proyectoJustificante,j.motivoJustifica from \n" +
+                    "                    Persona as p inner join Estudiante as e on e.Persona_id = p.id \n" +
+                    "                    inner join Justificante as j on j.Estudiante_id = e.idEstudiante\n" +
+                    "                    where estadoARH is not null;");
+//            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                beanPersona = new BeanPersona();
+                beanProyecto = new BeanProyecto();
+                beanJustificante = new BeanJustificante();
+
+                beanPersona.setNombre(resultSet.getString("nombre"));
+                beanPersona.setPrimerApellido(resultSet.getString("primerApellido"));
+                beanPersona.setSegundoApellido(resultSet.getString("SegundoApellido"));
+                beanProyecto.setNombre(resultSet.getString("proyectoJustificante"));
+
+                beanJustificante.setFechaElaboracion(resultSet.getString("fechaElaboracion"));
+                beanJustificante.setEstudiante(beanPersona);
+                beanJustificante.setProyecto(beanProyecto);
+                beanJustificante.setMotivoJustifica(resultSet.getString("motivoJustifica"));
+                beanJustificante.setMotivoRechazo(resultSet.getString("motivoRechazo"));
+                beanJustificante.setEvidencia(resultSet.getString("evidencia"));
+                beanJustificante.setReferencia(resultSet.getString("referencia"));
+                beanJustificante.setIdJustificante(resultSet.getInt("idJustificante"));
+                lista.add(beanJustificante);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        cerrarConexiones();
+        return lista;
+    }
+
+    public ArrayList historialJustificantesCOD(int id) {
+        ArrayList lista = new ArrayList();
+        BeanJustificante beanJustificante = null;
+        BeanPersona beanPersona = null;
+        BeanProyecto beanProyecto = null;
+        try {
+            mySQLRepositorio("select j.idJustificante, j.motivoRechazo, j.evidencia, j.referencia, j.fechaElaboracion, p.nombre, p.primerApellido, p.SegundoApellido, j.proyectoJustificante,j.motivoJustifica from \n" +
+                    "                    Persona as p inner join Estudiante as e on e.Persona_id = p.id \n" +
+                    "                    inner join Justificante as j on j.Estudiante_id = e.idEstudiante\n" +
+                    "                    where estadoCCDS is not null;");
+//            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                beanPersona = new BeanPersona();
+                beanProyecto = new BeanProyecto();
+                beanJustificante = new BeanJustificante();
+
+                beanPersona.setNombre(resultSet.getString("nombre"));
+                beanPersona.setPrimerApellido(resultSet.getString("primerApellido"));
+                beanPersona.setSegundoApellido(resultSet.getString("SegundoApellido"));
+                beanProyecto.setNombre(resultSet.getString("proyectoJustificante"));
+
+                beanJustificante.setFechaElaboracion(resultSet.getString("fechaElaboracion"));
+                beanJustificante.setEstudiante(beanPersona);
+                beanJustificante.setProyecto(beanProyecto);
+                beanJustificante.setMotivoJustifica(resultSet.getString("motivoJustifica"));
+                beanJustificante.setMotivoRechazo(resultSet.getString("motivoRechazo"));
+                beanJustificante.setEvidencia(resultSet.getString("evidencia"));
+                beanJustificante.setReferencia(resultSet.getString("referencia"));
+                beanJustificante.setIdJustificante(resultSet.getInt("idJustificante"));
+                lista.add(beanJustificante);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        cerrarConexiones();
+        return lista;
+    }
+
+    public ArrayList historialJustificantesRAPE(int id) {
+        ArrayList lista = new ArrayList();
+        BeanJustificante beanJustificante = null;
+        BeanPersona beanPersona = null;
+        BeanProyecto beanProyecto = null;
+        try {
+            mySQLRepositorio("select j.idJustificante, j.motivoRechazo, j.evidencia, j.referencia, j.fechaElaboracion, p.nombre, p.primerApellido, p.SegundoApellido, j.proyectoJustificante,j.motivoJustifica from \n" +
+                    "                    Persona as p inner join Estudiante as e on e.Persona_id = p.id \n" +
+                    "                    inner join Justificante as j on j.Estudiante_id = e.idEstudiante\n" +
+                    "                    where estadoCCDS is not null;");
+//            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                beanPersona = new BeanPersona();
+                beanProyecto = new BeanProyecto();
+                beanJustificante = new BeanJustificante();
+
+                beanPersona.setNombre(resultSet.getString("nombre"));
+                beanPersona.setPrimerApellido(resultSet.getString("primerApellido"));
+                beanPersona.setSegundoApellido(resultSet.getString("SegundoApellido"));
+                beanProyecto.setNombre(resultSet.getString("proyectoJustificante"));
+
+                beanJustificante.setFechaElaboracion(resultSet.getString("fechaElaboracion"));
+                beanJustificante.setEstudiante(beanPersona);
                 beanJustificante.setProyecto(beanProyecto);
                 beanJustificante.setMotivoJustifica(resultSet.getString("motivoJustifica"));
                 beanJustificante.setMotivoRechazo(resultSet.getString("motivoRechazo"));
