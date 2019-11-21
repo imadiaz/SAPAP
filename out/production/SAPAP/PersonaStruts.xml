@@ -8,9 +8,7 @@
 
     <package name="personaPackage" extends="struts-default,json-default">
 
-        <action name="consultarPersonas" class="mx.edu.utez.persona.ActionPersona" method="consultaPersonas">
-            <result type="json"/>
-        </action>
+
         <action name="eliminarPersona" class="mx.edu.utez.persona.ActionPersona" method="eliminarPersona">
             <result type="json"/>
         </action>
@@ -21,6 +19,9 @@
         <result name="success" >
            /vista/RH/EmpleadosRH.jsp
         </result>
+        </action>
+        <action name="consultaEmpleados" class="mx.edu.utez.persona.ActionPersona" method="consultaMisEstudiantes">
+            <result type="json"/>
         </action>
         </package>
 </struts>

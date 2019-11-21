@@ -20,7 +20,7 @@
            /vista/RH/EmpleadosRH.jsp
         </result>
         </action>
-        <action name="consultarPersonas2" class="mx.edu.utez.persona.ActionPersona" method="consultaPersonasT">
+        <action name="consultaEmpleados" class="mx.edu.utez.persona.ActionPersona" method="consultaMisEstudiantes">
             <result type="json"/>
         </action>
         </package>

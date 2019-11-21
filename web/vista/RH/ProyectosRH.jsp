@@ -120,6 +120,8 @@
         <!-- Main Content -->
         <div id="content">
 
+
+
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -317,9 +319,11 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <!--Nuestros recursos-->
 <script src="<%=context%>/js/Proyecto/proyectosJS.js"></script>
+<script src="<%=context%>/js/sb-admin-2.min.js"></script>
 <script src="<%=context%>/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="<%=context%>/vendor/datatables/dataTables.bootstrap4.css"></script>
+<script src="<%=context%>/vendor/datatables/dataTables.bootstrap4.js"></script>
 <script src="<%=context%>/js/demo/datatables-demo.js"></script>
+
 
 </body>
 

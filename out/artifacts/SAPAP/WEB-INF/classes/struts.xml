@@ -5,6 +5,7 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
+
     <package name="defaultPackage" extends="struts-default">
         <action name="home">
             <result name="success">index.jsp</result>
@@ -38,4 +39,6 @@
     <include file="cursos.xml"/>
     <include file="justificantes.xml"/>
     <include file="inicioSesion.xml"/>
+    <include file="PersonaStruts.xml"></include>
+    <include file="proyectosStruts.xml"/>
 </struts>

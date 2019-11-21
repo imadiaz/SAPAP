@@ -1,36 +1,6 @@
 var raiz = window.location.origin + '/SAPAP/';
 var lista = [];
-
-function consultaPersonas() {
-    $.ajax({
-            type: 'POST',
-            url: raiz + 'consultarPersonas2',
-            success: function (respuesta) {
-                var personas=respuesta.respuestas.personas;
-                var table = $('#dataTable').DataTable();
-             for (var i=0;i<personas.length;i++){
-                 table.row.add([personas[i].nombre+' '+personas[i].primerApellido+ ' '+personas[i].segundoApellido
-                     ,personas[i].matricula
-                     ,personas[i].numeroTelefonico
-                     ,personas[i].numeroCasa
-                     ,personas[i].fechaDeNacimiento
-                     ,personas[i].correoInstitucional
-                     ,personas[i].correoPersonal
-                     ,personas[i].fechaDeIngreso
-                     ,personas[i].horario.horario
-                     , '<td><button onclick=\'eliminarPersona(this);\' value="'+personas[i].idPersona+'" class=\'btn btn-sm btn-icon-split btn-danger\'><span class=\'icon text-white-50\'><i class=\'fas fa-trash\'></i></span><span class=\'text\'>Eliminar</span></button><br/>' +
-                     '<form method=\'post\' action=\'buscarPersona\'><button name=\'idCursoModificar\' type=\'submit\' value="'+personas[i].idPersona+'" class=\'btn btn-sm btn-icon-split btn-warning\'><span class=\'icon text-white-50\'><i class=\'fas fa-exclamation-triangle\'></i></span><span class=\'text\'>Modificar</span></button></form></td> </tr>'  ]).draw(false);
-              }
-
-            },
-            error: function (error) {
-                console.log("al error");
-                console.log(error);
-            }
-        }
-    );
-}
-
+var $ = jQuery.noConflict();
 function eliminarPersona(button) {
 
     $.ajax({
@@ -60,7 +30,7 @@ function eliminarPersona(button) {
             }
 
             $('#dataTable').DataTable().clear().draw();
-           consultaPersonas();
+           consultaPersonitas();
         },
         error: function (error) {
             console.log("al error");
@@ -241,4 +211,35 @@ function registroPersona() {
 function calar() {
 
     window.location.href = "http://localhost:8080/SAPAP/vista/RH/EmpleadosRH.jsp";
+}
+
+function consultaPersonitas() {
+    $.ajax({
+            type: 'POST',
+            url: raiz + 'consultaEmpleados',
+
+            success: function (respuesta) {
+                var personas=respuesta.respuestas.personas;
+                var table = $('#dataTable').DataTable();
+                for (var i=0;i<personas.length;i++){
+                    table.row.add([personas[i].nombre+' '+personas[i].primerApellido+ ' '+personas[i].segundoApellido
+                        ,personas[i].matricula
+                        ,personas[i].numeroTelefonico
+                        ,personas[i].numeroCasa
+                        ,personas[i].fechaDeNacimiento
+                        ,personas[i].correoInstitucional
+                        ,personas[i].correoPersonal
+                        ,personas[i].fechaDeIngreso
+                        ,personas[i].horario.horario
+                        , '<td><button onclick=\'eliminarPersona(this);\' value="'+personas[i].idPersona+'" class=\'btn btn-sm btn-icon-split btn-danger\'><span class=\'icon text-white-50\'><i class=\'fas fa-trash\'></i></span><span class=\'text\'>Eliminar</span></button><br/>' +
+                        '<form method=\'post\' action=\'buscarPersona\'><button name=\'idCursoModificar\' type=\'submit\' value="'+personas[i].idPersona+'" class=\'btn btn-sm btn-icon-split btn-warning\'><span class=\'icon text-white-50\'><i class=\'fas fa-exclamation-triangle\'></i></span><span class=\'text\'>Modificar</span></button></form></td> </tr>'  ]).draw(false);
+                }
+
+            },
+            error: function (error) {
+                console.log("al error");
+                console.log(error);
+            }
+        }
+    );
 }

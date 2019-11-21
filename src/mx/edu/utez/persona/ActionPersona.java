@@ -257,7 +257,7 @@ public class ActionPersona {
         System.out.println(session.get("usuario"));
         return "SUCCESS";
     }
-    public String consultaPersonasT(){
+    public String consultaMisEstudiantes(){
 
         respuestas.put("personas",dao.getLista());
         return SUCCESS;
