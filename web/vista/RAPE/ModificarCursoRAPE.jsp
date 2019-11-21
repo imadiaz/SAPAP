@@ -6,6 +6,8 @@
         String context = request.getContextPath();
     %>
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <%@ taglib prefix="s" uri="/struts-tags" %>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -177,14 +179,14 @@
                 <form class="user"  id="formCursoModificar">
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="text" value="<s:property value="response.bean.nombre"/>" required class="form-control form-control-user" id="nombre" placeholder="Nombre">
+                            <input type="text" value="<s:property value="response.bean.nombre"/>" required class="form-control form-control-user" id="nombre" placeholder="Nombre" />
                         </div>
                         <div class="col-sm-6">
-                            <input type="date" value="<s:property value="response.bean.fecha"/>"  required class="form-control form-control-user" id="fecha" placeholder="Fecha">
+                            <input type="date" value="<s:property value="response.bean.fecha"/>"  required class="form-control form-control-user" id="fecha" placeholder="Fecha" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" value="<s:property value="response.bean.descripcion"/>" required class="form-control form-control-user" id="descripcion" placeholder="Descripcion">
+                        <input type="text" value="<s:property value="response.bean.descripcion"/>" required class="form-control form-control-user" id="descripcion" placeholder="Descripcion" />
                     </div>
                     <div class="form-group row">
                         <div class="col-md-3">

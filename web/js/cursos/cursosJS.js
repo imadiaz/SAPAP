@@ -23,7 +23,21 @@ var storageRef = storageFirebase.ref();
 
 function getListaCursos(){
     var table = $('#dataTable').DataTable();
+    var rol = document.getElementById('rolUsuario').value;
+    console.log("El rol es: ",rol);
 
+    var tipoModificar='';
+    if(rol =='AP'){
+        tipoModificar="buscarCursoModificar";
+    }else if(rol=='COD'){
+        tipoModificar="buscarCursoModificarCOD";
+    }else if(rol=='RAPE'){
+        tipoModificar="buscarCursoModificarRAPE";
+    }else if(rol=='RD'){
+        tipoModificar="buscarCursoModificarRD";
+    }else if(rol=='RH'){
+        tipoModificar="buscarCursoModificarRH";
+    }
     $.ajax({
             type: 'POST',
             url: "http://localhost:8080/SAPAP/listaCursos",
@@ -41,7 +55,7 @@ function getListaCursos(){
                         "<a href="+arrayCursos[i].evidencia+" target='_blank' class='btn btn-sm btn-icon-split btn-info'><span class='icon text-white-50'><i class='fas fa-info-circle'></i></span><span class='text'>Ver</span></a>" +
                         "<button value="+arrayCursos[i].idCurso+","+arrayCursos[i].referencia+" onclick='abrirModal(this);' class='btn btn-sm btn-icon-split btn-warning'><span class='icon text-white-50'><i class='fas fa-exclamation-triangle'></i></span><span class='text'>Modificar</span></button>",
                         "<button onclick='eliminarCurso(this);' value="+arrayCursos[i].idCurso+" class='btn btn-sm btn-icon-split btn-danger'><span class='icon text-white-50'><i class='fas fa-trash'></i></span><span class='text'>Eliminar</span></button><br/>" +
-                        "<form method='post' action='buscarCursoModificar'><button name='idCursoModificar' type='submit' value="+arrayCursos[i].idCurso+" class='btn btn-sm btn-icon-split btn-warning'><span class='icon text-white-50'><i class='fas fa-exclamation-triangle'></i></span><span class='text'>Modificar</span></button></form>"
+                        "<form method='post' action="+tipoModificar+"><button name='idCursoModificar' type='submit' value="+arrayCursos[i].idCurso+" class='btn btn-sm btn-icon-split btn-warning'><span class='icon text-white-50'><i class='fas fa-exclamation-triangle'></i></span><span class='text'>Modificar</span></button></form>"
                         ]).draw(false);
                 }
 
