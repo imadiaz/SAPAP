@@ -45,7 +45,7 @@
                                     <p class="mb-4">Ingresa tu correo electrónico y te enviaremos un código para
                                         que comience el proceso de recuperación.</p>
                                 </div>
-                                <h5><s:property value="mensaje"/></h5>
+                                <h6 class="text-danger text-center"><s:property value="mensaje"/></h6>
                                 <form class="user" action="recuperarContrasenia" method="post">
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"

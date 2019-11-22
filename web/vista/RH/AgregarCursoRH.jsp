@@ -196,16 +196,16 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" required class="form-control form-control-user" id="descripcion" placeholder="Descripcion">
+                        <input type="text" required class="form-control form-control-user" id="descripcion" placeholder="Descripción">
                     </div>
                     <div class="form-group row">
                         <div class="col-md-3">
                             <select id="tipo" required class="form-control ">
-                                <option selected disabled>Seleccione una opcion</option>
+                                <option selected disabled>Seleccione una opción</option>
                                 <option value="1">Curso</option>
                                 <option value="2">Taller</option>
-                                <option value="3">Certificacion</option>
-                                <option value="4">Capacitacion</option>
+                                <option value="3">Certificación</option>
+                                <option value="4">Capacitación</option>
                             </select>
                         </div>
                         <div class="col-sm-9">

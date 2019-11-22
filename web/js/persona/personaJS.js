@@ -1,6 +1,9 @@
 var raiz = window.location.origin + '/SAPAP/';
 var lista = [];
 var $ = jQuery.noConflict();
+
+
+
 function eliminarPersona(button) {
 
     $.ajax({

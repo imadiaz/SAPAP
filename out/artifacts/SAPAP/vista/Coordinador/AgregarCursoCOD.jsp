@@ -16,6 +16,7 @@
     <!-- Custom fonts for this template-->
     <link href="<%=context%>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
@@ -151,39 +152,45 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-
                 <div class="row">
                     <div class="col-md-4">
                         <h1 class="h3 mb-4 text-gray-800">Agregar Curso</h1>
                     </div>
-                    <div class="col-md-8">
-                    </div>
                 </div>
 
-                <form class="user">
+
+                <form class="user"  id="formCurso">
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" id="nombre" placeholder="Nombre">
+                            <input type="text"  required class="form-control form-control-user" id="nombre" placeholder="Nombre">
                         </div>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-user" id="apellido" placeholder="Apellido">
+                            <input type="date"  required class="form-control form-control-user" id="fecha" placeholder="Fecha">
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control form-control-user" id="correo" placeholder="Correo electrónico">
+                        <input type="text" required class="form-control form-control-user" id="descripcion" placeholder="Descripcion">
                     </div>
                     <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="password" class="form-control form-control-user" id="celular" placeholder="Celular">
+                        <div class="col-md-3">
+                            <select id="tipo" required class="form-control ">
+                                <option selected disabled>Seleccione una opcion</option>
+                                <option value="1">Curso</option>
+                                <option value="2">Taller</option>
+                                <option value="3">Certificacion</option>
+                                <option value="4">Capacitacion</option>
+                            </select>
                         </div>
-                        <div class="col-sm-6">
-                            <input type="password" class="form-control form-control-user" id="matricula" placeholder="Matrícula">
+                        <div class="col-sm-9">
+                            <input type="file" class="form-control" id="evidencia" placeholder="Evidencia">
+
                         </div>
                     </div>
-                    <a href="login.html" class="btn btn-primary btn-user btn-block">
-                        Enviar
-                    </a>
+                    <button type="button" class="btn btn-primary btn-user btn-block" onclick="guardarCurso();">
+                        Guardar
+                    </button>
                 </form>
+
 
 
 
@@ -216,7 +223,6 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-<!-- Bootstrap core JavaScript-->
 <script src="<%=context%>/vendor/jquery/jquery.min.js"></script>
 <script src="<%=context%>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -225,6 +231,19 @@
 
 <!-- Custom scripts for all pages-->
 <script src="<%=context%>/js/sb-admin-2.min.js"></script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-storage.js"></script>
+<script src="<%=context%>/js/cursos/cursosJS.js"></script>
+<script>
+    ejecutarEvento();
+</script>
 
 </body>
 

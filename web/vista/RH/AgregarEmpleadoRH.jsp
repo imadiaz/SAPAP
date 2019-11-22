@@ -202,7 +202,7 @@
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
                             <label for="matricula">Matricula</label>
-                            <input type="text" class="form-control form-control-user" id="matricula" placeholder="Matricula">
+                            <input onkeyup="modificar()" type="text" class="form-control form-control-user" id="matricula" placeholder="Matricula">
                         </div>
                         <div class="col-sm-4">
                             <label for="correoPersonal">Correo Personal</label>
@@ -212,7 +212,7 @@
                             <label for="correoInstitucional">Correo Institucional</label>
                             <div class="input-group mb-2">
 
-                                <input type="text" class="form-control form-control-user" id="correoInstitucional" placeholder="Correo Institucional">
+                                <input disabled type="text" class="form-control form-control-user" id="correoInstitucional" placeholder="Correo Institucional">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">@utez.edu.mx</div>
                                 </div>
@@ -376,5 +376,12 @@
 <script src="<%=context%>/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="<%=context%>/vendor/datatables/dataTables.bootstrap4.js"></script>
 <script src="<%=context%>/js/demo/datatables-demo.js"></script>
+<script>
 
+    function modificar() {
+        var matricula2;
+        matricula2=document.getElementById("matricula").value;
+        document.getElementById("correoInstitucional").value=matricula2;
+    }
+</script>
 </html>

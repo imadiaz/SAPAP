@@ -5,6 +5,8 @@
     <%
         String context = request.getContextPath();
     %>
+    <%@taglib prefix="s" uri="/struts-tags" %>
+    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -167,7 +169,7 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-
+                <input type="hidden" value="AP" id="rolUsuario"/>
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-md-4">
@@ -277,8 +279,39 @@
 <script src="<%=context%>/js/cursos/cursosJS.js"></script>
 <script src="<%=context%>/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="<%=context%>/vendor/datatables/dataTables.bootstrap4.js"></script>
-<script src="<%=context%>/js/demo/datatables-demo.js"></script>
+<script>
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        $('#dataTable').DataTable({
+            "language": {
+                "sProcessing":    "Procesando...",
+                "sLengthMenu":    "Mostrar _MENU_ registros",
+                "sZeroRecords":   "No se encontraron resultados",
+                "sEmptyTable":    "Ningún dato disponible en esta tabla",
+                "sInfo":          "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty":     "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered":  "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix":   "",
+                "sSearch":        "Buscar:",
+                "sUrl":           "",
+                "sInfoThousands":  ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst":    "Primero",
+                    "sLast":    "Último",
+                    "sNext":    "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            },
+            "scrollX": true
+        });
 
+    });
+</script>
 </body>
 
 </html>

@@ -41,4 +41,5 @@
     <include file="inicioSesion.xml"/>
     <include file="PersonaStruts.xml"></include>
     <include file="proyectosStruts.xml"/>
+    <include file="reporte.xml"/>
 </struts>

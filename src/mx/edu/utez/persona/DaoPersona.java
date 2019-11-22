@@ -24,6 +24,7 @@ public class DaoPersona extends Dao implements DaoInterfaz {
 
     final private String SQL_CONSULTAR_PERSONA = "call login(?,?)";
     final private String SQL_GENERAR_CODIGO = "call generarCodigo(?,?)";
+    final private String SQL_CONSULTAR_CODIGO = "call consultarCodigo(?)";
     final private String SQL_Consultar_Correo = "Select * from Persona where correoInstitucional=?;";
 
 
@@ -341,7 +342,7 @@ return true;
             pstm.setString(1, correo);
             pstm.setString(2, codigo);
             rs = pstm.executeQuery();
-            res=true;
+            res = true;
             rs.close();
             pstm.close();
             conexion.close();
@@ -357,6 +358,106 @@ return true;
 
             }
         }
+    }
+
+    public BeanPersona consultarCodigo(String codigo) {
+        BeanPersona bean = null;
+        try {
+            conexion = MySQLConexion.getConnection();
+            pstm = conexion.prepareStatement(SQL_CONSULTAR_CODIGO);
+            pstm.setString(1, codigo);
+
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                bean = new BeanPersona();
+                bean.setIdPersona(rs.getInt("id"));
+                bean.setNombre(rs.getString("nombre"));
+                bean.setPrimerApellido(rs.getString("primerApellido"));
+                bean.setSegundoApellido(rs.getString("segundoApellido"));
+                bean.setFechaDeNacimiento(rs.getString("fechaNacimiento"));
+                bean.setCorreoInstitucional(rs.getString("correoInstitucional"));
+                bean.setCorreoPersonal(rs.getString("correoInstitucional"));
+                bean.setMatricula(rs.getString("matricula"));
+                bean.setContrasenia(rs.getString("contrasenia"));
+                bean.setCodigo(rs.getString("codigo"));
+
+            }
+            if (bean == null) {
+                System.out.println("es nulo");
+            } else {
+                System.out.println(bean.getNombre());
+            }
+            rs.close();
+            pstm.close();
+            conexion.close();
+        } catch (Exception e) {
+            System.out.println("Error en el metodo consultar codigo: " + e.getMessage());
+            System.out.println(e.getCause());
+        } finally {
+            try {
+                rs.close();
+                pstm.close();
+                conexion.close();
+            } catch (Exception e) {
+
+            }
+
+        }
+        return bean;
+    }
+
+    public void borrarCodigo(String codigo) {
+        boolean res = false;
+        try {
+            conexion = MySQLConexion.getConnection();
+            pstm = conexion.prepareStatement("call borrarCodigo(?)");
+            pstm.setString(1, codigo);
+            rs = pstm.executeQuery();
+            res = true;
+            rs.close();
+            pstm.close();
+            conexion.close();
+        } catch (Exception e) {
+            System.out.println("Error en el metodo consultar personas: " + e.getMessage());
+            System.out.println(e.getCause());
+            res = false;
+        } finally {
+            try {
+                rs.close();
+                pstm.close();
+                conexion.close();
+            } catch (Exception e) {
+
+            }
+        }
+    }
+
+    public boolean cambiarContra(String codigo,String contra) {
+        boolean res=false;
+        try {
+            conexion = MySQLConexion.getConnection();
+            pstm = conexion.prepareStatement("call cambiarContra(?,?);");
+            pstm.setString(1, contra);
+            pstm.setString(2, codigo);
+            rs = pstm.executeQuery();
+            res = true;
+            rs.close();
+            pstm.close();
+            conexion.close();
+        } catch (Exception e) {
+            System.out.println("Error en el metodo cambiar contra: " + e.getMessage());
+            System.out.println(e.getCause());
+            res = false;
+        } finally {
+            try {
+                rs.close();
+                pstm.close();
+                conexion.close();
+            } catch (Exception e) {
+
+            }
+        }
+        return res;
     }
 
 }

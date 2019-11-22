@@ -36,7 +36,13 @@
                         <h1 style="color:white;">Selecione un Rol</h1>
 
                         <br/>
-                        <h1><s:property value="#session.usuario" /></h1>
+<%--                        <h1><s:property value="#session.usuario" /></h1>--%>
+<%--                        <h1><s:property value="#session.roles" /></h1>--%>
+<%--                        <s:iterator value="#session.roles" var="rol">--%>
+<%--                            <p><s:property value="tipo" /></p>--%>
+<%--                        </s:iterator>--%>
+
+
 
 
                         <div class="col-md-12">

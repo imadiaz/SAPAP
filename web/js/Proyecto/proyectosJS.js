@@ -1,5 +1,6 @@
 var raiz = window.location.origin + '/SAPAP/';
 var lista = [];
+
 function consulta() {
     $.ajax({
             type: 'POST',
@@ -57,8 +58,7 @@ function consulta() {
                         ,aps
                         ,rd
                         ,rape
-
-                        , '<td><button onclick=\'eliminarProyecto(this);\' value="'+proyectos[i].idProyecto+'" class=\'btn btn-sm btn-icon-split btn-danger\'><span class=\'icon text-white-50\'><i class=\'fas fa-trash\'></i></span><span class=\'text\'>Eliminar</span></button><br/>' +
+                        ,'<td><button onclick=\'eliminarProyecto(this);\' value="'+proyectos[i].idProyecto+'" class=\'btn btn-sm btn-icon-split btn-danger\'><span class=\'icon text-white-50\'><i class=\'fas fa-trash\'></i></span><span class=\'text\'>Eliminar</span></button><br/>' +
                         '<form method=\'post\' action=\'buscarProyecto('+proyectos[i].idProyecto+')\'><button name=\'idCursoModificar\' type=\'submit\' value="'+proyectos[i].idProyecto+'" class=\'btn btn-sm btn-icon-split btn-warning\'><span class=\'icon text-white-50\'><i class=\'fas fa-exclamation-triangle\'></i></span><span class=\'text\'>Modificar</span></button></form></td> </tr>'  ]).draw(false);
                 }
             }

@@ -40,12 +40,22 @@
         <action name="ap" class="mx.edu.utez.persona.ActionPersona" method="ap">
             <result name="SUCCESS">vista/AP/InicioAP.jsp</result>
         </action>
-
+<!-- MODIFICADO POR MARIO-->
         <action name="recuperarContrasenia" class="mx.edu.utez.servicios.RecuperarConstraseña" method="execute">
-            <result name="SUCCESS">index.jsp</result>
-            <result name="ERROR">recuperarContrasenia.jsp</result>
+            <result name="SUCCESS">codigoContraseña.jsp</result>
+            <result name="ERROR">RecuperarContrasena.jsp</result>
         </action>
 
+        <action name="consultarCodigo" class="mx.edu.utez.servicios.RecuperarConstraseña" method="consultarCodigo">
+            <result name="SUCCESS">nuevaContraseña.jsp</result>
+            <result name="ERROR">codigoContraseña.jsp</result>
+        </action>
+
+        <action name="nuevaConstra" class="mx.edu.utez.servicios.RecuperarConstraseña" method="nuevaConstra">
+            <result name="SUCCESS">index.jsp</result>
+            <result name="ERROR">nuevaContraseña.jsp</result>
+        </action>
+<!-- MODIFICADO POR MARIO-->
 
         <action name="cerrarSesion" class="mx.edu.utez.persona.ActionPersona" method="cerrarSesion">
 
@@ -53,10 +63,7 @@
         </action>
 
 
-        <action name="rh" class="mx.edu.utez.persona.ActionPersona" method="rh">
-            <result name="SUCCESS">vista/RH/InicioRH.jsp</result>
 
-        </action>
 
     </package>
     <package name="privados" extends="struts-default">

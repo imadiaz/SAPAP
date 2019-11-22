@@ -20,11 +20,13 @@
     <link href="<%=context%>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
+    <link href="<%=context%>/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
 
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
 https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -248,96 +250,16 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                                 </i>Nombre</span>
                         </a>
 
-                                        </a>
-
-                                        <!-- Dropdown - User Information -->
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                            <a class="dropdown-item" href="MiPerfilAP.jsp">
-                                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
-                                            </a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="<%=context%>/index.jsp" >
-                                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                                Salir
-                                            </a>
-                                        </div>
-                                    </li>
-
-                                </ul>
-
-                            </nav>
-                            <!-- End of Topbar -->
-
-                            <!-- Begin Page Content -->
-                            <div class="container-fluid">
-
-                                <!-- Page Heading -->
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h1 class="h3 mb-4 text-gray-800">Justificantes pendientes</h1>
-                                    </div>
-
-                                    <div class="col-md-8">
-                                        <a href="AgregarJustificante.jsp" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                                            <i class="fas fa-plus-circle fa-sm text-white-50"></i>Añadir justificante</a>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 161px;">Fecha de elaboración
-                                                    </th>
-                                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 246px;">
-                                                        Recurso
-                                                    </th>
-                                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 116px;">
-                                                        Justifica
-                                                    </th>
-                                                    <th class="sorting">Proyecto
-                                                    </th>
-                                                    <th class="sorting">Motivo
-                                                    </th>
-                                                    <th class="sorting">Imagen
-                                                    </th>
-                                                    <th class="sorting">Acciones
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tfoot>
-                                                <tr>
-                                                    <th rowspan="1" colspan="1">Fecha de elaboración <s:property value="#session.usuario.idPersona" /></th>
-                                                    <th rowspan="1" colspan="1">Recurso</th>
-                                                    <th rowspan="1" colspan="1">Justifica</th>
-                                                    <th rowspan="1" colspan="1">Proyecto</th>
-                                                    <th rowspan="1" colspan="1">Motivo</th>
-                                                    <th rowspan="1" colspan="1">Imagen</th>
-                                                    <th rowspan="1" colspan="1">Acciones</th>
-                                                </tr>
-                                            </tfoot>
-                                            <tbody id="tableBody">
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <!-- /.container-fluid -->
-
+                        </a>
 
                         <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                             aria-labelledby="userDropdown">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="MiPerfilAP.jsp">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<%=context%>/cerrarSesion">
+                            <a class="dropdown-item" href="<%=context%>/index.jsp" >
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-
                                 Salir
                             </a>
                         </div>
@@ -358,27 +280,21 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                     </div>
 
                     <div class="col-md-8">
-                        <a href="AgregarJustificante.jsp"
-                           class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        <a href="AgregarJustificante.jsp" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                             <i class="fas fa-plus-circle fa-sm text-white-50"></i>Añadir justificante</a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
-                               role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                             <thead>
                             <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-sort="ascending" aria-label="Name: activate to sort column descending"
-                                    style="width: 161px;">Fecha de elaboración
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 161px;">Fecha de elaboración
                                 </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Position: activate to sort column ascending" style="width: 246px;">
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 246px;">
                                     Recurso
                                 </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Office: activate to sort column ascending" style="width: 116px;">
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 116px;">
                                     Justifica
                                 </th>
                                 <th class="sorting">Proyecto
@@ -393,8 +309,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                             </thead>
                             <tfoot>
                             <tr>
-                                <th rowspan="1" colspan="1">Fecha de elaboración <s:property
-                                        value="#session.usuario.idPersona"/></th>
+                                <th rowspan="1" colspan="1">Fecha de elaboración <s:property value="#session.usuario.idPersona" /></th>
                                 <th rowspan="1" colspan="1">Recurso</th>
                                 <th rowspan="1" colspan="1">Justifica</th>
                                 <th rowspan="1" colspan="1">Proyecto</th>
@@ -412,6 +327,11 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 
 
             </div>
+            <!-- /.container-fluid -->
+
+
+            <!-- Dropdown - User Information -->
+
             <!-- /.container-fluid -->
 
         </div>
@@ -530,7 +450,41 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 
     abrirModal();
 </script>
+<script src="<%=context%>/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<%=context%>/vendor/datatables/dataTables.bootstrap4.js"></script>
+<script>
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        $('#dataTable').DataTable({
+            "language": {
+                "sProcessing":    "Procesando...",
+                "sLengthMenu":    "Mostrar _MENU_ registros",
+                "sZeroRecords":   "No se encontraron resultados",
+                "sEmptyTable":    "Ningún dato disponible en esta tabla",
+                "sInfo":          "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty":     "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered":  "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix":   "",
+                "sSearch":        "Buscar:",
+                "sUrl":           "",
+                "sInfoThousands":  ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst":    "Primero",
+                    "sLast":    "Último",
+                    "sNext":    "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            },
+            "scrollX": true
+        });
 
+    });
+</script>
 </body>
 
 </html>
