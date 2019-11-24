@@ -20,6 +20,8 @@
 
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
 </head>
 
 <body id="page-top" onload="consultarJustificantePendienteEspecifico(<%=idJustificante%>)" >

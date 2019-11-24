@@ -204,6 +204,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                 <div class="row">
                     <div class="col-md-4">
                         <h1 class="h3 mb-4 text-gray-800">Historial de Justificantes</h1>
+                        <input type="hidden" id="idUsSesion" value="<s:property value="#session.usuario.idPersona" />">
                     </div>
 
                 </div>

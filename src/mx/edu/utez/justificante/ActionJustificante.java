@@ -21,49 +21,53 @@ public class ActionJustificante extends ActionSupport {
 
     public String consultarJustificantesPendientes(){
         daoJustificante = new DaoJustificante();
-        respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientes(1));
+        int id = Integer.parseInt(parametro);
+        respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientes(id));
         return SUCCESS;
     }
 
     public String consultarHistorialJustificantes(){
         daoJustificante = new DaoJustificante();
-        respuestas.put("listaJPendientes", daoJustificante.historialJustificantes(1));
+        int id = Integer.parseInt(parametro);
+        respuestas.put("listaJPendientes", daoJustificante.historialJustificantes(id));
         return SUCCESS;
     }
 
     public String consultarHistorialJustificantesRH(){
         daoJustificante = new DaoJustificante();
-        respuestas.put("listaJPendientes", daoJustificante.historialJustificantesRH(3));
+        respuestas.put("listaJPendientes", daoJustificante.historialJustificantesRH());
         return SUCCESS;
     }
 
     public String consultarHistorialJustificantesCOD(){
         daoJustificante = new DaoJustificante();
-        respuestas.put("listaJPendientes", daoJustificante.historialJustificantesCOD(3));
+        respuestas.put("listaJPendientes", daoJustificante.historialJustificantesCOD());
         return SUCCESS;
     }
 
     public String consultarHistorialJustificantesRAPE(){
         daoJustificante = new DaoJustificante();
-        respuestas.put("listaJPendientes", daoJustificante.historialJustificantesRAPE(3));
+        int id = Integer.parseInt(parametro);
+        respuestas.put("listaJPendientes", daoJustificante.historialJustificantesRAPE(id));
         return SUCCESS;
     }
 
     public String consultarJustificantesPendientesRAPE(){
         daoJustificante = new DaoJustificante();
-        respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientesRAPE(3));
+        int id = Integer.parseInt(parametro);
+        respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientesRAPE(id));
         return SUCCESS;
     }
 
     public String consultarJustificantesPendientesCOD(){
         daoJustificante = new DaoJustificante();
-        respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientesCOD(3));
+        respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientesCOD());
         return SUCCESS;
     }
 
     public String consultarJustificantesPendientesRH(){
         daoJustificante = new DaoJustificante();
-        respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientesRH(3));
+        respuestas.put("listaJPendientes", daoJustificante.listaJustificantesPendientesRH());
         return SUCCESS;
     }
 
@@ -238,7 +242,7 @@ public class ActionJustificante extends ActionSupport {
         beanJustificante = new BeanJustificante();
 
         beanJustificante.setIdJustificante(object.getInt("idJus"));
-        beanJustificante.setEstadoRAPE(object.getInt("aprobar"));
+        beanJustificante.setEstadoCCDS(object.getInt("aprobar"));
         beanJustificante.setMotivoRechazo(object.getString("motivo"));
 
         if (daoJustificante.aprobarJustificanteCOD(beanJustificante)){
@@ -256,7 +260,7 @@ public class ActionJustificante extends ActionSupport {
         beanJustificante = new BeanJustificante();
 
         beanJustificante.setIdJustificante(object.getInt("idJus"));
-        beanJustificante.setEstadoRAPE(object.getInt("aprobar"));
+        beanJustificante.setEstadoARH(object.getInt("aprobar"));
         beanJustificante.setMotivoRechazo(object.getString("motivo"));
 
         if (daoJustificante.aprobarJustificanteRH(beanJustificante)){
