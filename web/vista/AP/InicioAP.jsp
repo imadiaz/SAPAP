@@ -309,7 +309,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                             </thead>
                             <tfoot>
                             <tr>
-                                <th rowspan="1" colspan="1">Fecha de elaboración <s:property value="#session.usuario.idPersona" /></th>
+                                <th rowspan="1" colspan="1">Fecha de elaboración <input type="hidden" id="idUsSesion" value="<s:property value="#session.usuario.idPersona" />"></th>
                                 <th rowspan="1" colspan="1">Recurso</th>
                                 <th rowspan="1" colspan="1">Justifica</th>
                                 <th rowspan="1" colspan="1">Proyecto</th>
@@ -429,6 +429,8 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 
 <!-- Core plugin JavaScript-->
 <script src="<%=context%>/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="<%=context%>/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<%=context%>/vendor/datatables/dataTables.bootstrap4.js"></script>
 
 <!-- Custom scripts for all pages-->
 <script src="<%=context%>/js/sb-admin-2.min.js"></script>
@@ -450,8 +452,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 
     abrirModal();
 </script>
-<script src="<%=context%>/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="<%=context%>/vendor/datatables/dataTables.bootstrap4.js"></script>
+
 <script>
     // Call the dataTables jQuery plugin
     $(document).ready(function() {

@@ -5,6 +5,7 @@
     <%
         String context = request.getContextPath();
     %>
+    <%@taglib prefix="s" uri="/struts-tags" %>
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,6 +21,7 @@
 
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
 
@@ -31,9 +33,15 @@
 
 
 </head>
-
+<s:if test="#session.usuario.nombre==null">
+    <script>
+        alert("No hay sesion");
+        window.location.href = "<%=context%>/index.jsp";
+    </script>
+</s:if>
 <body id="page-top" onload="consultarJustificantesPendientesRH()">
-
+<input type="hidden" id="idUsSesion" value="<s:property value="#session.usuario.idPersona" />">
+<input id='idJustificante' type='hidden'/>
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -138,7 +146,8 @@
                 <!-- Topbar Search -->
                 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..."
+                               aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="button">
                                 <i class="fas fa-search fa-sm"></i>
@@ -150,27 +159,111 @@
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
-                    <!-- Nav Item - Alerts -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-list-ul fa-fw" style="margin-right: 20px">Roles</i>
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="rolesDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                   <i class="fas fa-user fa-fw" style="margin-right: 20px">
+                                </i>Roles</span>
                         </a>
+
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="rolesDropdown">
+                            <a class="dropdown-item" href="MiPerfilRH.jsp">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <s:iterator value="#session.roles" var="rol">
+
+
+                                <s:if test="#rol.tipo=='Estadia'">
+                                    <a class="dropdown-item" href="<%=context%>/vista/AP/InicioAP.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+
+                                </s:if>
+                                <s:elseif test="#rol.tipo=='Administradora de Recursos Humanos'">
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/RH/InicioRH.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='Responsable de Desarrollo'">
+
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/RD/InicioRD.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='RAPE'">
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/RAPE/InicioRAPE.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='Coordinador del CDS'">
+
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/Coordinador/InicioCOD.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='Analista Programador'">
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/AP/InicioAP.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+
+
+                                </a>
+                            </s:iterator>
+                        </div>
                     </li>
 
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw" style="margin-right: 20px">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i
+                                                    class="fas fa-user fa-fw"
+                                                    style="margin-right: 20px">
                                 </i>Nombre</span>
+                        </a>
+
                         </a>
 
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="MiPerfilRH.jsp">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Perfil
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<%=context%>/index.jsp" >
@@ -337,11 +430,15 @@
 <script>
     $(document).on("click", "#btnAprobar", function () {
         var id = $(this).data("justificante");
+        var id2 = $(this).data("idjustificante");
         $("#aprobar").val(id);
+        $("#idJustificante").val(id2);
     });
     $(document).on("click", "#btnRechazar", function () {
         var id = $(this).data("justificante");
+        var id2 = $(this).data("idjustificante");
         $("#aprobar").val(id);
+        $("#idJustificante").val(id2);
     });
 </script>
 <script src="<%=context%>/vendor/datatables/jquery.dataTables.min.js"></script>
