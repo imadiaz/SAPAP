@@ -94,9 +94,9 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         BeanProyecto beanProyecto = null;
         try {
             mySQLRepositorio("select j.idJustificante, j.evidencia, j.referencia, j.fechaElaboracion, j.nombreRape, j.proyectoJustificante,j.motivoJustifica from \n" +
-                    "Persona as p inner join Estudiante as e on e.Persona_id = p.id \n" +
-                    "inner join Justificante as j on j.Estudiante_id = e.idEstudiante\n" +
-                    "where idEstudiante = ? and estadoJustificante = 1 and estadoRAPE is null;");
+                    "                    Persona as p inner join Estudiante as e on e.Persona_id = p.id \n" +
+                    "                    inner join Justificante as j on j.Estudiante_id = p.id\n" +
+                    "                    where p.id = ? and estadoJustificante = 1 and estadoRAPE is null;");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -132,7 +132,7 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
             mySQLRepositorio("select j.idJustificante, j.fechaElaboracion, p.nombre, j.referencia, j.evidencia, " +
                     "p.primerApellido, p.SegundoApellido, j.motivoJustifica, p.id, j.nombreRape, j.proyectoJustificante \n" +
                     "from Persona as p inner join Estudiante as e on e.Persona_id = p.id\n" +
-                    "inner join Justificante as j on j.Estudiante_id = e.idEstudiante\n" +
+                    "inner join Justificante as j on j.Estudiante_id = p.id\n" +
                     "where estadoJustificante = 1 and rape_id = ? and estadoRAPE is null;");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
@@ -163,7 +163,7 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         return lista;
     }
 
-    public ArrayList listaJustificantesPendientesCOD(int id) {
+    public ArrayList listaJustificantesPendientesCOD() {
         ArrayList lista = new ArrayList();
         BeanJustificante beanJustificante = null;
         BeanPersona beanPersona = null;
@@ -172,7 +172,7 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
             mySQLRepositorio("select j.idJustificante, j.fechaElaboracion, p.nombre, j.referencia, j.evidencia, " +
                     "p.primerApellido, p.SegundoApellido, j.motivoJustifica, p.id, j.nombreRape, j.proyectoJustificante \n" +
                     "from Persona as p inner join Estudiante as e on e.Persona_id = p.id\n" +
-                    "inner join Justificante as j on j.Estudiante_id = e.idEstudiante\n" +
+                    "inner join Justificante as j on j.Estudiante_id = p.id\n" +
                     "where estadoJustificante = 1 and estadoRAPE =1 and estadoCCDS is null");
 //            preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
@@ -203,7 +203,7 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         return lista;
     }
 
-    public ArrayList listaJustificantesPendientesRH(int id) {
+    public ArrayList listaJustificantesPendientesRH() {
         ArrayList lista = new ArrayList();
         BeanJustificante beanJustificante = null;
         BeanPersona beanPersona = null;
@@ -212,7 +212,7 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
             mySQLRepositorio("select j.idJustificante, j.fechaElaboracion, p.nombre, j.referencia, j.evidencia, " +
                     "p.primerApellido, p.SegundoApellido, j.motivoJustifica, p.id, j.nombreRape, j.proyectoJustificante \n" +
                     "from Persona as p inner join Estudiante as e on e.Persona_id = p.id\n" +
-                    "inner join Justificante as j on j.Estudiante_id = e.idEstudiante\n" +
+                    "inner join Justificante as j on j.Estudiante_id = p.id\n" +
                     "where estadoJustificante = 1 and estadoCCDS =1 and estadoARH is null");
 //            preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
@@ -251,8 +251,8 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         try {
             mySQLRepositorio("select j.idJustificante, j.motivoRechazo, j.evidencia, j.referencia, j.fechaElaboracion, j.nombreRape, j.proyectoJustificante,j.motivoJustifica from \n" +
                     "Persona as p inner join Estudiante as e on e.Persona_id = p.id \n" +
-                    "inner join Justificante as j on j.Estudiante_id = e.idEstudiante\n" +
-                    "where idEstudiante = ? and estadoJustificante = 0");
+                    "inner join Justificante as j on j.Estudiante_id = p.id\n" +
+                    "where p.id = ? and estadoJustificante = 0");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -280,7 +280,7 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         return lista;
     }
 
-    public ArrayList historialJustificantesRH(int id) {
+    public ArrayList historialJustificantesRH() {
         ArrayList lista = new ArrayList();
         BeanJustificante beanJustificante = null;
         BeanPersona beanPersona = null;
@@ -288,7 +288,7 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         try {
             mySQLRepositorio("select j.idJustificante, j.motivoRechazo, j.evidencia, j.referencia, j.fechaElaboracion, p.nombre, p.primerApellido, p.SegundoApellido, j.proyectoJustificante,j.motivoJustifica from \n" +
                     "                    Persona as p inner join Estudiante as e on e.Persona_id = p.id \n" +
-                    "                    inner join Justificante as j on j.Estudiante_id = e.idEstudiante\n" +
+                    "                    inner join Justificante as j on j.Estudiante_id = p.id\n" +
                     "                    where estadoARH is not null;");
 //            preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
@@ -319,7 +319,7 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         return lista;
     }
 
-    public ArrayList historialJustificantesCOD(int id) {
+    public ArrayList historialJustificantesCOD() {
         ArrayList lista = new ArrayList();
         BeanJustificante beanJustificante = null;
         BeanPersona beanPersona = null;
@@ -327,8 +327,8 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         try {
             mySQLRepositorio("select j.idJustificante, j.motivoRechazo, j.evidencia, j.referencia, j.fechaElaboracion, p.nombre, p.primerApellido, p.SegundoApellido, j.proyectoJustificante,j.motivoJustifica from \n" +
                     "                    Persona as p inner join Estudiante as e on e.Persona_id = p.id \n" +
-                    "                    inner join Justificante as j on j.Estudiante_id = e.idEstudiante\n" +
-                    "                    where estadoCCDS is not null;");
+                    "                    inner join Justificante as j on j.Estudiante_id = p.id\n" +
+                    "                    where estadoCCDS is not null and motivoRechazo is not null;");
 //            preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -366,9 +366,9 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         try {
             mySQLRepositorio("select j.idJustificante, j.motivoRechazo, j.evidencia, j.referencia, j.fechaElaboracion, p.nombre, p.primerApellido, p.SegundoApellido, j.proyectoJustificante,j.motivoJustifica from \n" +
                     "                    Persona as p inner join Estudiante as e on e.Persona_id = p.id \n" +
-                    "                    inner join Justificante as j on j.Estudiante_id = e.idEstudiante\n" +
-                    "                    where estadoCCDS is not null;");
-//            preparedStatement.setInt(1, id);
+                    "                    inner join Justificante as j on j.Estudiante_id = p.id\n" +
+                    "                    where rape_id = ? and estadoJustificante = 0 and estadoRAPE is not null;");
+            preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 beanPersona = new BeanPersona();
@@ -415,7 +415,7 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         try {
             mySQLRepositorio("select p.nombre, p.primerApellido, p.segundoApellido, p.id from Persona as p inner join Persona_Rol as pr \n" +
                     "on pr.Persona_id = p.id inner join Rol as r on r.idRol = pr.Rol_id \n" +
-                    "where r.descripcion = 'RAPE'");
+                    "where r.descripcion = 'RAPE' and p.estado = 1");
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 beanPersona = new BeanPersona();
@@ -439,7 +439,7 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         BeanProyecto beanProyecto = null;
         try {
             mySQLRepositorio("select pr.nombre, pr.idProyecto from Proyecto as pr INNER JOIN Persona_Proyecto as pp on pr.idProyecto = pp.proyecto_id\n" +
-                    "inner join Persona as p on p.id = pp.Persona_id where p.id = ?;");
+                    "inner join Persona as p on p.id = pp.Persona_id where p.id = ? and pr.estado = 1;");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
@@ -564,10 +564,9 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
     public boolean aprobarJustificante(BeanJustificante bean) {
         try {
             if(bean.getEstadoRAPE() == 1){
-                mySQLRepositorio("update Justificante set motivoRechazo=?, estadoRAPE = ? WHERE idJustificante=?");
-                preparedStatement.setString(1,bean.getMotivoRechazo());
-                preparedStatement.setInt(2,bean.getEstadoRAPE());
-                preparedStatement.setInt(3,bean.getIdJustificante());
+                mySQLRepositorio("update Justificante set estadoRAPE = ? WHERE idJustificante=?");
+                preparedStatement.setInt(1,bean.getEstadoRAPE());
+                preparedStatement.setInt(2,bean.getIdJustificante());
                 estatus = preparedStatement.executeUpdate() == 1;
             } else {
                 mySQLRepositorio("update Justificante set motivoRechazo=?, estadoRAPE = ?, estadoJustificante = 0 WHERE idJustificante=?");
@@ -585,16 +584,15 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
 
     public boolean aprobarJustificanteCOD(BeanJustificante bean) {
         try {
-            if(bean.getEstadoRAPE() == 1){
-                mySQLRepositorio("update Justificante set motivoRechazo=?, estadoCCDS = ? WHERE idJustificante=?");
-                preparedStatement.setString(1,bean.getMotivoRechazo());
-                preparedStatement.setInt(2,bean.getEstadoRAPE());
-                preparedStatement.setInt(3,bean.getIdJustificante());
+            if(bean.getEstadoCCDS() == 1){
+                mySQLRepositorio("update Justificante set estadoCCDS = ? WHERE idJustificante=?");
+                preparedStatement.setInt(1,bean.getEstadoCCDS());
+                preparedStatement.setInt(2,bean.getIdJustificante());
                 estatus = preparedStatement.executeUpdate() == 1;
             } else {
                 mySQLRepositorio("update Justificante set motivoRechazo=?, estadoCCDS = ?, estadoJustificante = 0 WHERE idJustificante=?");
                 preparedStatement.setString(1,bean.getMotivoRechazo());
-                preparedStatement.setInt(2,bean.getEstadoRAPE());
+                preparedStatement.setInt(2,bean.getEstadoCCDS());
                 preparedStatement.setInt(3,bean.getIdJustificante());
                 estatus = preparedStatement.executeUpdate() == 1;
             }
@@ -607,11 +605,19 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
 
     public boolean aprobarJustificanteRH(BeanJustificante bean) {
         try {
+            if(bean.getEstadoARH() == 1){
                 mySQLRepositorio("update Justificante set motivoRechazo=?, estadoARH = ?, estadoJustificante = 0 WHERE idJustificante=?");
-                preparedStatement.setString(1,bean.getMotivoRechazo());
-                preparedStatement.setInt(2,bean.getEstadoRAPE());
+                preparedStatement.setString(1, "El justificante fue aprobado");
+                preparedStatement.setInt(2,bean.getEstadoARH());
                 preparedStatement.setInt(3,bean.getIdJustificante());
                 estatus = preparedStatement.executeUpdate() == 1;
+            } else {
+                mySQLRepositorio("update Justificante set motivoRechazo=?, estadoARH = ?, estadoJustificante = 0 WHERE idJustificante=?");
+                preparedStatement.setString(1,bean.getMotivoRechazo());
+                preparedStatement.setInt(2,bean.getEstadoARH());
+                preparedStatement.setInt(3,bean.getIdJustificante());
+                estatus = preparedStatement.executeUpdate() == 1;
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

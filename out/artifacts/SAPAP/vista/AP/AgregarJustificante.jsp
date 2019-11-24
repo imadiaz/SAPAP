@@ -22,6 +22,8 @@
 
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
 
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
 
@@ -33,8 +35,8 @@
 
 </head>
 
-<body id="page-top" onload="consultarSelectAgregar(1)">
-
+<body id="page-top" onload="consultarSelectAgregar(document.getElementById('idUsSesion').value)">
+<input type="hidden" id="idUsSesion" value="<s:property value="#session.usuario.idPersona" />">
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -271,7 +273,7 @@
                     </div>
                 </div>
 
-                <form class="user">
+                <form class="user" id="formJustificante">
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="rape">RAPE</label>
@@ -291,9 +293,9 @@
                     <div class="form-group">
                         <input type="file" class="form-control form-control-user" id="imagen" placeholder="Imagen">
                     </div>
-
-                    <a class="btn btn-primary btn-user btn-block" onclick="agregarJustificante()">Enviar
-                    </a>
+                    <button type="button" class="btn btn-primary btn-user btn-block" onclick="agregarJustificante();">
+                        Guardar
+                    </button>
                 </form>
             </div>
             <!-- /.container-fluid -->
