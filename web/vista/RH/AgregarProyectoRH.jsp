@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%@taglib prefix="s" uri="/struts-tags" %>
+
 <head>
     <%
         String context = request.getContextPath();
@@ -16,11 +16,9 @@
     <!-- Custom fonts for this template-->
     <link href="<%=context%>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="<%=context%>/css/bootstrap-select.min.css" rel="stylesheet">
 
 </head>
 
@@ -102,6 +100,7 @@
                 <span>Cursos</span></a>
         </li>
 
+
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
@@ -180,104 +179,77 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <h1 class="h3 mb-4 text-gray-800">Agregar Proyecto</h1>
+                <!-- Page Heading -->
+                <h1 class="h3 mb-4 text-gray-800">Agregar proyecto</h1>
+
+
+                <div class="form-group row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <label for="nombre">Identificador</label>
+                        <input type="text" class="form-control form-control-user" id="identificador" required placeholder="Identificador">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="primerApellido">Nombre del Proyecto</label>
+                        <input type="text" class="form-control form-control-user" id="nombre" required placeholder="Nombre del Proyecto">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="segundoApellido">Nombre del Cliente</label>
+                        <input type="text" class="form-control form-control-user" id="nombreCliente" placeholder="Nombre del Cliente">
                     </div>
                 </div>
-
-
-                <form class="user" onsubmit="registrarProyecto()">
-
-                    <div class="form-group row">
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label for="nombre">Identificador</label>
-                            <input type="text" class="form-control form-control-user" id="identificador" required placeholder="Identificador">
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="nombre">Nombre del Proyecto</label>
-                            <input type="text" class="form-control form-control-user" id="nombre" required placeholder="Nombre del Proyecto">
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="nombreCliente">Nombre del Cliente</label>
-                            <input type="text" class="form-control form-control-user" id="nombreCliente" placeholder="Nombre del Cliente">
-                        </div>
+                <div class="form-group row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <label for="nombre">Correo Electronico del Cliente</label>
+                        <input type="text" class="form-control form-control-user" id="correoE" required placeholder="Correo Electronico del Cliente">
                     </div>
-                    <div class="form-group row">
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label for="correoE">Correo Electronico del Cliente</label>
-                            <input type="text" class="form-control form-control-user" id="correoE" required placeholder="Correo Electronico del Cliente">
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="numeroTelefonico">Número Telefónico</label>
-                            <input type="number" class="form-control form-control-user" id="numeroTelefonico" required placeholder="Número Telefónico">
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="direccionDelCliente">Dirección del Cliente</label>
-                            <input type="text" class="form-control form-control-user" id="direccionDelCliente" placeholder="Dirección del Cliente">
-                        </div>
+                    <div class="col-sm-4">
+                        <label for="primerApellido">Número Telefónico</label>
+                        <input type="text" class="form-control form-control-user" id="numeroTelefonico" required placeholder="Número Telefónico">
                     </div>
-                    <div class="form-group row">
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label for="fechaInicio">Fecha Inicio</label>
-                            <input type="date" class="form-control form-control-user" id="fechaInicio" required placeholder="Fecha Inicio">
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="fechaFin">Fecha Fin</label>
-                            <input type="date" class="form-control form-control-user" id="fechaFin" required placeholder="Fecha Fin">
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="descripcion">Descripción</label>
-                            <input type="text" class="form-control form-control-user" id="descripcion" placeholder="Descripción">
-                        </div>
+                    <div class="col-sm-4">
+                        <label for="segundoApellido">Dirección del Cliente</label>
+                        <input type="text" class="form-control form-control-user" id="direccionDelCliente" placeholder="Dirección del Cliente">
                     </div>
-                    <div class="form-group row">
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label for="nombre">Costo</label>
-                            <input type="number" class="form-control form-control-user" id="costo" required placeholder="Costo">
-                        </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <label for="nombre">Fecha Inicio</label>
+                        <input type="text" class="form-control form-control-user" id="fechaInicio" required placeholder="Fecha Inicio">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="primerApellido">Fecha Fin</label>
+                        <input type="text" class="form-control form-control-user" id="fechaFin" required placeholder="Fecha Fin">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="segundoApellido">Descripción</label>
+                        <input type="text" class="form-control form-control-user" id="descripcion" placeholder="Descripción">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <label for="nombre">Costo</label>
+                        <input type="text" class="form-control form-control-user" id="costo" required placeholder="Costo">
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                        <label for="nombre">RAPE</label>
 
                     </div>
-                    <div class="form-group row">
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label for="rapeSelect">RAPE</label>
-                            <select name="rape" id="rapeSelect" class="form-control form-control-file selectpicker" multiple>
-                                <s:iterator value="rapes" status="stat" var="lista">
-                                    <option value="<s:property value="idPersona"></s:property>"><s:property value="nombre"></s:property> <s:property value="primerApellido"></s:property> </option>
-                                </s:iterator>
-                            </select>
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="rdSelect">RD</label>
-                            <select name="rd" id="rdSelect" class="form-control form-control-file selectpicker" multiple>
-                                <s:iterator value="rds" status="stat" var="lista">
-                                    <option value="<s:property value="idPersona"></s:property>"><s:property value="nombre"></s:property> <s:property value="primerApellido"></s:property></option>
-                                </s:iterator>
-
-                            </select>
-
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="apSelect">AP</label>
-                            <select name="ap" id="apSelect" class="form-control form-control-file selectpicker" multiple>
-
-                                <s:iterator value="aps" status="stat" var="lista">
-                                    <option value="<s:property value="idPersona"></s:property>"><s:property value="nombre"></s:property> <s:property value="primerApellido"></s:property> </option>
-                                </s:iterator>
-                            </select>
-
-                        </div>
+                    <div class="col-sm-4">
+                        <label for="primerApellido">RD</label>
+                        <input type="text" class="form-control form-control-user" id="primerApellido" required placeholder="Primer Apellido">
                     </div>
+                    <div class="col-sm-4">
+                        <label for="segundoApellido">AP</label>
+                        <input type="text" class="form-control form-control-user" id="segundoApellido" placeholder="Segundo Apellido">
+                    </div>
+                </div>
                     <a href="login.html" class="btn btn-primary btn-user btn-block">
                         Enviar
                     </a>
-
                 </form>
-
-
-                <button class="btn btn-primary btn-user btn-block" onclick="registrarProyecto()"></button>
-
-
 
             </div>
             <!-- /.container-fluid -->
@@ -316,26 +288,12 @@
 <!-- Custom scripts for all pages-->
 <script src="<%=context%>/js/sb-admin-2.min.js"></script>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-storage.js"></script>
-<script src="<%=context%>/js/Proyecto/proyectosJS.js"></script>
-<script src="<%=context%>/js/select/bootstrap-select.min.js"></script>
-
-<script>
-
-    function f() {
-        var values=$("#travel").val();
-        alert(values);
-        alert(values[0])
-        alert(values[1])
-    }
-</script>
 </body>
 
 </html>
+<script type="text/javascript">
+    // Material Select Initialization
+    $(document).ready(function() {
+        $('.mdb-select').materialSelect();
+    });
+</script>

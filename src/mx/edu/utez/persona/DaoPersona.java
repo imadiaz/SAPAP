@@ -157,12 +157,12 @@ return true;
             while (rs.next()){
               id=rs.getInt(1);
           }
-            List<Integer> ids=new ArrayList<>();
+            int ids[]=new int[10];
             JsonArray json=object.get("roles").getAsJsonArray();
          for (int i=0;i<json.size();i++){
-             ids.add(json.get(i).getAsInt());
+             ids[i]=json.get(i).getAsInt();
              pstm = conexion.prepareStatement("insert into Persona_Rol (Rol_id,Persona_id) values(?,?)");
-             pstm.setInt(1,ids.get(i));
+             pstm.setInt(1,ids[i]);
              pstm.setInt(2,id);
              pstm.execute();
          }
@@ -223,7 +223,6 @@ return true;
 
     @Override
     public boolean actualizar(Object bean) {
-
         return false;
     }
 
@@ -283,58 +282,7 @@ return true;
 
     @Override
     public Object buquedaByID(int id) {
-        Connection con=null;
-        PreparedStatement pstm=null;
-        ResultSet rs=null;
-        ArrayList lista = new ArrayList();
-        BeanPersona beanPersona = new BeanPersona();
-        try{
-            con=MySQLConexion.getConnection();
-            pstm=con.prepareStatement("SELECT * FROM Persona as p inner join Horario as h on p.horarios_id=h.id where  estado=1 and p.id=?");
-            pstm.setInt(1,id);
-            resultSet = pstm.executeQuery();
-            while(resultSet.next()){
-                beanPersona=new BeanPersona();
-                beanPersona.setCarreraDeEgreso(resultSet.getString("universidadDeEgreso"));
-                beanPersona.setContrasenia(resultSet.getString("contrasenia"));
-                beanPersona.setCorreoInstitucional(resultSet.getString("correoInstitucional"));
-                beanPersona.setCorreoPersonal(resultSet.getString("correoPersona"));
-                beanPersona.setDesempenio(resultSet.getString("desempeño"));
-                beanPersona.setFechaDeEgreso(resultSet.getString("fechaDeEgreso"));
-                beanPersona.setFechaDeIngreso(resultSet.getString("fechaDeIngreso"));
-                beanPersona.setFechaDeNacimiento(resultSet.getString("fechaNacimiento"));
-                BeanHorario horario=new BeanHorario();
-                beanPersona.setDireccion(resultSet.getString("direccion"));
-                horario.setHorario(resultSet.getString("horario"));
-                horario.setIdHorario(resultSet.getInt("h.id"));
-                beanPersona.setHorario(horario);
-                beanPersona.setContrasenia(resultSet.getString("contrasenia"));
-                beanPersona.setIdPersona(resultSet.getInt("p.id"));
-                beanPersona.setMatricula(resultSet.getString("matricula"));
-                beanPersona.setNombre(resultSet.getString("nombre"));
-                beanPersona.setNumeroCasa(resultSet.getString("numeroCasa"));
-                beanPersona.setNumeroTelefonico(resultSet.getString("numeroTelefonico"));
-                beanPersona.setPrimerApellido(resultSet.getString("primerApellido"));
-                beanPersona.setSegundoApellido(resultSet.getString("segundoApellido"));
-                beanPersona.setUniversidadDeEgreso(resultSet.getString("universidadDeEgreso"));
-                beanPersona.setEstado((resultSet.getInt("estado")==1)?true:false );
-                lista.add(beanPersona);
-            }
-
-        }catch(Exception e){
-            System.out.println(e);
-        } finally {
-            try {
-
-                con.close();
-                rs.close();
-                pstm.close();
-            }catch (Exception e){
-                System.out.println();
-            }
-        }
-        System.out.println(lista.size());
-        return lista.get(0);
+        return null;
 
     }
 
@@ -511,101 +459,5 @@ return true;
         }
         return res;
     }
-    public boolean act(String bean){
-        Gson g=new Gson();
-        JsonObject object=new JsonParser().parse(bean).getAsJsonObject();
-        int idHorairo=object.get("horario").getAsInt();
-        System.out.println(idHorairo);
-        System.out.println("nombre"+object.get("nombre").getAsString());
-        String fecha=object.get("fechaDeIngreso").getAsString();
-        System.out.println(fecha);
-        try{
-            System.out.println("1");
-            conexion = MySQLConexion.getConnection();
-            pstm=conexion.prepareStatement("update Persona set nombre=?,primerApellido=?,segundoApellido=?,fechaNacimiento=?" +
-                    ",correoInstitucional=?,correoPersona=?,numeroTelefonico=?,numeroCasa=?,matricula=?,carreraDeEgreso=?,universidadDeEgreso=?,horarios_id=?,fechaDeIngreso=?,contrasenia=?,direccion=? where id=?");
-            pstm.setString(1,object.get("nombre").getAsString());
-            pstm.setString(2,object.get("primerApellido").getAsString());
-            pstm.setString(3,object.get("segundoApellido").getAsString());
-            pstm.setString(4,object.get("fechaNac").getAsString());
-            pstm.setString(5,object.get("correoInstitucional").getAsString()+"@utez.edu.mx");
-            pstm.setString(6,object.get("correoP").getAsString());
-            pstm.setString(7,object.get("numeroTel").getAsString());
-            pstm.setString(8,object.get("numeroPersonal").getAsString());
-            pstm.setString(9,object.get("matricula").getAsString());
-            pstm.setString(10,object.get("carreraDeEgreso").getAsString());
-            pstm.setString(11,object.get("universidadDeEgreso").getAsString());
 
-            System.out.println("2");
-            pstm.setInt(12,idHorairo);
-
-            System.out.println("3");
-            System.out.println(fecha);
-            pstm.setString(13,fecha);
-
-            System.out.println("4");
-            pstm.setString(14,object.get("contrasena").getAsString());
-
-            System.out.println("5");
-            pstm.setString(15,object.get("direccion").getAsString());
-            pstm.setInt(16,object.get("idPersona").getAsInt());
-            pstm.execute();
-
-            System.out.println("13");
-            int id=object.get("idPersona").getAsInt();
-            pstm=conexion.prepareStatement("delete from Persona_Rol where Persona_id=?");
-            pstm.setInt(1,id);
-            pstm.execute();
-            pstm=conexion.prepareStatement("delete from becario where Persona_Rol_id=?");
-            pstm.setInt(1,id);
-            pstm.execute();
-            List<Integer> ids=new ArrayList<>();
-            System.out.println("14");
-            JsonArray json=object.get("roles").getAsJsonArray();
-            for (int i=0;i<json.size();i++){
-                ids.add(json.get(i).getAsInt());
-                pstm = conexion.prepareStatement("insert into Persona_Rol (Rol_id,Persona_id) values(?,?)");
-                pstm.setInt(1,ids.get(i));
-                pstm.setInt(2,id);
-                pstm.execute();
-            }
-            System.out.println("15");
-            if (Boolean.parseBoolean(object.get("estudiante").getAsString())){
-                pstm = conexion.prepareStatement("insert into Estudiante (cuatrimestreDeIngreso,grupoActual,cuatrimestreActual,estado,Persona_id) values(?,?,?,1,?)");
-                System.out.println("entra a estudiante");
-                pstm.setString(1,object.get("cuatrimestreDeIngreso").getAsString());
-                pstm.setString(2,object.get("grupoActual").getAsString());
-                pstm.setString(3,object.get("cuatrimestreActual").getAsString());
-                pstm.setInt(4,id);
-                pstm.execute();
-                if (Boolean.parseBoolean(object.get("becario").getAsString())){
-                    pstm = conexion.prepareStatement("insert into becario (beca,Persona_Rol_id) values(?,?)");
-                    pstm.setDouble(1,object.get("beca").getAsDouble());
-
-                    pstm.setInt(2,id);
-                    pstm.execute();
-                }
-            }
-
-        }catch (Exception e){
-            System.out.println("Error en el metodo modificar personas: "+e);
-        }finally {
-            try{
-                if (rs!=null){
-                    rs.close();
-                }
-                if (conexion!=null){
-                    conexion.close();
-                }
-                if (pstm!=null){
-                    pstm.close();
-                }
-
-
-            } catch (Exception e) {
-
-            }
-        }
-        return true;
-    }
 }

@@ -23,11 +23,5 @@
         <action name="consultaEmpleados" class="mx.edu.utez.persona.ActionPersona" method="consultaMisEstudiantes">
             <result type="json"/>
         </action>
-        <action name="buscarPersona" class="mx.edu.utez.persona.ActionPersona" method="buscarPersona">
-            <result name="success">/vista/RH/modificarPersona.jsp</result>
-        </action>
-        <action name="modificarPersona" class="mx.edu.utez.persona.ActionPersona" method="modificarPersona">
-            <result name="success">/vista/RH/EmpleadosRH.jsp</result>
-        </action>
         </package>
 </struts>

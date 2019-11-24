@@ -211,71 +211,9 @@ function registroPersona() {
         }
     });
 }
-function modificarPersona() {
-    var roles=[];
-    var grupoActual="";
-    var cuatrimestreDeIngreso="";
-    var cuatrimestreActual="";
-    var beca="";
-    var becario=false;
-    $.each($("input[name='rolesCheck']:checked"), function(){
-        roles.push($(this).val());
-    });
-    var estudiante;
-    var estudiante=document.getElementById("gridCheck").checked;
+function calar() {
 
-    if (estudiante){
-        var grupoActual=document.getElementById("grupoActual").value;
-        var becario=document.getElementById("gridBecario").checked;
-        var cuatrimestreDeIngreso=document.getElementById("cuatrimestreDeIngreso").value;
-        var cuatrimestreActual=document.getElementById("cuatrimestreActual").value;
-        if (becario){
-
-            beca=document.getElementById("beca").value;
-        }
-    }
-
-
-
-    var nombre=document.getElementById("nombre").value;
-    var primerApellido=document.getElementById("primerApellido").value;
-    var segundoApellido=" ";
-    var segundoApellido=document.getElementById("segundoApellido").value;
-    var matricula=document.getElementById("matricula").value;
-    var correoP=document.getElementById("correoPersonal").value;
-    var correoInstitucional=document.getElementById("correoInstitucional").value;
-    var fechaNac=document.getElementById("fechaDeNacimiento").value;
-    var numeroTel=document.getElementById("numeroTelefonico").value;
-    var numeroPersonal=document.getElementById("numeroPersonal").value;
-    var carreraDeEgreso=document.getElementById("carreraDeEgreso").value;
-    var universidadDeEgreso=document.getElementById("universidadDeEgreso").value;
-    var fechaDeIngreso=document.getElementById("fechaDeIngreso").value;
-    var horario=document.getElementById("select").value;
-    var contrasena=document.getElementById("contrasena").value;
-    var direccion=document.getElementById("direccion").value;
-    var idPersona=document.getElementById("idPersona").value;
-
-    var  params={nombre:nombre,estudiante:estudiante,becario:becario,beca:beca,grupoActual:grupoActual,cuatrimestreDeIngreso:cuatrimestreDeIngreso,cuatrimestreActual:cuatrimestreActual
-        ,beca:beca,primerApellido:primerApellido,segundoApellido:segundoApellido,
-        matricula:matricula,correoP:correoP,correoInstitucional:correoInstitucional,fechaNac:fechaNac,
-        numeroTel:numeroTel,numeroPersonal:numeroPersonal,carreraDeEgreso:carreraDeEgreso,universidadDeEgreso:universidadDeEgreso,fechaDeIngreso:fechaDeIngreso,
-        horario:horario,contrasena:contrasena,roles:roles,idPersona:idPersona,direccion:direccion}
-
-    $.ajax({
-        type: 'POST',
-        url: raiz + 'modificarPersona',
-        data:{
-            params:JSON.stringify(params)
-        },
-        success: function (respuesta) {
-
-
-        },
-        error: function (error) {
-            console.log("al error");
-            console.log(error);
-        }
-    });
+    window.location.href = "http://localhost:8080/SAPAP/vista/RH/EmpleadosRH.jsp";
 }
 
 function consultaPersonitas() {
@@ -297,7 +235,7 @@ function consultaPersonitas() {
                         ,personas[i].fechaDeIngreso
                         ,personas[i].horario.horario
                         , '<td><button onclick=\'eliminarPersona(this);\' value="'+personas[i].idPersona+'" class=\'btn btn-sm btn-icon-split btn-danger\'><span class=\'icon text-white-50\'><i class=\'fas fa-trash\'></i></span><span class=\'text\'>Eliminar</span></button><br/>' +
-                        '<form method=\'post\' action=\'buscarPersona.action\'><button name=\'params\' type=\'submit\' value="'+personas[i].idPersona+'" class=\'btn btn-sm btn-icon-split btn-warning\'><span class=\'icon text-white-50\'><i class=\'fas fa-exclamation-triangle\'></i></span><span class=\'text\'>Modificar</span></button></form></td> </tr>'  ]).draw(false);
+                        '<form method=\'post\' action=\'buscarPersona\'><button name=\'idCursoModificar\' type=\'submit\' value="'+personas[i].idPersona+'" class=\'btn btn-sm btn-icon-split btn-warning\'><span class=\'icon text-white-50\'><i class=\'fas fa-exclamation-triangle\'></i></span><span class=\'text\'>Modificar</span></button></form></td> </tr>'  ]).draw(false);
                 }
 
             },
