@@ -262,4 +262,21 @@ public class ActionPersona {
         respuestas.put("personas",dao.getLista());
         return SUCCESS;
     }
+    public String buscarPersona() {
+
+        System.out.println("id"+params);
+      bean=new BeanPersona();
+      bean=(BeanPersona) dao.buquedaByID(Integer.parseInt(params));
+      String correo=bean.getCorreoInstitucional();
+      correo=correo.replace("@utez.edu.mx","");
+        System.out.println(correo);
+      bean.setCorreoInstitucional(correo);
+        System.out.println(bean.getNombre());
+        return "success";
+    }
+    public String modificarPersona() {
+        System.out.println(params);
+        dao.act(params);
+        return "success";
+    }
 }

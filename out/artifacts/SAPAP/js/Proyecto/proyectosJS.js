@@ -24,24 +24,24 @@ function consulta() {
                     }
                     for (var j=0;j<proyectos[i].aps.length;j++){
                         if (j==0){
-                            aps=proyectos[i].aps[j].nombre;
+                            aps=proyectos[i].aps[j].nombre+" "+proyectos[i].aps[j].primerApellido;
                         }else{
-                            aps=aps+","+proyectos[i].aps[j].nombre;
+                            aps=aps+","+proyectos[i].aps[j].nombre+" "+proyectos[i].aps[j].primerApellido;
                         }
                     }
                     for (var k=0;k<proyectos[i].rds.length;k++){
                         if (k==0){
-                            rd=proyectos[i].rds[k].nombre;
+                            rd=proyectos[i].rds[k].nombre+" "+proyectos[i].rds[k].primerApellido;
                         }else{
-                            rd=rd+","+proyectos[i].rds[k].nombre;
+                            rd=rd+","+proyectos[i].rds[k].nombre+" "+proyectos[i].rds[k].primerApellido;
                         }
 
                     }
                     for (var l=0;l<proyectos[i].rapes.length;l++){
                         if (l==0){
-                            rape=proyectos[i].rapes[l].nombre;
+                            rape=proyectos[i].rapes[l].nombre+" "+proyectos[i].rapes[l].primerApellido;
                         }else{
-                            rape=rape+","+proyectos[i].rapes[l].nombre;
+                            rape=rape+","+proyectos[i].rapes[l].nombre+" "+proyectos[i].rapes[l].primerApellido;
                         }
 
                     }
@@ -55,11 +55,15 @@ function consulta() {
                         ,proyectos[i].fechaFin
                         ,proyectos[i].descripcion
                         ,'$ '+proyectos[i].costo
-                        ,aps
-                        ,rd
                         ,rape
+                        ,rd
+                        ,aps
                         ,'<td><button onclick=\'eliminarProyecto(this);\' value="'+proyectos[i].idProyecto+'" class=\'btn btn-sm btn-icon-split btn-danger\'><span class=\'icon text-white-50\'><i class=\'fas fa-trash\'></i></span><span class=\'text\'>Eliminar</span></button><br/>' +
-                        '<form method=\'post\' action=\'buscarProyecto('+proyectos[i].idProyecto+')\'><button name=\'idCursoModificar\' type=\'submit\' value="'+proyectos[i].idProyecto+'" class=\'btn btn-sm btn-icon-split btn-warning\'><span class=\'icon text-white-50\'><i class=\'fas fa-exclamation-triangle\'></i></span><span class=\'text\'>Modificar</span></button></form></td> </tr>'  ]).draw(false);
+                        '<form method=\'post\' action=\'buscarProyecto.action\'><button name=\'params\' type=\'submit\' value="'+proyectos[i].idProyecto+'" class=\'btn btn-sm btn-icon-split btn-warning\' > ' +
+                        '' +
+                        '' +
+                        '' +
+                        '  <span class=\'icon text-white-50\'><i class=\'fas fa-exclamation-triangle\'></i></span><span class=\'text\'>Modificar</span> <s:hidden name="params" value="tadeo"/></button>  </form></td> </tr>'  ]).draw(false);
                 }
             }
         }
@@ -104,4 +108,94 @@ function eliminarProyecto(button) {
             console.log(error);
         }
     });
+}
+function consultaRecursos() {
+
+    $.ajax({
+        type: 'POST',
+        url: raiz + 'consultarRecursos',
+        data:{
+
+        },
+        success: function (respuesta) {
+
+
+        },
+        error: function (error) {
+            console.log("al error");
+            console.log(error);
+        }
+    });
+}
+
+function registrarProyecto() {
+    var aps=$('#apSelect').val();
+    var rds=$('#rdSelect').val();
+    var rapes=$('#rapeSelect').val();
+    var params={identificador:document.getElementById("identificador").value,
+        nombreProyecto:document.getElementById("nombre").value,
+        nombreCliente:document.getElementById("nombreCliente").value,
+        correoE:document.getElementById("correoE").value,
+        numeroTelefonico:document.getElementById("numeroTelefonico").value,
+        direccionDelCliente:document.getElementById("direccionDelCliente").value,
+        fechaInicio:document.getElementById("fechaInicio").value,
+        fechaFin:document.getElementById("fechaFin").value,
+        descripcion:document.getElementById("descripcion").value,
+        costo:document.getElementById("costo").value,
+        rds:rds,
+        aps:aps,
+        rapes:rapes}
+    $.ajax({
+        type: 'POST',
+        url: raiz + 'registrarProyecto',
+
+        data:{
+            params:JSON.stringify(params)
+        },
+        success: function (respuesta) {
+
+
+        },
+        error: function (error) {
+            console.log("al error");
+            console.log(error);
+        }
+    });
+}
+
+
+    function modificarProyecto() {
+        var aps=$('#apSelect').val();
+        var rds=$('#rdSelect').val();
+        var rapes=$('#rapeSelect').val();
+        var params={identificador:document.getElementById("identificador").value,
+            nombreProyecto:document.getElementById("nombre").value,
+            nombreCliente:document.getElementById("nombreCliente").value,
+            correoE:document.getElementById("correoE").value,
+            numeroTelefonico:document.getElementById("numeroTelefonico").value,
+            direccionDelCliente:document.getElementById("direccionDelCliente").value,
+            fechaInicio:document.getElementById("fechaInicio").value,
+            fechaFin:document.getElementById("fechaFin").value,
+            descripcion:document.getElementById("descripcion").value,
+            costo:document.getElementById("costo").value
+            ,idProyecto:document.getElementById("idProyecto").value,
+            rds:rds,
+            aps:aps,
+            rapes:rapes}
+        $.ajax({
+            type: 'POST',
+            url: raiz + 'modificarProyecto',
+            data:{
+            params:JSON.stringify(params)
+            },
+            success: function (respuesta) {
+
+
+            },
+            error: function (error) {
+                console.log("al error");
+                console.log(error);
+            }
+        });
+
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@taglib prefix="s" uri="/struts-tags" %>
 <head>
     <%
         String context = request.getContextPath();
@@ -16,14 +16,15 @@
     <!-- Custom fonts for this template-->
     <link href="<%=context%>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="<%=context%>/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link href="<%=context%>/css/bootstrap-select.min.css" rel="stylesheet">
 
 </head>
 
-<body id="page-top" onload="consultaRegistro()">
+<body id="page-top">
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -127,7 +128,6 @@
                 </button>
 
                 <!-- Topbar Search -->
-                <!-- Topbar Search -->
                 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
                         <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
@@ -180,157 +180,105 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-                <!-- Page Heading -->
-                <h1 class="h3 mb-4 text-gray-800">Agregar Empleado</h1>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h1 class="h3 mb-4 text-gray-800">Modificar Proyecto</h1>
+                    </div>
+                </div>
 
 
-                <form class="user" onsubmit="registroPersona()">
+                <form class="user" onsubmit="registrarProyecto()">
+
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control form-control-user" id="nombre" required placeholder="Nombre">
+                            <label for="nombre">Identificador</label>
+                            <input type="text" class="form-control form-control-user" id="identificador" required placeholder="Identificador" value="<s:property value="beanProyecto.identificador"/>">
                         </div>
                         <div class="col-sm-4">
-                            <label for="primerApellido">Primer Apellido</label>
-                            <input type="text" class="form-control form-control-user" id="primerApellido" required placeholder="Primer Apellido">
+                            <label for="nombre">Nombre del Proyecto</label>
+                            <input type="text" class="form-control form-control-user" id="nombre" required placeholder="Nombre del Proyecto" value="<s:property value="beanProyecto.nombre"/>">
                         </div>
                         <div class="col-sm-4">
-                            <label for="segundoApellido">Segundo Apellido</label>
-                            <input type="text" class="form-control form-control-user" id="segundoApellido" placeholder="Segundo Apellido">
+                            <label for="nombreCliente">Nombre del Cliente</label>
+                            <input type="text" class="form-control form-control-user" id="nombreCliente" placeholder="Nombre del Cliente" value="<s:property value="beanProyecto.nombreDelCliente"/>">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label for="matricula">Matricula</label>
-                            <input onkeyup="modificar()" type="text" class="form-control form-control-user" id="matricula" placeholder="Matricula">
+                            <label for="correoE">Correo Electronico del Cliente</label>
+                            <input type="text" class="form-control form-control-user" id="correoE" value="<s:property value="beanProyecto.correoDelCliente"/>" required placeholder="Correo Electronico del Cliente">
                         </div>
                         <div class="col-sm-4">
-                            <label for="correoPersonal">Correo Personal</label>
-                            <input type="text" class="form-control form-control-user" id="correoPersonal" placeholder="Correo Personal">
+                            <label for="numeroTelefonico">Número Telefónico</label>
+                            <input type="number" class="form-control form-control-user" id="numeroTelefonico" value="<s:property value="beanProyecto.numTelefonico"/>" required placeholder="Número Telefónico">
                         </div>
                         <div class="col-sm-4">
-                            <label for="correoInstitucional">Correo Institucional</label>
-                            <div class="input-group mb-2">
-
-                                <input disabled type="text" class="form-control form-control-user" id="correoInstitucional" placeholder="Correo Institucional">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">@utez.edu.mx</div>
-                                </div>
-
-                            </div>
+                            <label for="direccionDelCliente">Dirección del Cliente</label>
+                            <input type="text" class="form-control form-control-user" id="direccionDelCliente" value="<s:property value="beanProyecto.direccionCliente"/>" placeholder="Dirección del Cliente">
                         </div>
                     </div>
-
-
-
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label for="fechaDeNacimiento">Fecha de Nacimiento</label>
-                            <input max="2019-11-19" type="date" class="form-control form-control-user" id="fechaDeNacimiento" >
+                            <label for="fechaInicio">Fecha Inicio</label>
+                            <input type="date" class="form-control form-control-user" id="fechaInicio" value="<s:property value="beanProyecto.fechaInicio"/>" required placeholder="Fecha Inicio">
                         </div>
                         <div class="col-sm-4">
-                            <label for="numeroTelefonico" >Número Telefónico</label>
-                            <input type="number" pattern="[0-9]" class="form-control form-control-user" id="numeroTelefonico" placeholder="Número Telefónico">
-
+                            <label for="fechaFin">Fecha Fin</label>
+                            <input type="date" class="form-control form-control-user" value="<s:property value="beanProyecto.fechaFin"/>" id="fechaFin" required placeholder="Fecha Fin">
                         </div>
                         <div class="col-sm-4">
-                            <label for="numeroPersonal">Número De Casa</label>
-                            <div class="input-group mb-2">
-
-                                <input type="number"  pattern="[0-9]" class="form-control form-control-user" id="numeroPersonal" placeholder="Número Personal">
-
-                            </div>
+                            <label for="descripcion">Descripción</label>
+                            <input type="text" class="form-control form-control-user" id="descripcion" value="<s:property value="beanProyecto.descripcion"/>" placeholder="Descripción">
                         </div>
                     </div>
-
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label for="carreraDeEgreso">Carrera de Egreso</label>
-                            <select id="carreraDeEgreso" class="form-control form-control-file">
-                                <option>DATIC</option>
-                                <option>DAMI</option>
-                                <option>DACEA</option>
-                                <option>DATEFI</option>
+                            <label for="nombre">Costo</label>
+                            <input type="number" class="form-control form-control-user" id="costo" value="<s:property value="beanProyecto.costo"/>" required placeholder="Costo">
+                        </div>
+
+                    </div>
+                    <input type="hidden" id="idProyecto" name="idProyecto" value="<s:property value="beanProyecto.idProyecto"/>">
+                    <div class="form-group row">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <label for="rapeSelect">RAPE</label>
+                            <select name="rape" id="rapeSelect" class="form-control form-control-file selectpicker" multiple>
+                                <s:iterator value="rapes" status="stat" var="lista">
+                                    <option value="<s:property value="idPersona"></s:property>"><s:property value="nombre"></s:property> <s:property value="primerApellido"></s:property> </option>
+                                </s:iterator>
                             </select>
                         </div>
                         <div class="col-sm-4">
-                            <label for="universidadDeEgreso" >Universidad de Egreso</label>
-                            <input type="text"  class="form-control form-control-user" id="universidadDeEgreso" placeholder="Universidad de Egreso">
-
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="fechaDeIngreso">Fecha de Ingreso</label>
-                            <div class="input-group mb-2">
-
-                                <input type="date"   class="form-control form-control-user" id="fechaDeIngreso" placeholder="fechaDeIngreso">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck" onchange="esEstudiante()">
-                            <label class="form-check-label" for="gridCheck">
-                               ¿Es Estudiante?
-                            </label>
-                        </div>
-                    </div>
-
-                    <div id="estudiante" class="form-group row">
-
-                    </div>
-
-                    <div id="becarioDiv" class="form-group row">
-                        <div class="col-sm-4" id="becarioDivDiv">
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-
-                                <label for="direccion">Direccion</label>
-                                <input type="text"   class="form-control form-control-user" id="direccion" placeholder="Direccion">
-
-
-
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="horario">Horario</label>
-                            <select id="select" id="horario" class="form-control form-control-file">
+                            <label for="rdSelect">RD</label>
+                            <select name="rd" id="rdSelect" class="form-control form-control-file selectpicker" multiple>
+                                <s:iterator value="rds" status="stat" var="lista">
+                                    <option value="<s:property value="idPersona"></s:property>"><s:property value="nombre"></s:property> <s:property value="primerApellido"></s:property></option>
+                                </s:iterator>
 
                             </select>
+
                         </div>
                         <div class="col-sm-4">
-                            <label for="contrasena">Contraseña</label>
-                            <div class="input-group mb-2">
+                            <label for="apSelect">AP</label>
+                            <select name="ap" id="apSelect" class="form-control form-control-file selectpicker" multiple>
 
-                                <input type="password"   class="form-control form-control-user" id="contrasena" placeholder="Contraseña">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th scope="col">Rol</th>
-                                    <th scope="col">Seleccionar</th>
-                                </tr>
-                                </thead>
-                                <tbody id="tbody">
-
-
-                                </tbody>
-                            </table>
+                                <s:iterator value="aps" status="stat" var="lista">
+                                    <option value="<s:property value="idPersona"></s:property>"><s:property value="nombre"></s:property> <s:property value="primerApellido"></s:property> </option>
+                                </s:iterator>
+                            </select>
 
                         </div>
-
                     </div>
+                    <a href="login.html" class="btn btn-primary btn-user btn-block">
+                        Enviar
+                    </a>
 
-                    <button type="submit" class="btn btn-primary btn-user btn-block" >Enviar</button>
                 </form>
+
+
+                <button class="btn btn-primary btn-user btn-block" onclick="modificarProyecto()"></button>
+
+
 
             </div>
             <!-- /.container-fluid -->
@@ -369,20 +317,26 @@
 <!-- Custom scripts for all pages-->
 <script src="<%=context%>/js/sb-admin-2.min.js"></script>
 
-</body>
-<!--Nuestros recursos-->
-<script src="<%=context%>/js/persona/personaJS.js"></script>
-<script src="<%=context%>/js/sb-admin-2.min.js"></script>
-<script src="<%=context%>/js/cursos/cursosJS.js"></script>
-<script src="<%=context%>/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="<%=context%>/vendor/datatables/dataTables.bootstrap4.js"></script>
-<script src="<%=context%>/js/demo/datatables-demo.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-storage.js"></script>
+<script src="<%=context%>/js/Proyecto/proyectosJS.js"></script>
+<script src="<%=context%>/js/select/bootstrap-select.min.js"></script>
+
 <script>
 
-    function modificar() {
-        var matricula2;
-        matricula2=document.getElementById("matricula").value;
-        document.getElementById("correoInstitucional").value=matricula2;
+    function f() {
+        var values=$("#travel").val();
+        alert(values);
+        alert(values[0])
+        alert(values[1])
     }
 </script>
+</body>
+
 </html>

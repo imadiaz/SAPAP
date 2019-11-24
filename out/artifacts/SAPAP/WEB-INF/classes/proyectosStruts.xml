@@ -14,7 +14,18 @@
         <action name="eliminarProyecto" class="mx.edu.utez.proyecto.ActionProyecto" method="eliminarProyectos">
             <result type="json"/>
         </action>
-
+        <action name="consultarRecursos" class="mx.edu.utez.proyecto.ActionProyecto" method="consultarRecursos">
+            <result name="success">/vista/RH/AgregarProyectoRH.jsp</result>
+        </action>
+        <action name="registrarProyecto" class="mx.edu.utez.proyecto.ActionProyecto" method="registrarProyecto">
+            <result type="json"/>
+        </action>
+        <action name="buscarProyecto" class="mx.edu.utez.proyecto.ActionProyecto" method="buscarProyecto">
+            <result name="success">/vista/RH/modificarProyecto.jsp</result>
+        </action>
+        <action name="modificarProyecto" class="mx.edu.utez.proyecto.ActionProyecto" method="modificarProyecto">
+            <result type="json"/>
+        </action>
     </package>
 </struts>
 
