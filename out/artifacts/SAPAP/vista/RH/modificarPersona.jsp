@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -184,35 +185,35 @@
                 <h1 class="h3 mb-4 text-gray-800">Agregar Empleado</h1>
 
 
-                <form class="user" onsubmit="registroPersona()">
+                <form class="user" onsubmit="modificarPersona()">
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
                             <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control form-control-user" id="nombre" required placeholder="Nombre">
+                            <input type="text" value="<s:property value="bean.nombre"/>" class="form-control form-control-user" id="nombre" required placeholder="Nombre">
                         </div>
                         <div class="col-sm-4">
                             <label for="primerApellido">Primer Apellido</label>
-                            <input type="text" class="form-control form-control-user" id="primerApellido" required placeholder="Primer Apellido">
+                            <input type="text" value="<s:property value="bean.primerApellido"/>" class="form-control form-control-user" id="primerApellido" required placeholder="Primer Apellido">
                         </div>
                         <div class="col-sm-4">
                             <label for="segundoApellido">Segundo Apellido</label>
-                            <input type="text" class="form-control form-control-user" id="segundoApellido" placeholder="Segundo Apellido">
+                            <input type="text" value="<s:property value="bean.segundoApellido"/>" class="form-control form-control-user" id="segundoApellido" placeholder="Segundo Apellido">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
                             <label for="matricula">Matricula</label>
-                            <input onkeyup="modificar()" type="text" class="form-control form-control-user" id="matricula" placeholder="Matricula">
+                            <input value="<s:property value="bean.matricula"/>" onkeyup="modificar()" type="text" class="form-control form-control-user" id="matricula" placeholder="Matricula">
                         </div>
                         <div class="col-sm-4">
                             <label for="correoPersonal">Correo Personal</label>
-                            <input type="text" class="form-control form-control-user" id="correoPersonal" placeholder="Correo Personal">
+                            <input type="text" value="<s:property value="bean.correoPersonal"/>" class="form-control form-control-user" id="correoPersonal" placeholder="Correo Personal">
                         </div>
                         <div class="col-sm-4">
                             <label for="correoInstitucional">Correo Institucional</label>
                             <div class="input-group mb-2">
 
-                                <input disabled type="text" class="form-control form-control-user" id="correoInstitucional" placeholder="Correo Institucional">
+                                <input value="<s:property value="bean.correoInstitucional"/>" type="text" class="form-control form-control-user" id="correoInstitucional" placeholder="Correo Institucional">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">@utez.edu.mx</div>
                                 </div>
@@ -226,18 +227,18 @@
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
                             <label for="fechaDeNacimiento">Fecha de Nacimiento</label>
-                            <input max="2019-11-19" type="date" class="form-control form-control-user" id="fechaDeNacimiento" >
+                            <input value="<s:property value="bean.fechaDeNacimiento"/>" type="date" class="form-control form-control-user" id="fechaDeNacimiento" >
                         </div>
                         <div class="col-sm-4">
                             <label for="numeroTelefonico" >Número Telefónico</label>
-                            <input type="number" pattern="[0-9]" class="form-control form-control-user" id="numeroTelefonico" placeholder="Número Telefónico">
+                            <input type="number" value="<s:property value="bean.numeroTelefonico"/>" pattern="[0-9]" class="form-control form-control-user" id="numeroTelefonico" placeholder="Número Telefónico">
 
                         </div>
                         <div class="col-sm-4">
                             <label for="numeroPersonal">Número De Casa</label>
                             <div class="input-group mb-2">
 
-                                <input type="number"  pattern="[0-9]" class="form-control form-control-user" id="numeroPersonal" placeholder="Número Personal">
+                                <input type="number" value="<s:property value="bean.numeroCasa"/>"  pattern="[0-9]" class="form-control form-control-user" id="numeroPersonal" placeholder="Número Personal">
 
                             </div>
                         </div>
@@ -255,14 +256,14 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="universidadDeEgreso" >Universidad de Egreso</label>
-                            <input type="text"  class="form-control form-control-user" id="universidadDeEgreso" placeholder="Universidad de Egreso">
+                            <input value="<s:property value="bean.universidadDeEgreso"/>" type="text"  class="form-control form-control-user" id="universidadDeEgreso" placeholder="Universidad de Egreso">
 
                         </div>
                         <div class="col-sm-4">
                             <label for="fechaDeIngreso">Fecha de Ingreso</label>
                             <div class="input-group mb-2">
 
-                                <input type="date"   class="form-control form-control-user" id="fechaDeIngreso" placeholder="fechaDeIngreso">
+                                <input type="date"  value="<s:property value="bean.fechaDeIngreso"/>"  class="form-control form-control-user" id="fechaDeIngreso" placeholder="fechaDeIngreso">
 
                             </div>
                         </div>
@@ -271,7 +272,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="gridCheck" onchange="esEstudiante()">
                             <label class="form-check-label" for="gridCheck">
-                               ¿Es Estudiante?
+                                ¿Es Estudiante?
                             </label>
                         </div>
                     </div>
@@ -289,8 +290,8 @@
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
 
-                                <label for="direccion">Direccion</label>
-                                <input type="text"   class="form-control form-control-user" id="direccion" placeholder="Direccion">
+                            <label for="direccion">Direccion</label>
+                            <input type="text"   value="<s:property value="bean.direccion"/>"  class="form-control form-control-user" id="direccion" placeholder="Direccion">
 
 
 
@@ -305,7 +306,7 @@
                             <label for="contrasena">Contraseña</label>
                             <div class="input-group mb-2">
 
-                                <input type="password"   class="form-control form-control-user" id="contrasena" placeholder="Contraseña">
+                                <input type="password" value="<s:property value="bean.contrasenia"/> "   class="form-control form-control-user" id="contrasena" placeholder="Contraseña">
 
                             </div>
                         </div>
@@ -324,14 +325,14 @@
 
                                 </tbody>
                             </table>
-
+<input type="hidden" id="idPersona" value="<s:property value="bean.idPersona" />">
                         </div>
 
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-user btn-block" >Enviar</button>
                 </form>
-
+        <button onclick="modificarPersona()">AaaaaaaaaaaaaaaaAAAAAAAAAAAA</button>
             </div>
             <!-- /.container-fluid -->
 
@@ -373,7 +374,6 @@
 <!--Nuestros recursos-->
 <script src="<%=context%>/js/persona/personaJS.js"></script>
 <script src="<%=context%>/js/sb-admin-2.min.js"></script>
-<script src="<%=context%>/js/cursos/cursosJS.js"></script>
 <script src="<%=context%>/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="<%=context%>/vendor/datatables/dataTables.bootstrap4.js"></script>
 <script src="<%=context%>/js/demo/datatables-demo.js"></script>
