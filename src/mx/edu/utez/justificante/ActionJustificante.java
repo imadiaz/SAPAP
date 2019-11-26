@@ -26,6 +26,7 @@ public class ActionJustificante extends ActionSupport {
         return SUCCESS;
     }
 
+
     public String consultarHistorialJustificantes(){
         daoJustificante = new DaoJustificante();
         int id = Integer.parseInt(parametro);

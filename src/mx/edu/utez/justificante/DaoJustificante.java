@@ -319,6 +319,7 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         return lista;
     }
 
+
     public ArrayList historialJustificantesCOD() {
         ArrayList lista = new ArrayList();
         BeanJustificante beanJustificante = null;

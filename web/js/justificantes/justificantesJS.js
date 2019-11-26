@@ -24,6 +24,7 @@ var nuevoFile = null;
 // var $ = jQuery.noConflict();
 var storageRef = storageFirebase.ref();
 
+
 function consultarJustificantesPendientes() {
     var table = $('#dataTable').DataTable();
     $.ajax({
