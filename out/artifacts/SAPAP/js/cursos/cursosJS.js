@@ -52,7 +52,7 @@ function getListaCursos(){
                         arrayCursos[i].fecha,
                         arrayCursos[i].descripcion,
                         arrayCursos[i].tipoCurso,
-                        "<a href="+arrayCursos[i].evidencia+" target='_blank' class='btn btn-sm btn-icon-split btn-info'><span class='icon text-white-50'><i class='fas fa-info-circle'></i></span><span class='text'>Ver</span></a>" +
+                        "<a href="+arrayCursos[i].evidencia+" target='_blank' class='btn btn-sm btn-icon-split btn-info'><span class='icon text-white-50'><i class='fas fa-info-circle'></i></span><span class='text'>Ver</span></a><br/>" +
                         "<button value="+arrayCursos[i].idCurso+","+arrayCursos[i].referencia+" onclick='abrirModal(this);' class='btn btn-sm btn-icon-split btn-warning'><span class='icon text-white-50'><i class='fas fa-exclamation-triangle'></i></span><span class='text'>Modificar</span></button>",
                         "<button onclick='eliminarCurso(this);' value="+arrayCursos[i].idCurso+" class='btn btn-sm btn-icon-split btn-danger'><span class='icon text-white-50'><i class='fas fa-trash'></i></span><span class='text'>Eliminar</span></button><br/>" +
                         "<form method='post' action="+tipoModificar+"><button name='idCursoModificar' type='submit' value="+arrayCursos[i].idCurso+" class='btn btn-sm btn-icon-split btn-warning'><span class='icon text-white-50'><i class='fas fa-exclamation-triangle'></i></span><span class='text'>Modificar</span></button></form>"

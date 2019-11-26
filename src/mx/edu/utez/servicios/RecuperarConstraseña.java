@@ -1,9 +1,11 @@
 package mx.edu.utez.servicios;
 
+import com.opensymphony.xwork2.ActionContext;
 import mx.edu.utez.persona.BeanPersona;
 import mx.edu.utez.persona.DaoPersona;
 import com.opensymphony.xwork2.ActionSupport;
 
+import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 import javax.mail.Message;
@@ -13,6 +15,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import static com.opensymphony.xwork2.Action.ERROR;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 
 public class RecuperarConstraseña {
@@ -20,14 +23,14 @@ public class RecuperarConstraseña {
     private BeanPersona bean = new BeanPersona();
 
 
-
-    private String from ="mariovalverde@utez.edu.mx";
-    private String password="Pituchin360";
+    private String from = "mariovalverde@utez.edu.mx";
+    private String password = "Pituchin360";
     private String to = bean.getCorreoInstitucional();
 
-    private String subject="Recuperaicón de Contraseña";
+    private String subject = "Recuperación de Contraseña";
     private String body;
-    private  String mensaje;
+    private String mensaje;
+    private String codigo="";
 
 
     static Properties properties = new Properties();
@@ -41,11 +44,12 @@ public class RecuperarConstraseña {
 
     public String execute() {
         to = bean.getCorreoInstitucional();
-        bean=dao.consultarCorreo(to);
-        if(bean ==null){
-          return "ERROR";
-        }else {
-            System.out.println(to);
+        bean = dao.consultarCorreo(to);
+        if (bean == null) {
+            mensaje = "El correo no se encuentra registrado intente con uno valido por favor";
+            return "ERROR";
+        } else {
+
 
 
             try {
@@ -69,11 +73,10 @@ public class RecuperarConstraseña {
                 dao.codigo(to.toString(), cadena);
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress(from));
-                message.setRecipients(Message.RecipientType.TO,
-                        InternetAddress.parse(to));
+                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
                 message.setSubject(subject);
                 message.setContent("<html><head><meta charser='utf-8'></head><body><h1>SAPAP</h1>\n<h3>Recuperación de Contraseña</h3>\n<strong> Se solicito la recuperación de la contraseña " +
-                        " al correo" + to.toString() + "\n " + "Código: " + cadena + "</strong></body></html>", "text/html; charset = ISO-8859-1");
+                        " al correo " + to.toString() + "\n " + "Código: " + cadena + "</strong></body></html>", "text/html; charset = ISO-8859-1");
                 Transport.send(message);
             } catch (Exception e) {
                 mensaje = "El correo no se encuentra registrado intente con uno valido por favor";
@@ -82,6 +85,43 @@ public class RecuperarConstraseña {
 
             }
             return "SUCCESS";
+        }
+    }
+
+
+    public String consultarCodigo() {
+        String codi = bean.getCodigo();
+        Map session = ActionContext.getContext().getSession();
+        session.put("codigo",codi);
+        codigo = codi;
+
+        bean = dao.consultarCodigo(codi);
+
+        if (bean != null) {
+            System.out.println(codigo);
+            return "SUCCESS";
+        } else {
+            mensaje = "Código inválido";
+            return "ERROR";
+        }
+
+    }
+
+
+    public String nuevaConstra() {
+        Map session = ActionContext.getContext().getSession();
+        String code = ""+session.get("codigo");
+        String pass = bean.getContrasenia();
+        System.out.println(pass);
+        System.out.println(code);
+        boolean flag = dao.cambiarContra(code,pass);
+        if (dao.cambiarContra(code, pass)) {
+            dao.borrarCodigo(code);
+            System.out.println("el codigo es " +code);
+            return "SUCCESS";
+        } else {
+            mensaje="Error al modificar la contraseña";
+            return "ERROR";
         }
     }
 

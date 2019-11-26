@@ -187,7 +187,7 @@
                 </div>
 
 
-                <form class="user" onsubmit="registrarProyecto()">
+                <form id="formProyectos" class="user" onsubmit="registrarProyecto()">
 
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">

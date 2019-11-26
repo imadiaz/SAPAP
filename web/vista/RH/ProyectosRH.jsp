@@ -18,7 +18,6 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
     <link href="<%=context%>/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -216,23 +215,23 @@
                                     Nombre
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Office: activate to sort column ascending" style="width: 116px;">Nombre del Cliente
+                                    aria-label="Office: activate to sort column ascending" style="width: 116px;">Nombre del cliente
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Age: activate to sort column ascending" style="width: 51px;">Correo Electronico del Cliente
+                                    aria-label="Age: activate to sort column ascending" style="width: 51px;">Correo electrónico del cliente
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                     aria-label="Start date: activate to sort column ascending" style="width: 107px;">
-                                    Número Telefónico
+                                    Número telefónico
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Dirección del Cliente
+                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Dirección del cliente
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Fecha Inicio
+                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Fecha inicio
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Fecha Fin
+                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Fecha fin
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
                                     aria-label="Salary: activate to sort column ascending" style="width: 97px;">Descripción
@@ -321,7 +320,41 @@
 <script src="<%=context%>/js/sb-admin-2.min.js"></script>
 <script src="<%=context%>/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="<%=context%>/vendor/datatables/dataTables.bootstrap4.js"></script>
+<script>
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        var table = $('#dataTable').DataTable();
+        table.destroy();
+        $('#dataTable').DataTable({
+            "language": {
+                "sProcessing":    "Procesando...",
+                "sLengthMenu":    "Mostrar _MENU_ registros",
+                "sZeroRecords":   "No se encontraron resultados",
+                "sEmptyTable":    "Ningún dato disponible en esta tabla",
+                "sInfo":          "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty":     "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered":  "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix":   "",
+                "sSearch":        "Buscar:",
+                "sUrl":           "",
+                "sInfoThousands":  ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst":    "Primero",
+                    "sLast":    "Último",
+                    "sNext":    "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            },
+            "scrollX": true
+        });
 
+    });
+</script>
 </body>
 
 </html>

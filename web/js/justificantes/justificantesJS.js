@@ -173,6 +173,7 @@ function agregarJustificante() {
         success: function (respuesta) {
             Swal.fire({
                 position: 'top-end',
+                icon: 'success',
                 title: respuesta.respuestas.mensaje,
                 showConfirmButton: false,
                 timer: 1500
@@ -238,6 +239,7 @@ function modificarJustificante() {
         success: function (respuesta) {
             Swal.fire({
                 position: 'top-end',
+                icon: 'success',
                 title: respuesta.respuestas.mensaje,
                 showConfirmButton: false,
                 timer: 1500
@@ -315,6 +317,7 @@ function eliminarJustificantePendiente() {
         success: function (respuesta) {
             Swal.fire({
                 position: 'top-end',
+                icon: 'success',
                 title: respuesta.respuestas.mensaje,
                 showConfirmButton: false,
                 timer: 1500
@@ -400,6 +403,7 @@ function validarContrasena() {
             } else {
                 Swal.fire({
                     position: 'top-end',
+                    icon: 'success',
                     title: respuesta.respuestas.mensaje,
                     showConfirmButton: false,
                     timer: 1500
@@ -427,6 +431,7 @@ function accionJustificante() {
             $('#motivo').html('');
             Swal.fire({
                 position: 'top-end',
+                icon: 'success',
                 title: respuesta.respuestas.mensaje,
                 showConfirmButton: false,
                 timer: 1500
@@ -561,6 +566,7 @@ function accionJustificanteCOD() {
             $('#motivo').html('');
             Swal.fire({
                 position: 'top-end',
+                icon: 'success',
                 title: respuesta.respuestas.mensaje,
                 showConfirmButton: false,
                 timer: 1500
@@ -667,6 +673,7 @@ function validarContrasenaRH() {
             } else {
                 Swal.fire({
                     position: 'top-end',
+                    icon: 'success',
                     title: respuesta.respuestas.mensaje,
                     showConfirmButton: false,
                     timer: 1500
@@ -694,6 +701,7 @@ function accionJustificanteRH() {
             $('#motivo').html('');
             Swal.fire({
                 position: 'top-end',
+                icon: 'success',
                 title: respuesta.respuestas.mensaje,
                 showConfirmButton: false,
                 timer: 1500

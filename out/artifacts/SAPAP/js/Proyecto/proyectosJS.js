@@ -1,14 +1,18 @@
 var raiz = window.location.origin + '/SAPAP/';
 var lista = [];
 
+
+
+
 function consulta() {
+    var table = $('#dataTable').DataTable();
+    table.clear().data;
     $.ajax({
             type: 'POST',
             url: raiz + 'consultaProyectos',
             success: function (respuesta) {
                 var proyectos = respuesta.respuestas.proyectos;
-                var table = $('#dataTable').DataTable();
-                table.clear().data;
+
                 for (var i=0;i<proyectos.length;i++){
                     var aps="";
                     var rd="";
@@ -45,7 +49,8 @@ function consulta() {
                         }
 
                     }
-                    table.row.add([proyectos[i].identificador
+                    table.row.add([
+                        proyectos[i].identificador
                         ,proyectos[i].nombre
                         ,proyectos[i].nombreDelCliente
                         ,proyectos[i].correoDelCliente
@@ -60,10 +65,8 @@ function consulta() {
                         ,aps
                         ,'<td><button onclick=\'eliminarProyecto(this);\' value="'+proyectos[i].idProyecto+'" class=\'btn btn-sm btn-icon-split btn-danger\'><span class=\'icon text-white-50\'><i class=\'fas fa-trash\'></i></span><span class=\'text\'>Eliminar</span></button><br/>' +
                         '<form method=\'post\' action=\'buscarProyecto.action\'><button name=\'params\' type=\'submit\' value="'+proyectos[i].idProyecto+'" class=\'btn btn-sm btn-icon-split btn-warning\' > ' +
-                        '' +
-                        '' +
-                        '' +
-                        '  <span class=\'icon text-white-50\'><i class=\'fas fa-exclamation-triangle\'></i></span><span class=\'text\'>Modificar</span> <s:hidden name="params" value="tadeo"/></button>  </form></td> </tr>'  ]).draw(false);
+                        '<span class=\'icon text-white-50\'><i class=\'fas fa-exclamation-triangle\'></i></span><span class=\'text\'>Modificar</span> <s:hidden name="params" value="tadeo"/></button>  </form></td> </tr>'
+                    ]).draw(false);
                 }
             }
         }
@@ -119,7 +122,6 @@ function consultaRecursos() {
         },
         success: function (respuesta) {
 
-
         },
         error: function (error) {
             console.log("al error");
@@ -148,13 +150,19 @@ function registrarProyecto() {
     $.ajax({
         type: 'POST',
         url: raiz + 'registrarProyecto',
-
         data:{
             params:JSON.stringify(params)
         },
         success: function (respuesta) {
-
-
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Actualizado correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            var form =  document.getElementById("formProyectos");
+            form.reset();
         },
         error: function (error) {
             console.log("al error");
@@ -189,8 +197,13 @@ function registrarProyecto() {
             params:JSON.stringify(params)
             },
             success: function (respuesta) {
-
-
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Actualizado correctamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             },
             error: function (error) {
                 console.log("al error");
