@@ -287,7 +287,7 @@
                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 116px;">Número de Casa</th>
                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 51px;">Fecha de Nacimiento</th>
                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 107px;">Correo Institucional</th>
-                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 97px;">Correo Personal</th>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 97px;">Desempeño</th>
                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 97px;">Fecha de Ingreso</th>
                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 97px;">Horario</th>
                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 97px;">Acciones</th></tr>
@@ -299,7 +299,7 @@
                             <th rowspan="1" colspan="1">Número de Casa</th>
                             <th rowspan="1" colspan="1">Fecha de Nacimiento</th>
                             <th rowspan="1" colspan="1">Correo Institucional</th>
-                            <th rowspan="1" colspan="1">Correo Personal</th>
+                            <th rowspan="1" colspan="1">Desempeño</th>
                             <th rowspan="1" colspan="1">Fecha de Ingreso</th>
                             <th rowspan="1" colspan="1">Horario</th>
                             <th rowspan="1" colspan="1">Acciones</th></tr>
@@ -362,7 +362,34 @@
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalPopovers" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Desempeño del Usuario dentro del CDS</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
 
+                <p>Desempeño Actual del Usuario: <p id="pDesempenio"> </p> </p>
+                <hr>
+                <h5>Asigna un nuevo desempeño al usuario: <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Desempeño: </label>
+                    <p id="rangeText"></p>
+                    <input onchange="range()" type="range" class="custom-range" min="0" max="5" step="0.1" id="recipient-name">
+                </div></h5>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary"  id="btnDesemepenio" onclick="actualizarDes()" >Asignar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Bootstrap core JavaScript-->
 <script src="<%=context%>/vendor/jquery/jquery.min.js"></script>
@@ -415,6 +442,7 @@
         });
 
     });
+
 </script>
 
 </body>

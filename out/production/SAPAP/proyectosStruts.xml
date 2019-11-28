@@ -11,6 +11,9 @@
         <action name="consultaProyectos" class="mx.edu.utez.proyecto.ActionProyecto" method="consultaProyectos">
             <result type="json"/>
         </action>
+        <action name="consultaProyectosInd" class="mx.edu.utez.proyecto.ActionProyecto" method="consultaProyectosIn">
+            <result type="json"/>
+        </action>
         <action name="eliminarProyecto" class="mx.edu.utez.proyecto.ActionProyecto" method="eliminarProyectos">
             <result type="json"/>
         </action>

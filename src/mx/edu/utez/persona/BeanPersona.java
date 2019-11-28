@@ -1,6 +1,9 @@
 package mx.edu.utez.persona;
 
 import mx.edu.utez.horario.BeanHorario;
+import mx.edu.utez.rol.BeanRol;
+
+import java.util.List;
 
 public class BeanPersona {
 
@@ -24,6 +27,15 @@ public class BeanPersona {
     private boolean estado;
     private String direccion;
     private String codigo;
+    private List<BeanRol> roles;
+
+    public List<BeanRol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<BeanRol> roles) {
+        this.roles = roles;
+    }
 
     public BeanPersona() {
 

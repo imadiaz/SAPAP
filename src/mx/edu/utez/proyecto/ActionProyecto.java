@@ -1,6 +1,9 @@
 
 package mx.edu.utez.proyecto;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.ArrayList;
@@ -104,7 +107,14 @@ public class ActionProyecto extends ActionSupport {
         respuestas.put("proyectos", proyectos);
         return "success";
     }
-
+    public String consultaProyectosIn() {
+        dao = new DaoProyecto();
+        System.out.println("entra");
+        JsonObject object=new JsonParser().parse(params).getAsJsonObject();
+        ArrayList<BeanProyecto> proyectos=dao.getListaIndividual(object.get("id").getAsInt());
+        respuestas.put("proyectos", proyectos);
+        return "success";
+    }
     public String consultarRecursos() {
         dao = new DaoProyecto();
         System.out.println("entra");
@@ -140,6 +150,30 @@ public class ActionProyecto extends ActionSupport {
         rapes=dao.getRapes();
         beanProyecto=new BeanProyecto();
         beanProyecto=(BeanProyecto) dao.buquedaByID(Integer.parseInt(params));
+         JsonArray aps=new JsonArray();
+         JsonArray rds=new JsonArray();
+         JsonArray raps=new JsonArray();
+
+        for (int i=0; i<beanProyecto.getAps().size();i++){
+
+          aps.add(beanProyecto.getAps().get(i).getIdPersona());
+
+        }
+
+        for (int i=0; i<beanProyecto.getRapes().size();i++){
+
+            raps.add(beanProyecto.getRapes().get(i).getIdPersona());
+
+        }
+
+        for (int i=0; i<beanProyecto.getRds().size();i++){
+
+            rds .add(beanProyecto.getRds().get(i).getIdPersona());
+
+        }
+        respuestas.put("aps",aps);
+        respuestas.put("rds",rds);
+        respuestas.put("rapesitos",raps);
         System.out.println(beanProyecto.getIdProyecto());
         return "success";
     }

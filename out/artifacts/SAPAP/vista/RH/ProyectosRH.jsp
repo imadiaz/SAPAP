@@ -284,77 +284,77 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
-                               role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <thead>
-                            <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-sort="ascending" aria-label="Name: activate to sort column descending"
-                                    style="width: 161px;">Identificador
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Position: activate to sort column ascending" style="width: 246px;">
-                                    Nombre
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Office: activate to sort column ascending" style="width: 116px;">Nombre del cliente
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Age: activate to sort column ascending" style="width: 51px;">Correo electrónico del cliente
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Start date: activate to sort column ascending" style="width: 107px;">
-                                    Número telefónico
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Dirección del cliente
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Fecha inicio
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Fecha fin
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Descripción
-                                </th>
+                                         role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                        <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-sort="ascending" aria-label="Name: activate to sort column descending"
+                                style="width: 161px;">Identificador
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-label="Position: activate to sort column ascending" style="width: 246px;">
+                                Nombre
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-label="Office: activate to sort column ascending" style="width: 116px;">Nombre del cliente
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-label="Age: activate to sort column ascending" style="width: 51px;">Correo electrónico del cliente
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-label="Start date: activate to sort column ascending" style="width: 107px;">
+                                Número telefónico
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-label="Salary: activate to sort column ascending" style="width: 97px;">Dirección del cliente
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-label="Salary: activate to sort column ascending" style="width: 97px;">Fecha inicio
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-label="Salary: activate to sort column ascending" style="width: 97px;">Fecha fin
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-label="Salary: activate to sort column ascending" style="width: 97px;">Descripción
+                            </th>
 
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Costo
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">RAPE(s)
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">RD(s)
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">AP(s)
-                                </th>
-                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
-                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Acciones
-                                </th>
-                            </tr>
-                            </thead>
-                            <tfoot>
-                            <tr>
-                                <th rowspan="1" colspan="1">Identificador</th>
-                                <th rowspan="1" colspan="1">Nombre</th>
-                                <th rowspan="1" colspan="1">Nombre del Cliente</th>
-                                <th rowspan="1" colspan="1">Correo Electronico del Cliente</th>
-                                <th rowspan="1" colspan="1">Número Telefónico</th>
-                                <th rowspan="1" colspan="1">Dirección del Cliente</th>
-                                <th rowspan="1" colspan="1">Fecha Inicio</th>
-                                <th rowspan="1" colspan="1">Fecha Fin</th>
-                                <th rowspan="1" colspan="1">Descripción</th>
-                                <th rowspan="1" colspan="1">Costo</th>
-                                <th rowspan="1" colspan="1">RAPE(s)</th>
-                                <th rowspan="1" colspan="1">RD(s)</th>
-                                <th rowspan="1" colspan="1">AP(s)</th>
-                                <th rowspan="1" colspan="1">Acciones</th>
-                            </tr>
-                            </tfoot>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-label="Salary: activate to sort column ascending" style="width: 97px;">Costo
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-label="Salary: activate to sort column ascending" style="width: 97px;">RAPE(s)
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-label="Salary: activate to sort column ascending" style="width: 97px;">RD(s)
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-label="Salary: activate to sort column ascending" style="width: 97px;">AP(s)
+                            </th>
+                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                aria-label="Salary: activate to sort column ascending" style="width: 97px;">Acciones
+                            </th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th rowspan="1" colspan="1">Identificador</th>
+                            <th rowspan="1" colspan="1">Nombre</th>
+                            <th rowspan="1" colspan="1">Nombre del Cliente</th>
+                            <th rowspan="1" colspan="1">Correo Electronico del Cliente</th>
+                            <th rowspan="1" colspan="1">Número Telefónico</th>
+                            <th rowspan="1" colspan="1">Dirección del Cliente</th>
+                            <th rowspan="1" colspan="1">Fecha Inicio</th>
+                            <th rowspan="1" colspan="1">Fecha Fin</th>
+                            <th rowspan="1" colspan="1">Descripción</th>
+                            <th rowspan="1" colspan="1">Costo</th>
+                            <th rowspan="1" colspan="1">RAPE(s)</th>
+                            <th rowspan="1" colspan="1">RD(s)</th>
+                            <th rowspan="1" colspan="1">AP(s)</th>
+                            <th rowspan="1" colspan="1">Acciones</th>
+                        </tr>
+                        </tfoot>
 
-                        </table>
+                    </table>
                     </div>
                 </div>
 

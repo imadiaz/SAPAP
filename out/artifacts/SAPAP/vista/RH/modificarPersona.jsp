@@ -25,7 +25,7 @@
 
 </head>
 
-<body id="page-top" onload="consultaRegistro()">
+<body id="page-top" onload="consultaRegistroModificar()">
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -411,10 +411,10 @@
                         </div>
 
                     </div>
-
-                    <button type="submit"  id="buton" class="btn btn-primary btn-user btn-block" >Enviar</button>
                 </form>
-        <button onclick="modificarPersona()">AaaaaaaaaaaaaaaaAAAAAAAAAAAA</button>
+                    <button onclick="modificarPersona()"  id="buton" class="btn btn-primary btn-user btn-block" >Enviar</button>
+
+
             </div>
             <!-- /.container-fluid -->
 
