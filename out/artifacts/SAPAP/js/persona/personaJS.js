@@ -280,6 +280,7 @@ function modificarPersona() {
 }
 
 function consultaPersonitas() {
+
     $.ajax({
             type: 'POST',
             url: raiz + 'consultaEmpleados',
@@ -288,17 +289,141 @@ function consultaPersonitas() {
                 var personas=respuesta.respuestas.personas;
                 var table = $('#dataTable').DataTable();
                 for (var i=0;i<personas.length;i++){
+
+
+                    var button="<button onclick='abrirmodal2(this)' value="+personas[i].idPersona+ " data-toggle=\"modal\" data-target=\"#exampleModalPopovers\" type=\"submit\" value=\"21\" class=\"btn btn-sm btn-icon-split btn-lg btn-secondary\"><span class=\"icon text-white-50\"><i ></i></span><span class=\"text\">Sin Asignar</span></button>";
+                    if (personas[i].desempenio==="A+"){
+                        button="<button onclick='abrirmodal2(this)' value="+personas[i].idPersona+ " data-toggle=\"modal\" data-target=\"#exampleModalPopovers\" type=\"submit\" value=\"21\" class=\"btn btn-sm btn-icon-split btn-lg btn-success\"><span class=\"icon text-white-50\"><i ></i></span><span class=\"text\">A+</span></button>";
+                    }
+                    if (personas[i].desempenio==="A"){
+                        button="<button onclick='abrirmodal2(this)' value="+personas[i].idPersona+ " data-toggle=\"modal\" data-target=\"#exampleModalPopovers\"  type=\"submit\" value=\"21\" class=\"btn btn-sm btn-icon-split  btn-lg btn-info\"><span class=\"icon text-white-50\"><i ></i></span><span class=\"text\">A </span></button>";
+                    }
+                    if (personas[i].desempenio==="B"){
+                        button="<button onclick='abrirmodal2(this)' value="+personas[i].idPersona+ " data-toggle=\"modal\" data-target=\"#exampleModalPopovers\" type=\"submit\" value=\"21\" class=\"btn btn-sm btn-icon-split btn-lg btn-warning\"><span class=\"icon text-white-50\"><i ></i></span><span class=\"text\">B </span></button>";
+                    }
+                    if (personas[i].desempenio==="B-"){
+                        button="<button onclick='abrirmodal2(this)' value="+personas[i].idPersona+ " data-toggle=\"modal\" data-target=\"#exampleModalPopovers\" type=\"submit\" value=\"21\" class=\"btn btn-sm btn-icon-split btn-lg btn-sample\"><span class=\"icon text-white-50\"><i ></i></span><span class=\"text\">B-</span></button>";
+                    }
+                    if (personas[i].desempenio==="C"){
+                        button="<button onclick='abrirmodal2(this)' value="+personas[i].idPersona+ "  name=\"params\" type=\"submit\" data-toggle=\"modal\" data-target=\"#exampleModalPopovers\"  class=\"btn btn-sm btn-icon-split btn-lg btn-danger\"  ><span class=\"icon text-white-50\"><i ></i></span><span class=\"text\">C </span></button>";
+
+                    }
                     table.row.add([personas[i].nombre+' '+personas[i].primerApellido+ ' '+personas[i].segundoApellido
                         ,personas[i].matricula
                         ,personas[i].numeroTelefonico
                         ,personas[i].numeroCasa
                         ,personas[i].fechaDeNacimiento
                         ,personas[i].correoInstitucional
-                        ,personas[i].correoPersonal
+                        ,button
                         ,personas[i].fechaDeIngreso
                         ,personas[i].horario.horario
                         , '<td><button onclick=\'eliminarPersona(this);\' value="'+personas[i].idPersona+'" class=\'btn btn-sm btn-icon-split btn-danger\'><span class=\'icon text-white-50\'><i class=\'fas fa-trash\'></i></span><span class=\'text\'>Eliminar</span></button><br/>' +
                         '<form method=\'post\' action=\'buscarPersona.action\'><button name=\'params\' type=\'submit\' value="'+personas[i].idPersona+'" class=\'btn btn-sm btn-icon-split btn-warning\'><span class=\'icon text-white-50\'><i class=\'fas fa-exclamation-triangle\'></i></span><span class=\'text\'>Modificar</span></button></form></td> </tr>'  ]).draw(false);
+                }
+
+            },
+            error: function (error) {
+                console.log("al error");
+                console.log(error);
+            }
+        }
+    );
+}
+
+
+function abrirmodal2(id) {
+
+    $('#pDesempenio').html('');
+
+
+
+    $.ajax({
+        type: 'POST',
+        url: raiz + 'modificarPersonaJSON',
+        data:{
+            params:id.value
+        },
+        success: function (respuesta) {
+            var desem=respuesta.bean.desempenio;
+            $('#pDesempenio').append(desem);
+            document.getElementById("btnDesemepenio").value=respuesta.bean.idPersona;
+
+
+        },
+        error: function (error) {
+            console.log("al error");
+            console.log(error);
+        }
+    });
+
+}
+function actualizarDes() {
+    var id=document.getElementById("recipient-name").value;
+    if (id===null){
+        alert("Ingresa un valor")
+    }{
+        var idPersona=document.getElementById("btnDesemepenio").value;
+        var desempenio=document.getElementById("recipient-name").value;
+        var params={idPersona:idPersona,desempenio:desempenio}
+        $.ajax({
+            type: 'POST',
+            url: raiz + 'actualizarDesempenio',
+            data:{
+                params:JSON.stringify(params)
+            },
+            success: function (respuesta) {
+                $('#dataTable').DataTable().clear().draw();
+                $('#exampleModalPopovers').modal('hide');
+              consultaPersonitas();
+
+            },
+            error: function (error) {
+                console.log("al error");
+                console.log(error);
+            }
+        });
+    }
+
+}
+function consultaRegistroModificar() {
+    var id=document.getElementById("idPersona").value;
+    var params={id:id};
+    $.ajax({
+            type: 'POST',
+            url: raiz + 'consultaModificar',
+            data:{
+                params:JSON.stringify(params)
+            },
+            success: function (respuesta) {
+                var horarios=respuesta.respuestas.horario;
+                var roles=respuesta.respuestas.roles;
+                var rolesP=JSON.parse(respuesta.respuestas.rolesDePersona);
+
+                var existe=false;
+                for (var i=0;i<roles.length;i++){
+
+                for (var k=0;k<rolesP.length;k++){
+                     existe=false;
+
+
+                    if ((rolesP[k]===roles[i].idRol)){
+
+
+                         existe=true;
+                    break;
+                    }
+                }
+                if (existe){
+                    $('#tbody').append('<tr><td> '+roles[i].tipo+'</td><td><input type="checkbox" checked name="rolesCheck" value="'+roles[i].idRol+'"></td></tr>');
+                }else{
+                    $('#tbody').append('<tr><td> '+roles[i].tipo+'</td><td><input type="checkbox" name="rolesCheck" value="'+roles[i].idRol+'"></td></tr>');
+
+                }
+                }
+
+                for (var i=0;i<horarios.length;i++){
+
+                    $('#select').append('<option value="'+horarios[i].idHorario+'">'+horarios[i].horario+'</option>');
                 }
 
             },

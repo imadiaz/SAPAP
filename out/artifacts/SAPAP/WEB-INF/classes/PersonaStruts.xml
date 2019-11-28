@@ -15,6 +15,9 @@
         <action name="consultarRegistro" class="mx.edu.utez.persona.ActionPersona" method="consultaRegistro">
             <result type="json"/>
         </action>
+        <action name="consultaModificar" class="mx.edu.utez.persona.ActionPersona" method="consultaMod">
+            <result type="json"/>
+        </action>
         <action name="registrarPersona" class="mx.edu.utez.persona.ActionPersona" method="registroPersona">
         <result name="success" >
            /vista/RH/EmpleadosRH.jsp
@@ -29,5 +32,13 @@
         <action name="modificarPersona" class="mx.edu.utez.persona.ActionPersona" method="modificarPersona">
             <result name="success">/vista/RH/EmpleadosRH.jsp</result>
         </action>
+        <action name="modificarPersonaJSON" class="mx.edu.utez.persona.ActionPersona" method="buscarPersona">
+            <result type="json"/>
+        </action>
+        <action name="actualizarDesempenio" class="mx.edu.utez.persona.ActionPersona" method="actualizarDesempenio">
+            <result type="json"/>
+        </action>
         </package>
 </struts>
+
+

@@ -318,6 +318,18 @@ return true;
                 beanPersona.setSegundoApellido(resultSet.getString("segundoApellido"));
                 beanPersona.setUniversidadDeEgreso(resultSet.getString("universidadDeEgreso"));
                 beanPersona.setEstado((resultSet.getInt("estado")==1)?true:false );
+                pstm=con.prepareStatement("SELECT * FROM Persona_Rol  where  Persona_id=?");
+                pstm.setInt(1,beanPersona.getIdPersona());
+                resultSet = pstm.executeQuery();
+                List<BeanRol> roles=new ArrayList<>();
+                JsonArray arr=new JsonArray();
+
+                while (resultSet.next()){
+                    BeanRol bean=new BeanRol();
+                    bean.setIdRol(resultSet.getInt("Rol_id"));
+                    roles.add(bean);
+                }
+                beanPersona.setRoles(roles);
                 lista.add(beanPersona);
             }
 
@@ -588,7 +600,59 @@ return true;
             }
 
         }catch (Exception e){
-            System.out.println("Error en el metodo modificar personas: "+e);
+            System.out.println("Error en el metodo |ficar personas: "+e);
+        }finally {
+            try{
+                if (rs!=null){
+                    rs.close();
+                }
+                if (conexion!=null){
+                    conexion.close();
+                }
+                if (pstm!=null){
+                    pstm.close();
+                }
+
+
+            } catch (Exception e) {
+
+            }
+        }
+        return true;
+    }
+    public boolean desemp(String bean){
+        Gson g=new Gson();
+        JsonObject object=new JsonParser().parse(bean).getAsJsonObject();
+        try{
+            String var="";
+            conexion = MySQLConexion.getConnection();
+            pstm=conexion.prepareStatement("update Persona set desempeño=?  where id=?");
+            double des=object.get("desempenio").getAsDouble();
+            if (des>=3.60  ){
+                var="A+";
+            }else if (des>=3.10 && des<=3.59 ){
+                var="A";
+            }else if (des>=2.60 && des<=3.09 ){
+                var="B";
+            }else if (des>=2.10 && des<=2.59 ){
+                var="B-";
+            }else if (des<=2.09 ){
+                var="C";
+            }
+
+
+
+            pstm.setString(1,var);
+
+            pstm.setInt(2,object.get("idPersona").getAsInt());
+            pstm.execute();
+
+
+
+
+
+        }catch (Exception e){
+            System.out.println("Error en el desemp personas: "+e);
         }finally {
             try{
                 if (rs!=null){

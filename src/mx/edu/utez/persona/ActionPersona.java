@@ -1,6 +1,7 @@
 package mx.edu.utez.persona;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.opensymphony.xwork2.ActionContext;
@@ -269,8 +270,16 @@ public class ActionPersona {
       bean=(BeanPersona) dao.buquedaByID(Integer.parseInt(params));
       String correo=bean.getCorreoInstitucional();
       correo=correo.replace("@utez.edu.mx","");
-        System.out.println(correo);
-      bean.setCorreoInstitucional(correo);
+        JsonArray arr=new JsonArray();
+       for (int i=0;i<bean.getRoles().size();i++){
+
+           arr.add(bean.getRoles().get(i).getIdRol());
+       }
+      params=arr.toString();
+        System.out.println(params);
+        respuestas.put("epa",params);
+        respuestas.put("bean",bean);
+       bean.setCorreoInstitucional(correo);
         System.out.println(bean.getNombre());
         return "success";
     }
@@ -278,5 +287,38 @@ public class ActionPersona {
         System.out.println(params);
         dao.act(params);
         return "success";
+    }
+    public String consultaMod(){
+        listaHorario=new ArrayList<BeanHorario>();
+        listaRoles=new ArrayList<BeanRol>();
+        System.out.println(params);
+        Gson g=new Gson();
+        JsonObject object=new JsonParser().parse(params).getAsJsonObject();
+        System.out.println("id"+params);
+        BeanPersona binsito=new BeanPersona();
+
+        binsito=new BeanPersona();
+        binsito=(BeanPersona) dao.buquedaByID(object.get("id").getAsInt());
+
+        JsonArray arr=new JsonArray();
+        for (int i=0;i<binsito.getRoles().size();i++){
+            System.out.println("binsito"+binsito.getRoles().get(i).getIdRol());
+            arr.add(binsito.getRoles().get(i).getIdRol());
+        }
+        params=arr.toString();
+        System.out.println(params);
+        respuestas.put("rolesDePersona",arr.toString());
+        respuestas.put("horario",dao.obtenerHorarios());
+        respuestas.put("roles",dao.obtenerRoles());
+        return SUCCESS;
+    }
+    public String actualizarDesempenio(){
+        System.out.println(params);
+        BeanPersona bean=new BeanPersona();
+        Gson g=new Gson();
+        JsonObject object=new JsonParser().parse(params).getAsJsonObject();
+        System.out.println(object);
+        dao.desemp(params);
+        return SUCCESS;
     }
 }

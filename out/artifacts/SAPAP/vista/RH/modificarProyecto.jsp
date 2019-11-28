@@ -24,7 +24,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="d()">
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -242,7 +242,7 @@
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
                             <label for="rapeSelect">RAPE</label>
-                            <select name="rape" id="rapeSelect" class="form-control form-control-file selectpicker" multiple>
+                            <select title="Seleccione uno.." name="rape" id="rapeSelect" class="form-control form-control-file selectpicker" multiple>
                                 <s:iterator value="rapes" status="stat" var="lista">
                                     <option value="<s:property value="idPersona"></s:property>"><s:property value="nombre"></s:property> <s:property value="primerApellido"></s:property> </option>
                                 </s:iterator>
@@ -250,7 +250,7 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="rdSelect">RD</label>
-                            <select name="rd" id="rdSelect" class="form-control form-control-file selectpicker" multiple>
+                            <select title="Seleccione uno.." name="rd" id="rdSelect" class="form-control form-control-file selectpicker" multiple>
                                 <s:iterator value="rds" status="stat" var="lista">
                                     <option value="<s:property value="idPersona"></s:property>"><s:property value="nombre"></s:property> <s:property value="primerApellido"></s:property></option>
                                 </s:iterator>
@@ -260,7 +260,7 @@
                         </div>
                         <div class="col-sm-4">
                             <label for="apSelect">AP</label>
-                            <select name="ap" id="apSelect" class="form-control form-control-file selectpicker" multiple>
+                            <select title="Seleccione uno.." name="ap" id="apSelect" class="form-control form-control-file selectpicker" multiple>
 
                                 <s:iterator value="aps" status="stat" var="lista">
                                     <option value="<s:property value="idPersona"></s:property>"><s:property value="nombre"></s:property> <s:property value="primerApellido"></s:property> </option>
@@ -330,11 +330,21 @@
 
 <script>
 
-    function f() {
-        var values=$("#travel").val();
-        alert(values);
-        alert(values[0])
-        alert(values[1])
+
+
+    function  d() {
+
+        var aps=JSON.parse('<s:property value="respuestas.aps" />');
+        var rds=JSON.parse('<s:property value="respuestas.rds" />');
+        var rapes=JSON.parse('<s:property value="respuestas.rapesitos" />');
+
+
+
+
+        $("#rapeSelect").selectpicker('val',rapes);
+        $("#apSelect").selectpicker('val',aps);
+        $("#rdSelect").selectpicker('val',rds);
+
     }
 </script>
 </body>

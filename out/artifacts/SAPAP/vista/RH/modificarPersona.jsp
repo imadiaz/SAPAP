@@ -24,7 +24,7 @@
 
 </head>
 
-<body id="page-top" onload="consultaRegistro()">
+<body id="page-top" onload="consultaRegistroModificar()">
 
 <!-- Page Wrapper -->
 <div id="wrapper">
