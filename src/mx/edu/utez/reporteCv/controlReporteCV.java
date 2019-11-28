@@ -19,11 +19,16 @@ public class controlReporteCV extends ActionSupport {
 
 
     public String reporteCV() throws SQLException {
-        myList = new ArrayList();
-        parametros = new HashMap();
-        conexion = MySQLConexion.getConnection();
-        parametros.put("idPersona", 1);
-        System.out.println("Conexión:  " + conexion.toString());
+        try{
+            myList = new ArrayList();
+            parametros = new HashMap();
+            conexion = MySQLConexion.getConnection();
+            parametros.put("idPersona", 1);
+           // System.out.println("Conexión:  " + conexion.toString());
+
+        }catch (Exception e){
+            System.out.println("Error reporte" + e.getMessage());
+        }
         return SUCCESS;
     }
 

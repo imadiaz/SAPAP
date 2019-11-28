@@ -5,6 +5,7 @@
     <%
         String context = request.getContextPath();
     %>
+    <%@taglib prefix="s" uri="/struts-tags" %>
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -129,10 +130,88 @@
                 <ul class="navbar-nav ml-auto">
 
                     <!-- Nav Item - Alerts -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-list-ul fa-fw" style="margin-right: 20px">Roles</i>
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="rolesDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                   <i class="fas fa-user fa-fw" style="margin-right: 20px">
+                                </i>Roles</span>
                         </a>
+
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="rolesDropdown">
+
+                            <s:iterator value="#session.roles" var="rol">
+
+
+                                <s:if test="#rol.tipo=='Estadia'">
+                                    <a class="dropdown-item" href="<%=context%>/vista/AP/InicioAP.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+
+                                </s:if>
+                                <s:elseif test="#rol.tipo=='Administradora de Recursos Humanos'">
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/RH/InicioRH.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='Responsable de Desarrollo'">
+
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/RD/InicioRD.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='RAPE'">
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/RAPE/InicioRAPE.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='Coordinador del CDS'">
+
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/Coordinador/InicioCOD.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='Analista Programador'">
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/AP/InicioAP.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+
+
+                                </a>
+                            </s:iterator>
+                        </div>
                     </li>
 
                     <div class="topbar-divider d-none d-sm-block"></div>
@@ -176,29 +255,42 @@
                     </div>
                 </div>
 
-                <form class="user">
+                <form class="user" action="modificarAP" method="POST">
+                    <div class="form-group row">
+                        <input type="hidden" class="form-control form-control-user" name="bean.idPersona" value="<s:property value="#session.usuario.idPersona" />" id="id" placeholder="Nombre">
+
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="bean.nombre" value="<s:property value="bean.nombre" />" id="nombre" placeholder="Nombre">
+                        </div>
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="bean.primerApellido" value="<s:property value="bean.primerApellido" />" id="pApellido" placeholder="Apellido Paterno">
+                        </div>
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="bean.segundoApellido" value="<s:property value="bean.segundoApellido" />" id="sApellido" placeholder="Apellido Materno">
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" id="nombre" placeholder="Nombre">
+                            <input type="email" class="form-control form-control-user" name="bean.correoInstitucional" id="correoInsti" value="<s:property value="bean.correoInstitucional" />" placeholder="Correo electrónico Institucional">
                         </div>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-user" id="apellido" placeholder="Apellido">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="email" class="form-control form-control-user" name="bean.correoPersonal" value="<s:property value="bean.correoPersonal" />" id="correoPers" placeholder="Correo electrónico Personal">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control form-control-user" id="correo" placeholder="Correo electrónico">
                     </div>
                     <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="password" class="form-control form-control-user" id="celular" placeholder="Celular">
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="bean.numeroTelefonico" value="<s:property value="bean.numeroTelefonico" />" id="celular" placeholder="Celular">
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" id="telefono" name="bean.numeroCasa" value="<s:property value="bean.numeroCasa" />" placeholder="Teléfono">
                         </div>
                         <div class="col-sm-6">
-                            <input type="password" class="form-control form-control-user" id="matricula" placeholder="Matrícula">
+                            <input type="text" class="form-control form-control-user" name="bean.matricula" value="<s:property value="bean.matricula" />" id="matricula" placeholder="Matrícula">
                         </div>
                     </div>
-                    <a href="login.html" class="btn btn-primary btn-user btn-block">
+                    <button  class="btn btn-primary btn-user btn-block">
                         Enviar
-                    </a>
+                    </button>
                 </form>
 
 

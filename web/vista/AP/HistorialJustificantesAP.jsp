@@ -149,23 +149,89 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                 <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="rolesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw"
-                                                                                                         style="margin-right: 20px">
+                        <a class="nav-link dropdown-toggle" href="#" id="rolesDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                   <i class="fas fa-user fa-fw" style="margin-right: 20px">
                                 </i>Roles</span>
                         </a>
 
                         <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="rolesDropdown">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="rolesDropdown">
                             <a class="dropdown-item" href="MiPerfilAP.jsp">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="cerrarSesion">
-                                <s:iterator value="#sesion.listaRoles.tipo" var="rol" status="stat">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Roles
-                                </s:iterator>
-                            </a>
+                            <s:iterator value="#session.roles" var="rol">
+
+
+                                <s:if test="#rol.tipo=='Estadia'">
+                                    <a class="dropdown-item" href="<%=context%>/vista/AP/InicioAP.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+
+                                </s:if>
+                                <s:elseif test="#rol.tipo=='Administradora de Recursos Humanos'">
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/RH/InicioRH.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='Responsable de Desarrollo'">
+
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/RD/InicioRD.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='RAPE'">
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/RAPE/InicioRAPE.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='Coordinador del CDS'">
+
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/Coordinador/InicioCOD.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='Analista Programador'">
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/AP/InicioAP.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+
+
+                                </a>
+                            </s:iterator>
                         </div>
                     </li>
 

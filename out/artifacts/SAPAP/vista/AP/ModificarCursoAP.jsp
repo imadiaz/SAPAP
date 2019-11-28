@@ -5,7 +5,7 @@
     <%
         String context = request.getContextPath();
     %>
-
+    <%@taglib prefix="s" uri="/struts-tags" %>
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <%@ taglib prefix="s" uri="/struts-tags" %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

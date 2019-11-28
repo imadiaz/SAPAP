@@ -203,8 +203,8 @@ public class ActionPersona {
         listaRoles=new ArrayList<BeanRol>();
 
 
-      respuestas.put("horario",dao.obtenerHorarios());
-      respuestas.put("roles",dao.obtenerRoles());
+        respuestas.put("horario",dao.obtenerHorarios());
+        respuestas.put("roles",dao.obtenerRoles());
         return SUCCESS;
     }
     public String registroPersona(){
@@ -215,6 +215,26 @@ public class ActionPersona {
         System.out.println(object);
         dao.registrarPersona(params);
         return SUCCESS;
+    }
+
+    public String buscarPerfil(){
+        int id = bean.getIdPersona();
+        bean= dao.consultarPersonaPorId(id);
+        if (bean!=null){
+            return "SUCCESS";
+        }else{
+            return "ERROR";
+        }
+    }
+    public String modificarPerfil(){
+        if (dao.actulizarPerfil(bean)){
+            System.out.println("CORRECTO");
+            return "SUCCESS";
+        }else{
+            System.out.println("ERROR");
+            return "ERROR";
+        }
+
     }
     public String estadia(){
 
@@ -265,12 +285,12 @@ public class ActionPersona {
     public String buscarPersona() {
 
         System.out.println("id"+params);
-      bean=new BeanPersona();
-      bean=(BeanPersona) dao.buquedaByID(Integer.parseInt(params));
-      String correo=bean.getCorreoInstitucional();
-      correo=correo.replace("@utez.edu.mx","");
+        bean=new BeanPersona();
+        bean=(BeanPersona) dao.buquedaByID(Integer.parseInt(params));
+        String correo=bean.getCorreoInstitucional();
+        correo=correo.replace("@utez.edu.mx","");
         System.out.println(correo);
-      bean.setCorreoInstitucional(correo);
+        bean.setCorreoInstitucional(correo);
         System.out.println(bean.getNombre());
         return "success";
     }
