@@ -5,6 +5,7 @@
     <%
         String context = request.getContextPath();
     %>
+    <%@taglib prefix="s" uri="/struts-tags" %>
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -272,29 +273,57 @@
                     </div>
                 </div>
 
-                <form class="user">
+                <form class="user" action="modificarRH" method="POST">
+                    <div class="form-group row">
+                        <input type="hidden" class="form-control form-control-user" name="bean.idPersona"
+                               value="<s:property value="#session.usuario.idPersona" />" id="id" placeholder="Nombre">
+
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="bean.nombre"
+                                   value="<s:property value="bean.nombre" />" id="nombre" placeholder="Nombre">
+                        </div>
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="bean.primerApellido"
+                                   value="<s:property value="bean.primerApellido" />" id="pApellido"
+                                   placeholder="Apellido Paterno">
+                        </div>
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="bean.segundoApellido"
+                                   value="<s:property value="bean.segundoApellido" />" id="sApellido"
+                                   placeholder="Apellido Materno">
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" id="nombre" placeholder="Nombre">
+                            <input type="email" class="form-control form-control-user" name="bean.correoInstitucional"
+                                   id="correoInsti" value="<s:property value="bean.correoInstitucional" />"
+                                   placeholder="Correo electrónico Institucional">
                         </div>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-user" id="apellido" placeholder="Apellido">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="email" class="form-control form-control-user" name="bean.correoPersonal"
+                                   value="<s:property value="bean.correoPersonal" />" id="correoPers"
+                                   placeholder="Correo electrónico Personal">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control form-control-user" id="correo" placeholder="Correo electrónico">
                     </div>
                     <div class="form-group row">
-                        <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="password" class="form-control form-control-user" id="celular" placeholder="Celular">
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="bean.numeroTelefonico"
+                                   value="<s:property value="bean.numeroTelefonico" />" id="celular"
+                                   placeholder="Celular">
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" id="telefono"
+                                   name="bean.numeroCasa" value="<s:property value="bean.numeroCasa" />"
+                                   placeholder="Teléfono">
                         </div>
                         <div class="col-sm-6">
-                            <input type="password" class="form-control form-control-user" id="matricula" placeholder="Matrícula">
+                            <input type="text" class="form-control form-control-user" name="bean.matricula"
+                                   value="<s:property value="bean.matricula" />" id="matricula" placeholder="Matrícula">
                         </div>
                     </div>
-                    <a href="login.html" class="btn btn-primary btn-user btn-block">
+                    <button class="btn btn-primary btn-user btn-block">
                         Enviar
-                    </a>
+                    </button>
                 </form>
 
             </div>

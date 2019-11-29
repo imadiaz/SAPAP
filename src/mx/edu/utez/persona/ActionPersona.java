@@ -321,4 +321,23 @@ public class ActionPersona {
         dao.desemp(params);
         return SUCCESS;
     }
+    public String buscarPerfil(){
+        int id = bean.getIdPersona();
+        bean= dao.consultarPersonaPorId(id);
+        if (bean!=null){
+            return "SUCCESS";
+        }else{
+            return "ERROR";
+        }
+    }
+    public String modificarPerfil(){
+        if (dao.actulizarPerfil(bean)){
+            System.out.println("CORRECTO");
+            return "SUCCESS";
+        }else{
+            System.out.println("ERROR");
+            return "ERROR";
+        }
+
+    }
 }

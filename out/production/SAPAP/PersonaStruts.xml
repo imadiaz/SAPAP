@@ -38,6 +38,21 @@
         <action name="actualizarDesempenio" class="mx.edu.utez.persona.ActionPersona" method="actualizarDesempenio">
             <result type="json"/>
         </action>
+        <action name="buscarPerfil" class="mx.edu.utez.persona.ActionPersona" method="buscarPerfil">
+            <result name="SUCCESS">/vista/AP/MiPerfilAP.jsp</result>
+        </action>
+        <action name="modificarAP" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
+            <result name="SUCCESS">/vista/AP/MiPerfilAP.jsp</result>
+            <result name="ERROR">/vista/AP/MiPerfilAP.jsp</result>
+        </action>
+
+        <action name="buscarPerfilRH" class="mx.edu.utez.persona.ActionPersona" method="buscarPerfil">
+            <result name="SUCCESS">/vista/RH/MiPerfilRH.jsp</result>
+        </action>
+        <action name="modificarRH" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
+            <result name="SUCCESS">/vista/RH/MiPerfilRH.jsp</result>
+            <result name="ERROR">/vista/AP/MiPerfilAP.jsp</result>
+        </action>
         </package>
 </struts>
 

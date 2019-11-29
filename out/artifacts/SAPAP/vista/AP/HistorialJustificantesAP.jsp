@@ -248,7 +248,14 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="MiPerfilAP.jsp">
+
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+                                <form action="buscarPerfil" method="POST">
+                                    <input type="text" name="bean.idPersona" value="<s:property value="#session.usuario.idPersona"/>" />
+                                    <button type="submit" value="" class="btn btn-warning">
+                                        <i class="fa fa-pen-alt"></i>
+                                    </button>
+                                </form>
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<%=context%>/index.jsp">

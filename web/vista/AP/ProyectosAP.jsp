@@ -131,10 +131,88 @@
                 <ul class="navbar-nav ml-auto">
 
                     <!-- Nav Item - Alerts -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-list-ul fa-fw" style="margin-right: 20px">Roles</i>
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="rolesDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                   <i class="fas fa-user fa-fw" style="margin-right: 20px">
+                                </i>Roles</span>
                         </a>
+
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="rolesDropdown">
+
+                            <s:iterator value="#session.roles" var="rol">
+
+
+                                <s:if test="#rol.tipo=='Estadia'">
+                                    <a class="dropdown-item" href="<%=context%>/vista/AP/InicioAP.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+
+                                </s:if>
+                                <s:elseif test="#rol.tipo=='Administradora de Recursos Humanos'">
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/RH/InicioRH.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='Responsable de Desarrollo'">
+
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/RD/InicioRD.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='RAPE'">
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/RAPE/InicioRAPE.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='Coordinador del CDS'">
+
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/Coordinador/InicioCOD.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+                                <s:elseif test="#rol.tipo=='Analista Programador'">
+
+                                    <a class="dropdown-item" href="<%=context%>/vista/AP/InicioAP.jsp">
+
+                                        <i class="fas fa-circle fa-sm fa-fw mr-2 text-gray-400">
+
+                                        </i>
+                                        <s:property value="tipo"/>
+                                    </a>
+                                </s:elseif>
+
+
+                                </a>
+                            </s:iterator>
+                        </div>
                     </li>
 
                     <div class="topbar-divider d-none d-sm-block"></div>
@@ -149,8 +227,14 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="MiPerfilAP.jsp">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Perfil
+
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+                                <form action="buscarPerfil" method="POST">
+                                    <input type="text" name="bean.idPersona" value="<s:property value="#session.usuario.idPersona"/>" />
+                                    <button type="submit" value="" class="btn btn-warning">
+                                        <i class="fa fa-pen-alt"></i>
+                                    </button>
+                                </form>
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<%=context%>/index.jsp" >

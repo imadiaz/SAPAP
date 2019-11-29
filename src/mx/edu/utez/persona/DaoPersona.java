@@ -25,6 +25,8 @@ public class DaoPersona extends Dao implements DaoInterfaz {
     final private String SQL_CONSULTAR_PERSONA = "call login(?,?)";
     final private String SQL_GENERAR_CODIGO = "call generarCodigo(?,?)";
     final private String SQL_CONSULTAR_CODIGO = "call consultarCodigo(?)";
+    final private String SQL_BUSCAR_PERSONA = "call buscarPersona(?)";
+    final private String SQL_MODIFICAR_PERFIL = "call modificarPerfil(?,?,?,?,?,?,?)";
     final private String SQL_Consultar_Correo = "Select * from Persona where correoInstitucional=?;";
 
 
@@ -468,6 +470,75 @@ return true;
 
         }
         return bean;
+    }
+    public BeanPersona consultarPersonaPorId(int idPersona) {
+        BeanPersona bean = null;
+        try {
+            conexion = MySQLConexion.getConnection();
+            pstm = conexion.prepareStatement(SQL_BUSCAR_PERSONA);
+            pstm.setInt(1, idPersona);
+            rs = pstm.executeQuery();
+            if (rs.next()) {
+                bean = new BeanPersona();
+                bean.setIdPersona(rs.getInt("id"));
+                bean.setNombre(rs.getString("nombre"));
+                bean.setPrimerApellido(rs.getString("primerApellido"));
+                bean.setSegundoApellido(rs.getString("segundoApellido"));
+                bean.setContrasenia(rs.getString("contrasenia"));
+                bean.setCorreoPersonal(rs.getString("correoPersona"));
+                bean.setCorreoInstitucional(rs.getString("correoInstitucional"));
+                bean.setMatricula(rs.getString("matricula"));
+                bean.setNumeroTelefonico(rs.getString("numeroTelefonico"));
+                bean.setNumeroCasa(rs.getString("numeroCasa"));
+                bean.setFechaDeNacimiento("fechaNacimiento");
+
+            }
+            rs.close();
+            pstm.close();
+            conexion.close();
+        } catch (Exception e) {
+            System.out.println("Error en método consultarPersonaPorId() del DaoPersona -> " + e.getMessage());
+        } finally {
+            try {
+                rs.close();
+                pstm.close();
+                conexion.close();
+            } catch (Exception e) {
+
+            }
+        }
+        return bean;
+    }
+
+    public boolean actulizarPerfil(BeanPersona bean) {
+        boolean res = false;
+        try {
+            conexion = MySQLConexion.getConnection();
+            pstm = conexion.prepareStatement(SQL_MODIFICAR_PERFIL);
+            pstm.setInt(1, bean.getIdPersona());
+            pstm.setString(2, bean.getNombre());
+            pstm.setString(3, bean.getPrimerApellido());
+            pstm.setString(4, bean.getSegundoApellido());
+            pstm.setString(5, bean.getCorreoPersonal());
+            pstm.setString(6, bean.getNumeroCasa());
+            pstm.setString(7, bean.getNumeroTelefonico());
+            res = pstm.executeUpdate() == 1;
+            pstm.close();
+            conexion.close();
+
+        } catch (Exception e) {
+            System.out.println("Error en el método de modifcarPerfil "+e.getMessage());
+            e.getCause();
+        }finally {
+            try {
+                pstm.close();
+                conexion.close();
+            } catch (Exception e) {
+
+            }
+        }
+
+        return res;
     }
 
     public void borrarCodigo(String codigo) {

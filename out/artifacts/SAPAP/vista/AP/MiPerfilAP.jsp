@@ -16,7 +16,8 @@
 
     <!-- Custom fonts for this template-->
     <link href="<%=context%>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
@@ -46,7 +47,8 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+               aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-paper-plane"></i>
                 <span>Lista de Justificantes</span>
             </a>
@@ -117,7 +119,8 @@
                 <!-- Topbar Search -->
                 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..."
+                               aria-label="Search" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="button">
                                 <i class="fas fa-search fa-sm"></i>
@@ -218,19 +221,29 @@
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw" style="margin-right: 20px">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw"
+                                                                                         style="margin-right: 20px">
                                 </i>Nombre</span>
                         </a>
 
                         <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="MiPerfilAP.jsp">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Perfil
+
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+                                <form action="buscarPerfil" method="POST">
+                                    <input type="text" name="bean.idPersona"
+                                           value="<s:property value="#session.usuario.idPersona"/>"/>
+                                    <button type="submit" value="" class="btn btn-warning">
+                                        <i class="fa fa-pen-alt"></i>
+                                    </button>
+                                </form>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<%=context%>/index.jsp" >
+                            <a class="dropdown-item" href="<%=context%>/index.jsp">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Salir
                             </a>
@@ -250,51 +263,64 @@
                         <h1 class="h3 mb-4 text-gray-800">Mi perfil</h1>
                     </div>
                     <div class="col-md-8">
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 500px">
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                           style="margin-left: 500px">
                             <i class="fas fa-paperclip fa-sm text-white-50"></i>Ver CV</a>
                     </div>
                 </div>
 
                 <form class="user" action="modificarAP" method="POST">
                     <div class="form-group row">
-                        <input type="hidden" class="form-control form-control-user" name="bean.idPersona" value="<s:property value="#session.usuario.idPersona" />" id="id" placeholder="Nombre">
+                        <input type="hidden" class="form-control form-control-user" name="bean.idPersona"
+                               value="<s:property value="#session.usuario.idPersona" />" id="id" placeholder="Nombre">
 
                         <div class="col-sm-4 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" name="bean.nombre" value="<s:property value="bean.nombre" />" id="nombre" placeholder="Nombre">
+                            <input type="text" class="form-control form-control-user" name="bean.nombre"
+                                   value="<s:property value="bean.nombre" />" id="nombre" placeholder="Nombre">
                         </div>
                         <div class="col-sm-4 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" name="bean.primerApellido" value="<s:property value="bean.primerApellido" />" id="pApellido" placeholder="Apellido Paterno">
+                            <input type="text" class="form-control form-control-user" name="bean.primerApellido"
+                                   value="<s:property value="bean.primerApellido" />" id="pApellido"
+                                   placeholder="Apellido Paterno">
                         </div>
                         <div class="col-sm-4 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" name="bean.segundoApellido" value="<s:property value="bean.segundoApellido" />" id="sApellido" placeholder="Apellido Materno">
+                            <input type="text" class="form-control form-control-user" name="bean.segundoApellido"
+                                   value="<s:property value="bean.segundoApellido" />" id="sApellido"
+                                   placeholder="Apellido Materno">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="email" class="form-control form-control-user" name="bean.correoInstitucional" id="correoInsti" value="<s:property value="bean.correoInstitucional" />" placeholder="Correo electrónico Institucional">
+                            <input type="email" class="form-control form-control-user" name="bean.correoInstitucional"
+                                   id="correoInsti" value="<s:property value="bean.correoInstitucional" />"
+                                   placeholder="Correo electrónico Institucional">
                         </div>
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="email" class="form-control form-control-user" name="bean.correoPersonal" value="<s:property value="bean.correoPersonal" />" id="correoPers" placeholder="Correo electrónico Personal">
+                            <input type="email" class="form-control form-control-user" name="bean.correoPersonal"
+                                   value="<s:property value="bean.correoPersonal" />" id="correoPers"
+                                   placeholder="Correo electrónico Personal">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-3 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" name="bean.numeroTelefonico" value="<s:property value="bean.numeroTelefonico" />" id="celular" placeholder="Celular">
+                            <input type="text" class="form-control form-control-user" name="bean.numeroTelefonico"
+                                   value="<s:property value="bean.numeroTelefonico" />" id="celular"
+                                   placeholder="Celular">
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" id="telefono" name="bean.numeroCasa" value="<s:property value="bean.numeroCasa" />" placeholder="Teléfono">
+                            <input type="text" class="form-control form-control-user" id="telefono"
+                                   name="bean.numeroCasa" value="<s:property value="bean.numeroCasa" />"
+                                   placeholder="Teléfono">
                         </div>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-user" name="bean.matricula" value="<s:property value="bean.matricula" />" id="matricula" placeholder="Matrícula">
+                            <input type="text" class="form-control form-control-user" name="bean.matricula"
+                                   value="<s:property value="bean.matricula" />" id="matricula" placeholder="Matrícula">
                         </div>
                     </div>
-                    <button  class="btn btn-primary btn-user btn-block">
+                    <button class="btn btn-primary btn-user btn-block">
                         Enviar
                     </button>
                 </form>
-
-
-
 
 
             </div>
