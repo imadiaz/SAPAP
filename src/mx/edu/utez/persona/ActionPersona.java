@@ -10,6 +10,9 @@ import mx.edu.utez.persona_rol.DaoPersonaRol;
 import mx.edu.utez.rol.BeanRol;
 import netscape.javascript.JSObject;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +26,7 @@ public class ActionPersona {
     private DaoPersona dao = new DaoPersona();
     private DaoPersonaRol daoPersonaRol = new DaoPersonaRol();
     private Map session;
-    private Map respuestas=new HashMap();
+    private Map respuestas = new HashMap();
     private List<BeanRol> listaRoles = new ArrayList();
     private List<BeanHorario> listaHorario = new ArrayList();
     private String mensaje;
@@ -95,57 +98,53 @@ public class ActionPersona {
     }
 
 
-
-    public String consultarPersonas(){
+    public String consultarPersonas() throws NoSuchAlgorithmException {
 
         String correo = bean.getCorreoInstitucional();
-        String contra = bean.getContrasenia();
+        String contra = encriptar(bean.getContrasenia());
         session = ActionContext.getContext().getSession();
-        bean = dao.consultarPersonas(bean.getCorreoInstitucional(),bean.getContrasenia());
+
+        System.out.println(correo+" "+contra);
+        bean = dao.consultarPersonas(bean.getCorreoInstitucional(), encriptar(bean.getContrasenia()));
 
         if (bean != null) {
 
             if (correo.equals(bean.getCorreoInstitucional()) && contra.equals(bean.getContrasenia())) {
-                listaRoles =daoPersonaRol.consultarRoles(bean);
-                String rolUsuario="sin un  rol";
+                listaRoles = daoPersonaRol.consultarRoles(bean);
+                String rolUsuario = "sin un  rol";
                 session.put("usuario", bean);
                 session.put("roles", listaRoles);
 
-                if(listaRoles.size()==1){
-                    for (BeanRol rol :listaRoles) {
-                        rolUsuario=rol.getTipo();
+                if (listaRoles.size() == 1) {
+                    for (BeanRol rol : listaRoles) {
+                        rolUsuario = rol.getTipo();
                     }
-                    if (rolUsuario.equals("Estadia"))
-                    {
+                    if (rolUsuario.equals("Estadia")) {
                         System.out.println(rolUsuario);
 
                         return "Estadia";
-                    }else if(rolUsuario.equals("Administradora de Recursos Humanos")){
+                    } else if (rolUsuario.equals("Administradora de Recursos Humanos")) {
                         System.out.println(rolUsuario);
 
                         return "Humanos";
-                    }
-                    else if(rolUsuario.equals("Responsable de Desarrollo")){
+                    } else if (rolUsuario.equals("Responsable de Desarrollo")) {
                         System.out.println(rolUsuario);
 
                         return "Desarrollo";
-                    }
-                    else if(rolUsuario.equals("RAPE")){
+                    } else if (rolUsuario.equals("RAPE")) {
                         System.out.println(rolUsuario);
 
                         return "RAPE";
-                    }
-                    else if(rolUsuario.equals("Coordinador del CDS")){
+                    } else if (rolUsuario.equals("Coordinador del CDS")) {
                         System.out.println(rolUsuario);
 
                         return "COD";
-                    }
-                    else if(rolUsuario.equals("Analista Programador")){
+                    } else if (rolUsuario.equals("Analista Programador")) {
                         System.out.println(rolUsuario);
 
                         return "Analista";
                     }
-                }else {
+                } else {
 
 
                     mensaje = "¡Bienvenido!";
@@ -169,9 +168,8 @@ public class ActionPersona {
     }
 
 
-
-    public String consultaPersonas2(){
-        respuestas.put("personas",dao.getLista());
+    public String consultaPersonas2() {
+        respuestas.put("personas", dao.getLista());
         System.out.println(listaRoles);
         System.out.println("sdfjkshfkjksj");
         System.out.println(session.get("usuario"));
@@ -186,71 +184,79 @@ public class ActionPersona {
         this.listaHorario = listaHorario;
     }
 
-    public String eliminarPersona(){
+    public String eliminarPersona() {
         bean.setIdPersona(Integer.parseInt(params));
-        Object bean=getBean();
-        System.out.println("id"+params);
+        Object bean = getBean();
+        System.out.println("id" + params);
         System.out.println(getBean().getIdPersona());
-        if (dao.eliminar(bean)){
-            respuestas.put("response",true);
-        }else{
-            respuestas.put("response",false);
+        if (dao.eliminar(bean)) {
+            respuestas.put("response", true);
+        } else {
+            respuestas.put("response", false);
         }
 
         return SUCCESS;
     }
-    public String consultaRegistro(){
-        listaHorario=new ArrayList<BeanHorario>();
-        listaRoles=new ArrayList<BeanRol>();
+
+    public String consultaRegistro() {
+        listaHorario = new ArrayList<BeanHorario>();
+        listaRoles = new ArrayList<BeanRol>();
 
 
-      respuestas.put("horario",dao.obtenerHorarios());
-      respuestas.put("roles",dao.obtenerRoles());
+        respuestas.put("horario", dao.obtenerHorarios());
+        respuestas.put("roles", dao.obtenerRoles());
         return SUCCESS;
     }
-    public String registroPersona(){
+
+    public String registroPersona() {
         System.out.println(params);
-        BeanPersona bean=new BeanPersona();
-        Gson g=new Gson();
-        JsonObject object=new JsonParser().parse(params).getAsJsonObject();
+        BeanPersona bean = new BeanPersona();
+        Gson g = new Gson();
+        JsonObject object = new JsonParser().parse(params).getAsJsonObject();
         System.out.println(object);
         dao.registrarPersona(params);
         return SUCCESS;
     }
-    public String estadia(){
+
+    public String estadia() {
 
 
         //session = ActionContext.getContext().getSession();
 
         return "SUCCESS";
     }
-    public String rh(){
-        //session = ActionContext.getContext().getSession();
 
-        return "SUCCESS";
-    }
-    public String rape(){
-        //session = ActionContext.getContext().getSession();
-
-        return "SUCCESS";
-    }
-    public String coo(){
-        //session = ActionContext.getContext().getSession();
-
-        return "SUCCESS";
-    }
-    public String ap(){
-        //session = ActionContext.getContext().getSession();
-
-        return "SUCCESS";
-    }
-    public String rd(){
+    public String rh() {
         //session = ActionContext.getContext().getSession();
 
         return "SUCCESS";
     }
 
-    public String cerrarSesion(){
+    public String rape() {
+        //session = ActionContext.getContext().getSession();
+
+        return "SUCCESS";
+    }
+
+    public String coo() {
+        //session = ActionContext.getContext().getSession();
+
+        return "SUCCESS";
+    }
+
+    public String ap() {
+        //session = ActionContext.getContext().getSession();
+
+        return "SUCCESS";
+    }
+
+    public String rd() {
+        //session = ActionContext.getContext().getSession();
+
+        return "SUCCESS";
+    }
+
+    public String cerrarSesion() {
         session = ActionContext.getContext().getSession();
         System.out.println(session.get("usuario"));
         session.clear();
@@ -258,86 +264,112 @@ public class ActionPersona {
         System.out.println(session.get("usuario"));
         return "SUCCESS";
     }
-    public String consultaMisEstudiantes(){
 
-        respuestas.put("personas",dao.getLista());
+    public String consultaMisEstudiantes() {
+
+        respuestas.put("personas", dao.getLista());
         return SUCCESS;
     }
+
     public String buscarPersona() {
 
-        System.out.println("id"+params);
-      bean=new BeanPersona();
-      bean=(BeanPersona) dao.buquedaByID(Integer.parseInt(params));
-      String correo=bean.getCorreoInstitucional();
-      correo=correo.replace("@utez.edu.mx","");
-        JsonArray arr=new JsonArray();
-       for (int i=0;i<bean.getRoles().size();i++){
+        System.out.println("id" + params);
+        bean = new BeanPersona();
+        bean = (BeanPersona) dao.buquedaByID(Integer.parseInt(params));
+        String correo = bean.getCorreoInstitucional();
+        correo = correo.replace("@utez.edu.mx", "");
+        JsonArray arr = new JsonArray();
+        for (int i = 0; i < bean.getRoles().size(); i++) {
 
-           arr.add(bean.getRoles().get(i).getIdRol());
-       }
-      params=arr.toString();
+            arr.add(bean.getRoles().get(i).getIdRol());
+        }
+        params = arr.toString();
         System.out.println(params);
-        respuestas.put("epa",params);
-        respuestas.put("bean",bean);
-       bean.setCorreoInstitucional(correo);
+        respuestas.put("epa", params);
+        respuestas.put("bean", bean);
+        bean.setCorreoInstitucional(correo);
         System.out.println(bean.getNombre());
         return "success";
     }
+
     public String modificarPersona() {
         System.out.println(params);
         dao.act(params);
         return "success";
     }
-    public String consultaMod(){
-        listaHorario=new ArrayList<BeanHorario>();
-        listaRoles=new ArrayList<BeanRol>();
+
+    public String consultaMod() {
+        listaHorario = new ArrayList<BeanHorario>();
+        listaRoles = new ArrayList<BeanRol>();
         System.out.println(params);
-        Gson g=new Gson();
-        JsonObject object=new JsonParser().parse(params).getAsJsonObject();
-        System.out.println("id"+params);
-        BeanPersona binsito=new BeanPersona();
+        Gson g = new Gson();
+        JsonObject object = new JsonParser().parse(params).getAsJsonObject();
+        System.out.println("id" + params);
+        BeanPersona binsito = new BeanPersona();
 
-        binsito=new BeanPersona();
-        binsito=(BeanPersona) dao.buquedaByID(object.get("id").getAsInt());
+        binsito = new BeanPersona();
+        binsito = (BeanPersona) dao.buquedaByID(object.get("id").getAsInt());
 
-        JsonArray arr=new JsonArray();
-        for (int i=0;i<binsito.getRoles().size();i++){
-            System.out.println("binsito"+binsito.getRoles().get(i).getIdRol());
+        JsonArray arr = new JsonArray();
+        for (int i = 0; i < binsito.getRoles().size(); i++) {
+            System.out.println("binsito" + binsito.getRoles().get(i).getIdRol());
             arr.add(binsito.getRoles().get(i).getIdRol());
         }
-        params=arr.toString();
+        params = arr.toString();
         System.out.println(params);
-        respuestas.put("rolesDePersona",arr.toString());
-        respuestas.put("horario",dao.obtenerHorarios());
-        respuestas.put("roles",dao.obtenerRoles());
+        respuestas.put("rolesDePersona", arr.toString());
+        respuestas.put("horario", dao.obtenerHorarios());
+        respuestas.put("roles", dao.obtenerRoles());
         return SUCCESS;
     }
-    public String actualizarDesempenio(){
+
+    public String actualizarDesempenio() {
         System.out.println(params);
-        BeanPersona bean=new BeanPersona();
-        Gson g=new Gson();
-        JsonObject object=new JsonParser().parse(params).getAsJsonObject();
+        BeanPersona bean = new BeanPersona();
+        Gson g = new Gson();
+        JsonObject object = new JsonParser().parse(params).getAsJsonObject();
         System.out.println(object);
         dao.desemp(params);
         return SUCCESS;
     }
-    public String buscarPerfil(){
+
+    public String buscarPerfil() {
         int id = bean.getIdPersona();
-        bean= dao.consultarPersonaPorId(id);
-        if (bean!=null){
+        bean = dao.consultarPersonaPorId(id);
+        if (bean != null) {
             return "SUCCESS";
-        }else{
+        } else {
             return "ERROR";
         }
     }
-    public String modificarPerfil(){
-        if (dao.actulizarPerfil(bean)){
+
+    public String modificarPerfil() {
+        if (dao.actulizarPerfil(bean)) {
             System.out.println("CORRECTO");
             return "SUCCESS";
-        }else{
+        } else {
             System.out.println("ERROR");
             return "ERROR";
         }
 
     }
+
+
+    public String encriptar(String cadena) throws NoSuchAlgorithmException {
+        // TODO code application logic here
+        String password = cadena;
+
+        MessageDigest md = MessageDigest.getInstance("SHA");
+        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+
+// bytes to hex
+        StringBuilder sb = new StringBuilder();
+        for (byte b : hashInBytes) {
+            sb.append(String.format("%02x", b));
+        }
+        System.out.println(sb.toString());
+        return sb.toString();
+    }
+
+
 }

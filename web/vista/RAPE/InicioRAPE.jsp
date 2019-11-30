@@ -257,7 +257,7 @@
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<%=context%>/index.jsp" >
+                            <a class="dropdown-item" href="<%=context%>/cerrarSesion" >
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Salir
                             </a>

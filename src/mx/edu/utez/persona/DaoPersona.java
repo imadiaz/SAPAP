@@ -12,6 +12,9 @@ import mx.edu.utez.modelo.DaoInterfaz;
 import mx.edu.utez.rol.BeanRol;
 import org.apache.struts2.components.Bean;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -151,7 +154,7 @@ return true;
                 pstm.setInt(12,idHorairo);
 
                 pstm.setString(13,fecha);
-                pstm.setString(14,object.get("contrasena").getAsString());
+                pstm.setString(14,encriptar(object.get("contrasena").getAsString()));
                 pstm.setString(15,object.get("direccion").getAsString());
                 pstm.execute();
             rs = pstm.getGeneratedKeys();
@@ -576,18 +579,14 @@ return true;
             pstm.setString(2, codigo);
             rs = pstm.executeQuery();
             res = true;
-            rs.close();
-            pstm.close();
-            conexion.close();
+          cerrarConexiones();
         } catch (Exception e) {
             System.out.println("Error en el metodo cambiar contra: " + e.getMessage());
             System.out.println(e.getCause());
             res = false;
         } finally {
             try {
-                rs.close();
-                pstm.close();
-                conexion.close();
+                cerrarConexiones();
             } catch (Exception e) {
 
             }
@@ -742,5 +741,20 @@ return true;
             }
         }
         return true;
+    }
+    public String encriptar(String cadena) throws NoSuchAlgorithmException {
+        // TODO code application logic here
+        String password = cadena;
+
+        MessageDigest md = MessageDigest.getInstance("SHA");
+        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+
+// bytes to hex
+        StringBuilder sb = new StringBuilder();
+        for (byte b : hashInBytes) {
+            sb.append(String.format("%02x", b));
+        }
+        System.out.println(sb.toString());
+        return sb.toString();
     }
 }
