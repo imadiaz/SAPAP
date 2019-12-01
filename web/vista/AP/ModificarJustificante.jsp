@@ -140,6 +140,7 @@
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="MiPerfilAP.jsp">
 
+
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                                 <form action="buscarPerfil" method="POST">
                                     <input type="text" name="bean.idPersona" value="<s:property value="#session.usuario.idPersona"/>" />

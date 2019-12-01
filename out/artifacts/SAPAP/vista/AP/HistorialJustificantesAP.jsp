@@ -23,8 +23,8 @@
     <link href="<%=context%>/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link href="<%=context%>/css/sb-admin-2.css" rel="stylesheet">
+    <%--    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">--%>
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -133,18 +133,6 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <!-- Topbar Search -->
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
@@ -242,8 +230,9 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw"
                                                                                                          style="margin-right: 20px">
-                                </i>Nombre</span>
+                                </i><s:property value="#session.usuario.nombre"/></span>
                         </a>
+
 
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -258,9 +247,8 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                                 </form>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<%=context%>/index.jsp">
+                            <a class="dropdown-item" href="<%=context%>/cerrarSesion" >
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-
                                 Salir
                             </a>
                         </div>

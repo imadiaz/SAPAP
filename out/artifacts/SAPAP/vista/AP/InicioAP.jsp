@@ -8,6 +8,7 @@
 
 <head>
 
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -23,8 +24,8 @@
     <link href="<%=context%>/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link href="<%=context%>/css/sb-admin-2.css" rel="stylesheet">
+    <%--    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">--%>
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
@@ -135,18 +136,6 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <!-- Topbar Search -->
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..."
-                               aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -244,7 +233,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                                             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i
                                                     class="fas fa-user fa-fw"
                                                     style="margin-right: 20px">
-                                </i>Nombre</span>
+                                </i><s:property value="#session.usuario.nombre"/></span>
                         </a>
 
                         </a>
