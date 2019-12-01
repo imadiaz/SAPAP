@@ -21,8 +21,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     <!-- Custom styles for this template-->
-    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <link href="<%=context%>/css/sb-admin-2.css" rel="stylesheet">
+    <%--    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">--%>
 </head>
 
 <body id="page-top">
@@ -92,18 +93,6 @@
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
                 </button>
-
-                <!-- Topbar Search -->
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -202,7 +191,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw" style="margin-right: 20px">
-                                </i>Nombre</span>
+                                </i><s:property value="#session.usuario.nombre"/></span>
                         </a>
 
                         <!-- Dropdown - User Information -->

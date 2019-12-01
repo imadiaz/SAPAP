@@ -2255,7 +2255,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #4e73df;
+  /*background-color: #4e73df;*/
+  background-color: #042c54;
   border-color: #4e73df;
 }
 
@@ -9667,8 +9668,8 @@ a:focus {
 }
 
 .bg-gradient-primary {
-  background-color: #4e73df;
-  background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+  background-color: #042c54;
+  background-image: linear-gradient(180deg, #042c54 10%, #224abe 100%);
   background-size: cover;
 }
 

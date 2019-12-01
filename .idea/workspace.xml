@@ -7,48 +7,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecb24097-c816-4693-8440-a6a53a8d18a5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Struts_2_2_5_14_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Struts_2_2_5_14_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_8_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/RecuperarContrasena.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/RecuperarContrasena.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/inicioSesion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/inicioSesion.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/login.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/becario/BeanBecario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/becario/BeanBecario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/curso/DaoCurso.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/curso/DaoCurso.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/docente/BeanDocente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/docente/BeanDocente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/egresados/BeanEgresados.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/egresados/BeanEgresados.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/estudiante/BeanEstudiante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/estudiante/BeanEstudiante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/DaoJustificante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/justificante/DaoJustificante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/ActionPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/ActionPersona.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/BeanPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/BeanPersona.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/DaoPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/DaoPersona.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/seleccionarRol.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/seleccionarRol.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/InicioAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/InicioAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/login.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/becario/BeanBecario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/becario/BeanBecario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/docente/BeanDocente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/docente/BeanDocente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/egresados/BeanEgresados.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/egresados/BeanEgresados.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/estudiante/BeanEstudiante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/estudiante/BeanEstudiante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/ActionPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/ActionPersona.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/BeanPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/BeanPersona.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/DaoPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/DaoPersona.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/login.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/becario/BeanBecario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/becario/BeanBecario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/docente/BeanDocente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/docente/BeanDocente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/egresados/BeanEgresados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/egresados/BeanEgresados.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/estudiante/BeanEstudiante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/estudiante/BeanEstudiante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/interceptor/Interceptores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/interceptor/Interceptores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/persona/ActionPersona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/persona/ActionPersona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/persona/BeanPersona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/persona/BeanPersona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/persona/DaoPersona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/persona/DaoPersona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/justificante/ActionJustificante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/justificante/ActionJustificante.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/RecuperarContrasena.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/RecuperarContrasena.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/codigoContraseña.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/codigoContraseña.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/sb-admin-2.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/sb-admin-2.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/justificantes/justificantesJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/justificantes/justificantesJS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/nuevaContraseña.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/nuevaContraseña.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/seleccionarRol.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/seleccionarRol.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/AgregarCursoAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/AgregarCursoAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/AgregarJustificante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/AgregarJustificante.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/CursosAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/CursosAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/HistorialJustificantesAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/HistorialJustificantesAP.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/vista/AP/InicioAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/InicioAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/MiPerfilAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/MiPerfilAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/ModificarCursoAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/ModificarCursoAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/ModificarJustificante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/ModificarJustificante.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/AP/ProyectosAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/ProyectosAP.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/Coordinador/AgregarCursoCOD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/Coordinador/AgregarCursoCOD.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/Coordinador/CursosCOD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/Coordinador/CursosCOD.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/Coordinador/HistorialJustificantesCOD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/Coordinador/HistorialJustificantesCOD.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/Coordinador/InicioCOD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/Coordinador/InicioCOD.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/Coordinador/MiPerfilCOD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/Coordinador/MiPerfilCOD.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/Coordinador/ModificarCursoCOD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/Coordinador/ModificarCursoCOD.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/AgregarCursoRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/AgregarCursoRAPE.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/CursosRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/CursosRAPE.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/HistorialJustificantesRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/HistorialJustificantesRAPE.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/InicioRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/InicioRAPE.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/MiPerfilRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/MiPerfilRAPE.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/ModificarCursoRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/ModificarCursoRAPE.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/ProyectosRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/ProyectosRAPE.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RD/AgregarCursoRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RD/AgregarCursoRD.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RD/CursosRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RD/CursosRD.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RD/InicioRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RD/InicioRD.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RD/MiPerfilRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RD/MiPerfilRD.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RD/ModificarCursoRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RD/ModificarCursoRD.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RH/AgregarCursoRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/AgregarCursoRH.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RH/AgregarEmpleadoRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/AgregarEmpleadoRH.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RH/AgregarProyectoRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/AgregarProyectoRH.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RH/CursosRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/CursosRH.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RH/EmpleadosRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/EmpleadosRH.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RH/HistorialJustificantes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/HistorialJustificantes.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RH/InicioRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/InicioRH.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RH/MiPerfilRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/MiPerfilRH.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RH/ModificarCursoRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/ModificarCursoRH.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RH/ProyectosRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/ProyectosRH.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RH/modificarPersona.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/modificarPersona.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/vista/RH/modificarProyecto.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/modificarProyecto.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +104,6 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/gson-2.8.2.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
