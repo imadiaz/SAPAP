@@ -6,60 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ecb24097-c816-4693-8440-a6a53a8d18a5" name="Default Changelist" comment="">
-
+    <list default="true" id="ecb24097-c816-4693-8440-a6a53a8d18a5" name="Default Changelist" comment="[ACTUALIZAR] CURSOS RH,RAPE,RD,AP,COD">
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Struts_2_2_5_14_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Struts_2_2_5_14_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/RecuperarContrasena.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/RecuperarContrasena.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/login.xml" beforeDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_8_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/inicioSesion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/inicioSesion.xml" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/becario/BeanBecario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/becario/BeanBecario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/docente/BeanDocente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/docente/BeanDocente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/egresados/BeanEgresados.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/egresados/BeanEgresados.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/estudiante/BeanEstudiante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/estudiante/BeanEstudiante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/ActionPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/ActionPersona.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/BeanPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/BeanPersona.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/DaoPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/DaoPersona.class" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/seleccionarRol.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/seleccionarRol.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/InicioAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/InicioAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/login.xml" beforeDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/becario/BeanBecario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/becario/BeanBecario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/docente/BeanDocente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/docente/BeanDocente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/egresados/BeanEgresados.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/egresados/BeanEgresados.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/estudiante/BeanEstudiante.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/estudiante/BeanEstudiante.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/ActionPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/ActionPersona.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/BeanPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/BeanPersona.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/DaoPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/DaoPersona.class" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/login.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/becario/BeanBecario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/becario/BeanBecario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/docente/BeanDocente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/docente/BeanDocente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/egresados/BeanEgresados.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/egresados/BeanEgresados.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/estudiante/BeanEstudiante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/estudiante/BeanEstudiante.java" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/interceptor/Interceptores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/interceptor/Interceptores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/persona/ActionPersona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/persona/ActionPersona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/persona/BeanPersona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/persona/BeanPersona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/persona/DaoPersona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/persona/DaoPersona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/RecuperarContrasena.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/RecuperarContrasena.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/seleccionarRol.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/seleccionarRol.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/AP/InicioAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/InicioAP.jsp" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/persona/ActionPersona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/persona/ActionPersona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/persona/BeanPersona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/persona/BeanPersona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/seleccionarRol.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/seleccionarRol.jsp" afterDir="false" />
-
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,14 +19,20 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="SAPAP" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-
         <option value="JavaScript File" />
         <option value="struts_2_5" />
         <option value="Class" />
-
         <option value="Jsp File" />
         <option value="struts_2_5" />
         <option value="Class" />
@@ -110,35 +65,36 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/gson-2.8.2.jar!/" />
-
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/mx/edu/utez" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-
     <property name="nodejs_package_manager_path" value="npm" />
-
- <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\MemoAlfonso\Documents\GitHub\SAPAP\web\img" />
-      <recent name="C:\Users\MemoAlfonso\Documents\GitHub\SAPAP\web" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\isaac\OneDrive\Escritorio\SAPAP\SAPAP\web\img" />
-      <recent name="C:\Users\MemoAlfonso\Documents\GitHub\SAPAP\web\img" />
+      <recent name="C:\Users\manu_\IdeaProjects\SAPAP\src\mx\edu\utez" />
+      <recent name="C:\Users\manu_\IdeaProjects\SAPAP\src" />
+      <recent name="C:\Users\manu_\IdeaProjects\SAPAP" />
+      <recent name="C:\Users\manu_\IdeaProjects\SAPAP\web\WEB-INF\lib" />
+      <recent name="C:\Users\manu_\IdeaProjects\SAPAP\web\vista\RH" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\manu_\IdeaProjects\SAPAP\web\img" />
+      <recent name="C:\Users\manu_\IdeaProjects\SAPAP\web\WEB-INF\lib" />
+      <recent name="C:\Users\manu_\IdeaProjects\SAPAP\web\css" />
+      <recent name="C:\Users\manu_\IdeaProjects\SAPAP\web\vista\RH" />
+      <recent name="C:\Users\manu_\IdeaProjects\SAPAP\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -153,22 +109,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 8.0.15">
-
-    <configuration name="RecuperarConstraseña" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mx.edu.utez.servicios.RecuperarConstraseña" />
-      <module name="SAPAP" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="mx.edu.utez.servicios.*" />
-
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.47">
     <configuration name="MySQLConexion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mx.edu.utez.conexion.MySQLConexion" />
       <module name="SAPAP" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="mx.edu.utez.conexion.*" />
-
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecuperarConstraseña" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mx.edu.utez.servicios.RecuperarConstraseña" />
+      <module name="SAPAP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mx.edu.utez.servicios.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -179,8 +139,8 @@
     <configuration name="InicioAP.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/SAPAP/vista/AP/InicioAP.jsp">
       <method v="2" />
     </configuration>
-
-    <configuration name="Tomcat 8.0.15" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.15" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 8.5.47" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.47" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <deployment>
         <artifact name="SAPAP">
@@ -252,11 +212,15 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.MySQLConexion" />
+      <item itemvalue="Application.RecuperarConstraseña" />
+      <item itemvalue="JavaScript Debug.InicioAP.jsp" />
+      <item itemvalue="Tomcat Server.Tomcat 8.5.47" />
+    </list>
     <recent_temporary>
       <list>
-
         <item itemvalue="Application.RecuperarConstraseña" />
-
         <item itemvalue="JavaScript Debug.InicioAP.jsp" />
         <item itemvalue="Application.MySQLConexion" />
       </list>
@@ -298,7 +262,33 @@
       <workItem from="1574053318463" duration="10687000" />
       <workItem from="1574185572492" duration="6147000" />
       <workItem from="1574203032951" duration="11330000" />
+      <workItem from="1574266215846" duration="2970000" />
+      <workItem from="1574280088028" duration="418000" />
+      <workItem from="1574281471998" duration="2655000" />
+      <workItem from="1574285855763" duration="1313000" />
+      <workItem from="1574303328163" duration="4547000" />
+      <workItem from="1574346691714" duration="1374000" />
+      <workItem from="1574352416750" duration="357000" />
+      <workItem from="1574356114462" duration="143000" />
+      <workItem from="1574365203185" duration="17573000" />
+      <workItem from="1574457837592" duration="1613000" />
+      <workItem from="1574519852076" duration="10000" />
+      <workItem from="1574800997644" duration="12245000" />
+      <workItem from="1574879340180" duration="63000" />
+      <workItem from="1574974943202" duration="5027000" />
+      <workItem from="1574980342555" duration="272000" />
+      <workItem from="1574984214768" duration="2852000" />
+      <workItem from="1574990322229" duration="2428000" />
+      <workItem from="1575144340377" duration="30000" />
     </task>
+    <task id="LOCAL-00001" summary="[ACTUALIZAR] CURSOS RH,RAPE,RD,AP,COD">
+      <created>1574352091821</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574352091821</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,5 +306,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[ACTUALIZAR] CURSOS RH,RAPE,RD,AP,COD" />
+    <option name="LAST_COMMIT_MESSAGE" value="[ACTUALIZAR] CURSOS RH,RAPE,RD,AP,COD" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/web/vista/RH/InicioRH.jsp</url>
+          <line>162</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
