@@ -259,7 +259,7 @@
                 </div>
 
 
-                <form class="user" onsubmit="registrarProyecto()">
+                <form class="user" >
 
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
@@ -341,14 +341,11 @@
 
                         </div>
                     </div>
-                    <a href="login.html" class="btn btn-primary btn-user btn-block">
-                        Enviar
-                    </a>
 
                 </form>
 
 
-                <button class="btn btn-primary btn-user btn-block" onclick="modificarProyecto()"></button>
+                <button class="btn btn-primary btn-user btn-block" onclick="modificarProyecto()">Enviar</button>
 
 
 

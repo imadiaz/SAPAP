@@ -269,6 +269,24 @@ function modificarPersona() {
             params:JSON.stringify(params)
         },
         success: function (respuesta) {
+            if(respuesta.respuestas.response){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Modificado correctamente',
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+
+            }else{
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Error, intente nuevamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
             top.location.href = 'http://localhost:8080/SAPAP/vista/RH/EmpleadosRH.jsp';
 
         },
@@ -372,6 +390,25 @@ function actualizarDes() {
                 params:JSON.stringify(params)
             },
             success: function (respuesta) {
+
+                if(respuesta.respuestas.response){
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Desempeño asignado correctamente',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                }else{
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Error, intente nuevamente',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
                 $('#dataTable').DataTable().clear().draw();
                 $('#exampleModalPopovers').modal('hide');
               consultaPersonitas();

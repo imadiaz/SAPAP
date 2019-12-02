@@ -19,9 +19,9 @@
             <result type="json"/>
         </action>
         <action name="registrarPersona" class="mx.edu.utez.persona.ActionPersona" method="registroPersona">
-        <result name="success" >
-           /vista/RH/EmpleadosRH.jsp
-        </result>
+            <result name="success">
+                /vista/RH/EmpleadosRH.jsp
+            </result>
         </action>
         <action name="consultaEmpleados" class="mx.edu.utez.persona.ActionPersona" method="consultaMisEstudiantes">
             <result type="json"/>
@@ -30,7 +30,7 @@
             <result name="success">/vista/RH/modificarPersona.jsp</result>
         </action>
         <action name="modificarPersona" class="mx.edu.utez.persona.ActionPersona" method="modificarPersona">
-            <result name="success">/vista/RH/EmpleadosRH.jsp</result>
+            <result type="json"/>
         </action>
         <action name="modificarPersonaJSON" class="mx.edu.utez.persona.ActionPersona" method="buscarPersona">
             <result type="json"/>
@@ -53,7 +53,14 @@
             <result name="SUCCESS">/vista/RH/MiPerfilRH.jsp</result>
             <result name="ERROR">/vista/AP/MiPerfilAP.jsp</result>
         </action>
-        </package>
+        <action name="buscarPerfilRD" class="mx.edu.utez.persona.ActionPersona" method="buscarPerfil">
+            <result name="SUCCESS">/vista/RD/MiPerfilRD.jsp</result>
+        </action>
+        <action name="modificarRD" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
+            <result name="SUCCESS">/vista/RD/MiPerfilRD.jsp</result>
+            <result name="ERROR">/vista/RD/MiPerfilRD.jsp</result>
+        </action>
+    </package>
 </struts>
 
 

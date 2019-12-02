@@ -215,6 +215,11 @@ public class ActionPersona {
         JsonObject object = new JsonParser().parse(params).getAsJsonObject();
         System.out.println(object);
         dao.registrarPersona(params);
+        boolean var=false;
+        if (object!=null){
+            var=true;
+        }
+        respuestas.put("response",var);
         return SUCCESS;
     }
 
@@ -294,7 +299,12 @@ public class ActionPersona {
 
     public String modificarPersona() {
         System.out.println(params);
-        dao.act(params);
+        boolean var=dao.act(params);
+        if (var){
+            var=true;
+        }
+        respuestas.put("response",var);
+
         return "success";
     }
 
@@ -330,6 +340,11 @@ public class ActionPersona {
         JsonObject object = new JsonParser().parse(params).getAsJsonObject();
         System.out.println(object);
         dao.desemp(params);
+        boolean var=true;
+        if (object!=null){
+            var=true;
+        }
+        respuestas.put("response",var);
         return SUCCESS;
     }
 
@@ -346,6 +361,7 @@ public class ActionPersona {
     public String modificarPerfil() {
         if (dao.actulizarPerfil(bean)) {
             System.out.println("CORRECTO");
+
             return "SUCCESS";
         } else {
             System.out.println("ERROR");
