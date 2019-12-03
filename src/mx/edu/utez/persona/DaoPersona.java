@@ -181,7 +181,7 @@ return true;
                 if (Boolean.parseBoolean(object.get("becario").getAsString())){
                     pstm = conexion.prepareStatement("insert into becario (beca,Persona_Rol_id) values(?,?)");
                     pstm.setDouble(1,object.get("beca").getAsDouble());
-
+                    System.out.println("persona ID becario: "+id);
                     pstm.setInt(2,id);
                     pstm.execute();
                 }

@@ -224,9 +224,9 @@ function registrarProyecto() {
         },
         success: function (respuesta) {
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
-                title: 'Actualizado correctamente',
+                title: 'Registrado correctamente',
                 showConfirmButton: false,
                 timer: 1500
             });

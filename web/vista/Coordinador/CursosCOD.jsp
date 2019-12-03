@@ -35,7 +35,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="InicioCOD.jsp">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%=context%>/vista/Coordinador/InicioCOD.jsp">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-building"></i>
             </div>
@@ -56,8 +56,8 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Justificantes:</h6>
-                    <a class="collapse-item" href="InicioCOD.jsp">Gestionar justificantes</a>
-                    <a class="collapse-item" href="HistorialJustificantesCOD.jsp">Historial</a>
+                    <a class="collapse-item" href="<%=context%>/vista/Coordinador/InicioCOD.jsp">Gestionar justificantes</a>
+                    <a class="collapse-item" href="<%=context%>/vista/Coordinador/HistorialJustificantesCOD.jsp">Historial</a>
                 </div>
             </div>
         </li>
@@ -72,7 +72,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="CursosCOD.jsp">
+            <a class="nav-link" href="<%=context%>/vista/Coordinador/CursosCOD.jsp">
                 <i class="fas fa-fw fa-tablet-alt"></i>
                 <span>Cursos</span></a>
         </li>
@@ -118,7 +118,7 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="rolesDropdown">
-                            <a class="dropdown-item" href="MiPerfilAP.jsp">
+                            <a class="dropdown-item" href="<%=context%>/vista/Coordinador/MiPerfilCOD.jsp">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                             </a>
                             <div class="dropdown-divider"></div>
@@ -206,7 +206,7 @@
 
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="MiPerfilCOD.jsp">
+                            <a class="dropdown-item" href="<%=context%>/vista/Coordinador/MiPerfilCOD.jsp">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
                             </a>
@@ -233,7 +233,7 @@
                         <h1 class="h3 mb-4 text-gray-800">Cursos</h1>
                     </div>
                     <div class="col-md-8">
-                        <a href="AgregarCursoCOD.jsp" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 500px">
+                        <a href="<%=context%>/vista/Coordinador/AgregarCursoCOD.jsp" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 500px">
                             <i class="fas fa-plus-circle fa-sm text-white-50"></i>Añadir curso</a>
                     </div>
 

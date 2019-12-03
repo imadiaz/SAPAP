@@ -200,9 +200,13 @@ function registroPersona() {
             params:JSON.stringify(params)
            },
         success: function (respuesta) {
-
-            alert('redireccionando')
-            window.location.href = "http://localhost:8080/SAPAP/vista/RH/EmpleadosRH.jsp";
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Registrado correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
 
         },
         error: function (error) {

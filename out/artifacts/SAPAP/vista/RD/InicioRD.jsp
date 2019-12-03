@@ -35,7 +35,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="InicioRD.jsp">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%=context%>/vista/RD/InicioRD.jsp">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-user-tie"></i>
             </div>
@@ -49,7 +49,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="InicioRD.jsp">
+            <a class="nav-link" href="<%=context%>/vista/RD/InicioRD.jsp">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Proyectos</span></a>
         </li>
@@ -64,7 +64,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="CursosRD.jsp">
+            <a class="nav-link" href="<%=context%>/vista/RD/CursosRD.jsp">
                 <i class="fas fa-fw fa-tablet-alt"></i>
                 <span>Cursos</span></a>
         </li>
@@ -109,7 +109,7 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="rolesDropdown">
-                            <a class="dropdown-item" href="MiPerfilAP.jsp">
+                            <a class="dropdown-item" href="<%=context%>/vista/RD/MiPerfilRD.jsp">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                             </a>
                             <div class="dropdown-divider"></div>
@@ -196,7 +196,7 @@
 
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="MiPerfilRD.jsp">
+                            <a class="dropdown-item" href="<%=context%>/vista/RD/MiPerfilRD.jsp">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
                             </a>
