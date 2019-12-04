@@ -3,8 +3,8 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
-    <package name="default" namespace="/" extends="struts-default,jasperreports-default">
-        <action name="consultarReporteOtorgado" class="mx.edu.utez.reporteCv.controlReporteCV" method="reporteCV">
+  <package name="default" namespace="/" extends="struts-default,jasperreports-default">
+      <!--    <action name="consultarReporteOtorgado" class="mx.edu.utez.reporteCv.controlReporteCV" method="reporteCV">
             <result name="success" type="jasper">
                 <param name="location">/reporte/ReporteCV.jasper</param>
                 <param name="dataSource">myList</param>
@@ -14,7 +14,7 @@
             </result>
 
         </action>
-
+-->
     </package>
     <package name="jasperreports-default">
         <result-types>

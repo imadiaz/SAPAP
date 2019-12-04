@@ -483,17 +483,26 @@ return true;
             rs = pstm.executeQuery();
             if (rs.next()) {
                 bean = new BeanPersona();
+                BeanHorario beanHorario = new BeanHorario();
                 bean.setIdPersona(rs.getInt("id"));
                 bean.setNombre(rs.getString("nombre"));
                 bean.setPrimerApellido(rs.getString("primerApellido"));
                 bean.setSegundoApellido(rs.getString("segundoApellido"));
-                bean.setContrasenia(rs.getString("contrasenia"));
+
+                bean.setContrasenia(ActionPersona.Desencriptar(rs.getString("contrasenia")));
                 bean.setCorreoPersonal(rs.getString("correoPersona"));
                 bean.setCorreoInstitucional(rs.getString("correoInstitucional"));
                 bean.setMatricula(rs.getString("matricula"));
                 bean.setNumeroTelefonico(rs.getString("numeroTelefonico"));
                 bean.setNumeroCasa(rs.getString("numeroCasa"));
-                bean.setFechaDeNacimiento("fechaNacimiento");
+                bean.setFechaDeNacimiento(rs.getString("fechaNacimiento"));
+                bean.setCarreraDeEgreso(rs.getString("carreraDeEgreso"));
+                beanHorario.setIdHorario(rs.getInt("idHorario"));
+                beanHorario.setHorario(rs.getString("horario"));
+                bean.setHorario(beanHorario);
+                bean.setUniversidadDeEgreso(rs.getString("universidadDeEgreso"));
+                bean.setFechaDeIngreso(rs.getString("fechaDeIngreso"));
+                bean.setDireccion(rs.getString("direccion"));
 
             }
             rs.close();

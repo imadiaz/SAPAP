@@ -23,7 +23,12 @@
     <link href="<%=context%>/css/sb-admin-2.css" rel="stylesheet">
     <%--    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">--%>
 </head>
-
+<style>
+    .ver{
+        display: none;
+        visibility: hidden;
+    }
+</style>
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -33,7 +38,8 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%=context%>/vista/AP/InicioAP.jsp">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center"
+           href="<%=context%>/vista/AP/InicioAP.jsp">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-code"></i>
             </div>
@@ -231,8 +237,9 @@
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                                     </button>
                                 </form>
-                            </a>                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<%=context%>/cerrarSesion" >
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="<%=context%>/cerrarSesion">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Salir
                             </a>
@@ -260,31 +267,44 @@
 
                 <form class="user" action="modificarAP" method="POST">
                     <div class="form-group row">
+
                         <input type="hidden" class="form-control form-control-user" name="bean.idPersona"
                                value="<s:property value="#session.usuario.idPersona" />" id="id" placeholder="Nombre">
-
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" name="bean.nombre"
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <label for="matricula">Matricula</label>
+                            <input disabled type="text" class="form-control form-control-user" name="bean.matricula"
+                                   value="<s:property value="bean.matricula" />" id="matricula" placeholder="Matrícula">
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <label for="nombre">Nombre</label>
+                            <input maxlength="50" type="text" class="form-control form-control-user" name="bean.nombre"
                                    value="<s:property value="bean.nombre" />" id="nombre" placeholder="Nombre">
                         </div>
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" name="bean.primerApellido"
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <label for="pApellido">Apellido Paterno</label>
+                            <input maxlength="50" type="text" class="form-control form-control-user"
+                                   name="bean.primerApellido"
                                    value="<s:property value="bean.primerApellido" />" id="pApellido"
                                    placeholder="Apellido Paterno">
                         </div>
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" name="bean.segundoApellido"
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <label for="sApellido">Apellido Materno</label>
+                            <input maxlength="50" type="text" class="form-control form-control-user"
+                                   name="bean.segundoApellido"
                                    value="<s:property value="bean.segundoApellido" />" id="sApellido"
                                    placeholder="Apellido Materno">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <input type="email" class="form-control form-control-user" name="bean.correoInstitucional"
+                            <label for="correoInsti">Correo Institucional</label>
+                            <input disabled type="email" class="form-control form-control-user"
+                                   name="bean.correoInstitucional"
                                    id="correoInsti" value="<s:property value="bean.correoInstitucional" />"
                                    placeholder="Correo electrónico Institucional">
                         </div>
                         <div class="col-sm-6 mb-3 mb-sm-0">
+                            <label for="correoPers">Correo Personal</label>
                             <input type="email" class="form-control form-control-user" name="bean.correoPersonal"
                                    value="<s:property value="bean.correoPersonal" />" id="correoPers"
                                    placeholder="Correo electrónico Personal">
@@ -292,22 +312,96 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-3 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" name="bean.numeroTelefonico"
+                            <label for="fechaNac">Fecha de Nacimiento</label>
+                            <input disabled type="date" class="form-control form-control-user"
+                                   name="bean.fechaDeNacimiento"
+                                   value="<s:property value="bean.fechaDeNacimiento" />" id="fechaNac"
+                                   placeholder="Fecha de Nacimiento">
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <label for="celular">Celular</label>
+                            <input onkeypress='validate(event)' type="text" maxlength="10" max="10"
+                                   class="form-control form-control-user" name="bean.numeroTelefonico"
                                    value="<s:property value="bean.numeroTelefonico" />" id="celular"
                                    placeholder="Celular">
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
-                            <input type="text" class="form-control form-control-user" id="telefono"
+                            <label for="telefono">Teléfono de Casa</label>
+                            <input onkeypress='validate(event)' type="text" maxlength="10"
+                                   class="form-control form-control-user" id="telefono"
                                    name="bean.numeroCasa" value="<s:property value="bean.numeroCasa" />"
                                    placeholder="Teléfono">
                         </div>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control form-control-user" name="bean.matricula"
-                                   value="<s:property value="bean.matricula" />" id="matricula" placeholder="Matrícula">
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <label for="fechaDeIngreso">Fecha de Ingreso</label>
+                            <input disabled type="date" class="form-control form-control-user"
+                                   name="bean.fechaDeIngreso"
+                                   value="<s:property value="bean.fechaDeIngreso" />" id="fechaDeIngreso"
+                                   placeholder="Matrícula">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <label for="direccion">Dirección</label>
+                            <input type="text" class="form-control form-control-user" name="bean.direccion"
+                                   value="<s:property value="bean.direccion" />" id="direccion"
+                                   placeholder="Celular">
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <label for="contra">Contraseña</label>
+                            <input type="password" maxlength="10" class="form-control form-control-user" id="contra"
+                                   name="bean.contrasenia" value="<s:property value="bean.contrasenia" />"
+                                   placeholder="Teléfono">
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <label for="carreraEgreso">Carrera de Egreso</label>
+                            <input disabled type="text" max="25" class="form-control form-control-user"
+                                   name="bean.carreraDeEgreso"
+                                   value="<s:property value="bean.carreraDeEgreso" />" id="carreraEgreso"
+                                   placeholder="Matrícula">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <label for="horario">Horario</label>
+                            <input disabled type="text" class="form-control form-control-user" name="bean.horario.horario"
+                                   value="<s:property value="bean.horario.horario" />" id="horario"
+                                   placeholder="Horario">
                         </div>
                     </div>
                     <button class="btn btn-primary btn-user btn-block">
                         Enviar
+                    </button>
+                </form>
+
+                <hr class="hr">
+                <form id="modifcarContra" class="user" action="" >
+                    <span id="msgError" class="text-danger" hidden><i class="fa fa-exclamation-circle"></i>Las contraseñas no coinciden</span>
+                    <div class="form-group row">
+
+                        <input type="hidden" class="form-control form-control-user" name="bean.idPersona"
+                               value="<s:property value="#session.usuario.idPersona" />" id="idContra" placeholder="Nombre">
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <label for="ncontra">Nueva Contraseña</label>
+                            <input maxlength="10" type="password" class="form-control form-control-user" name="bean.contrasenia"
+                                    id="ncontra" >
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <label for="ccontra">Confirmar Contraseña</label>
+                            <input maxlength="10" type="password" class="form-control form-control-user" name="bean.nombre"
+                                    id="ccontra" >
+                        </div>
+                        <div class="col-sm-3 mb-3 mb-sm-0">
+                            <label for="contraA">Contraseña Actual</label>
+                            <input max="10" type="password" class="form-control form-control-user" name="bean.contrasenia"
+                                    id="contraA">
+                        </div>
+                        <input type="hidden" maxlength="10" class="form-control form-control-user" id="contraO"
+                               name="bean.contrasenia" value="<s:property value="bean.contrasenia" />"
+                               placeholder="Teléfono">
+                    </div>
+                    <button type="button" onclick="validar()" class="btn btn-primary btn-user btn-block">
+                        Modificar
                     </button>
                 </form>
 
@@ -350,5 +444,66 @@
 <script src="<%=context%>/js/sb-admin-2.min.js"></script>
 
 </body>
+<script>
+    var form = document.getElementById('modifcarContra');
+    var nuevaContra = document.getElementById("ncontra");
+    var confirmarContra = document.getElementById("ccontra");
+    var contraActual = document.getElementById('contraA')
+    var contraOriginal = document.getElementById('contraO');
+    var span =document.getElementById('msgError');
+
+  
+    contraActual.addEventListener("change",validarcontra);
+
+    function  validarcontra() {
+        alert(contraOriginal.value);
+        if(nuevaContra.value == confirmarContra.value && nuevaContra.value !=null && confirmarContra.value !=null) {
+
+            if (contraActual.value == contraOriginal.value) {
+
+            alert("si son iguales");
+
+            $('#msgError').addClass("ver");
+        }
+        }else{
+
+            span.removeAttribute("hidden","");
+        }
+    }
+
+
+   function validar(){
+
+           if(nuevaContra.value == confirmarContra.value && nuevaContra.value !=null && confirmarContra.value !=null){
+               alert("si son iguales");
+               document.getElementById('modifcarContra').submit();
+           }else{
+               alert("no son iguales");
+                span.removeAttribute("hidden");
+           }
+
+   }
+
+    function validate(evt) {
+        var theEvent = evt || window.event;
+
+        // Handle paste
+        if (theEvent.type === 'paste') {
+            key = event.clipboardData.getData('text/plain');
+        } else {
+            // Handle key press
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode(key);
+        }
+        var regex = /[0-9]|\./;
+        if (!regex.test(key)) {
+            theEvent.returnValue = false;
+            if (theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+
+
+
+</script>
 
 </html>

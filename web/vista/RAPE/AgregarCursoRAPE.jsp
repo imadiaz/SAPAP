@@ -228,7 +228,7 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="#">
-                                <form action="buscarPerfilCO" method="POST">
+                                <form action="buscarPerfilRAPE" method="POST">
                                     <input type="hidden" name="bean.idPersona"
                                            value="<s:property value="#session.usuario.idPersona"/>"/>
 

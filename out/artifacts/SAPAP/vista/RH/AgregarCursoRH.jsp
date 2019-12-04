@@ -143,10 +143,7 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="rolesDropdown">
-                            <a class="dropdown-item" href="<%=context%>/vista/RH/MiPerfilRH.jsp">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
-                            </a>
-                            <div class="dropdown-divider"></div>
+
                             <s:iterator value="#session.roles" var="rol">
 
 
@@ -230,9 +227,15 @@
 
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="<%=context%>/vista/RH/MiPerfilRH.jsp">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Perfil
+                            <a class="dropdown-item" href="#">
+                                <form action="buscarPerfilRH" method="POST">
+                                    <input type="hidden" name="bean.idPersona"
+                                           value="<s:property value="#session.usuario.idPersona"/>"/>
+
+                                    <button type="submit" value="" class="btn">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+                                    </button>
+                                </form>
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<%=context%>/cerrarSesion" >
