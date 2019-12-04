@@ -7,54 +7,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecb24097-c816-4693-8440-a6a53a8d18a5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Struts_2_2_5_14_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Struts_2_2_5_14_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/RecuperarContrasena.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/RecuperarContrasena.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/seleccionarRol.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/seleccionarRol.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/AgregarCursoAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/AgregarCursoAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/AgregarJustificante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/AgregarJustificante.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/HistorialJustificantesAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/HistorialJustificantesAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/InicioAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/InicioAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/MiPerfilAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/MiPerfilAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/ModificarCursoAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/ModificarCursoAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/ModificarJustificante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/ModificarJustificante.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/ProyectosAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/AP/ProyectosAP.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/Coordinador/AgregarCursoCOD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/Coordinador/AgregarCursoCOD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/Coordinador/CursosCOD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/Coordinador/CursosCOD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/Coordinador/HistorialJustificantesCOD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/Coordinador/HistorialJustificantesCOD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/Coordinador/InicioCOD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/Coordinador/InicioCOD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/Coordinador/MiPerfilCOD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/Coordinador/MiPerfilCOD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/Coordinador/ModificarCursoCOD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/Coordinador/ModificarCursoCOD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/AgregarCursoRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/AgregarCursoRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/CursosRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/CursosRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/HistorialJustificantesRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/HistorialJustificantesRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/InicioRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/InicioRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/MiPerfilRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/MiPerfilRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/ModificarCursoRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/ModificarCursoRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/ProyectosRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RAPE/ProyectosRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RD/AgregarCursoRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RD/AgregarCursoRD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RD/CursosRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RD/CursosRD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RD/InicioRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RD/InicioRD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RD/MiPerfilRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RD/MiPerfilRD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RD/ModificarCursoRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RD/ModificarCursoRD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/AgregarCursoRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/AgregarCursoRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/AgregarEmpleadoRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/AgregarEmpleadoRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/AgregarProyectoRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/AgregarProyectoRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/CursosRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/CursosRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/EmpleadosRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/EmpleadosRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/HistorialJustificantes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/HistorialJustificantes.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/InicioRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/InicioRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/MiPerfilRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/MiPerfilRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/ModificarCursoRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/ModificarCursoRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/ProyectosRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/ProyectosRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/modificarPersona.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/modificarPersona.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/modificarProyecto.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/vista/RH/modificarProyecto.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/RecuperarContrasena.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/RecuperarContrasena.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/codigoContraseña.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/codigoContraseña.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/sb-admin-2.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/sb-admin-2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/nuevaContraseña.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/nuevaContraseña.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/seleccionarRol.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/seleccionarRol.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SAPAP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SAPAP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/cursos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/cursos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/ActionPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/ActionPersona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/DaoPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/persona/DaoPersona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/proyecto/DaoProyecto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/proyecto/DaoProyecto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/servicios/RecuperarConstraseña$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/servicios/RecuperarConstraseña$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/servicios/RecuperarConstraseña.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/WEB-INF/classes/mx/edu/utez/servicios/RecuperarConstraseña.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SAPAP/js/justificantes/justificantesJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SAPAP/js/justificantes/justificantesJS.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/cursos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/cursos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/ActionPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/ActionPersona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/DaoPersona.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/persona/DaoPersona.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/proyecto/DaoProyecto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/proyecto/DaoProyecto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/servicios/RecuperarConstraseña$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/servicios/RecuperarConstraseña$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/servicios/RecuperarConstraseña.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SAPAP/mx/edu/utez/servicios/RecuperarConstraseña.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PersonaStruts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PersonaStruts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/persona/ActionPersona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/persona/ActionPersona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mx/edu/utez/servicios/RecuperarConstraseña.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mx/edu/utez/servicios/RecuperarConstraseña.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/vista/AP/AgregarCursoAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/AgregarCursoAP.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/vista/AP/AgregarJustificante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/AgregarJustificante.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/vista/AP/CursosAP.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/AP/CursosAP.jsp" afterDir="false" />
@@ -72,28 +43,6 @@
       <change beforePath="$PROJECT_DIR$/web/vista/Coordinador/ModificarCursoCOD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/Coordinador/ModificarCursoCOD.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/vista/RAPE/AgregarCursoRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/AgregarCursoRAPE.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/vista/RAPE/CursosRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/CursosRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/HistorialJustificantesRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/HistorialJustificantesRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/InicioRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/InicioRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/MiPerfilRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/MiPerfilRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/ModificarCursoRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/ModificarCursoRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RAPE/ProyectosRAPE.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RAPE/ProyectosRAPE.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RD/AgregarCursoRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RD/AgregarCursoRD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RD/CursosRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RD/CursosRD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RD/InicioRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RD/InicioRD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RD/MiPerfilRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RD/MiPerfilRD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RD/ModificarCursoRD.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RD/ModificarCursoRD.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RH/AgregarCursoRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/AgregarCursoRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RH/AgregarEmpleadoRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/AgregarEmpleadoRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RH/AgregarProyectoRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/AgregarProyectoRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RH/CursosRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/CursosRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RH/EmpleadosRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/EmpleadosRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RH/HistorialJustificantes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/HistorialJustificantes.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RH/InicioRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/InicioRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RH/MiPerfilRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/MiPerfilRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RH/ModificarCursoRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/ModificarCursoRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RH/ProyectosRH.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/ProyectosRH.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RH/modificarPersona.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/modificarPersona.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/vista/RH/modificarProyecto.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/vista/RH/modificarProyecto.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,6 +52,11 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -144,7 +98,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/gson-2.8.2.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/commons-codec-1.9.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -179,7 +133,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 8.0.15">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.47">
     <configuration name="MySQLConexion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mx.edu.utez.conexion.MySQLConexion" />
       <module name="SAPAP" />
@@ -209,7 +163,7 @@
     <configuration name="InicioAP.jsp" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/SAPAP/vista/AP/InicioAP.jsp">
       <method v="2" />
     </configuration>
-    <configuration name="Tomcat 8.0.15" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.15" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 8.5.47" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.47" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <deployment>
         <artifact name="SAPAP">
@@ -281,6 +235,12 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.MySQLConexion" />
+      <item itemvalue="Application.RecuperarConstraseña" />
+      <item itemvalue="JavaScript Debug.InicioAP.jsp" />
+      <item itemvalue="Tomcat Server.Tomcat 8.5.47" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.RecuperarConstraseña" />
@@ -326,6 +286,8 @@
       <workItem from="1574185572492" duration="6147000" />
       <workItem from="1574203032951" duration="11330000" />
       <workItem from="1575236971068" duration="847000" />
+      <workItem from="1575418271524" duration="115000" />
+      <workItem from="1575422857787" duration="3764000" />
     </task>
     <servers />
   </component>
