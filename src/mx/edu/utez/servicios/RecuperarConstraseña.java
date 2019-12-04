@@ -1,6 +1,7 @@
 package mx.edu.utez.servicios;
 
 import com.opensymphony.xwork2.ActionContext;
+import mx.edu.utez.persona.ActionPersona;
 import mx.edu.utez.persona.BeanPersona;
 import mx.edu.utez.persona.DaoPersona;
 import com.opensymphony.xwork2.ActionSupport;
@@ -114,7 +115,7 @@ public class RecuperarConstraseña {
     public String nuevaConstra() throws NoSuchAlgorithmException {
         Map session = ActionContext.getContext().getSession();
         String code = ""+session.get("codigo");
-        String pass = encriptar(bean.getContrasenia());
+        String pass = ActionPersona.Encriptar(bean.getContrasenia());
         System.out.println(pass);
         System.out.println(code);
         boolean flag = dao.cambiarContra(code,pass);

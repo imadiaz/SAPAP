@@ -9,14 +9,15 @@ import mx.edu.utez.horario.BeanHorario;
 import mx.edu.utez.persona_rol.DaoPersonaRol;
 import mx.edu.utez.rol.BeanRol;
 import netscape.javascript.JSObject;
+import org.apache.commons.codec.binary.Base64;
 
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static com.opensymphony.xwork2.Action.SUCCESS;
 
@@ -101,11 +102,11 @@ public class ActionPersona {
     public String consultarPersonas() throws NoSuchAlgorithmException {
 
         String correo = bean.getCorreoInstitucional();
-        String contra = encriptar(bean.getContrasenia());
+        String contra = Encriptar(bean.getContrasenia());
         session = ActionContext.getContext().getSession();
 
         System.out.println(correo+" "+contra);
-        bean = dao.consultarPersonas(bean.getCorreoInstitucional(), encriptar(bean.getContrasenia()));
+        bean = dao.consultarPersonas(bean.getCorreoInstitucional(), Encriptar(bean.getContrasenia()));
 
         if (bean != null) {
 
@@ -371,7 +372,7 @@ public class ActionPersona {
     }
 
 
-    public String encriptar(String cadena) throws NoSuchAlgorithmException {
+    /*public String encriptar(String cadena) throws NoSuchAlgorithmException {
         // TODO code application logic here
         String password = cadena;
 
@@ -387,5 +388,54 @@ public class ActionPersona {
         return sb.toString();
     }
 
+*/
+    public static String Encriptar(String texto) {
+
+        String secretKey = "SAPAP"; //llave para encriptar datos
+        String base64EncryptedString = "";
+
+        try {
+
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
+            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+
+            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+            Cipher cipher = Cipher.getInstance("DESede");
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+
+            byte[] plainTextBytes = texto.getBytes("utf-8");
+            byte[] buf = cipher.doFinal(plainTextBytes);
+            byte[] base64Bytes = org.apache.commons.codec.binary.Base64.encodeBase64(buf);
+            base64EncryptedString = new String(base64Bytes);
+
+        } catch (Exception ex) {
+        }
+        return base64EncryptedString;
+    }
+
+    public static String Desencriptar(String textoEncriptado) throws Exception {
+
+        String secretKey = "SAPAP"; //llave para encriptar datos
+        String base64EncryptedString = "";
+
+        try {
+            byte[] message = Base64.decodeBase64(textoEncriptado.getBytes("utf-8"));
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
+            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+
+            Cipher decipher = Cipher.getInstance("DESede");
+            decipher.init(Cipher.DECRYPT_MODE, key);
+
+            byte[] plainText = decipher.doFinal(message);
+
+            base64EncryptedString = new String(plainText, "UTF-8");
+
+        } catch (Exception ex) {
+        }
+        return base64EncryptedString;
+    }
 
 }

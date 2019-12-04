@@ -133,10 +133,7 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="rolesDropdown">
-                            <a class="dropdown-item" href="<%=context%>/vista/RAPE/MiPerfilRAPE.jsp">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
-                            </a>
-                            <div class="dropdown-divider"></div>
+
                             <s:iterator value="#session.roles" var="rol">
 
 

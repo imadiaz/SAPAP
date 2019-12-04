@@ -51,7 +51,7 @@
         </action>
         <action name="modificarRH" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
             <result name="SUCCESS">/vista/RH/MiPerfilRH.jsp</result>
-            <result name="ERROR">/vista/AP/MiPerfilAP.jsp</result>
+            <result name="ERROR">/vista/RH/MiPerfilRH.jsp</result>
         </action>
         <action name="buscarPerfilRD" class="mx.edu.utez.persona.ActionPersona" method="buscarPerfil">
             <result name="SUCCESS">/vista/RD/MiPerfilRD.jsp</result>
@@ -59,6 +59,20 @@
         <action name="modificarRD" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
             <result name="SUCCESS">/vista/RD/MiPerfilRD.jsp</result>
             <result name="ERROR">/vista/RD/MiPerfilRD.jsp</result>
+        </action>
+        <action name="buscarPerfilCO" class="mx.edu.utez.persona.ActionPersona" method="buscarPerfil">
+            <result name="SUCCESS">/vista/Coordinador/MiPerfilCOD.jsp</result>
+        </action>
+        <action name="modificarCO" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
+            <result name="SUCCESS">/vista/Coordinador/MiPerfilCOD.jsp</result>
+            <result name="ERROR">/vista/Coordinador/MiPerfilCOD.jsp</result>
+        </action>
+        <action name="buscarPerfilRAPE" class="mx.edu.utez.persona.ActionPersona" method="buscarPerfil">
+            <result name="SUCCESS">/vista/RAPE/MiPerfilRAPE.jsp</result>
+        </action>
+        <action name="modificarRAPE" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
+            <result name="SUCCESS">/vista/RAPE/MiPerfilRAPE.jsp</result>
+            <result name="ERROR">/vista/RAPE/MiPerfilRAPE.jsp</result>
         </action>
     </package>
 </struts>

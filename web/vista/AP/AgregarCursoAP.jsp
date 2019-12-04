@@ -221,13 +221,13 @@
 
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="<%=context%>/vista/AP/MiPerfilAP.jsp">
-
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+                            <a class="dropdown-item" href="#">
                                 <form action="buscarPerfil" method="POST">
-                                    <input type="text" name="bean.idPersona" value="<s:property value="#session.usuario.idPersona"/>" />
-                                    <button type="submit" value="" class="btn btn-warning">
-                                        <i class="fa fa-pen-alt"></i>
+                                    <input type="hidden" name="bean.idPersona"
+                                           value="<s:property value="#session.usuario.idPersona"/>"/>
+
+                                    <button type="submit" value="" class="btn">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                                     </button>
                                 </form>
                             </a>
