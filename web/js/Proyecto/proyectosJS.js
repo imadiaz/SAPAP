@@ -224,9 +224,9 @@ function registrarProyecto() {
         },
         success: function (respuesta) {
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 icon: 'success',
-                title: 'Actualizado correctamente',
+                title: 'Registrado correctamente',
                 showConfirmButton: false,
                 timer: 1500
             });
@@ -266,13 +266,28 @@ function registrarProyecto() {
             params:JSON.stringify(params)
             },
             success: function (respuesta) {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Actualizado correctamente',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+                if(respuesta.respuestas.response){
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Modificado correctamente',
+                        showConfirmButton: false,
+                        timer: 2500
+                    });
+
+                }else{
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Error, intente nuevamente',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+                setTimeout(function () {
+
+                    top.location.href = 'http://localhost:8080/SAPAP/vista/RH/ProyectosRH.jsp';
+                },3500)
             },
             error: function (error) {
                 console.log("al error");

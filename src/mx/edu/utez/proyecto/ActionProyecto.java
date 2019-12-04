@@ -179,7 +179,12 @@ public class ActionProyecto extends ActionSupport {
     }
     public String modificarProyecto() {
         System.out.println(params);
-        dao.modificarPersona(params);
+
+         boolean var=dao.modificarPersona(params);
+        if (var){
+            var=true;
+        }
+        respuestas.put("response",var);
         return "success";
     }
 }

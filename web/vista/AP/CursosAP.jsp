@@ -17,10 +17,12 @@
 
     <!-- Custom fonts for this template-->
     <link href="<%=context%>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
     <link href="<%=context%>/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
-    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<%=context%>/css/sb-admin-2.css" rel="stylesheet">
+    <%--    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">--%>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 </head>
@@ -34,7 +36,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="InicioAP.jsp">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%=context%>/vista/AP/InicioAP.jsp">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-code"></i>
             </div>
@@ -48,15 +50,16 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+               aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-paper-plane"></i>
                 <span>Lista de Justificantes</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Justificantes:</h6>
-                    <a class="collapse-item" href="InicioAP.jsp">Justificantes pendientes</a>
-                    <a class="collapse-item" href="HistorialJustificantesAP.jsp">Historial</a>
+                    <a class="collapse-item" href="<%=context%>/vista/AP/InicioAP.jsp">Justificantes pendientes</a>
+                    <a class="collapse-item" href="<%=context%>/vista/AP/HistorialJustificantesAP.jsp">Historial</a>
                 </div>
             </div>
         </li>
@@ -71,7 +74,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="ProyectosAP.jsp">
+            <a class="nav-link" href="<%=context%>/vista/AP/ProyectosAP.jsp">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Proyectos</span></a>
         </li>
@@ -116,20 +119,9 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <!-- Topbar Search -->
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
+
 
                     <!-- Nav Item - Alerts -->
                     <li class="nav-item dropdown no-arrow">
@@ -143,7 +135,7 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="rolesDropdown">
-                            <a class="dropdown-item" href="MiPerfilAP.jsp">
+                            <a class="dropdown-item" href="<%=context%>/vista/AP/MiPerfilAP.jsp">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                             </a>
                             <div class="dropdown-divider"></div>
@@ -222,25 +214,29 @@
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw" style="margin-right: 20px">
-                                </i>Nombre</span>
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw"
+                                                                                         style="margin-right: 20px">
+                                </i><s:property value="#session.usuario.nombre"/></span>
                         </a>
 
                         <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="MiPerfilAP.jsp">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="<%=context%>/vista/AP/MiPerfilAP.jsp">
 
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                                 <form action="buscarPerfil" method="POST">
-                                    <input type="text" name="bean.idPersona" value="<s:property value="#session.usuario.idPersona"/>" />
+                                    <input type="text" name="bean.idPersona"
+                                           value="<s:property value="#session.usuario.idPersona"/>"/>
                                     <button type="submit" value="" class="btn btn-warning">
                                         <i class="fa fa-pen-alt"></i>
                                     </button>
                                 </form>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<%=context%>/index.jsp" >
+                            <a class="dropdown-item" href="<%=context%>/cerrarSesion">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Salir
                             </a>
@@ -262,42 +258,60 @@
                         <h1 class="h3 mb-4 text-gray-800">Cursos</h1>
                     </div>
                     <div class="col-md-8">
-                        <a href="AgregarCursoAP.jsp" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 500px">
+                        <a href="AgregarCursoAP.jsp" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                           style="margin-left: 500px">
                             <i class="fas fa-plus-circle fa-sm text-white-50"></i>Añadir curso</a>
                     </div>
 
                 </div>
 
-                <div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                    <thead>
-                    <tr role="row">
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 246px;">Nombre</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 116px;">Fecha</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 51px;">Descripcion</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 107px;">Tipo de curso</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 107px;">Archivo</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 97px;">Acciones</th>
-                    </tr>
-                    </thead>
-                    <tfoot>
-                    <tr>
-                        <th rowspan="1" colspan="1">Nombre</th>
-                        <th rowspan="1" colspan="1">Fecha </th>
-                        <th rowspan="1" colspan="1">Descripcion</th>
-                        <th rowspan="1" colspan="1">Tipo de curso</th>
-                        <th rowspan="1" colspan="1">Archivo</th>
-                        <th rowspan="1" colspan="1">Acciones</th>
-                    </tr>
-                    </tfoot>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0"
+                               role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                            <thead>
+                            <tr role="row">
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Position: activate to sort column ascending" style="width: 246px;">
+                                    Nombre
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Office: activate to sort column ascending" style="width: 116px;">Fecha
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Age: activate to sort column ascending" style="width: 51px;">Descripcion
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Start date: activate to sort column ascending" style="width: 107px;">
+                                    Tipo de curso
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Start date: activate to sort column ascending" style="width: 107px;">
+                                    Archivo
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1"
+                                    aria-label="Salary: activate to sort column ascending" style="width: 97px;">Acciones
+                                </th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th rowspan="1" colspan="1">Nombre</th>
+                                <th rowspan="1" colspan="1">Fecha</th>
+                                <th rowspan="1" colspan="1">Descripcion</th>
+                                <th rowspan="1" colspan="1">Tipo de curso</th>
+                                <th rowspan="1" colspan="1">Archivo</th>
+                                <th rowspan="1" colspan="1">Acciones</th>
+                            </tr>
+                            </tfoot>
 
-                </table>
+                        </table>
+                    </div>
                 </div>
-                </div>
 
 
-
-
-                <div class="modal fade" id="modalFile" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="modalFile" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -308,14 +322,17 @@
                             </div>
                             <div class="modal-body">
                                 <label>Archivo actual</label>
-                                <input class="form-control" disabled id="nombreArchivo" /><br/>
-                                <input type="hidden" disabled id="identificadorCurso" /><br/>
-                                <input type="file"  class="form-control" id="evidenciaNuevoArchivo" placeholder="Nueva evidencia">
+                                <input class="form-control" disabled id="nombreArchivo"/><br/>
+                                <input type="hidden" disabled id="identificadorCurso"/><br/>
+                                <input type="file" class="form-control" id="evidenciaNuevoArchivo"
+                                       placeholder="Nueva evidencia">
 
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary" onclick="guardarNuevoArchivo();">Guardar archivo</button>
+                                <button type="button" class="btn btn-primary" onclick="guardarNuevoArchivo();">Guardar
+                                    archivo
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -367,29 +384,29 @@
 <script src="<%=context%>/vendor/datatables/dataTables.bootstrap4.js"></script>
 <script>
     // Call the dataTables jQuery plugin
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#dataTable').DataTable({
             "language": {
-                "sProcessing":    "Procesando...",
-                "sLengthMenu":    "Mostrar _MENU_ registros",
-                "sZeroRecords":   "No se encontraron resultados",
-                "sEmptyTable":    "Ningún dato disponible en esta tabla",
-                "sInfo":          "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "sInfoEmpty":     "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "sInfoFiltered":  "(filtrado de un total de _MAX_ registros)",
-                "sInfoPostFix":   "",
-                "sSearch":        "Buscar:",
-                "sUrl":           "",
-                "sInfoThousands":  ",",
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
                 "sLoadingRecords": "Cargando...",
                 "oPaginate": {
-                    "sFirst":    "Primero",
-                    "sLast":    "Último",
-                    "sNext":    "Siguiente",
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
                     "sPrevious": "Anterior"
                 },
                 "oAria": {
-                    "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
                     "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                 }
             },

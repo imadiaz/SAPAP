@@ -7,6 +7,9 @@ import org.apache.struts2.json.annotations.JSON;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -200,7 +203,7 @@ public class ActionJustificante extends ActionSupport {
         return SUCCESS;
     }
 
-    public String validarContrasena () throws JSONException {
+    public String validarContrasena () throws JSONException, NoSuchAlgorithmException {
         daoJustificante = new DaoJustificante();
         JSONObject object = new JSONObject(parametro);
 
@@ -211,6 +214,9 @@ public class ActionJustificante extends ActionSupport {
 
         String contrasenaBase = daoJustificante.getContrasena(idUs);
 
+        contrasena = encriptar(contrasena);
+        System.out.println(contrasenaBase + "<---- BASE");
+        System.out.println(contrasena + "<---- USUARIO");
         if (contrasena.equals(contrasenaBase)){
             respuestas.put("mensaje", "yes");
         } else {
@@ -271,6 +277,22 @@ public class ActionJustificante extends ActionSupport {
         }
 
         return SUCCESS;
+    }
+
+    public String encriptar(String cadena) throws NoSuchAlgorithmException {
+        // TODO code application logic here
+        String password = cadena;
+
+        MessageDigest md = MessageDigest.getInstance("SHA");
+        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+
+// bytes to hex
+        StringBuilder sb = new StringBuilder();
+        for (byte b : hashInBytes) {
+            sb.append(String.format("%02x", b));
+        }
+        System.out.println(sb.toString());
+        return sb.toString();
     }
 
     public List<BeanJustificante> getJustificantes() {

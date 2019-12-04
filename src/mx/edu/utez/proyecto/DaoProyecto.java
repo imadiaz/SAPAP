@@ -543,7 +543,7 @@ public class DaoProyecto extends Dao implements DaoInterfaz {
     public boolean modificarPersona(String bean) {
         Gson g=new Gson();
         JsonObject object=new JsonParser().parse(bean).getAsJsonObject();
-
+        boolean var=false;
 
         try{
             conexion = MySQLConexion.getConnection();
@@ -563,8 +563,9 @@ public class DaoProyecto extends Dao implements DaoInterfaz {
             pstm.setString(11,object.get("idProyecto").getAsString());
 
 
-            pstm.execute();
-
+            if (pstm.executeUpdate()>=1){
+                var=true;
+            }
 
             int id=0;
                 id=object.get("idProyecto").getAsInt();
@@ -609,7 +610,7 @@ public class DaoProyecto extends Dao implements DaoInterfaz {
 
             }
         }
-        return true;
+        return var;
 
     }
     public ArrayList getListaIndividual(int id) {

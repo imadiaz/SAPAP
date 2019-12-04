@@ -19,9 +19,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-    <!-- Custom styles for this template-->
-    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- Custom styles for this template-->
+    <link href="<%=context%>/css/sb-admin-2.css" rel="stylesheet">
+    <%--    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">--%>
 </head>
 
 <body id="page-top">
@@ -33,7 +34,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="InicioRAPE.jsp">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%=context%>/vista/RAPE/InicioRAPE.jsp">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laptop-code"></i>
             </div>
@@ -54,8 +55,8 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Justificantes:</h6>
-                    <a class="collapse-item" href="InicioRAPE.jsp">Gestionar justificantes</a>
-                    <a class="collapse-item" href="HistorialJustificantesRAPE.jsp">Historial</a>
+                    <a class="collapse-item" href="<%=context%>/vista/RAPE/InicioRAPE.jsp">Gestionar justificantes</a>
+                    <a class="collapse-item" href="<%=context%>/vista/RAPE/HistorialJustificantesRAPE.jsp">Historial</a>
                 </div>
             </div>
         </li>
@@ -70,7 +71,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="ProyectosRAPE.jsp">
+            <a class="nav-link" href="<%=context%>/vista/RAPE/ProyectosRAPE.jsp">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Proyectos</span></a>
         </li>
@@ -85,7 +86,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="CursosRAPE.jsp">
+            <a class="nav-link" href="<%=context%>/vista/RAPE/CursosRAPE.jsp">
                 <i class="fas fa-fw fa-tablet-alt"></i>
                 <span>Cursos</span></a>
         </li>
@@ -142,7 +143,7 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="rolesDropdown">
-                            <a class="dropdown-item" href="MiPerfilAP.jsp">
+                            <a class="dropdown-item" href="<%=context%>/vista/RAPE/MiPerfilRAPE.jsp">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                             </a>
                             <div class="dropdown-divider"></div>
@@ -229,12 +230,12 @@
 
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="MiPerfilRAPE.jsp">
+                            <a class="dropdown-item" href="<%=context%>/vista/RAPE/MiPerfilRAPE.jsp">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<%=context%>/index.jsp" >
+                            <a class="dropdown-item" href="<%=context%>/cerrarSesion" >
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Salir
                             </a>

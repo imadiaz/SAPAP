@@ -20,7 +20,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     <!-- Custom styles for this template-->
-    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<%=context%>/css/sb-admin-2.css" rel="stylesheet">
+    <%--    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">--%>
     <link href="<%=context%>/css/bootstrap-select.min.css" rel="stylesheet">
 
 </head>
@@ -34,7 +35,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="InicioRH.jsp">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%=context%>/vista/RH/InicioRH.jsp">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-pen"></i>
             </div>
@@ -55,8 +56,8 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Justificantes:</h6>
-                    <a class="collapse-item" href="InicioRH.jsp">Gestionar justificantes</a>
-                    <a class="collapse-item" href="HistorialJustificantes.jsp">Historial</a>
+                    <a class="collapse-item" href="<%=context%>/vista/RH/InicioRH.jsp">Gestionar justificantes</a>
+                    <a class="collapse-item" href="<%=context%>/vista/RH/HistorialJustificantes.jsp">Historial</a>
                 </div>
             </div>
         </li>
@@ -71,7 +72,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="EmpleadosRH.jsp">
+            <a class="nav-link" href="<%=context%>/vista/RH/EmpleadosRH.jsp">
                 <i class="fas fa-fw fa-user-cog"></i>
                 <span>Empleados</span></a>
         </li>
@@ -86,7 +87,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="ProyectosRH.jsp">
+            <a class="nav-link" href="<%=context%>/vista/RH/ProyectosRH.jsp">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Proyectos</span></a>
         </li>
@@ -98,7 +99,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="CursosRH.jsp">
+            <a class="nav-link" href="<%=context%>/vista/RH/CursosRH.jsp">
                 <i class="fas fa-fw fa-tablet-alt"></i>
                 <span>Cursos</span></a>
         </li>
@@ -128,20 +129,9 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <!-- Topbar Search -->
-                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
+
 
                     <!-- Nav Item - Alerts -->
                     <li class="nav-item dropdown no-arrow">
@@ -155,7 +145,7 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="rolesDropdown">
-                            <a class="dropdown-item" href="MiPerfilAP.jsp">
+                            <a class="dropdown-item" href="<%=context%>/vista/RH/MiPerfilRH.jsp">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                             </a>
                             <div class="dropdown-divider"></div>
@@ -237,17 +227,17 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw" style="margin-right: 20px">
-                                </i>Nombre</span>
+                                </i><s:property value="#session.usuario.nombre"/></span>
                         </a>
 
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="MiPerfilRH.jsp">
+                            <a class="dropdown-item" href="<%=context%>/vista/RH/MiPerfilRH.jsp">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<%=context%>/index.jsp" >
+                            <a class="dropdown-item" href="<%=context%>/cerrarSesion" >
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Salir
                             </a>
@@ -269,7 +259,7 @@
                 </div>
 
 
-                <form class="user" onsubmit="registrarProyecto()">
+                <form class="user" >
 
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
@@ -351,14 +341,11 @@
 
                         </div>
                     </div>
-                    <a href="login.html" class="btn btn-primary btn-user btn-block">
-                        Enviar
-                    </a>
 
                 </form>
 
 
-                <button class="btn btn-primary btn-user btn-block" onclick="modificarProyecto()"></button>
+                <button class="btn btn-primary btn-user btn-block" onclick="modificarProyecto()">Enviar</button>
 
 
 

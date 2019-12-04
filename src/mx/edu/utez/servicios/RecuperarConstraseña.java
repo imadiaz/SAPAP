@@ -5,6 +5,9 @@ import mx.edu.utez.persona.BeanPersona;
 import mx.edu.utez.persona.DaoPersona;
 import com.opensymphony.xwork2.ActionSupport;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
@@ -53,7 +56,7 @@ public class RecuperarConstraseña {
 
 
             try {
-                Session session = Session.getDefaultInstance(properties,
+                Session emial = Session.getDefaultInstance(properties,
                         new javax.mail.Authenticator() {
                             protected PasswordAuthentication
                             getPasswordAuthentication() {
@@ -71,7 +74,7 @@ public class RecuperarConstraseña {
                 num = (int) (ran.nextDouble() * 999 + 100);
                 cadena = cadena + alfa.charAt(forma) + num;
                 dao.codigo(to.toString(), cadena);
-                Message message = new MimeMessage(session);
+                Message message = new MimeMessage(emial);
                 message.setFrom(new InternetAddress(from));
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
                 message.setSubject(subject);
@@ -108,10 +111,10 @@ public class RecuperarConstraseña {
     }
 
 
-    public String nuevaConstra() {
+    public String nuevaConstra() throws NoSuchAlgorithmException {
         Map session = ActionContext.getContext().getSession();
         String code = ""+session.get("codigo");
-        String pass = bean.getContrasenia();
+        String pass = encriptar(bean.getContrasenia());
         System.out.println(pass);
         System.out.println(code);
         boolean flag = dao.cambiarContra(code,pass);
@@ -196,7 +199,24 @@ public class RecuperarConstraseña {
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
+
+    public String encriptar(String cadena) throws NoSuchAlgorithmException {
+        // TODO code application logic here
+        String password = cadena;
+
+        MessageDigest md = MessageDigest.getInstance("SHA");
+        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+
+// bytes to hex
+        StringBuilder sb = new StringBuilder();
+        for (byte b : hashInBytes) {
+            sb.append(String.format("%02x", b));
+        }
+        System.out.println(sb.toString());
+        return sb.toString();
+    }
 }
+
 /**
  * public static void main(String[] args) {
  * Random ran = new Random();
