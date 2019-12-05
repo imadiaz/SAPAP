@@ -383,6 +383,7 @@
                     <button class="btn btn-primary btn-user btn-block">
                         Enviar
                     </button>
+
                 </form>
 
                 <hr class="hr">
@@ -395,7 +396,7 @@
                                placeholder="Nombre">
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="ncontra">Nueva Contraseña</label>
-                            <input maxlength="20" required type="password" class="form-control form-control-user"
+                            <input maxlength="20" onchange="validarcontraIguales()" required type="password" class="form-control form-control-user"
                                    name="bean.contrasenia"
                                    id="ncontra">
                         </div>
@@ -410,7 +411,7 @@
                                    id="contraA" >
                         </div>
                         <input type="hidden" maxlength="10" class="form-control form-control-user" id="contraO"
-                               value="<s:property value="bean.contrasenia" />"
+                               value="<s:property value="#session.contra"/>"
                                placeholder="Teléfono">
                     </div>
                     <button type="button" onclick="modal()"  id="btnContra" data-text="" data-code="#session.usuario.idPersona" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-user btn-block">
@@ -510,7 +511,7 @@
 
     function validarcontra() {
 
-alert(contraOriginal.value);
+
             if (contraActual.value == contraOriginal.value) {
                 $('#msgError').addClass("ver");
                 $('#msgError').attr("hidden",true);

@@ -511,10 +511,12 @@ public class DaoPersona extends Dao implements DaoInterfaz {
                 bean.setCarreraDeEgreso(rs.getString("carreraDeEgreso"));
                 beanHorario.setIdHorario(rs.getInt("idHorario"));
                 beanHorario.setHorario(rs.getString("horario"));
+
                 bean.setHorario(beanHorario);
                 bean.setUniversidadDeEgreso(rs.getString("universidadDeEgreso"));
                 bean.setFechaDeIngreso(rs.getString("fechaDeIngreso"));
                 bean.setDireccion(rs.getString("direccion"));
+
 
             }
             rs.close();
