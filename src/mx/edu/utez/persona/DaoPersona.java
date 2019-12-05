@@ -598,8 +598,7 @@ public class DaoPersona extends Dao implements DaoInterfaz {
         try {
             conexion = MySQLConexion.getConnection();
             pstm = conexion.prepareStatement("call cambiarContra2(?,?);");
-            pstm.setString(1,contra);
-
+            pstm.setString(1,ActionPersona.Encriptar(contra));
             pstm.setInt(2, id);
             rs = pstm.executeQuery();
             res = true;

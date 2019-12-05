@@ -82,10 +82,11 @@
             <result name="ERROR">/vista/RAPE/MiPerfilRAPE.jsp</result>
         </action>
         <action name="modificarContra" class="mx.edu.utez.persona.ActionPersona" method="modificarContra">
-            <result name="SUCCESS" type="redirectAction">buscarPerfil</result>
+            <result name="SUCCESS" type="redirectAction">cerrarSesion</result>
             <result name="ERROR">/vista/AP/MiPerfilAP.jsp</result>
         </action>
     </package>
+    <include file="inicioSesion.xml"/>
 </struts>
 
 
