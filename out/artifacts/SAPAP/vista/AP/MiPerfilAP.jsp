@@ -272,7 +272,7 @@
                                value="<s:property value="#session.usuario.idPersona" />" id="id" placeholder="Nombre">
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="matricula">Matricula</label>
-                            <input disabled type="text" class="form-control form-control-user" name="bean.matricula"
+                            <input  type="text" class="form-control form-control-user" name="bean.matricula"
                                    value="<s:property value="bean.matricula" />" id="matricula" placeholder="Matrícula">
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
@@ -298,7 +298,7 @@
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="correoInsti">Correo Institucional</label>
-                            <input disabled type="email" class="form-control form-control-user"
+                            <input  type="email" class="form-control form-control-user"
                                    name="bean.correoInstitucional"
                                    id="correoInsti" value="<s:property value="bean.correoInstitucional" />"
                                    placeholder="Correo electrónico Institucional">
@@ -313,7 +313,7 @@
                     <div class="form-group row">
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="fechaNac">Fecha de Nacimiento</label>
-                            <input disabled type="date" class="form-control form-control-user"
+                            <input  type="date" class="form-control form-control-user"
                                    name="bean.fechaDeNacimiento"
                                    value="<s:property value="bean.fechaDeNacimiento" />" id="fechaNac"
                                    placeholder="Fecha de Nacimiento">
@@ -334,7 +334,7 @@
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="fechaDeIngreso">Fecha de Ingreso</label>
-                            <input disabled type="date" class="form-control form-control-user"
+                            <input  type="date" class="form-control form-control-user"
                                    name="bean.fechaDeIngreso"
                                    value="<s:property value="bean.fechaDeIngreso" />" id="fechaDeIngreso"
                                    placeholder="Matrícula">
@@ -347,15 +347,10 @@
                                    value="<s:property value="bean.direccion" />" id="direccion"
                                    placeholder="Celular">
                         </div>
-                        <div class="col-sm-3 mb-3 mb-sm-0">
-                            <label for="contra">Contraseña</label>
-                            <input type="password" maxlength="10" class="form-control form-control-user" id="contra"
-                                   name="bean.contrasenia" value="<s:property value="bean.contrasenia" />"
-                                   placeholder="Teléfono">
-                        </div>
-                        <div class="col-sm-3 mb-3 mb-sm-0">
+
+                        <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="carreraEgreso">Carrera de Egreso</label>
-                            <input disabled type="text" max="25" class="form-control form-control-user"
+                            <input  type="text" max="25" class="form-control form-control-user"
                                    name="bean.carreraDeEgreso"
                                    value="<s:property value="bean.carreraDeEgreso" />" id="carreraEgreso"
                                    placeholder="Matrícula">
@@ -364,7 +359,11 @@
                     <div class="form-group row">
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="horario">Horario</label>
-                            <input disabled type="text" class="form-control form-control-user" name="bean.horario.horario"
+                            <input disabled type="hidden" class="form-control form-control-user" name="bean.horario.idHorario"
+                                   value="<s:property value="bean.horario.idHorario" />" id="idhorario"
+                                   placeholder="Horario">
+
+                            <input  type="text" class="form-control form-control-user" name="bean.horario.horario"
                                    value="<s:property value="bean.horario.horario" />" id="horario"
                                    placeholder="Horario">
                         </div>
@@ -388,7 +387,7 @@
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="ccontra">Confirmar Contraseña</label>
-                            <input maxlength="10" type="password" class="form-control form-control-user" name="bean.nombre"
+                            <input maxlength="10" type="password" class="form-control form-control-user"
                                     id="ccontra" >
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
@@ -400,7 +399,7 @@
                                name="bean.contrasenia" value="<s:property value="bean.contrasenia" />"
                                placeholder="Teléfono">
                     </div>
-                    <button type="button" onclick="validar()" class="btn btn-primary btn-user btn-block">
+                    <button type="button" onclick="validarcontra()" class="btn btn-primary btn-user btn-block">
                         Modificar
                     </button>
                 </form>
@@ -453,25 +452,39 @@
     var span =document.getElementById('msgError');
 
 
+    var form = document.getElementById('modifcarContra');
+    var nuevaContra = document.getElementById("ncontra");
+    var confirmarContra = document.getElementById("ccontra");
+    var contraActual = document.getElementById('contraA')
+    var contraOriginal = document.getElementById('contraO');
+    var span =document.getElementById('msgError');
+
+
     contraActual.addEventListener("change",validarcontra);
+    confirmarContra.addEventListener("change",validarcontraIguales);
 
     function  validarcontra() {
         alert(contraOriginal.value);
         if(nuevaContra.value == confirmarContra.value && nuevaContra.value !=null && confirmarContra.value !=null) {
-
             if (contraActual.value == contraOriginal.value) {
-
-            
-
-            $('#msgError').addClass("ver");
-        }
+                $('#msgError').addClass("ver");
+            }
         }else{
 
             span.removeAttribute("hidden","");
         }
     }
+    function  validarcontraIguales() {
 
+        if(nuevaContra.value == confirmarContra.value && nuevaContra.value !=null && confirmarContra.value !=null) {
 
+            $('#msgError').addClass("ver");
+
+        }else{
+
+            span.removeAttribute("hidden","");
+        }
+    }
    function validar(){
 
            if(nuevaContra.value == confirmarContra.value && nuevaContra.value !=null && confirmarContra.value !=null){
