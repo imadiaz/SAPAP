@@ -390,36 +390,34 @@
                     <span id="msgError" class="text-danger" hidden><i class="fa fa-exclamation-circle"></i>Las contraseñas no coinciden</span>
                     <div class="form-group row">
 
-                        <input type="hidden" class="form-control form-control-user" name="bean.idPersona"
+                        <input type="hidden" class="form-control form-control-user"
                                value="<s:property  value="#session.usuario.idPersona" />" id="idContra"
                                placeholder="Nombre">
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="ncontra">Nueva Contraseña</label>
-                            <input maxlength="10" type="password" class="form-control form-control-user"
+                            <input maxlength="20" required type="password" class="form-control form-control-user"
                                    name="bean.contrasenia"
                                    id="ncontra">
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="ccontra">Confirmar Contraseña</label>
-                            <input maxlength="10" type="password" class="form-control form-control-user"
+                            <input maxlength="20" required onchange="validarcontraIguales()" type="password" class="form-control form-control-user"
                                    id="ccontra">
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="contraA">Contraseña Actual</label>
-                            <input max="10" type="password" class="form-control form-control-user"
-                                   id="contraA">
+                            <input max="20" required onchange="validarcontra()" type="password" class="form-control form-control-user"
+                                   id="contraA" >
                         </div>
                         <input type="hidden" maxlength="10" class="form-control form-control-user" id="contraO"
                                value="<s:property value="bean.contrasenia" />"
                                placeholder="Teléfono">
                     </div>
-                    <button type="button" id="btnContra" data-text="" data-code="#session.usuario.idPersona" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-user btn-block">
+                    <button type="button" onclick="modal()"  id="btnContra" data-text="" data-code="#session.usuario.idPersona" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-user btn-block">
                         Modificar
                     </button>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Launch demo modal
-                </button>
+
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -435,12 +433,15 @@
                             <div class="modal-body">
                               <strong> Al cambiar la contraseña se cerrará tu sesión y tendras que iniciar de nuevo con
                                   tu nueva contraseña</strong>
-                                <input type="text" name="code" id="code">
-                                <input type="hidden" id="pass">
                             </div>
                             <div class="modal-footer">
+                                <form action="modificarContra" method="post">
+                                    <input type="hidden"  id="code" name="bean.idPersona">
+                                    <input type="hidden" id="pass" name="bean.contrasenia">
+                                    <button type="submit" class="btn btn-primary">Modificar</button>
+                                </form>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary">Modificar</button>
+
                             </div>
                         </div>
                     </div>
@@ -485,12 +486,17 @@
 
 </body>
 <script>
-    $('[id^="btn-disabled"').click(function () {
-        var code = $(this).attr('data-code');
-        var text = $(this).attr('data-text');
-        $('#code').val(code);
-        $('#text-delete').text(text);
+    $(document).ready(function () {
+        $('#contraA').attr('disabled',true);
+        $('#btnContra').attr('disabled',true);
     });
+    function modal(){
+        var id = $('#idContra').val();
+        var nuevaContra = $('#ncontra').val();
+        $('#code').val(id);
+        $('#pass').val(nuevaContra);
+    }
+
 
     var form = document.getElementById('modifcarContra');
     var nuevaContra = document.getElementById("ncontra");
@@ -498,45 +504,38 @@
     var contraActual = document.getElementById('contraA')
     var contraOriginal = document.getElementById('contraO');
     var span = document.getElementById('msgError');
-    var btn = document.getElementById('msgError');
 
 
-    var form = document.getElementById('modifcarContra');
-    var nuevaContra = document.getElementById("ncontra");
-    var confirmarContra = document.getElementById("ccontra");
-    var contraActual = document.getElementById('contraA')
-    var contraOriginal = document.getElementById('contraO');
-    var span = document.getElementById('btnContra');
 
-
-    contraActual.addEventListener("change", validarcontra);
-    confirmarContra.addEventListener("change", validarcontraIguales);
 
     function validarcontra() {
-        alert(contraOriginal.value);
-        if (nuevaContra.value == confirmarContra.value && nuevaContra.value != null && confirmarContra.value != null) {
+
+alert(contraOriginal.value);
             if (contraActual.value == contraOriginal.value) {
                 $('#msgError').addClass("ver");
-                form.submit;
+                $('#msgError').attr("hidden",true);
+                $('#btnContra').removeAttr('disabled');
             } else {
-                alert('la contraseña actual no es la correcta');
+
+                $('#btnContra').attr('disabled',true);
             }
-        } else {
 
-            span.removeAttribute("hidden", "");
-
-        }
     }
 
     function validarcontraIguales() {
-
-        if (nuevaContra.value == confirmarContra.value && nuevaContra.value != null && confirmarContra.value != null) {
+            var nc = $('#ncontra').val();
+            var cc = $('#ccontra').val();
+        if (nc == cc) {
 
             $('#msgError').addClass("ver");
+            $('#msgError').attr("hidden",true);
+            $('#contraA').removeAttr('disabled');
+
 
         } else {
-
+            $('#contraA').attr('disabled',true);
             span.removeAttribute("hidden", "");
+            span.classList.remove('ver');
         }
     }
 
