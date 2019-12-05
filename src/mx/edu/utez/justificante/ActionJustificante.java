@@ -1,12 +1,16 @@
 package mx.edu.utez.justificante;
 
 import com.opensymphony.xwork2.ActionSupport;
+import mx.edu.utez.persona.ActionPersona;
 import mx.edu.utez.persona.BeanPersona;
 import mx.edu.utez.proyecto.BeanProyecto;
 import org.apache.struts2.json.annotations.JSON;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -214,7 +218,7 @@ public class ActionJustificante extends ActionSupport {
 
         String contrasenaBase = daoJustificante.getContrasena(idUs);
 
-        contrasena = encriptar(contrasena);
+        contrasena = ActionPersona.Encriptar(contrasena);
         System.out.println(contrasenaBase + "<---- BASE");
         System.out.println(contrasena + "<---- USUARIO");
         if (contrasena.equals(contrasenaBase)){
@@ -279,20 +283,29 @@ public class ActionJustificante extends ActionSupport {
         return SUCCESS;
     }
 
-    public String encriptar(String cadena) throws NoSuchAlgorithmException {
-        // TODO code application logic here
-        String password = cadena;
+    public static String Encriptar(String texto) {
 
-        MessageDigest md = MessageDigest.getInstance("SHA");
-        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+        String secretKey = "SAPAP"; //llave para encriptar datos
+        String base64EncryptedString = "";
 
-// bytes to hex
-        StringBuilder sb = new StringBuilder();
-        for (byte b : hashInBytes) {
-            sb.append(String.format("%02x", b));
+        try {
+
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
+            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+
+            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+            Cipher cipher = Cipher.getInstance("DESede");
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+
+            byte[] plainTextBytes = texto.getBytes("utf-8");
+            byte[] buf = cipher.doFinal(plainTextBytes);
+            byte[] base64Bytes = org.apache.commons.codec.binary.Base64.encodeBase64(buf);
+            base64EncryptedString = new String(base64Bytes);
+
+        } catch (Exception ex) {
         }
-        System.out.println(sb.toString());
-        return sb.toString();
+        return base64EncryptedString;
     }
 
     public List<BeanJustificante> getJustificantes() {

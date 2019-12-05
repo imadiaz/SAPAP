@@ -452,7 +452,7 @@
     var contraOriginal = document.getElementById('contraO');
     var span =document.getElementById('msgError');
 
-  
+
     contraActual.addEventListener("change",validarcontra);
 
     function  validarcontra() {
@@ -461,7 +461,7 @@
 
             if (contraActual.value == contraOriginal.value) {
 
-            alert("si son iguales");
+            
 
             $('#msgError').addClass("ver");
         }

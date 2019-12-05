@@ -343,14 +343,13 @@
 
                         </div>
                     </div>
-                    <a href="login.html" class="btn btn-primary btn-user btn-block">
-                        Enviar
-                    </a>
+
 
                 </form>
 
-
-                <button class="btn btn-primary btn-user btn-block" onclick="registrarProyecto()"></button>
+                <button  class="btn btn-primary btn-user btn-block" onclick="registrarProyecto()">
+                    Enviar
+                </button>
 
 
 

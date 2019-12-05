@@ -371,8 +371,8 @@ function consultarJustificantesPendientesRAPE() {
                         lista[i].proyecto.nombre,
                         lista[i].motivoJustifica,
                         fila,
-                        "<button id='btnAprobar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='1' class='btn btn-success' data-toggle='modal' data-target='#modalAprobarJustificante'><i class='fas fa-check'>Aprobar</i></button></form>" +
-                        "<button id='btnRechazar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='0' class='btn btn-danger' data-toggle='modal' data-target='#modalAprobarJustificante'><i class='fas fa-times-circle'>Rechazar</i></button>"
+                        "<button id='btnAprobar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='1'  class='btn btn-sm btn-icon-split btn-success' data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Aprobar</span></button>" +
+                        "<button id='btnRechazar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='0' class='btn btn-sm btn-icon-split btn-danger'  data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Rechazar</span></button>"
                     ]).draw(false);
 
                 }
@@ -508,8 +508,8 @@ function consultarJustificantesPendientesCOD() {
                         lista[i].proyecto.nombre,
                         lista[i].motivoJustifica,
                         fila,
-                        "<button id='btnAprobar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='1' class='btn btn-success' data-toggle='modal' data-target='#modalAprobarJustificante'><i class='fas fa-check'>Aprobar</i></button></form>" +
-                        "<button id='btnRechazar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='0' class='btn btn-danger' data-toggle='modal' data-target='#modalAprobarJustificante'><i class='fas fa-times-circle'>Rechazar</i></button>"
+                        "<button id='btnAprobar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='1'  class='btn btn-sm btn-icon-split btn-success' data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Aprobar</span></button>" +
+                        "<button id='btnRechazar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='0' class='btn btn-sm btn-icon-split btn-danger'  data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Rechazar</span></button>"
                     ]).draw(false);
 
                 }
@@ -642,8 +642,8 @@ function consultarJustificantesPendientesRH() {
                         lista[i].proyecto.nombre,
                         lista[i].motivoJustifica,
                         fila,
-                        "<button id='btnAprobar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='1' class='btn btn-success' data-toggle='modal' data-target='#modalAprobarJustificante'><i class='fas fa-check'>Aprobar</i></button></form>" +
-                        "<button id='btnRechazar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='0' class='btn btn-danger' data-toggle='modal' data-target='#modalAprobarJustificante'><i class='fas fa-times-circle'>Rechazar</i></button>"
+                        "<button id='btnAprobar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='1'  class='btn btn-sm btn-icon-split btn-success' data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Aprobar</span></button>" +
+                        "<button id='btnRechazar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='0' class='btn btn-sm btn-icon-split btn-danger'  data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Rechazar</span></button>"
                     ]).draw(false);
                 }
             }

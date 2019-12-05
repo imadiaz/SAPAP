@@ -280,7 +280,15 @@ function modificarPersona() {
                     title: 'Modificado correctamente',
                     showConfirmButton: false,
                     timer: 2500
-                });
+
+                }
+                )
+                setTimeout(function () {
+
+                    top.location.href = 'http://localhost:8080/SAPAP/vista/RH/EmpleadosRH.jsp';
+                },3000)
+
+                ;
 
             }else{
                 Swal.fire({
@@ -289,9 +297,14 @@ function modificarPersona() {
                     title: 'Error, intente nuevamente',
                     showConfirmButton: false,
                     timer: 1500
-                });
+                })
+                setTimeout(function () {
+
+                    top.location.href = 'http://localhost:8080/SAPAP/vista/RH/EmpleadosRH.jsp';
+                },3000)
+
+                ;
             }
-            top.location.href = 'http://localhost:8080/SAPAP/vista/RH/EmpleadosRH.jsp';
 
         },
         error: function (error) {

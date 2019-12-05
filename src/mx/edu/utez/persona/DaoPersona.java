@@ -154,7 +154,7 @@ return true;
                 pstm.setInt(12,idHorairo);
 
                 pstm.setString(13,fecha);
-                pstm.setString(14,encriptar(object.get("contrasena").getAsString()));
+                pstm.setString(14,ActionPersona.Encriptar(object.get("contrasena").getAsString()));
                 pstm.setString(15,object.get("direccion").getAsString());
                 pstm.execute();
             rs = pstm.getGeneratedKeys();
@@ -635,7 +635,7 @@ return true;
             pstm.setString(13,fecha);
 
             System.out.println("4");
-            pstm.setString(14,object.get("contrasena").getAsString());
+            pstm.setString(14,ActionPersona.Encriptar(object.get("contrasena").getAsString()));
 
             System.out.println("5");
             pstm.setString(15,object.get("direccion").getAsString());
