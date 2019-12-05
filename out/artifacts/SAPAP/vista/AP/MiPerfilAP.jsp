@@ -265,6 +265,17 @@
                     </div>
                 </div>
 
+              <s:if test="#mansaje == 'null'">
+
+              </s:if>
+                <s:elseif test="mensaje!='null'">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong><s:property value="mensaje" /></strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </s:elseif>
                 <form class="user" action="modificarAP" method="POST">
                     <div class="form-group row">
 
@@ -272,7 +283,7 @@
                                value="<s:property value="#session.usuario.idPersona" />" id="id" placeholder="Nombre">
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="matricula">Matricula</label>
-                            <input  type="text" class="form-control form-control-user" name="bean.matricula"
+                            <input readonly  type="text" class="form-control form-control-user" name="bean.matricula"
                                    value="<s:property value="bean.matricula" />" id="matricula" placeholder="Matrícula">
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
@@ -298,14 +309,14 @@
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="correoInsti">Correo Institucional</label>
-                            <input  type="email" class="form-control form-control-user"
+                            <input readonly type="email" class="form-control form-control-user"
                                    name="bean.correoInstitucional"
                                    id="correoInsti" value="<s:property value="bean.correoInstitucional" />"
                                    placeholder="Correo electrónico Institucional">
                         </div>
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="correoPers">Correo Personal</label>
-                            <input type="email" class="form-control form-control-user" name="bean.correoPersonal"
+                            <input  type="email" class="form-control form-control-user" name="bean.correoPersonal"
                                    value="<s:property value="bean.correoPersonal" />" id="correoPers"
                                    placeholder="Correo electrónico Personal">
                         </div>
@@ -313,7 +324,7 @@
                     <div class="form-group row">
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="fechaNac">Fecha de Nacimiento</label>
-                            <input  type="date" class="form-control form-control-user"
+                            <input readonly type="date" class="form-control form-control-user"
                                    name="bean.fechaDeNacimiento"
                                    value="<s:property value="bean.fechaDeNacimiento" />" id="fechaNac"
                                    placeholder="Fecha de Nacimiento">
@@ -334,7 +345,7 @@
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="fechaDeIngreso">Fecha de Ingreso</label>
-                            <input  type="date" class="form-control form-control-user"
+                            <input readonly  type="date" class="form-control form-control-user"
                                    name="bean.fechaDeIngreso"
                                    value="<s:property value="bean.fechaDeIngreso" />" id="fechaDeIngreso"
                                    placeholder="Matrícula">
@@ -350,7 +361,7 @@
 
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="carreraEgreso">Carrera de Egreso</label>
-                            <input  type="text" max="25" class="form-control form-control-user"
+                            <input readonly  type="text" max="25" class="form-control form-control-user"
                                    name="bean.carreraDeEgreso"
                                    value="<s:property value="bean.carreraDeEgreso" />" id="carreraEgreso"
                                    placeholder="Matrícula">
@@ -364,7 +375,7 @@
                                    placeholder="Horario">
 
                             <input  type="text" class="form-control form-control-user" name="bean.horario.horario"
-                                   value="<s:property value="bean.horario.horario" />" id="horario"
+                                 readonly  value="<s:property value="bean.horario.horario" />" id="horario"
                                    placeholder="Horario">
                         </div>
                     </div>
@@ -374,12 +385,12 @@
                 </form>
 
                 <hr class="hr">
-                <form id="modifcarContra" class="user" action="" >
+                <form id="modifcarContra" class="user" action="modificarContra" method="post" >
                     <span id="msgError" class="text-danger" hidden><i class="fa fa-exclamation-circle"></i>Las contraseñas no coinciden</span>
                     <div class="form-group row">
 
                         <input type="hidden" class="form-control form-control-user" name="bean.idPersona"
-                               value="<s:property value="#session.usuario.idPersona" />" id="idContra" placeholder="Nombre">
+                               value="<s:property  value="#session.usuario.idPersona" />" id="idContra" placeholder="Nombre">
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="ncontra">Nueva Contraseña</label>
                             <input maxlength="10" type="password" class="form-control form-control-user" name="bean.contrasenia"
@@ -392,14 +403,14 @@
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="contraA">Contraseña Actual</label>
-                            <input max="10" type="password" class="form-control form-control-user" name="bean.contrasenia"
+                            <input max="10" type="password" class="form-control form-control-user"
                                     id="contraA">
                         </div>
                         <input type="hidden" maxlength="10" class="form-control form-control-user" id="contraO"
-                               name="bean.contrasenia" value="<s:property value="bean.contrasenia" />"
+                                value="<s:property value="bean.contrasenia" />"
                                placeholder="Teléfono">
                     </div>
-                    <button type="button" onclick="validarcontra()" class="btn btn-primary btn-user btn-block">
+                    <button type="button" id="btnContra" onclick="validar()" class="btn btn-primary btn-user btn-block">
                         Modificar
                     </button>
                 </form>
@@ -450,6 +461,7 @@
     var contraActual = document.getElementById('contraA')
     var contraOriginal = document.getElementById('contraO');
     var span =document.getElementById('msgError');
+    var btn =document.getElementById('msgError');
 
 
     var form = document.getElementById('modifcarContra');
@@ -457,7 +469,7 @@
     var confirmarContra = document.getElementById("ccontra");
     var contraActual = document.getElementById('contraA')
     var contraOriginal = document.getElementById('contraO');
-    var span =document.getElementById('msgError');
+    var span =document.getElementById('btnContra');
 
 
     contraActual.addEventListener("change",validarcontra);
@@ -468,10 +480,14 @@
         if(nuevaContra.value == confirmarContra.value && nuevaContra.value !=null && confirmarContra.value !=null) {
             if (contraActual.value == contraOriginal.value) {
                 $('#msgError').addClass("ver");
+                form.submit;
+            }else{
+                alert('la contraseña actual no es la correcta');
             }
         }else{
 
             span.removeAttribute("hidden","");
+
         }
     }
     function  validarcontraIguales() {

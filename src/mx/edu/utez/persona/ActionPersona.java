@@ -30,7 +30,7 @@ public class ActionPersona {
     private Map respuestas = new HashMap();
     private List<BeanRol> listaRoles = new ArrayList();
     private List<BeanHorario> listaHorario = new ArrayList();
-    private String mensaje;
+    private String mensaje="";
     private String params;
 
     public String getParams() {
@@ -354,6 +354,8 @@ public class ActionPersona {
 
         bean = dao.consultarPersonaPorId(id);
         if (bean != null) {
+            mensaje = "null";
+            System.out.println("mensaje vale"+mensaje);
             return "SUCCESS";
         } else {
             return "ERROR";
@@ -363,8 +365,21 @@ public class ActionPersona {
     public String modificarPerfil() {
         System.out.println(bean.getIdPersona());
         if (dao.actulizarPerfil(bean)) {
-            System.out.println("CORRECTO");
+            mensaje="Datos Modificados Correctamente";
+            return "SUCCESS";
+        } else {
+            mensaje="Ocurrio un error al actualizar ";
+            System.out.println("ERROR");
+            return "ERROR";
+        }
 
+    }
+
+    public String modificarContra() {
+        System.out.println(bean.getIdPersona());
+        if (dao.cambiarContra2(bean.getIdPersona(),bean.getContrasenia())) {
+            System.out.println("CORRECTO");
+            int id = bean.getIdPersona();
             return "SUCCESS";
         } else {
             System.out.println("ERROR");
@@ -372,6 +387,7 @@ public class ActionPersona {
         }
 
     }
+
 
 
     /*public String encriptar(String cadena) throws NoSuchAlgorithmException {

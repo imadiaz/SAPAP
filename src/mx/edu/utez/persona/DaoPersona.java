@@ -593,7 +593,30 @@ public class DaoPersona extends Dao implements DaoInterfaz {
             }
         }
     }
+    public boolean cambiarContra2(int id, String contra) {
+        boolean res = false;
+        try {
+            conexion = MySQLConexion.getConnection();
+            pstm = conexion.prepareStatement("call cambiarContra2(?,?);");
+            pstm.setString(1,contra);
 
+            pstm.setInt(2, id);
+            rs = pstm.executeQuery();
+            res = true;
+            cerrarConexiones();
+        } catch (Exception e) {
+            System.out.println("Error en el metodo cambiar contra: " + e.getMessage());
+            System.out.println(e.getCause());
+            res = false;
+        } finally {
+            try {
+                cerrarConexiones();
+            } catch (Exception e) {
+
+            }
+        }
+        return res;
+    }
     public boolean cambiarContra(String codigo, String contra) {
         boolean res = false;
         try {

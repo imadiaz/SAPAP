@@ -42,8 +42,15 @@
             <result name="SUCCESS">/vista/AP/MiPerfilAP.jsp</result>
         </action>
         <action name="modificarAP" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
-            <result name="SUCCESS">/vista/AP/MiPerfilAP.jsp</result>
-            <result name="ERROR">/vista/AP/MiPerfilAP.jsp</result>
+            <result name="SUCCESS">
+                <param name="location">/vista/AP/MiPerfilAP.jsp</param>
+
+                <param name="mensaje">%{mensaje}</param>
+            </result>
+            <result name="ERROR">
+                <param name="location">/vista/AP/MiPerfilAP.jsp</param>
+                <param name="mensaje">%{mensaje}</param>
+            </result>
         </action>
 
         <action name="buscarPerfilRH" class="mx.edu.utez.persona.ActionPersona" method="buscarPerfil">
@@ -73,6 +80,10 @@
         <action name="modificarRAPE" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
             <result name="SUCCESS">/vista/RAPE/MiPerfilRAPE.jsp</result>
             <result name="ERROR">/vista/RAPE/MiPerfilRAPE.jsp</result>
+        </action>
+        <action name="modificarContra" class="mx.edu.utez.persona.ActionPersona" method="modificarContra">
+            <result name="SUCCESS" type="redirectAction">buscarPerfil</result>
+            <result name="ERROR">/vista/AP/MiPerfilAP.jsp</result>
         </action>
     </package>
 </struts>
