@@ -158,7 +158,7 @@ function eliminarProyecto(button) {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'Eliminado correctamente',
+                    title: 'Proyecto eliminado con éxito',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -166,7 +166,7 @@ function eliminarProyecto(button) {
                 Swal.fire({
                     position: 'center',
                     icon: 'error',
-                    title: 'Error, intente nuevamente',
+                    title: 'No se pudo eliminar el proyecto',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -226,7 +226,7 @@ function registrarProyecto() {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Registrado correctamente',
+                title: 'Proyecto registrado con éxito',
                 showConfirmButton: false,
                 timer: 1500
             });
@@ -270,7 +270,7 @@ function registrarProyecto() {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: 'Modificado correctamente',
+                        title: 'Proyecto modificado con éxito',
                         showConfirmButton: false,
                         timer: 2500
                     });
@@ -279,7 +279,7 @@ function registrarProyecto() {
                     Swal.fire({
                         position: 'center',
                         icon: 'error',
-                        title: 'Error, intente nuevamente',
+                        title: 'No se pudo modificar el proyecto',
                         showConfirmButton: false,
                         timer: 1500
                     });

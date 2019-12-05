@@ -18,7 +18,7 @@ function eliminarPersona(button) {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'Eliminado correctamente',
+                    title: 'Usuario eliminado con éxito',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -26,7 +26,7 @@ function eliminarPersona(button) {
                 Swal.fire({
                     position: 'center',
                     icon: 'error',
-                    title: 'Error, intente nuevamente',
+                    title: 'No se pudo eliminar al usuario',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -203,7 +203,7 @@ function registroPersona() {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Registrado correctamente',
+                title: 'Usuario registrado con éxito',
                 showConfirmButton: false,
                 timer: 1500
             });
@@ -277,7 +277,7 @@ function modificarPersona() {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'Modificado correctamente',
+                    title: 'Usuario modificado con éxito',
                     showConfirmButton: false,
                     timer: 2500
 
@@ -294,7 +294,7 @@ function modificarPersona() {
                 Swal.fire({
                     position: 'center',
                     icon: 'error',
-                    title: 'Error, intente nuevamente',
+                    title: 'No se pudo modificar al usuario',
                     showConfirmButton: false,
                     timer: 1500
                 })

@@ -174,7 +174,7 @@ function agregarJustificante() {
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: respuesta.respuestas.mensaje,
+                title: 'Justificante registrado con éxito',
                 showConfirmButton: false,
                 timer: 1500
             });
@@ -240,7 +240,7 @@ function modificarJustificante() {
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: respuesta.respuestas.mensaje,
+                title: 'Justificante modificado con éxito',
                 showConfirmButton: false,
                 timer: 1500
             });
@@ -318,7 +318,7 @@ function eliminarJustificantePendiente() {
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: respuesta.respuestas.mensaje,
+                title: 'Justificante eliminado con éxito',
                 showConfirmButton: false,
                 timer: 1500
             });
@@ -404,7 +404,7 @@ function validarContrasena() {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: respuesta.respuestas.mensaje,
+                    title: 'La contraseña ingresada es incorrecta',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -432,7 +432,7 @@ function accionJustificante() {
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: respuesta.respuestas.mensaje,
+                title: 'Justificante aprobado / rechazado con éxito',
                 showConfirmButton: false,
                 timer: 1500
             });
@@ -540,7 +540,7 @@ function validarContrasenaCOD() {
             } else {
                 Swal.fire({
                     position: 'top-end',
-                    title: respuesta.respuestas.mensaje,
+                    title: 'La contraseña ingresada es incorrecta',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -567,7 +567,7 @@ function accionJustificanteCOD() {
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: respuesta.respuestas.mensaje,
+                title: 'Justificante aprobado / rechazado con éxito',
                 showConfirmButton: false,
                 timer: 1500
             });
@@ -674,7 +674,7 @@ function validarContrasenaRH() {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: respuesta.respuestas.mensaje,
+                    title: '“La contraseña ingresada es incorrecta',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -702,7 +702,7 @@ function accionJustificanteRH() {
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: respuesta.respuestas.mensaje,
+                title: 'Justificante aprobado / rechazado con éxito',
                 showConfirmButton: false,
                 timer: 1500
             });

@@ -109,7 +109,7 @@ function guardarCurso(){
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Registrado correctamente',
+                    title: 'Curso registrado con éxito',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -119,7 +119,7 @@ function guardarCurso(){
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: 'Error, intente nuevamente',
+                    title: 'No se pudo registrar el curso',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -182,7 +182,7 @@ function modificarCurso(){
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Actualizado correctamente',
+                    title: 'Curso modificado con éxito',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -190,7 +190,7 @@ function modificarCurso(){
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: 'Error, intente nuevamente',
+                    title: 'Error al modificar',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -220,7 +220,7 @@ function eliminarCurso(button){
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Eliminado correctamente',
+                    title: 'Curso eliminado con éxito',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -228,7 +228,7 @@ function eliminarCurso(button){
                 Swal.fire({
                     position: 'top-end',
                     icon: 'error',
-                    title: 'Error, intente nuevamente',
+                    title: 'No se pudo eliminar el curso',
                     showConfirmButton: false,
                     timer: 1500
                 });
