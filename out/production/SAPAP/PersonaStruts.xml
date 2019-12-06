@@ -42,9 +42,10 @@
             <result name="SUCCESS">/vista/AP/MiPerfilAP.jsp</result>
         </action>
         <action name="modificarAP" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
+
             <result name="SUCCESS">
                 <param name="location">/vista/AP/MiPerfilAP.jsp</param>
-
+            </result>
 
             <result name="SUCCESS" type="redirectAction">
                 <param name="location">buscarPerfil</param>

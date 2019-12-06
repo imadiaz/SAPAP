@@ -87,12 +87,12 @@ public class DaoPersona extends Dao implements DaoInterfaz {
         return bean;
     }
 
-    public BeanPersona consultarCorreo(String correo) {
+    public BeanPersona consultarCorreo(String correo){
         BeanPersona bean = null;
-        try {
+        try{
             conexion = MySQLConexion.getConnection();
             pstm = conexion.prepareStatement(SQL_Consultar_Correo);
-            pstm.setString(1, correo);
+            pstm.setString(1,correo);
             rs = pstm.executeQuery();
             while (rs.next()) {
                 bean = new BeanPersona();
@@ -136,74 +136,73 @@ public class DaoPersona extends Dao implements DaoInterfaz {
     public boolean registrar(Object bean) {
         return true;
     }
-
     public boolean registrarPersona(String bean) {
-        Gson g = new Gson();
-        JsonObject object = new JsonParser().parse(bean).getAsJsonObject();
-        int idHorairo = object.get("horario").getAsInt();
+        Gson g=new Gson();
+        JsonObject object=new JsonParser().parse(bean).getAsJsonObject();
+        int idHorairo=object.get("horario").getAsInt();
         System.out.println(idHorairo);
-        System.out.println("nombre" + object.get("nombre").getAsString());
-        String fecha = object.get("fechaDeIngreso").getAsString();
+        System.out.println("nombre"+object.get("nombre").getAsString());
+        String fecha=object.get("fechaDeIngreso").getAsString();
         System.out.println(fecha);
-        try {
+        try{
             conexion = MySQLConexion.getConnection();
             pstm = conexion.prepareStatement("insert into Persona (nombre,primerApellido,segundoApellido,estado,fechaNacimiento,correoInstitucional,correoPersona,numeroTelefonico,numeroCasa,matricula,carreraDeEgreso," +
                     "universidadDeEgreso,horarios_id,fechaDeIngreso,contrasenia,direccion) values(?,?,?,1,?,?,?,?,?,?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 
-            pstm.setString(1, object.get("nombre").getAsString());
-            pstm.setString(2, object.get("primerApellido").getAsString());
-            pstm.setString(3, object.get("segundoApellido").getAsString());
-            pstm.setString(4, object.get("fechaNac").getAsString());
-            pstm.setString(5, object.get("correoInstitucional").getAsString() + "@utez.edu.mx");
-            pstm.setString(6, object.get("correoP").getAsString());
-            pstm.setString(7, object.get("numeroTel").getAsString());
-            pstm.setString(8, object.get("numeroPersonal").getAsString());
-            pstm.setString(9, object.get("matricula").getAsString());
-            pstm.setString(10, object.get("carreraDeEgreso").getAsString());
-            pstm.setString(11, object.get("universidadDeEgreso").getAsString());
-            pstm.setString(11, object.get("universidadDeEgreso").getAsString());
-            pstm.setInt(12, idHorairo);
+            pstm.setString(1,object.get("nombre").getAsString());
+            pstm.setString(2,object.get("primerApellido").getAsString());
+            pstm.setString(3,object.get("segundoApellido").getAsString());
+            pstm.setString(4,object.get("fechaNac").getAsString());
+            pstm.setString(5,object.get("correoInstitucional").getAsString()+"@utez.edu.mx");
+            pstm.setString(6,object.get("correoP").getAsString());
+            pstm.setString(7,object.get("numeroTel").getAsString());
+            pstm.setString(8,object.get("numeroPersonal").getAsString());
+            pstm.setString(9,object.get("matricula").getAsString());
+            pstm.setString(10,object.get("carreraDeEgreso").getAsString());
+            pstm.setString(11,object.get("universidadDeEgreso").getAsString());
+            pstm.setString(11,object.get("universidadDeEgreso").getAsString());
+            pstm.setInt(12,idHorairo);
 
-            pstm.setString(13, fecha);
-            pstm.setString(14, ActionPersona.Encriptar(object.get("contrasena").getAsString()));
-            pstm.setString(15, object.get("direccion").getAsString());
+            pstm.setString(13,fecha);
+            pstm.setString(14,ActionPersona.Encriptar(object.get("contrasena").getAsString()));
+            pstm.setString(15,object.get("direccion").getAsString());
             pstm.execute();
             rs = pstm.getGeneratedKeys();
-            int id = 0;
-            while (rs.next()) {
-                id = rs.getInt(1);
+            int id=0;
+            while (rs.next()){
+                id=rs.getInt(1);
             }
-            List<Integer> ids = new ArrayList<>();
-            JsonArray json = object.get("roles").getAsJsonArray();
-            for (int i = 0; i < json.size(); i++) {
+            List<Integer> ids=new ArrayList<>();
+            JsonArray json=object.get("roles").getAsJsonArray();
+            for (int i=0;i<json.size();i++){
                 ids.add(json.get(i).getAsInt());
                 pstm = conexion.prepareStatement("insert into Persona_Rol (Rol_id,Persona_id) values(?,?)");
-                pstm.setInt(1, ids.get(i));
-                pstm.setInt(2, id);
+                pstm.setInt(1,ids.get(i));
+                pstm.setInt(2,id);
                 pstm.execute();
             }
-            if (Boolean.parseBoolean(object.get("estudiante").getAsString())) {
+            if (Boolean.parseBoolean(object.get("estudiante").getAsString())){
                 pstm = conexion.prepareStatement("insert into Estudiante (cuatrimestreDeIngreso,grupoActual,cuatrimestreActual,estado,Persona_id) values(?,?,?,1,?)");
-                pstm.setString(1, object.get("cuatrimestreDeIngreso").getAsString());
-                pstm.setString(2, object.get("grupoActual").getAsString());
-                pstm.setString(3, object.get("cuatrimestreActual").getAsString());
-                pstm.setInt(4, id);
+                pstm.setString(1,object.get("cuatrimestreDeIngreso").getAsString());
+                pstm.setString(2,object.get("grupoActual").getAsString());
+                pstm.setString(3,object.get("cuatrimestreActual").getAsString());
+                pstm.setInt(4,id);
                 pstm.execute();
-                if (Boolean.parseBoolean(object.get("becario").getAsString())) {
+                if (Boolean.parseBoolean(object.get("becario").getAsString())){
                     pstm = conexion.prepareStatement("insert into becario (beca,Persona_Rol_id) values(?,?)");
-                    pstm.setDouble(1, object.get("beca").getAsDouble());
-                    System.out.println("persona ID becario: " + id);
-                    pstm.setInt(2, id);
+                    pstm.setDouble(1,object.get("beca").getAsDouble());
+                    System.out.println("persona ID becario: "+id);
+                    pstm.setInt(2,id);
                     pstm.execute();
                 }
             }
             rs.close();
             pstm.close();
             conexion.close();
-        } catch (Exception e) {
-            System.out.println("Error en el metodo registrar personas: " + e);
-        } finally {
-            try {
+        }catch (Exception e){
+            System.out.println("Error en el metodo registrar personas: "+e);
+        }finally {
+            try{
                 rs.close();
                 pstm.close();
                 conexion.close();
@@ -217,19 +216,19 @@ public class DaoPersona extends Dao implements DaoInterfaz {
 
     @Override
     public boolean eliminar(Object bean) {
-        BeanPersona beanP = (BeanPersona) bean;
-        boolean res = false;
-        try {
+        BeanPersona beanP=(BeanPersona) bean;
+        boolean res=false;
+        try{
             mySQLRepositorio("update Persona set estado=0 where id=?");
-            preparedStatement.setInt(1, beanP.getIdPersona());
-            if (preparedStatement.executeUpdate() >= 1) {
-                res = true;
-            } else {
-                res = false;
+            preparedStatement.setInt(1,beanP.getIdPersona());
+            if (preparedStatement.executeUpdate()>=1){
+                res=true;
+            }else {
+                res =false;
             }
 
 
-        } catch (Exception e) {
+        }catch(Exception e){
             System.out.println(e);
         } finally {
             cerrarConexiones();
@@ -245,18 +244,18 @@ public class DaoPersona extends Dao implements DaoInterfaz {
 
     @Override
     public ArrayList getLista() {
-        Connection con = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
+        Connection con=null;
+        PreparedStatement pstm=null;
+        ResultSet rs=null;
         ArrayList lista = new ArrayList();
         BeanPersona beanPersona = new BeanPersona();
-        try {
-            con = MySQLConexion.getConnection();
-            pstm = con.prepareStatement("SELECT * FROM Persona as p inner join Horario as h on p.horarios_id=h.id where  estado=1");
+        try{
+            con=MySQLConexion.getConnection();
+            pstm=con.prepareStatement("SELECT * FROM Persona as p inner join Horario as h on p.horarios_id=h.id where  estado=1");
 
             resultSet = pstm.executeQuery();
-            while (resultSet.next()) {
-                beanPersona = new BeanPersona();
+            while(resultSet.next()){
+                beanPersona=new BeanPersona();
                 beanPersona.setCarreraDeEgreso(resultSet.getString("universidadDeEgreso"));
                 beanPersona.setContrasenia(resultSet.getString("contrasenia"));
                 beanPersona.setCorreoInstitucional(resultSet.getString("correoInstitucional"));
@@ -265,7 +264,7 @@ public class DaoPersona extends Dao implements DaoInterfaz {
                 beanPersona.setFechaDeEgreso(resultSet.getString("fechaDeEgreso"));
                 beanPersona.setFechaDeIngreso(resultSet.getString("fechaDeIngreso"));
                 beanPersona.setFechaDeNacimiento(resultSet.getString("fechaNacimiento"));
-                BeanHorario horario = new BeanHorario();
+                BeanHorario horario=new BeanHorario();
                 horario.setHorario(resultSet.getString("horario"));
                 horario.setIdHorario(resultSet.getInt("h.id"));
                 beanPersona.setHorario(horario);
@@ -277,11 +276,11 @@ public class DaoPersona extends Dao implements DaoInterfaz {
                 beanPersona.setPrimerApellido(resultSet.getString("primerApellido"));
                 beanPersona.setSegundoApellido(resultSet.getString("segundoApellido"));
                 beanPersona.setUniversidadDeEgreso(resultSet.getString("universidadDeEgreso"));
-                beanPersona.setEstado((resultSet.getInt("estado") == 1) ? true : false);
+                beanPersona.setEstado((resultSet.getInt("estado")==1)?true:false );
                 lista.add(beanPersona);
             }
 
-        } catch (Exception e) {
+        }catch(Exception e){
             System.out.println(e);
         } finally {
             try {
@@ -289,7 +288,7 @@ public class DaoPersona extends Dao implements DaoInterfaz {
                 con.close();
                 rs.close();
                 pstm.close();
-            } catch (Exception e) {
+            }catch (Exception e){
                 System.out.println();
             }
         }
@@ -299,18 +298,18 @@ public class DaoPersona extends Dao implements DaoInterfaz {
 
     @Override
     public Object buquedaByID(int id) {
-        Connection con = null;
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
+        Connection con=null;
+        PreparedStatement pstm=null;
+        ResultSet rs=null;
         ArrayList lista = new ArrayList();
         BeanPersona beanPersona = new BeanPersona();
-        try {
-            con = MySQLConexion.getConnection();
-            pstm = con.prepareStatement("SELECT * FROM Persona as p inner join Horario as h on p.horarios_id=h.id where  estado=1 and p.id=?");
-            pstm.setInt(1, id);
+        try{
+            con=MySQLConexion.getConnection();
+            pstm=con.prepareStatement("SELECT * FROM Persona as p inner join Horario as h on p.horarios_id=h.id where  estado=1 and p.id=?");
+            pstm.setInt(1,id);
             resultSet = pstm.executeQuery();
-            while (resultSet.next()) {
-                beanPersona = new BeanPersona();
+            while(resultSet.next()){
+                beanPersona=new BeanPersona();
                 beanPersona.setCarreraDeEgreso(resultSet.getString("universidadDeEgreso"));
                 beanPersona.setContrasenia(resultSet.getString("contrasenia"));
                 beanPersona.setCorreoInstitucional(resultSet.getString("correoInstitucional"));
@@ -319,7 +318,7 @@ public class DaoPersona extends Dao implements DaoInterfaz {
                 beanPersona.setFechaDeEgreso(resultSet.getString("fechaDeEgreso"));
                 beanPersona.setFechaDeIngreso(resultSet.getString("fechaDeIngreso"));
                 beanPersona.setFechaDeNacimiento(resultSet.getString("fechaNacimiento"));
-                BeanHorario horario = new BeanHorario();
+                BeanHorario horario=new BeanHorario();
                 beanPersona.setDireccion(resultSet.getString("direccion"));
                 horario.setHorario(resultSet.getString("horario"));
                 horario.setIdHorario(resultSet.getInt("h.id"));
@@ -333,15 +332,15 @@ public class DaoPersona extends Dao implements DaoInterfaz {
                 beanPersona.setPrimerApellido(resultSet.getString("primerApellido"));
                 beanPersona.setSegundoApellido(resultSet.getString("segundoApellido"));
                 beanPersona.setUniversidadDeEgreso(resultSet.getString("universidadDeEgreso"));
-                beanPersona.setEstado((resultSet.getInt("estado") == 1) ? true : false);
-                pstm = con.prepareStatement("SELECT * FROM Persona_Rol  where  Persona_id=?");
-                pstm.setInt(1, beanPersona.getIdPersona());
+                beanPersona.setEstado((resultSet.getInt("estado")==1)?true:false );
+                pstm=con.prepareStatement("SELECT * FROM Persona_Rol  where  Persona_id=?");
+                pstm.setInt(1,beanPersona.getIdPersona());
                 resultSet = pstm.executeQuery();
-                List<BeanRol> roles = new ArrayList<>();
-                JsonArray arr = new JsonArray();
+                List<BeanRol> roles=new ArrayList<>();
+                JsonArray arr=new JsonArray();
 
-                while (resultSet.next()) {
-                    BeanRol bean = new BeanRol();
+                while (resultSet.next()){
+                    BeanRol bean=new BeanRol();
                     bean.setIdRol(resultSet.getInt("Rol_id"));
                     roles.add(bean);
                 }
@@ -349,7 +348,7 @@ public class DaoPersona extends Dao implements DaoInterfaz {
                 lista.add(beanPersona);
             }
 
-        } catch (Exception e) {
+        }catch(Exception e){
             System.out.println(e);
         } finally {
             try {
@@ -357,7 +356,7 @@ public class DaoPersona extends Dao implements DaoInterfaz {
                 con.close();
                 rs.close();
                 pstm.close();
-            } catch (Exception e) {
+            }catch (Exception e){
                 System.out.println();
             }
         }
@@ -367,22 +366,23 @@ public class DaoPersona extends Dao implements DaoInterfaz {
     }
 
 
-    public ArrayList obtenerRoles() {
+
+    public ArrayList obtenerRoles(){
         ArrayList lista = new ArrayList();
         BeanRol beanRol = new BeanRol();
-        try {
+        try{
             mySQLRepositorio("SELECT * FROM Rol");
 
             resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                beanRol = new BeanRol();
+            while(resultSet.next()){
+                beanRol=new BeanRol();
                 beanRol.setIdRol(resultSet.getInt("idRol"));
                 beanRol.setTipo(resultSet.getString("descripcion"));
 
                 lista.add(beanRol);
             }
 
-        } catch (Exception e) {
+        }catch(Exception e){
             System.out.println(e);
         } finally {
             cerrarConexiones();
@@ -390,23 +390,22 @@ public class DaoPersona extends Dao implements DaoInterfaz {
         System.out.println(lista.size());
         return lista;
     }
-
-    public ArrayList obtenerHorarios() {
+    public ArrayList obtenerHorarios(){
         ArrayList lista = new ArrayList();
-        BeanHorario bean = new BeanHorario();
-        try {
+        BeanHorario bean=new BeanHorario();
+        try{
             mySQLRepositorio("SELECT * FROM Horario");
 
             resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                bean = new BeanHorario();
+            while(resultSet.next()){
+                bean=new BeanHorario();
                 bean.setIdHorario(resultSet.getInt("id"));
                 bean.setHorario(resultSet.getString("horario"));
 
                 lista.add(bean);
             }
 
-        } catch (Exception e) {
+        }catch(Exception e){
             System.out.println(e);
         } finally {
             cerrarConexiones();
@@ -414,7 +413,6 @@ public class DaoPersona extends Dao implements DaoInterfaz {
         System.out.println(lista.size());
         return lista;
     }
-
     public void codigo(String correo, String codigo) {
         boolean res = false;
         try {
@@ -486,7 +484,6 @@ public class DaoPersona extends Dao implements DaoInterfaz {
         }
         return bean;
     }
-
     public BeanPersona consultarPersonaPorId(int idPersona) {
         BeanPersona bean = null;
         try {
@@ -595,25 +592,6 @@ public class DaoPersona extends Dao implements DaoInterfaz {
             }
         }
     }
-    public boolean cambiarContra2(int id, String contra) {
-        boolean res = false;
-        try {
-            conexion = MySQLConexion.getConnection();
-            pstm = conexion.prepareStatement("call cambiarContra2(?,?);");
-            pstm.setString(1,ActionPersona.Encriptar(contra));
-            pstm.setInt(2, id);
-            rs = pstm.executeQuery();
-            res = true;
-            cerrarConexiones();
-        } catch (Exception e) {
-            System.out.println("Error en el metodo cambiar contra: " + e.getMessage());
-            System.out.println(e.getCause());
-            res = false;
-        } finally {
-            try {
-                cerrarConexiones();
-            } catch (Exception e) {
-
 
     public boolean cambiarContra2(int id, String contra) {
         boolean res = false;
@@ -633,20 +611,14 @@ public class DaoPersona extends Dao implements DaoInterfaz {
             try {
                 cerrarConexiones();
             } catch (Exception e) {
-
 
             }
         }
         return res;
     }
 
-
     public boolean cambiarContra(String codigo,String contra) {
         boolean res=false;
-
-    public boolean cambiarContra(String codigo, String contra) {
-        boolean res = false;
-
         try {
             conexion = MySQLConexion.getConnection();
             pstm = conexion.prepareStatement("call cambiarContra(?,?);");
@@ -668,94 +640,93 @@ public class DaoPersona extends Dao implements DaoInterfaz {
         }
         return res;
     }
-
-    public boolean act(String bean) {
-        Gson g = new Gson();
-        JsonObject object = new JsonParser().parse(bean).getAsJsonObject();
-        int idHorairo = object.get("horario").getAsInt();
+    public boolean act(String bean){
+        Gson g=new Gson();
+        JsonObject object=new JsonParser().parse(bean).getAsJsonObject();
+        int idHorairo=object.get("horario").getAsInt();
         System.out.println(idHorairo);
-        System.out.println("nombre" + object.get("nombre").getAsString());
-        String fecha = object.get("fechaDeIngreso").getAsString();
+        System.out.println("nombre"+object.get("nombre").getAsString());
+        String fecha=object.get("fechaDeIngreso").getAsString();
         System.out.println(fecha);
-        try {
+        try{
             System.out.println("1");
             conexion = MySQLConexion.getConnection();
-            pstm = conexion.prepareStatement("update Persona set nombre=?,primerApellido=?,segundoApellido=?,fechaNacimiento=?" +
+            pstm=conexion.prepareStatement("update Persona set nombre=?,primerApellido=?,segundoApellido=?,fechaNacimiento=?" +
                     ",correoInstitucional=?,correoPersona=?,numeroTelefonico=?,numeroCasa=?,matricula=?,carreraDeEgreso=?,universidadDeEgreso=?,horarios_id=?,fechaDeIngreso=?,contrasenia=?,direccion=? where id=?");
-            pstm.setString(1, object.get("nombre").getAsString());
-            pstm.setString(2, object.get("primerApellido").getAsString());
-            pstm.setString(3, object.get("segundoApellido").getAsString());
-            pstm.setString(4, object.get("fechaNac").getAsString());
-            pstm.setString(5, object.get("correoInstitucional").getAsString() + "@utez.edu.mx");
-            pstm.setString(6, object.get("correoP").getAsString());
-            pstm.setString(7, object.get("numeroTel").getAsString());
-            pstm.setString(8, object.get("numeroPersonal").getAsString());
-            pstm.setString(9, object.get("matricula").getAsString());
-            pstm.setString(10, object.get("carreraDeEgreso").getAsString());
-            pstm.setString(11, object.get("universidadDeEgreso").getAsString());
+            pstm.setString(1,object.get("nombre").getAsString());
+            pstm.setString(2,object.get("primerApellido").getAsString());
+            pstm.setString(3,object.get("segundoApellido").getAsString());
+            pstm.setString(4,object.get("fechaNac").getAsString());
+            pstm.setString(5,object.get("correoInstitucional").getAsString()+"@utez.edu.mx");
+            pstm.setString(6,object.get("correoP").getAsString());
+            pstm.setString(7,object.get("numeroTel").getAsString());
+            pstm.setString(8,object.get("numeroPersonal").getAsString());
+            pstm.setString(9,object.get("matricula").getAsString());
+            pstm.setString(10,object.get("carreraDeEgreso").getAsString());
+            pstm.setString(11,object.get("universidadDeEgreso").getAsString());
 
             System.out.println("2");
-            pstm.setInt(12, idHorairo);
+            pstm.setInt(12,idHorairo);
 
             System.out.println("3");
             System.out.println(fecha);
-            pstm.setString(13, fecha);
+            pstm.setString(13,fecha);
 
             System.out.println("4");
-            pstm.setString(14, ActionPersona.Encriptar(object.get("contrasena").getAsString()));
+            pstm.setString(14,ActionPersona.Encriptar(object.get("contrasena").getAsString()));
 
             System.out.println("5");
-            pstm.setString(15, object.get("direccion").getAsString());
-            pstm.setInt(16, object.get("idPersona").getAsInt());
+            pstm.setString(15,object.get("direccion").getAsString());
+            pstm.setInt(16,object.get("idPersona").getAsInt());
             pstm.execute();
 
             System.out.println("13");
-            int id = object.get("idPersona").getAsInt();
-            pstm = conexion.prepareStatement("delete from Persona_Rol where Persona_id=?");
-            pstm.setInt(1, id);
+            int id=object.get("idPersona").getAsInt();
+            pstm=conexion.prepareStatement("delete from Persona_Rol where Persona_id=?");
+            pstm.setInt(1,id);
             pstm.execute();
-            pstm = conexion.prepareStatement("delete from becario where Persona_Rol_id=?");
-            pstm.setInt(1, id);
+            pstm=conexion.prepareStatement("delete from becario where Persona_Rol_id=?");
+            pstm.setInt(1,id);
             pstm.execute();
-            List<Integer> ids = new ArrayList<>();
+            List<Integer> ids=new ArrayList<>();
             System.out.println("14");
-            JsonArray json = object.get("roles").getAsJsonArray();
-            for (int i = 0; i < json.size(); i++) {
+            JsonArray json=object.get("roles").getAsJsonArray();
+            for (int i=0;i<json.size();i++){
                 ids.add(json.get(i).getAsInt());
                 pstm = conexion.prepareStatement("insert into Persona_Rol (Rol_id,Persona_id) values(?,?)");
-                pstm.setInt(1, ids.get(i));
-                pstm.setInt(2, id);
+                pstm.setInt(1,ids.get(i));
+                pstm.setInt(2,id);
                 pstm.execute();
             }
             System.out.println("15");
-            if (Boolean.parseBoolean(object.get("estudiante").getAsString())) {
+            if (Boolean.parseBoolean(object.get("estudiante").getAsString())){
                 pstm = conexion.prepareStatement("insert into Estudiante (cuatrimestreDeIngreso,grupoActual,cuatrimestreActual,estado,Persona_id) values(?,?,?,1,?)");
                 System.out.println("entra a estudiante");
-                pstm.setString(1, object.get("cuatrimestreDeIngreso").getAsString());
-                pstm.setString(2, object.get("grupoActual").getAsString());
-                pstm.setString(3, object.get("cuatrimestreActual").getAsString());
-                pstm.setInt(4, id);
+                pstm.setString(1,object.get("cuatrimestreDeIngreso").getAsString());
+                pstm.setString(2,object.get("grupoActual").getAsString());
+                pstm.setString(3,object.get("cuatrimestreActual").getAsString());
+                pstm.setInt(4,id);
                 pstm.execute();
-                if (Boolean.parseBoolean(object.get("becario").getAsString())) {
+                if (Boolean.parseBoolean(object.get("becario").getAsString())){
                     pstm = conexion.prepareStatement("insert into becario (beca,Persona_Rol_id) values(?,?)");
-                    pstm.setDouble(1, object.get("beca").getAsDouble());
+                    pstm.setDouble(1,object.get("beca").getAsDouble());
 
-                    pstm.setInt(2, id);
+                    pstm.setInt(2,id);
                     pstm.execute();
                 }
             }
 
-        } catch (Exception e) {
-            System.out.println("Error en el metodo |ficar personas: " + e);
-        } finally {
-            try {
-                if (rs != null) {
+        }catch (Exception e){
+            System.out.println("Error en el metodo |ficar personas: "+e);
+        }finally {
+            try{
+                if (rs!=null){
                     rs.close();
                 }
-                if (conexion != null) {
+                if (conexion!=null){
                     conexion.close();
                 }
-                if (pstm != null) {
+                if (pstm!=null){
                     pstm.close();
                 }
 
@@ -766,45 +737,48 @@ public class DaoPersona extends Dao implements DaoInterfaz {
         }
         return true;
     }
-
-    public boolean desemp(String bean) {
-        Gson g = new Gson();
-        JsonObject object = new JsonParser().parse(bean).getAsJsonObject();
-        try {
-            String var = "";
+    public boolean desemp(String bean){
+        Gson g=new Gson();
+        JsonObject object=new JsonParser().parse(bean).getAsJsonObject();
+        try{
+            String var="";
             conexion = MySQLConexion.getConnection();
-            pstm = conexion.prepareStatement("update Persona set desempeño=?  where id=?");
-            double des = object.get("desempenio").getAsDouble();
-            if (des >= 3.60) {
-                var = "A+";
-            } else if (des >= 3.10 && des <= 3.59) {
-                var = "A";
-            } else if (des >= 2.60 && des <= 3.09) {
-                var = "B";
-            } else if (des >= 2.10 && des <= 2.59) {
-                var = "B-";
-            } else if (des <= 2.09) {
-                var = "C";
+            pstm=conexion.prepareStatement("update Persona set desempeño=?  where id=?");
+            double des=object.get("desempenio").getAsDouble();
+            if (des>=3.60  ){
+                var="A+";
+            }else if (des>=3.10 && des<=3.59 ){
+                var="A";
+            }else if (des>=2.60 && des<=3.09 ){
+                var="B";
+            }else if (des>=2.10 && des<=2.59 ){
+                var="B-";
+            }else if (des<=2.09 ){
+                var="C";
             }
 
 
-            pstm.setString(1, var);
 
-            pstm.setInt(2, object.get("idPersona").getAsInt());
+            pstm.setString(1,var);
+
+            pstm.setInt(2,object.get("idPersona").getAsInt());
             pstm.execute();
 
 
-        } catch (Exception e) {
-            System.out.println("Error en el desemp personas: " + e);
-        } finally {
-            try {
-                if (rs != null) {
+
+
+
+        }catch (Exception e){
+            System.out.println("Error en el desemp personas: "+e);
+        }finally {
+            try{
+                if (rs!=null){
                     rs.close();
                 }
-                if (conexion != null) {
+                if (conexion!=null){
                     conexion.close();
                 }
-                if (pstm != null) {
+                if (pstm!=null){
                     pstm.close();
                 }
 
@@ -815,7 +789,6 @@ public class DaoPersona extends Dao implements DaoInterfaz {
         }
         return true;
     }
-
     public String encriptar(String cadena) throws NoSuchAlgorithmException {
         // TODO code application logic here
         String password = cadena;

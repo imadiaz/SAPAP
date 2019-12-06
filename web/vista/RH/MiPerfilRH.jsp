@@ -16,19 +16,13 @@
 
     <!-- Custom fonts for this template-->
     <link href="<%=context%>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="<%=context%>/css/sb-admin-2.css" rel="stylesheet">
     <%--    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">--%>
 </head>
-<style>
-    .ver {
-        display: none;
-        visibility: hidden;
-    }
-</style>
+
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -38,12 +32,11 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center"
-           href="<%=context%>/vista/AP/InicioAP.jsp">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%=context%>/vista/RH/InicioRH.jsp">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-code"></i>
+                <i class="fas fa-pen"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Analista Programador</div>
+            <div class="sidebar-brand-text mx-3">Recursos Humanos</div>
         </a>
 
         <!-- Heading -->
@@ -53,18 +46,32 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-               aria-expanded="true" aria-controls="collapseTwo">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-paper-plane"></i>
                 <span>Lista de Justificantes</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Justificantes:</h6>
-                    <a class="collapse-item" href="<%=context%>/vista/AP/InicioAP.jsp">Justificantes pendientes</a>
-                    <a class="collapse-item" href="<%=context%>/vista/AP/HistorialJustificantesAP.jsp">Historial</a>
+                    <a class="collapse-item" href="<%=context%>/vista/RH/InicioRH.jsp">Gestionar justificantes</a>
+                    <a class="collapse-item" href="<%=context%>/vista/RH/HistorialJustificantes.jsp">Historial</a>
                 </div>
             </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Empleados
+        </div>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+            <a class="nav-link" href="<%=context%>/vista/RH/EmpleadosRH.jsp">
+                <i class="fas fa-fw fa-user-cog"></i>
+                <span>Empleados</span></a>
         </li>
 
         <!-- Divider -->
@@ -77,13 +84,10 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="<%=context%>/vista/AP/ProyectosAP.jsp">
+            <a class="nav-link" href="<%=context%>/vista/RH/ProyectosRH.jsp">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Proyectos</span></a>
         </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
 
         <!-- Heading -->
         <div class="sidebar-heading">
@@ -92,7 +96,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="<%=context%>/vista/AP/CursosAP.jsp">
+            <a class="nav-link" href="<%=context%>/vista/RH/CursosRH.jsp">
                 <i class="fas fa-fw fa-tablet-alt"></i>
                 <span>Cursos</span></a>
         </li>
@@ -121,7 +125,6 @@
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
                 </button>
-
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -215,21 +218,16 @@
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw"
-                                                                                         style="margin-right: 20px">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw" style="margin-right: 20px">
                                 </i><s:property value="#session.usuario.nombre"/></span>
                         </a>
 
 
                         <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                             aria-labelledby="userDropdown">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="#">
-
-
-                                <form action="buscarPerfil" method="POST">
+                                <form action="buscarPerfilRH" method="POST">
                                     <input type="hidden" name="bean.idPersona"
                                            value="<s:property value="#session.usuario.idPersona"/>"/>
 
@@ -239,7 +237,7 @@
                                 </form>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<%=context%>/cerrarSesion">
+                            <a class="dropdown-item" href="<%=context%>/cerrarSesion" >
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Salir
                             </a>
@@ -259,20 +257,11 @@
                         <h1 class="h3 mb-4 text-gray-800">Mi perfil</h1>
                     </div>
                     <div class="col-md-8">
-
                         <form  target="_blank" action="<%=context%>/consultarReporteOtorgado">
                             <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 500px">
                                 <i  class="fas fa-paperclip fa-sm text-white-50"></i>Ver CV</button>
                         </form>
 
-                    </div>
-                </div>
-
-
-
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-                           style="margin-left: 500px">
-                            <i class="fas fa-paperclip fa-sm text-white-50"></i>Ver CV</a>
                     </div>
                 </div>
 
@@ -408,11 +397,7 @@
                            placeholder="Nombre">
                     <div class="col-sm-3 mb-3 mb-sm-0">
                         <label for="ncontra">Nueva Contraseña</label>
-
                         <input maxlength="20" onchange="validarcontraIguales()" required type="password" class="form-control form-control-user"
-
-                        <input maxlength="20" required type="password" class="form-control form-control-user"
-
                                name="bean.contrasenia"
                                id="ncontra">
                     </div>

@@ -111,8 +111,7 @@ public class ActionPersona {
         bean = dao.consultarPersonas(bean.getCorreoInstitucional(), Encriptar(bean.getContrasenia()));
 
         if (bean != null) {
-            System.out.println(contra+" "+bean.getContrasenia());
-            System.out.println(contraDes);
+
             if (correo.equals(bean.getCorreoInstitucional()) && contra.equals(bean.getContrasenia())) {
                 listaRoles = daoPersonaRol.consultarRoles(bean);
                 String rolUsuario = "sin un  rol";
@@ -355,13 +354,9 @@ public class ActionPersona {
 
     public String buscarPerfil() {
         int id = bean.getIdPersona();
-
         bean = dao.consultarPersonaPorId(id);
         if (bean != null) {
             mensaje = "null";
-
-            System.out.println("mensaje vale"+mensaje);
-
             return "SUCCESS";
         } else {
             return "ERROR";
@@ -369,15 +364,9 @@ public class ActionPersona {
     }
 
     public String modificarPerfil() {
-        System.out.println(bean.getIdPersona());
         if (dao.actulizarPerfil(bean)) {
-
             System.out.println("CORRECTO");
             mensaje="Datos Modificados Correctamente";
-
-            mensaje="Datos Modificados Correctamente";
-            System.out.println(bean.getContrasenia());
-
             return "SUCCESS";
         } else {
             mensaje="Ocurrio un error al actualizar ";
@@ -399,7 +388,6 @@ public class ActionPersona {
         }
 
     }
-
 
 
     /*public String encriptar(String cadena) throws NoSuchAlgorithmException {

@@ -24,7 +24,7 @@
     <%--    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">--%>
 </head>
 <style>
-    .ver {
+    .ver{
         display: none;
         visibility: hidden;
     }
@@ -391,7 +391,6 @@
 
                 <hr class="hr">
 
-
                 <span id="msgError" class="text-danger" hidden><i class="fa fa-exclamation-circle"></i>Las contraseñas no coinciden</span>
                 <div class="form-group row">
 
@@ -424,41 +423,6 @@
 
 
 
-
-
-                    <span id="msgError" class="text-danger" hidden><i class="fa fa-exclamation-circle"></i>Las contraseñas no coinciden</span>
-                    <div class="form-group row">
-
-                        <input type="hidden" class="form-control form-control-user"
-                               value="<s:property  value="#session.usuario.idPersona" />" id="idContra"
-                               placeholder="Nombre">
-                        <div class="col-sm-3 mb-3 mb-sm-0">
-                            <label for="ncontra">Nueva Contraseña</label>
-                            <input maxlength="20" onchange="validarcontraIguales()" required type="password" class="form-control form-control-user"
-                                   name="bean.contrasenia"
-                                   id="ncontra">
-                        </div>
-                        <div class="col-sm-3 mb-3 mb-sm-0">
-                            <label for="ccontra">Confirmar Contraseña</label>
-                            <input maxlength="20" required onchange="validarcontraIguales()" type="password" class="form-control form-control-user"
-                                   id="ccontra">
-                        </div>
-                        <div class="col-sm-3 mb-3 mb-sm-0">
-                            <label for="contraA">Contraseña Actual</label>
-                            <input max="20" required onchange="validarcontra()" type="password" class="form-control form-control-user"
-                                   id="contraA" >
-                        </div>
-                        <input type="hidden" maxlength="10" class="form-control form-control-user" id="contraO"
-                               value="<s:property value="#session.contra"/>"
-                               placeholder="Teléfono">
-                    </div>
-                    <button type="button" onclick="modal()"  id="btnContra" data-text="" data-code="#session.usuario.idPersona" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-user btn-block">
-                        Modificar
-                    </button>
-
-
-
-
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                      aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -471,13 +435,8 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-
                                 <strong> Al cambiar la contraseña se cerrará tu sesión y tendras que iniciar de nuevo con
                                     tu nueva contraseña</strong>
-
-                              <strong> Al cambiar la contraseña se cerrará tu sesión y tendras que iniciar de nuevo con
-                                  tu nueva contraseña</strong>
-
                             </div>
                             <div class="modal-footer">
                                 <form action="modificarContra" method="post">
@@ -556,47 +515,16 @@
     function validarcontra() {
 
 
-    function validarcontra() {
-
-
-            if (contraActual.value == contraOriginal.value) {
-                $('#msgError').addClass("ver");
-                $('#msgError').attr("hidden",true);
-                $('#btnContra').removeAttr('disabled');
-            } else {
-
-                $('#btnContra').attr('disabled',true);
-            }
-
-    }
-
-    function validarcontraIguales() {
-            var nc = $('#ncontra').val();
-            var cc = $('#ccontra').val();
-        if (nc == cc) {
-
-
         if (contraActual.value == contraOriginal.value) {
             $('#msgError').addClass("ver");
             $('#msgError').attr("hidden",true);
-
             $('#btnContra').removeAttr('disabled');
         } else {
 
             $('#btnContra').attr('disabled',true);
-
-            $('#contraA').removeAttr('disabled');
-
-
-        } else {
-            $('#contraA').attr('disabled',true);
-            span.removeAttribute("hidden", "");
-            span.classList.remove('ver');
-
         }
 
     }
-
 
     function validarcontraIguales() {
         var nc = $('#ncontra').val();
@@ -616,10 +544,6 @@
     }
 
     function validar() {
-
-
-    function validar() {
-
 
         if (nuevaContra.value == confirmarContra.value && nuevaContra.value != null && confirmarContra.value != null) {
             alert("si son iguales");
