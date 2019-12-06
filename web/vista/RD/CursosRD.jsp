@@ -239,7 +239,7 @@
                     <tr role="row">
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 246px;">Nombre</th>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 116px;">Fecha</th>
-                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 51px;">Descripcion</th>
+                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 51px;">Descripción</th>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 107px;">Tipo de curso</th>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 107px;">Archivo</th>
                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 97px;">Acciones</th>
@@ -249,7 +249,7 @@
                     <tr>
                         <th rowspan="1" colspan="1">Nombre</th>
                         <th rowspan="1" colspan="1">Fecha </th>
-                        <th rowspan="1" colspan="1">Descripcion</th>
+                        <th rowspan="1" colspan="1">Descripción</th>
                         <th rowspan="1" colspan="1">Tipo de curso</th>
                         <th rowspan="1" colspan="1">Archivo</th>
                         <th rowspan="1" colspan="1">Acciones</th>

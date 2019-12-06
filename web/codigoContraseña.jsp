@@ -43,7 +43,7 @@
                             <div class="p-5">
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-2">Recuperación de contraseña</h1>
-                                    <p class="mb-4">Ingresa tu código que se envio a tu correo.</p>
+                                    <p class="mb-4">Ingresa tu código que se envió a tu correo.</p>
                                 </div>
                                 <h6 class="text-danger text-center"><s:property value="mensaje"/></h6>
                                 <form class="user" action="consultarCodigo" method="post">

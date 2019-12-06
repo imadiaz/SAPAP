@@ -30,7 +30,7 @@ public class ActionPersona {
     private Map respuestas = new HashMap();
     private List<BeanRol> listaRoles = new ArrayList();
     private List<BeanHorario> listaHorario = new ArrayList();
-    private String mensaje;
+    private String mensaje="";
     private String params;
 
     public String getParams() {
@@ -99,13 +99,15 @@ public class ActionPersona {
     }
 
 
-    public String consultarPersonas() throws NoSuchAlgorithmException {
+    public String consultarPersonas() throws Exception {
 
         String correo = bean.getCorreoInstitucional();
         String contra = Encriptar(bean.getContrasenia());
+        String contraDes = Desencriptar(contra);
         session = ActionContext.getContext().getSession();
 
         System.out.println(correo+" "+contra);
+        System.out.println(contraDes);
         bean = dao.consultarPersonas(bean.getCorreoInstitucional(), Encriptar(bean.getContrasenia()));
 
         if (bean != null) {
@@ -115,6 +117,7 @@ public class ActionPersona {
                 String rolUsuario = "sin un  rol";
                 session.put("usuario", bean);
                 session.put("roles", listaRoles);
+                session.put("contra", contraDes);
 
                 if (listaRoles.size() == 1) {
                     for (BeanRol rol : listaRoles) {
@@ -353,6 +356,7 @@ public class ActionPersona {
         int id = bean.getIdPersona();
         bean = dao.consultarPersonaPorId(id);
         if (bean != null) {
+            mensaje = "null";
             return "SUCCESS";
         } else {
             return "ERROR";
@@ -362,7 +366,21 @@ public class ActionPersona {
     public String modificarPerfil() {
         if (dao.actulizarPerfil(bean)) {
             System.out.println("CORRECTO");
+            mensaje="Datos Modificados Correctamente";
+            return "SUCCESS";
+        } else {
+            mensaje="Ocurrio un error al actualizar ";
+            System.out.println("ERROR");
+            return "ERROR";
+        }
 
+    }
+
+    public String modificarContra() {
+        System.out.println(bean.getIdPersona());
+        if (dao.cambiarContra2(bean.getIdPersona(),bean.getContrasenia())) {
+            System.out.println("CORRECTO");
+            int id = bean.getIdPersona();
             return "SUCCESS";
         } else {
             System.out.println("ERROR");

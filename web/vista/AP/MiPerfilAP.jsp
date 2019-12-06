@@ -259,12 +259,26 @@
                         <h1 class="h3 mb-4 text-gray-800">Mi perfil</h1>
                     </div>
                     <div class="col-md-8">
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-                           style="margin-left: 500px">
-                            <i class="fas fa-paperclip fa-sm text-white-50"></i>Ver CV</a>
+                        <form  target="_blank" action="<%=context%>/consultarReporteOtorgado">
+                            <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 500px">
+                                <i  class="fas fa-paperclip fa-sm text-white-50"></i>Ver CV</button>
+                        </form>
+
                     </div>
                 </div>
 
+
+                <s:if test="#mansaje == 'null'">
+
+                </s:if>
+                <s:elseif test="mensaje!='null'">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong><s:property value="mensaje"/></strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </s:elseif>
                 <form class="user" action="modificarAP" method="POST">
                     <div class="form-group row">
 
@@ -272,7 +286,7 @@
                                value="<s:property value="#session.usuario.idPersona" />" id="id" placeholder="Nombre">
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="matricula">Matricula</label>
-                            <input disabled type="text" class="form-control form-control-user" name="bean.matricula"
+                            <input readonly type="text" class="form-control form-control-user" name="bean.matricula"
                                    value="<s:property value="bean.matricula" />" id="matricula" placeholder="Matrícula">
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
@@ -298,7 +312,7 @@
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="correoInsti">Correo Institucional</label>
-                            <input disabled type="email" class="form-control form-control-user"
+                            <input readonly type="email" class="form-control form-control-user"
                                    name="bean.correoInstitucional"
                                    id="correoInsti" value="<s:property value="bean.correoInstitucional" />"
                                    placeholder="Correo electrónico Institucional">
@@ -313,7 +327,7 @@
                     <div class="form-group row">
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="fechaNac">Fecha de Nacimiento</label>
-                            <input disabled type="date" class="form-control form-control-user"
+                            <input readonly type="date" class="form-control form-control-user"
                                    name="bean.fechaDeNacimiento"
                                    value="<s:property value="bean.fechaDeNacimiento" />" id="fechaNac"
                                    placeholder="Fecha de Nacimiento">
@@ -334,7 +348,7 @@
                         </div>
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="fechaDeIngreso">Fecha de Ingreso</label>
-                            <input disabled type="date" class="form-control form-control-user"
+                            <input readonly type="date" class="form-control form-control-user"
                                    name="bean.fechaDeIngreso"
                                    value="<s:property value="bean.fechaDeIngreso" />" id="fechaDeIngreso"
                                    placeholder="Matrícula">
@@ -347,15 +361,10 @@
                                    value="<s:property value="bean.direccion" />" id="direccion"
                                    placeholder="Celular">
                         </div>
-                        <div class="col-sm-3 mb-3 mb-sm-0">
-                            <label for="contra">Contraseña</label>
-                            <input type="password" maxlength="10" class="form-control form-control-user" id="contra"
-                                   name="bean.contrasenia" value="<s:property value="bean.contrasenia" />"
-                                   placeholder="Teléfono">
-                        </div>
-                        <div class="col-sm-3 mb-3 mb-sm-0">
+
+                        <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="carreraEgreso">Carrera de Egreso</label>
-                            <input disabled type="text" max="25" class="form-control form-control-user"
+                            <input readonly type="text" max="25" class="form-control form-control-user"
                                    name="bean.carreraDeEgreso"
                                    value="<s:property value="bean.carreraDeEgreso" />" id="carreraEgreso"
                                    placeholder="Matrícula">
@@ -364,47 +373,83 @@
                     <div class="form-group row">
                         <div class="col-sm-3 mb-3 mb-sm-0">
                             <label for="horario">Horario</label>
-                            <input disabled type="text" class="form-control form-control-user" name="bean.horario.horario"
-                                   value="<s:property value="bean.horario.horario" />" id="horario"
+                            <input disabled type="hidden" class="form-control form-control-user"
+                                   name="bean.horario.idHorario"
+                                   value="<s:property value="bean.horario.idHorario" />" id="idhorario"
+                                   placeholder="Horario">
+
+                            <input type="text" class="form-control form-control-user" name="bean.horario.horario"
+                                   readonly value="<s:property value="bean.horario.horario" />" id="horario"
                                    placeholder="Horario">
                         </div>
                     </div>
                     <button class="btn btn-primary btn-user btn-block">
                         Enviar
                     </button>
+
                 </form>
 
                 <hr class="hr">
-                <form id="modifcarContra" class="user" action="" >
-                    <span id="msgError" class="text-danger" hidden><i class="fa fa-exclamation-circle"></i>Las contraseñas no coinciden</span>
-                    <div class="form-group row">
 
-                        <input type="hidden" class="form-control form-control-user" name="bean.idPersona"
-                               value="<s:property value="#session.usuario.idPersona" />" id="idContra" placeholder="Nombre">
-                        <div class="col-sm-3 mb-3 mb-sm-0">
-                            <label for="ncontra">Nueva Contraseña</label>
-                            <input maxlength="10" type="password" class="form-control form-control-user" name="bean.contrasenia"
-                                    id="ncontra" >
-                        </div>
-                        <div class="col-sm-3 mb-3 mb-sm-0">
-                            <label for="ccontra">Confirmar Contraseña</label>
-                            <input maxlength="10" type="password" class="form-control form-control-user" name="bean.nombre"
-                                    id="ccontra" >
-                        </div>
-                        <div class="col-sm-3 mb-3 mb-sm-0">
-                            <label for="contraA">Contraseña Actual</label>
-                            <input max="10" type="password" class="form-control form-control-user" name="bean.contrasenia"
-                                    id="contraA">
-                        </div>
-                        <input type="hidden" maxlength="10" class="form-control form-control-user" id="contraO"
-                               name="bean.contrasenia" value="<s:property value="bean.contrasenia" />"
-                               placeholder="Teléfono">
+                <span id="msgError" class="text-danger" hidden><i class="fa fa-exclamation-circle"></i>Las contraseñas no coinciden</span>
+                <div class="form-group row">
+
+                    <input type="hidden" class="form-control form-control-user"
+                           value="<s:property  value="#session.usuario.idPersona" />" id="idContra"
+                           placeholder="Nombre">
+                    <div class="col-sm-3 mb-3 mb-sm-0">
+                        <label for="ncontra">Nueva Contraseña</label>
+                        <input maxlength="20" onchange="validarcontraIguales()" required type="password" class="form-control form-control-user"
+                               name="bean.contrasenia"
+                               id="ncontra">
                     </div>
-                    <button type="button" onclick="validar()" class="btn btn-primary btn-user btn-block">
-                        Modificar
-                    </button>
-                </form>
+                    <div class="col-sm-3 mb-3 mb-sm-0">
+                        <label for="ccontra">Confirmar Contraseña</label>
+                        <input maxlength="20" required onchange="validarcontraIguales()" type="password" class="form-control form-control-user"
+                               id="ccontra">
+                    </div>
+                    <div class="col-sm-3 mb-3 mb-sm-0">
+                        <label for="contraA">Contraseña Actual</label>
+                        <input max="20" required onchange="validarcontra()" type="password" class="form-control form-control-user"
+                               id="contraA" >
+                    </div>
+                    <input type="hidden" maxlength="10" class="form-control form-control-user" id="contraO"
+                           value="<s:property value="#session.contra"/>"
+                           placeholder="Teléfono">
+                </div>
+                <button type="button" onclick="modal()"  id="btnContra" data-text="" data-code="#session.usuario.idPersona" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-user btn-block">
+                    Modificar
+                </button>
 
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background: #042c54;color: white">
+                                <h5 class="modal-title" id="exampleModalLabel">¿Seguro que quieres modificar la contraseña?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <strong> Al cambiar la contraseña se cerrará tu sesión y tendras que iniciar de nuevo con
+                                    tu nueva contraseña</strong>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="modificarContra" method="post">
+                                    <input type="hidden"  id="code" name="bean.idPersona">
+                                    <input type="hidden" id="pass" name="bean.contrasenia">
+                                    <button type="submit" class="btn btn-primary">Modificar</button>
+                                </form>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <!-- /.container-fluid -->
@@ -445,44 +490,70 @@
 
 </body>
 <script>
+    $(document).ready(function () {
+        $('#contraA').attr('disabled',true);
+        $('#btnContra').attr('disabled',true);
+    });
+    function modal(){
+        var id = $('#idContra').val();
+        var nuevaContra = $('#ncontra').val();
+        $('#code').val(id);
+        $('#pass').val(nuevaContra);
+    }
+
+
     var form = document.getElementById('modifcarContra');
     var nuevaContra = document.getElementById("ncontra");
     var confirmarContra = document.getElementById("ccontra");
     var contraActual = document.getElementById('contraA')
     var contraOriginal = document.getElementById('contraO');
-    var span =document.getElementById('msgError');
+    var span = document.getElementById('msgError');
 
 
-    contraActual.addEventListener("change",validarcontra);
 
-    function  validarcontra() {
-        alert(contraOriginal.value);
-        if(nuevaContra.value == confirmarContra.value && nuevaContra.value !=null && confirmarContra.value !=null) {
 
-            if (contraActual.value == contraOriginal.value) {
+    function validarcontra() {
 
-            
+
+        if (contraActual.value == contraOriginal.value) {
+            $('#msgError').addClass("ver");
+            $('#msgError').attr("hidden",true);
+            $('#btnContra').removeAttr('disabled');
+        } else {
+
+            $('#btnContra').attr('disabled',true);
+        }
+
+    }
+
+    function validarcontraIguales() {
+        var nc = $('#ncontra').val();
+        var cc = $('#ccontra').val();
+        if (nc == cc) {
 
             $('#msgError').addClass("ver");
-        }
-        }else{
+            $('#msgError').attr("hidden",true);
+            $('#contraA').removeAttr('disabled');
 
-            span.removeAttribute("hidden","");
+
+        } else {
+            $('#contraA').attr('disabled',true);
+            span.removeAttribute("hidden", "");
+            span.classList.remove('ver');
         }
     }
 
+    function validar() {
 
-   function validar(){
+        if (nuevaContra.value == confirmarContra.value && nuevaContra.value != null && confirmarContra.value != null) {
+            alert("si son iguales");
+            document.getElementById('modifcarContra').submit();
+        } else {
+            alert("no son iguales");
+            span.removeAttribute("hidden");
+        }
 
-           if(nuevaContra.value == confirmarContra.value && nuevaContra.value !=null && confirmarContra.value !=null){
-               alert("si son iguales");
-               document.getElementById('modifcarContra').submit();
-           }else{
-               alert("no son iguales");
-                span.removeAttribute("hidden");
-           }
-
-   }
+    }
 
     function validate(evt) {
         var theEvent = evt || window.event;
@@ -501,7 +572,6 @@
             if (theEvent.preventDefault) theEvent.preventDefault();
         }
     }
-
 
 
 </script>

@@ -42,39 +42,78 @@
             <result name="SUCCESS">/vista/AP/MiPerfilAP.jsp</result>
         </action>
         <action name="modificarAP" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
-            <result name="SUCCESS">/vista/AP/MiPerfilAP.jsp</result>
-            <result name="ERROR">/vista/AP/MiPerfilAP.jsp</result>
+            <result name="SUCCESS">
+                <param name="location">/vista/AP/MiPerfilAP.jsp</param>
+
+                <param name="mensaje">%{mensaje}</param>
+            </result>
+            <result name="ERROR">
+                <param name="location">/vista/AP/MiPerfilAP.jsp</param>
+                <param name="mensaje">%{mensaje}</param>
+            </result>
         </action>
 
         <action name="buscarPerfilRH" class="mx.edu.utez.persona.ActionPersona" method="buscarPerfil">
             <result name="SUCCESS">/vista/RH/MiPerfilRH.jsp</result>
         </action>
         <action name="modificarRH" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
-            <result name="SUCCESS">/vista/RH/MiPerfilRH.jsp</result>
-            <result name="ERROR">/vista/RH/MiPerfilRH.jsp</result>
+            <result name="SUCCESS">
+                <param name="location">/vista/RH/MiPerfilRH.jsp</param>
+
+                <param name="mensaje">%{mensaje}</param>
+            </result>
+            <result name="ERROR">
+                <param name="location">/vista/RH/MiPerfilRH.jsp</param>
+                <param name="mensaje">%{mensaje}</param>
+            </result>
         </action>
         <action name="buscarPerfilRD" class="mx.edu.utez.persona.ActionPersona" method="buscarPerfil">
             <result name="SUCCESS">/vista/RD/MiPerfilRD.jsp</result>
         </action>
         <action name="modificarRD" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
-            <result name="SUCCESS">/vista/RD/MiPerfilRD.jsp</result>
-            <result name="ERROR">/vista/RD/MiPerfilRD.jsp</result>
+            <result name="SUCCESS">
+                <param name="location">/vista/RD/MiPerfilRD.jsp</param>
+
+                <param name="mensaje">%{mensaje}</param>
+            </result>
+            <result name="ERROR">
+                <param name="location">/vista/RD/MiPerfilRD.jsp</param>
+                <param name="mensaje">%{mensaje}</param>
+            </result>
         </action>
         <action name="buscarPerfilCO" class="mx.edu.utez.persona.ActionPersona" method="buscarPerfil">
             <result name="SUCCESS">/vista/Coordinador/MiPerfilCOD.jsp</result>
         </action>
         <action name="modificarCO" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
-            <result name="SUCCESS">/vista/Coordinador/MiPerfilCOD.jsp</result>
-            <result name="ERROR">/vista/Coordinador/MiPerfilCOD.jsp</result>
+            <result name="SUCCESS">
+                <param name="location">/vista/Coordinador/MiPerfilCOD.jsp</param>
+
+                <param name="mensaje">%{mensaje}</param>
+            </result>
+            <result name="ERROR">
+                <param name="location">/vista/Coordinador/MiPerfilCOD.jsp</param>
+                <param name="mensaje">%{mensaje}</param>
+            </result>
         </action>
         <action name="buscarPerfilRAPE" class="mx.edu.utez.persona.ActionPersona" method="buscarPerfil">
             <result name="SUCCESS">/vista/RAPE/MiPerfilRAPE.jsp</result>
         </action>
         <action name="modificarRAPE" class="mx.edu.utez.persona.ActionPersona" method="modificarPerfil">
-            <result name="SUCCESS">/vista/RAPE/MiPerfilRAPE.jsp</result>
-            <result name="ERROR">/vista/RAPE/MiPerfilRAPE.jsp</result>
+            <result name="SUCCESS">
+                <param name="location">/vista/RAPE/MiPerfilRAPE.jsp</param>
+
+                <param name="mensaje">%{mensaje}</param>
+            </result>
+            <result name="ERROR">
+                <param name="location">/vista/RAPE/MiPerfilRAPE.jsp</param>
+                <param name="mensaje">%{mensaje}</param>
+            </result>
+        </action>
+        <action name="modificarContra" class="mx.edu.utez.persona.ActionPersona" method="modificarContra">
+            <result name="SUCCESS" type="redirectAction">cerrarSesion</result>
+            <result name="ERROR">/vista/AP/MiPerfilAP.jsp</result>
         </action>
     </package>
+    <include file="inicioSesion.xml"/>
 </struts>
-
 

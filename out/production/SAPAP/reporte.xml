@@ -6,7 +6,7 @@
     <package name="default" namespace="/" extends="struts-default,jasperreports-default">
         <action name="consultarReporteOtorgado" class="mx.edu.utez.reporteCv.controlReporteCV" method="reporteCV">
             <result name="success" type="jasper">
-                <param name="location">/reporte/ReporteCV.jasper</param>
+                <param name="location">/reporte/ReporteCV_1.jasper</param>
                 <param name="dataSource">myList</param>
                 <param name="reportParameters">parametros</param>
                 <param name="format">PDF</param>

@@ -48,7 +48,7 @@
                                 <h5><s:property value="mensaje"/></h5>
                                 <form class="user" action="nuevaConstra" method="post">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user"
+                                        <input type="password" class="form-control form-control-user"
                                                id="correo" name="bean.contrasenia" aria-describedby="emailHelp"
                                                placeholder="Nueva contraseña" required="required">
                                     </div>

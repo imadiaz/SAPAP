@@ -14,8 +14,18 @@
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/java-json.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/struts2-json-plugin-2.5.17.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jasper/commons-digester-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jasper/commons-beanutils-1.9.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jasper/itext-2.1.7.js6-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jasper/jasperreports-6.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jasper/org.apache.commons.collections_3.2.2.v201511171945.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jasper/org.apache.commons.logging_1.1.1.v201101211721.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jasper/poi-3.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jasper/struts2-jasperreports-plugin-2.5.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jasper/jasperreports-fonts-6.10.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
+    <jarDirectory url="jar://$PROJECT_DIR$/lib/jasper/jasperreports-fonts-6.10.0.jar!/" recursive="false" />
   </library>
 </component>

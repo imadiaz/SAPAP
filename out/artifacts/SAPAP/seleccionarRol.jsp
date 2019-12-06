@@ -34,7 +34,7 @@
                 <div class="container">
 
                     <div class="row justify-content-center">
-                        <h1 style="color:white;">Selecione un Rol</h1>
+                        <h1 style="color:white;">Selecione un rol</h1>
 
                         <br/>
 <%--                        <h1><s:property value="#session.usuario" /></h1>--%>
