@@ -33,7 +33,6 @@ public class ActionJustificante extends ActionSupport {
         return SUCCESS;
     }
 
-
     public String consultarHistorialJustificantes(){
         daoJustificante = new DaoJustificante();
         int id = Integer.parseInt(parametro);
@@ -82,9 +81,18 @@ public class ActionJustificante extends ActionSupport {
     public String consultarSelectAgregar(){
         daoJustificante = new DaoJustificante();
         int id = Integer.parseInt(parametro);
-        respuestas.put("listaRape", daoJustificante.consultarRapeJustificante());
+//        respuestas.put("listaRape", daoJustificante.consultarRapeJustificante());
         respuestas.put("listaProyecto", daoJustificante.consultarProyectoJustificante(id));
         return SUCCESS;
+    }
+
+    public String buscarRAPE() throws Exception {
+        daoJustificante = new DaoJustificante();
+        String nombreProyecto = parametro;
+        System.out.println(nombreProyecto);
+        int idProyecto =daoJustificante.consultarIDProyecto(nombreProyecto);
+        respuestas.put("listaRape", daoJustificante.consultarSelectRapeJustificante(idProyecto));
+        return "success";
     }
 
     public String consultarJustificantePendienteEspecifico(){
@@ -355,4 +363,5 @@ public class ActionJustificante extends ActionSupport {
     public void setParametro(String parametro) {
         this.parametro = parametro;
     }
+
 }

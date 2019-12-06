@@ -119,17 +119,20 @@ function consultarSelectAgregar(id) {
                 parametro: id
             },
             success: function (respuesta) {
-                lista = respuesta.respuestas.listaRape;
+                // lista = respuesta.respuestas.listaRape;
                 lista2 = respuesta.respuestas.listaProyecto;
-                document.getElementById('rape').innerHTML = '';
+                // document.getElementById('rape').innerHTML = '';
                 document.getElementById('proyecto').innerHTML = '';
 
-                for (var i = 0; i < lista.length; i++) {
-                    $('#rape').append('<option value="' + lista[i].idPersona + "-" + lista[i].nombre + "-" + lista[i].primerApellido + "-" + lista[i].segundoApellido + '">'
-                        + lista[i].nombre + "  " + lista[i].primerApellido + "  " + lista[i].segundoApellido
-                        + '</option>');
-                }
+                // for (var i = 0; i < lista.length; i++) {
+                //     $('#rape').append('<option value="' + lista[i].idPersona + "-" + lista[i].nombre + "-" + lista[i].primerApellido + "-" + lista[i].segundoApellido + '">'
+                //         + lista[i].nombre + "  " + lista[i].primerApellido + "  " + lista[i].segundoApellido
+                //         + '</option>');
+                // }
                 for (var i = 0; i < lista2.length; i++) {
+                    if (i===0){
+                        buscarRAPE(lista2[i].nombre)
+                    }
                     $('#proyecto').append('<option value="' + lista2[i].nombre + '">'
                         + lista2[i].nombre
                         + '</option>');
@@ -179,7 +182,7 @@ function agregarJustificante() {
                 timer: 1500
             });
             // alert(respuesta.respuestas.mensaje);
-            var form =  document.getElementById("formJustificante");
+            var form = document.getElementById("formJustificante");
             form.reset();
             // consultarJustificantesPendientes();
             // window.open("http://localhost:8080/SAPAP/vista/AP/InicioAP.jsp", "_self")
@@ -343,6 +346,27 @@ function generarURL(name) {
     return url_id = HOST + name + TOKEN;
 }
 
+function buscarRAPE(nombreProyecto) {
+    $.ajax({
+        type: 'POST',
+        url: raiz + 'buscarRAPE',
+        data: {
+            parametro: nombreProyecto
+        },
+        success: function (respuesta) {
+            lista = respuesta.respuestas.listaRape;
+            document.getElementById('rape').innerHTML = '';
+
+            for (var i = 0; i < lista.length; i++) {
+                $('#rape').append('<option value="' + lista[i].idPersona + "-" + lista[i].nombre + "-" + lista[i].primerApellido + "-" + lista[i].segundoApellido + '">'
+                    + lista[i].nombre + "  " + lista[i].primerApellido + "  " + lista[i].segundoApellido
+                    + '</option>');
+            }
+        }
+    })
+}
+
+
 //RAPE
 
 function consultarJustificantesPendientesRAPE() {
@@ -371,8 +395,8 @@ function consultarJustificantesPendientesRAPE() {
                         lista[i].proyecto.nombre,
                         lista[i].motivoJustifica,
                         fila,
-                        "<button id='btnAprobar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='1'  class='btn btn-sm btn-icon-split btn-success' data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Aprobar</span></button>" +
-                        "<button id='btnRechazar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='0' class='btn btn-sm btn-icon-split btn-danger'  data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Rechazar</span></button>"
+                        "<button id='btnAprobar' data-idJustificante=" + lista[i].idJustificante + " data-justificante='1'  class='btn btn-sm btn-icon-split btn-success' data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Aprobar</span></button>" +
+                        "<button id='btnRechazar' data-idJustificante=" + lista[i].idJustificante + " data-justificante='0' class='btn btn-sm btn-icon-split btn-danger'  data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Rechazar</span></button>"
                     ]).draw(false);
 
                 }
@@ -437,7 +461,7 @@ function accionJustificante() {
                 timer: 1500
             });
             // alert(respuesta.respuestas.mensaje);
-            document.getElementById('motivo').value="";
+            document.getElementById('motivo').value = "";
             $('#dataTable').DataTable().clear().draw();
             consultarJustificantesPendientesRAPE();
         }
@@ -508,8 +532,8 @@ function consultarJustificantesPendientesCOD() {
                         lista[i].proyecto.nombre,
                         lista[i].motivoJustifica,
                         fila,
-                        "<button id='btnAprobar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='1'  class='btn btn-sm btn-icon-split btn-success' data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Aprobar</span></button>" +
-                        "<button id='btnRechazar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='0' class='btn btn-sm btn-icon-split btn-danger'  data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Rechazar</span></button>"
+                        "<button id='btnAprobar' data-idJustificante=" + lista[i].idJustificante + " data-justificante='1'  class='btn btn-sm btn-icon-split btn-success' data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Aprobar</span></button>" +
+                        "<button id='btnRechazar' data-idJustificante=" + lista[i].idJustificante + " data-justificante='0' class='btn btn-sm btn-icon-split btn-danger'  data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Rechazar</span></button>"
                     ]).draw(false);
 
                 }
@@ -642,8 +666,8 @@ function consultarJustificantesPendientesRH() {
                         lista[i].proyecto.nombre,
                         lista[i].motivoJustifica,
                         fila,
-                        "<button id='btnAprobar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='1'  class='btn btn-sm btn-icon-split btn-success' data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Aprobar</span></button>" +
-                        "<button id='btnRechazar' data-idJustificante="+ lista[i].idJustificante+" data-justificante='0' class='btn btn-sm btn-icon-split btn-danger'  data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Rechazar</span></button>"
+                        "<button id='btnAprobar' data-idJustificante=" + lista[i].idJustificante + " data-justificante='1'  class='btn btn-sm btn-icon-split btn-success' data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Aprobar</span></button>" +
+                        "<button id='btnRechazar' data-idJustificante=" + lista[i].idJustificante + " data-justificante='0' class='btn btn-sm btn-icon-split btn-danger'  data-toggle='modal' data-target='#modalAprobarJustificante'><span class='icon text-white-50'><i class='fas fa-check'></i></span><span class='text'>Rechazar</span></button>"
                     ]).draw(false);
                 }
             }

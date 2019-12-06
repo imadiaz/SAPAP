@@ -271,14 +271,13 @@
                 <form class="user" id="formJustificante">
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
-                            <label for="rape">RAPE</label>
-                            <select class="form-control" id="rape">
+                            <label for="proyecto">Proyecto</label>
+                            <select class="form-control" id="proyecto">
                             </select>
                         </div>
                         <div class="col-sm-6">
-                            <label for="proyecto">Proyecto</label>
-                            <select class="form-control" id="proyecto">
-
+                            <label for="rape">RAPE</label>
+                            <select disabled class="form-control" id="rape">
                             </select>
                         </div>
                     </div>
@@ -335,6 +334,10 @@
 <script>
     $(document).ready(function () {
         ejecutarEvento();
+        $("#proyecto").change(function(){
+            var nombreProyecto = $(this).find("option:selected").val();
+            buscarRAPE(nombreProyecto);
+        });
     });
 </script>
 

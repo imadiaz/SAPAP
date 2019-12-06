@@ -410,31 +410,6 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         return estatus;
     }
 
-    public ArrayList consultarRapeJustificante() {
-        ArrayList lista = new ArrayList();
-        BeanPersona beanPersona = null;
-        try {
-            mySQLRepositorio("select p.nombre, p.primerApellido, p.segundoApellido, p.id from Persona as p inner join Persona_Rol as pr \n" +
-                    "on pr.Persona_id = p.id inner join Rol as r on r.idRol = pr.Rol_id \n" +
-                    "where r.descripcion = 'RAPE' and p.estado = 1");
-            resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                beanPersona = new BeanPersona();
-
-                beanPersona.setNombre(resultSet.getString("nombre"));
-                beanPersona.setPrimerApellido(resultSet.getString("primerApellido"));
-                beanPersona.setSegundoApellido(resultSet.getString("segundoApellido"));
-                beanPersona.setIdPersona(resultSet.getInt("id"));
-
-                lista.add(beanPersona);
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        cerrarConexiones();
-        return lista;
-    }
-
     public ArrayList consultarProyectoJustificante(int id) {
         ArrayList lista = new ArrayList();
         BeanProyecto beanProyecto = null;
@@ -680,4 +655,71 @@ public class DaoJustificante extends Dao implements DaoInterfaz {
         return lista;
     }
 
+    public int consultarIDProyecto(String nombreProyecto) {
+        int id = 0;
+        try {
+            mySQLRepositorio("select idProyecto from Proyecto where nombre = ?;");
+            preparedStatement.setString(1, nombreProyecto);
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                id =resultSet.getInt("idProyecto");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        cerrarConexiones();
+        return id;
+    }
+
+    public ArrayList consultarSelectRapeJustificante(int id) {
+        ArrayList lista = new ArrayList();
+        BeanPersona beanPersona = null;
+        try {
+            mySQLRepositorio("select  p.nombre, p.primerApellido, p.segundoApellido, p.id, pp.proyecto_id from Persona as p inner join Persona_Proyecto\n" +
+                    "as pp on p.id = pp.Persona_id inner join Persona_Rol as pr on pr.Persona_id = p.id inner join Rol as r on\n" +
+                    "r.idRol = pr.Rol_id inner join Proyecto as pro on pp.proyecto_id = pro.idProyecto\n" +
+                    "where proyecto_Rol_Persona = 3 and pro.estado = 1 and pp.proyecto_id = ? group by pp.proyecto_id;");
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                beanPersona = new BeanPersona();
+
+                beanPersona.setNombre(resultSet.getString("nombre"));
+                beanPersona.setPrimerApellido(resultSet.getString("primerApellido"));
+                beanPersona.setSegundoApellido(resultSet.getString("segundoApellido"));
+                beanPersona.setIdPersona(resultSet.getInt("id"));
+
+                lista.add(beanPersona);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        cerrarConexiones();
+        return lista;
+    }
+
+//    public ArrayList consultarRapeJustificante() {
+//        ArrayList lista = new ArrayList();
+//        BeanPersona beanPersona = null;
+//        try {
+//            mySQLRepositorio("select p.nombre, p.primerApellido, p.segundoApellido, p.id from Persona as p inner join Persona_Rol as pr \n" +
+//                    "on pr.Persona_id = p.id inner join Rol as r on r.idRol = pr.Rol_id \n" +
+//                    "where r.descripcion = 'RAPE' and p.estado = 1");
+//            resultSet = preparedStatement.executeQuery();
+//            while (resultSet.next()) {
+//                beanPersona = new BeanPersona();
+//
+//                beanPersona.setNombre(resultSet.getString("nombre"));
+//                beanPersona.setPrimerApellido(resultSet.getString("primerApellido"));
+//                beanPersona.setSegundoApellido(resultSet.getString("segundoApellido"));
+//                beanPersona.setIdPersona(resultSet.getInt("id"));
+//
+//                lista.add(beanPersona);
+//            }
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//        cerrarConexiones();
+//        return lista;
+//    }
 }

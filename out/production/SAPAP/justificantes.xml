@@ -12,6 +12,10 @@
             <result type="json"/>
         </action>
 
+        <action name="buscarRAPE" class="mx.edu.utez.justificante.ActionJustificante" method="buscarRAPE">
+            <result type="json"/>
+        </action>
+
         <action name="consultarHistorialJustificantes" class="mx.edu.utez.justificante.ActionJustificante" method="consultarHistorialJustificantes">
             <result type="json"/>
         </action>
