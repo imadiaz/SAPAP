@@ -16,15 +16,19 @@
 
     <!-- Custom fonts for this template-->
     <link href="<%=context%>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
 
     <!-- Custom styles for this template-->
-
-
     <link href="<%=context%>/css/sb-admin-2.css" rel="stylesheet">
     <%--    <link href="<%=context%>/css/sb-admin-2.min.css" rel="stylesheet">--%>
 </head>
-
+<style>
+    .ver {
+        display: none;
+        visibility: hidden;
+    }
+</style>
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -34,12 +38,37 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%=context%>/vista/RD/InicioRD.jsp">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center"
+           href="<%=context%>/vista/AP/InicioAP.jsp">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-user-tie"></i>
+                <i class="fas fa-code"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Responsable de Desarrollo</div>
+            <div class="sidebar-brand-text mx-3">Analista Programador</div>
         </a>
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Justificantes
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-paper-plane"></i>
+                <span>Lista de Justificantes</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Justificantes:</h6>
+                    <a class="collapse-item" href="<%=context%>/vista/AP/InicioAP.jsp">Justificantes pendientes</a>
+                    <a class="collapse-item" href="<%=context%>/vista/AP/HistorialJustificantesAP.jsp">Historial</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
         <!-- Heading -->
         <div class="sidebar-heading">
@@ -48,7 +77,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="<%=context%>/vista/RD/InicioRD.jsp">
+            <a class="nav-link" href="<%=context%>/vista/AP/ProyectosAP.jsp">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Proyectos</span></a>
         </li>
@@ -63,7 +92,7 @@
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="<%=context%>/vista/RD/CursosRD.jsp">
+            <a class="nav-link" href="<%=context%>/vista/AP/CursosAP.jsp">
                 <i class="fas fa-fw fa-tablet-alt"></i>
                 <span>Cursos</span></a>
         </li>
@@ -92,6 +121,7 @@
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
                 </button>
+
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -185,15 +215,21 @@
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw" style="margin-right: 20px">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-fw"
+                                                                                         style="margin-right: 20px">
                                 </i><s:property value="#session.usuario.nombre"/></span>
                         </a>
 
+
                         <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="#">
-                                <form action="buscarPerfilRD" method="POST">
+
+
+                                <form action="buscarPerfil" method="POST">
                                     <input type="hidden" name="bean.idPersona"
                                            value="<s:property value="#session.usuario.idPersona"/>"/>
 
@@ -202,9 +238,8 @@
                                     </button>
                                 </form>
                             </a>
-
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<%=context%>/cerrarSesion" >
+                            <a class="dropdown-item" href="<%=context%>/cerrarSesion">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Salir
                             </a>
@@ -219,17 +254,25 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-
                 <div class="row">
                     <div class="col-md-4">
                         <h1 class="h3 mb-4 text-gray-800">Mi perfil</h1>
                     </div>
                     <div class="col-md-8">
+
                         <form  target="_blank" action="<%=context%>/consultarReporteOtorgado">
                             <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="margin-left: 500px">
                                 <i  class="fas fa-paperclip fa-sm text-white-50"></i>Ver CV</button>
                         </form>
 
+                    </div>
+                </div>
+
+
+
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                           style="margin-left: 500px">
+                            <i class="fas fa-paperclip fa-sm text-white-50"></i>Ver CV</a>
                     </div>
                 </div>
 
@@ -326,6 +369,7 @@
                             <input type="text" class="form-control form-control-user" name="bean.direccion"
                                    value="<s:property value="bean.direccion" />" id="direccion"
                                    placeholder="Celular">
+
                         </div>
 
                         <div class="col-sm-6 mb-3 mb-sm-0">
@@ -335,6 +379,17 @@
                                    value="<s:property value="bean.carreraDeEgreso" />" id="carreraEgreso"
                                    placeholder="Matrícula">
                         </div>
+
+                        </div>
+
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <label for="carreraEgreso">Carrera de Egreso</label>
+                            <input readonly type="text" max="25" class="form-control form-control-user"
+                                   name="bean.carreraDeEgreso"
+                                   value="<s:property value="bean.carreraDeEgreso" />" id="carreraEgreso"
+                                   placeholder="Matrícula">
+                        </div>
+
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-3 mb-3 mb-sm-0">
@@ -365,7 +420,11 @@
                            placeholder="Nombre">
                     <div class="col-sm-3 mb-3 mb-sm-0">
                         <label for="ncontra">Nueva Contraseña</label>
+
                         <input maxlength="20" onchange="validarcontraIguales()" required type="password" class="form-control form-control-user"
+
+                        <input maxlength="20" required type="password" class="form-control form-control-user"
+
                                name="bean.contrasenia"
                                id="ncontra">
                     </div>
@@ -386,6 +445,7 @@
                 <button type="button" onclick="modal()"  id="btnContra" data-text="" data-code="#session.usuario.idPersona" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btn-user btn-block">
                     Modificar
                 </button>
+
 
 
 
@@ -411,6 +471,32 @@
                                     <button type="submit" class="btn btn-primary">Modificar</button>
                                 </form>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background: #042c54;color: white">
+                                <h5 class="modal-title" id="exampleModalLabel">¿Seguro que quieres modificar la contraseña?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <strong> Al cambiar la contraseña se cerrará tu sesión y tendras que iniciar de nuevo con
+                                    tu nueva contraseña</strong>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="modificarContra" method="post">
+                                    <input type="hidden"  id="code" name="bean.idPersona">
+                                    <input type="hidden" id="pass" name="bean.contrasenia">
+                                    <button type="submit" class="btn btn-primary">Modificar</button>
+                                </form>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
 
                             </div>
                         </div>
@@ -479,7 +565,6 @@
 
 
     function validarcontra() {
-
 
         if (contraActual.value == contraOriginal.value) {
             $('#msgError').addClass("ver");
